@@ -231,4 +231,29 @@ Where ModelName is the name of your model.
     $  git push -u origin master
 ```
 
+## Installing npm
+
+```bash
+    $ npm install
+```
+
+## Check if you installed node and npm by using
+
+```bash
+    $ node -v
+    $ npm -v
+```
+
+## Installing bootstrap to laravel
+The below codes helps you add a register, login page to your application.
+
+```bash
+    $ composer require laravel/ui --dev
+    $ php artisan ui bootstrap
+```
+After the above commands then run this below comands to compile your project
+```bash
+    $ npm install
+    $ npm run dev
+```
 
