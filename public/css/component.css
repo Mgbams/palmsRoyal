@@ -13,7 +13,7 @@ html.js,
   align-items: center;
   padding: 20px;
   text-align: center;
-  background: #0e0f0f;
+  background: #0e0f0f !important;
 }
 
 .js .pages-nav {

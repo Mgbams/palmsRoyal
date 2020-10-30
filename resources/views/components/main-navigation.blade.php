@@ -60,15 +60,17 @@
 			</header>
 			<img class="poster" src="images/1.jpg" alt="img01" />-->
 			<section id="slideshow">
-			<div class="slick" >
-				<div><img src="https://images.pexels.com/photos/2227774/pexels-photo-2227774.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
-				<div><img src="https://images.pexels.com/photos/2670273/pexels-photo-2670273.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
-				<div><img src="https://images.pexels.com/photos/1769392/pexels-photo-1769392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
-			</div>
-		</section>
+				<div class="slick" >
+					<div><img src="https://images.pexels.com/photos/2227774/pexels-photo-2227774.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
+					<div><img src="https://images.pexels.com/photos/2670273/pexels-photo-2670273.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
+					<div><img src="https://images.pexels.com/photos/1769392/pexels-photo-1769392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
+				</div>
+			</section>
+
+			<!-- Adding About royal palms info using component -->
+			<x-about-royal-palms />
 		</div>
 
-		
 		<!-- /page -->
 		<div class="page" id="page-docu">
 			<header class="bp-header cf">

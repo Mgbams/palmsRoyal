@@ -12448,3 +12448,74 @@ a.text-dark:focus {
   color: blue !important;
 }
 
+#page-home {
+  min-width: 100Vh !important;
+  overflow-y: scroll;
+}
+
+#about-homepage {
+  height: 80vh;
+  color: black;
+  background-color: white;
+}
+
+#about-homepage #about-inner-container {
+  display: flex;
+}
+
+#about-homepage #about-inner-container div #about-text {
+  z-index: 1;
+  line-height: 1;
+}
+
+#about-homepage #about-inner-container div #about-text #about {
+  margin-left: 120px;
+  font-size: 3rem;
+}
+
+#about-homepage #about-inner-container div #about-text #royalPalms {
+  font-size: 3rem;
+  line-height: 0.9;
+}
+
+#about-homepage #about-inner-container div #description {
+  margin-top: 30px;
+}
+
+#about-homepage #about-inner-container div #explore-link {
+  border-radius: 40%;
+  border: 2px solid pink;
+  margin-top: 50px;
+  padding: 50px 0px;
+  position: relative;
+  width: 110px;
+  height: 30px;
+}
+
+#about-homepage #about-inner-container div #explore-link a {
+  text-decoration: none;
+  position: absolute;
+  left: 30px;
+  width: 160px;
+  top: 30px;
+}
+
+#about-homepage #about-inner-container #image-container {
+  height: 80vh;
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#about-homepage #about-inner-container #image-container div {
+  width: 80%;
+  height: 50vh;
+}
+
+#about-homepage #about-inner-container #image-container div img {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+

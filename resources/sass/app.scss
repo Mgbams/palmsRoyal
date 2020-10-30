@@ -38,3 +38,64 @@
 .slick-dots li.slick-active button:before {
     color: blue !important;
 }
+
+#page-home {
+    min-width: 100Vh !important;
+    overflow-y: scroll;
+}
+
+//About block in HomePage
+#about-homepage {
+    height: 80vh; 
+    color: black; 
+    background-color: white;
+    #about-inner-container {
+        display:flex;
+        div #about-text {
+            z-index: 1; 
+            line-height: 1;
+            #about {
+                margin-left: 120px;  
+                font-size: 3rem; 
+            }
+            #royalPalms {
+                font-size: 3rem; 
+                line-height: .9;
+            }
+        }
+        div #description {
+            margin-top: 30px;
+        }
+        div #explore-link {
+            border-radius: 40%; 
+            border: 2px solid pink; 
+            margin-top: 50px; 
+            padding: 50px 0px; 
+            position: relative; width: 110px; 
+            height: 30px;
+            a {
+                text-decoration: none; 
+                position:absolute; 
+                left: 30px; 
+                width: 160px; 
+                top: 30px;
+            }
+        }
+        #image-container {
+            height: 80vh; 
+            background-color: pink; 
+            display:flex; 
+            align-items: center; 
+            justify-content:center;
+            div {
+                width: 80%; 
+                height: 50vh;
+                img {
+                    background-size: cover; 
+                    height: 100%; 
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

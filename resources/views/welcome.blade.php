@@ -9,8 +9,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body id="main-container">
+        <!--Main page navigation using component-->
         <x-main-navigation />
-      
+        <x-about-royal-palms />
     </body>
 </html>
