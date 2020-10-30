@@ -13,7 +13,13 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/demo.css" />
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<link rel="stylesheet" type="text/css" href="css/app.css" />
 	<script src="js/modernizr-custom.js"></script>
+
+	<!--slick css file-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" rel="stylesheet">
+    <!--slick css End Here-->
 </head>
 
 <body>
@@ -41,19 +47,28 @@
 		<!-- page -->
 		<div class="page" id="page-home">
 			<!-- Blueprint header -->
-			<header class="bp-header cf">
+			<!--<header class="bp-header cf">
 				<span class="bp-header__present">Blueprint <span class="bp-tooltip bp-icon bp-icon--about" data-content="The Blueprints are a collection of basic and minimal website concepts, components, plugins and layouts with minimal style for easy adaption and usage, or simply for inspiration."></span></span>
 				<h1 class="bp-header__title">Page Stack Navigation</h1>
-				<p class="bp-header__desc">Based on Ilya Kostin's Dribbble shot <a href="https://dribbble.com/shots/2286042-Stacked-navigation">Stacked navigation</a></p>
+				<p class="bp-header__desc">Based on Mgbams kingsley's design<a href="https://dribbble.com/shots/2286042-Stacked-navigation">Stacked navigation</a></p>
 				<nav class="bp-nav">
 					<a class="bp-nav__item bp-icon bp-icon--prev" href="http://tympanus.net/Blueprints/ZoomSlider/" data-info="previous Blueprint"><span>Previous Blueprint</span></a>
-					<!--a class="bp-nav__item bp-icon bp-icon--next" href="" data-info="next Blueprint"><span>Next Blueprint</span></a-->
+
 					<a class="bp-nav__item bp-icon bp-icon--drop" href="http://tympanus.net/codrops/?p=25311" data-info="back to the Codrops article"><span>back to the Codrops article</span></a>
 					<a class="bp-nav__item bp-icon bp-icon--archive" href="http://tympanus.net/codrops/category/blueprints/" data-info="Blueprints archive"><span>Go to the archive</span></a>
 				</nav>
 			</header>
-			<img class="poster" src="images/1.jpg" alt="img01" />
+			<img class="poster" src="images/1.jpg" alt="img01" />-->
+			<section id="slideshow">
+			<div class="slick" >
+				<div><img src="https://images.pexels.com/photos/2227774/pexels-photo-2227774.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
+				<div><img src="https://images.pexels.com/photos/2670273/pexels-photo-2670273.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
+				<div><img src="https://images.pexels.com/photos/1769392/pexels-photo-1769392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
+			</div>
+		</section>
 		</div>
+
+		
 		<!-- /page -->
 		<div class="page" id="page-docu">
 			<header class="bp-header cf">
@@ -140,6 +155,20 @@
 	<button class="menu-button"><span>Menu</span></button>
 	<script src="js/classie.js"></script>
 	<script src="js/main.js"></script>
+
+	<!--js-->
+	<script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--slick js-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+	
+	<script>
+		$(document).ready(() => {
+			$('#slideshow .slick').slick({
+				dots: true,
+				speed: 500
+				});
+		})
+	</script>
 </body>
 
 </html>

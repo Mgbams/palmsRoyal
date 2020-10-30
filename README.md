@@ -257,3 +257,78 @@ After the above commands then run this below comands to compile your project
     $ npm run dev
 ```
 
+## To use slick
+Visit this site to copy the links
+[slick](https://cdnjs.com/libraries/slick-carousel)
+copy these links and paste in the head section of your blade template
+
+```bash
+npm install slick-carousel
+```
+
+```blade
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" rel="stylesheet">
+```
+Also load jquery by visiting [jquery][https://cdnjs.com/libraries/jquery]
+and adding a minified script link as shown below
+
+```jquery
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+```
+You can also visit this below site for more settings of your slick carousel
+[slick carousel](https://www.npmjs.com/package/slick-carousel)
+
+## Installing jquery to your project
+
+```bash
+npm install jquery-ui --save-dev
+```
+Then go to  **resources/js/app.js** and add these codes
+
+```resources/js/app.js
+
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+```
+## JQUERY WIDGETS
+To use jquery widgets, visit the site below
+[jquery widgets](https://jqueryui.com/widget/)
+To know how to add jquery widgets to your project, visit the site below
+[widget addition to project](https://medium.com/@nedsoft/how-to-add-jquery-ui-plugin-to-a-laravel-app-using-laravel-mix-e85bf0244fc1)
+
+The steps are
+
+1. Add the below lines to  resources/js/app.js
+```
+// resources/js/app.js
+
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+
+import 'jquery-ui/ui/widgets/datepicker.js';//add as many widget as you may need
+```
+2. Add the below line to  resources/sass/app.scss
+
+```
+// resources/sass/app.scss
+
+@import '~jquery-ui/themes/base/all.css';
+```
+
+3. Assuming the class of the element you want to add the datepicker widget is .datepicker, then add the following line of code to your resources/js/app.js
+
+```
+// resources/js/app.js
+
+$('.datepicker').datepicker();
+e.g <input type="text" class="datepicker" />
+```
+Finally run the command
+
+```bash
+npm run dev
+```
+
+**IMPORTANT** Minimum size for slider images should be  2000 x 1300px
+
