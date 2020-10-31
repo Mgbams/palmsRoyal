@@ -75,6 +75,50 @@
 			<x-homepage-room-image />
 			<!-- Adding Eat and Drink block using component -->
 			<x-eat-and-drink />
+			<div class="special-offers-div">
+				<h2>Special Offers</h2>
+			</div>
+			<section id="slideshow-center">
+				<div class="second-carousel">
+					<div><img src="https://images.pexels.com/photos/2227774/pexels-photo-2227774.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
+					<div><img src="https://images.pexels.com/photos/2670273/pexels-photo-2670273.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
+					<div><img src="https://images.pexels.com/photos/1769392/pexels-photo-1769392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
+					<div><img src="https://images.pexels.com/photos/2227774/pexels-photo-2227774.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
+					<div><img src="https://images.pexels.com/photos/2670273/pexels-photo-2670273.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
+					<div><img src="https://images.pexels.com/photos/1769392/pexels-photo-1769392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
+				</div>
+			</section>
+			<div class="special-offers-div">
+				<p><a class="special-offers-link" href="#">More Space, More Time</a></p>
+				<div class="read-more"><a class="special-offers-link read-more-link" href="#">READ MORE</a></div>
+			</div>
+
+			<div id="left-image-homepage">
+				<img src="https://images.pexels.com/photos/5734278/pexels-photo-5734278.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+			</div>
+
+			<div>
+				<div style="text-align: center;">
+					<h2>Neighbourhood </h2>
+				</div>
+				<div class="col-5 offset-6">
+					<p>Discover sights, attractions, shopping malls, high end nightlife,
+						as well as cultural and entertainment activities offered by the neighborhood.
+					</p>
+				</div>
+				<div  class="read-more offset-6">
+					<p><a href="#">EXPLORE</a></p>
+				</div>
+			</div>
+
+			<div id="new-emotions">
+				<img src="https://images.pexels.com/photos/5734278/pexels-photo-5734278.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+				<p class="col-4">Discover new emotions and to be inspired by the local atmosphere</p>
+			</div>
+
+			<div class="about-hotel-link">
+				<p><a href="#">About Hotel</a></p>
+			</div>
 		</div>
 
 		<!-- /page -->
@@ -174,6 +218,38 @@
 			$('#slideshow .slick').slick({
 				dots: true,
 				speed: 500
+			});
+
+			// Second slide settings
+			$('.second-carousel').slick({
+				infinite: true,
+				slidesToShow: 2,
+				slidesToScroll: 3,
+				centerMode: true,
+				responsive: [{
+						breakpoint: 1200,
+						settings: {
+							arrows: false,
+							centerMode: true,		
+						}
+					},
+					{
+						breakpoint: 768,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							slidesToShow: 3
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							slidesToShow: 1
+						}
+					}
+				]
 			});
 		})
 	</script>

@@ -39,6 +39,16 @@
     color: blue !important;
 }
 
+.slick-active {
+    opacity: .5;
+}
+.slick-current {
+    opacity: 1;
+}
+/*.slick-prev:before, .slick-next:before {
+    color: black;
+}*/
+
 #page-home {
     min-width: 100Vh !important;
     overflow-y: scroll;
@@ -128,7 +138,7 @@
         left: 40%; 
         #booking-link {
             border-radius: 40%; 
-            border: 2px solid green; 
+            border: 2px solid brown; 
             margin-top: 10px; 
             padding: 50px 0px; 
             position: relative; 
@@ -146,7 +156,6 @@
 }
 
 /* End of Stay block */
-
 #main-page-room-image {
     height: 60vh;
     width: 90vw;
@@ -160,7 +169,25 @@
     }
 }
 
-/* Eat and drink Block */
+/* Emotions Block */
+#new-emotions {
+    height: 60vh;
+    width: 90vw;
+    margin-left: 10vw; 
+    margin-top: 50px;
+    position: relative; 
+    img {
+        height: 60vh;  
+        width: 100%;
+        background-size: cover;
+    }
+    p {
+        position: absolute;
+        bottom: 40%;
+        font-size: 30px;
+        left: 15%;
+    }
+}
 
 //Eat and drink block in HomePage
 #eat-and-drink {
@@ -212,3 +239,84 @@
     }
 }
 /*End of Eat and Drink block */
+
+//second carousel
+
+#slideshow-center {
+    width: 98%; 
+    height: 50vh;
+    background-color: black;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    div {
+        width: 95%;
+        margin: auto !important;
+        height: 50vh !important;
+        img {
+            width: 75%;
+            height: 100%;
+            background-size: cover;
+        }
+    }
+}
+
+// Special offers block starts here
+.special-offers-div {
+    text-align: center; 
+    margin-top: 50px;
+    .read-more {
+        border: 1px solid pink;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: auto;
+        text-align: center; 
+        position: relative;
+        .read-more-link {
+            position: absolute;
+            top: 40px;
+            right: 10px;
+        }
+    }
+    .special-offers-link {
+        text-decoration: none;  
+        color: black; 
+    }
+    .special-offers-link:hover {
+        color: blue;
+        cursor: pointer;
+    }
+}
+// special offers link ends here
+
+/* about hotel link starts here */
+.about-hotel-link {
+    margin-top: 50px;
+    text-align: center;
+    a {
+        text-decoration: none;
+        color: black;
+        font-size: 80px;
+    }
+    a:hover {
+        color: blue;
+        cursor: pointer;
+    }
+}
+
+/* about hotel link starts here */
+
+// Left-sided image starts here
+#left-image-homepage {
+    height: 60vh;
+    width: 90vw;
+    padding-left: 0px !important;
+    margin: 50px 0px;
+    img {
+        height: 60vh;  
+        width: 100%;
+        background-size: cover;
+    }
+}
+// Left-sided image ends here
