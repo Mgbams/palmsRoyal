@@ -105,7 +105,7 @@
 /*Stay block */
 #stay-page {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 80px;
     height: 80vh; 
     color: black; 
     background-color: white;
@@ -145,5 +145,70 @@
     }
 }
 
-
 /* End of Stay block */
+
+#main-page-room-image {
+    height: 60vh;
+    width: 90vw;
+    margin-left: 10vw;
+    padding-left: 0px !important;
+    margin-top: 700px;
+    img {
+        height: 60vh;  
+        width: 100%;
+        background-size: cover;
+    }
+}
+
+/* Eat and drink Block */
+
+//Eat and drink block in HomePage
+#eat-and-drink {
+    height: 100vh; 
+    color: black; 
+    background-color: white;
+    margin-top: 50px;
+    #eat-inner-container {
+        display:flex;
+        div #about-text {
+            z-index: 1; 
+            line-height: 1;
+            #about {
+                margin-left: 120px;  
+                font-size: 3rem; 
+            }
+            #royalPalms {
+                font-size: 3rem; 
+                line-height: .9;
+            }
+        }
+        div #description {
+            margin-top: 30px;
+        }
+        #image-container {
+            height: 100vh; 
+            background-color: pink; 
+            display:flex; 
+            align-items: center; 
+            justify-content:center;
+            padding-top: 100px;
+            div {
+                width: 80%; 
+                height: 40vh;
+                img {
+                    background-size: cover; 
+                    height: 100%; 
+                    width: 80%;
+                }
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    h2 {
+        margin-top: 30px;
+        font-size: 20px;
+    }
+}
+/*End of Eat and Drink block */

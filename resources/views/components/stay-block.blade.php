@@ -9,6 +9,9 @@
             <p class="col-5 offset-2">Contemporary elegance with an urban outlook</P>
         </div>
     </div>
+    <div style="position: relative; left: 92%; bottom: 15%;">
+        <a href="#">SEE MORE</a>
+    </div>
     <div id="courtyard-room">
         <h2 class="col-7 offset-1">
             Courtyard Standard Room
