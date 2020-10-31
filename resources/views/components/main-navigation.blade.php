@@ -69,6 +69,7 @@
 
 			<!-- Adding About royal palms info using component -->
 			<x-about-royal-palms />
+			<x-stay-block />
 		</div>
 
 		<!-- /page -->
