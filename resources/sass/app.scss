@@ -10,6 +10,12 @@
 // jquery
 @import '~jquery-ui/themes/base/all.css';
 
+//fontawesome icons
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+* {
+    box-sizing: border-box;
+}
 //carousel
 
 #slideshow {
@@ -50,7 +56,7 @@
 }*/
 
 #page-home {
-    min-width: 100Vh !important;
+    min-height: 100Vh !important;
     overflow-y: scroll;
     background-color: white;
 }
@@ -186,6 +192,7 @@
         bottom: 40%;
         font-size: 30px;
         left: 15%;
+        color: yellow;
     }
 }
 
@@ -240,7 +247,7 @@
 }
 /*End of Eat and Drink block */
 
-//second carousel
+//second carousel starts here
 
 #slideshow-center {
     width: 98%; 
@@ -260,6 +267,20 @@
         }
     }
 }
+//second carousel ends here
+
+/* mixed-carousel starts here*/
+.mixed-carousel {
+    img {
+        width: 65%;
+        height: 40vh;
+        background-size: cover;
+    } 
+    .slick-prev:before, .slick-next:before {
+        color: black;
+    }
+}
+/* mixed-carousel ends here*/
 
 // Special offers block starts here
 .special-offers-div {
@@ -302,6 +323,11 @@
     a:hover {
         color: blue;
         cursor: pointer;
+    }
+    #hotelLink {
+        font-size: 32px !important;
+        margin-bottom: 100px;
+        margin-left: 50px;
     }
 }
 

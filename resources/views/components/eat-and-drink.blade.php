@@ -7,8 +7,8 @@
             </div>
 
             <div id="description" class="col-7 offset-2">
-                <p>Dining at palmsRoyal hotel encompasses a rooftop restaurant & bar located
-                    on the 11th floor, as well as a stylish lobby bar nestling in the mezzanine area.
+                <p>Dîner au palmsRoyal Hotel comprend un restaurant-bar sur le toit situé au 
+                    11ème étage, ainsi qu'un élégant bar dans le hall niché dans la mezzanine.
                 </p>
             </div>
         </div>
@@ -16,14 +16,14 @@
         <div id="image-container" class="col-6">
             <div>
                 <div id="left-image" style="height: 40vh; position: absolute; right: 90%; z-index: 1;">
-                    <img src="https://images.pexels.com/photos/4602645/pexels-photo-4602645.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
-                    <h2>Rooftop Restaurant & Bar </h2>
+                    <img src="https://cdn.pixabay.com/photo/2014/01/09/10/14/kimchi-fried-rice-241051__340.jpg" />
+                    <h2>Restaurant et bar sur le toit </h2>
                     <p><a>READ MORE</a></p>
                 </div>
 
                 <div id="right-image" style="height: 40vh; position: absolute; left: 20%;">
-                    <img src="https://images.pexels.com/photos/4602645/pexels-photo-4602645.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"  />
-                    <h2>Lobby Bar</h2>
+                    <img src="https://cdn.pixabay.com/photo/2016/06/29/17/14/water-1487304__340.jpg"  />
+                    <h2>Bar du hall</h2>
                     <p><a>READ MORE</a></p>
                 </div>
 

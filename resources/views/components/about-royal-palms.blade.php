@@ -7,9 +7,9 @@
       </div>
 
       <div id="description" class="col-7 offset-2">
-        <p>palmsRoyal is a boutique, design-driven hotel settled in Kyiv’s
-          historical center with an exceptional sense of style,
-          created for travelers seeking unrivaled comfort and experience.
+        <p>palmsRoyal est un hôtel de caractère et design installé à Kiev
+           centre historique avec un sens du style exceptionnel,
+           créé pour les voyageurs à la recherche d'un confort et d'une expérience inégalés.
         </p>
       </div>
 
@@ -20,7 +20,7 @@
 
     <div id="image-container" class="col-6">
       <div>
-        <img src="https://images.pexels.com/photos/4602645/pexels-photo-4602645.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+        <img src="https://cdn.pixabay.com/photo/2014/07/10/17/17/hotel-389256__340.jpg"/>
       </div>
     </div>
   </div>

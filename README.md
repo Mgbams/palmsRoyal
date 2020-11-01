@@ -332,3 +332,20 @@ npm run dev
 
 **IMPORTANT** Minimum size for slider images should be  2000 x 1300px
 
+## Adding Font Awesome Icons
+Install it by running the below code
+
+```bash
+$ npm install font-awesome --save
+```
+Then import it in your app.scss file as shown below
+
+```resources/sass/app.scss
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+```
+Finally compile it by running the below command
+
+```
+npm run dev
+```
+
