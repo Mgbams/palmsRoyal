@@ -349,3 +349,7 @@ Finally compile it by running the below command
 npm run dev
 ```
 
+## Centering a div vertically in another div
+You can visit the below link for solution
+[w3school](https://www.w3schools.com/howto/howto_css_center-vertical.asp)
+

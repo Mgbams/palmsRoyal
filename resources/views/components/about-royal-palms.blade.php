@@ -14,7 +14,7 @@
       </div>
 
       <div id="explore-link">
-        <a href="#">EXPLORE HOTEL</a>
+        <a href="{{url('/about')}}">EXPLORE HOTEL</a>
       </div>
     </div>
 

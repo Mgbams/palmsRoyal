@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>HomePage</title>
+	<title>About Hotel</title>
 	<meta name="description" content="Blueprint: A basic template for a page stack navigation effect" />
 	<meta name="keywords" content="blueprint, template, html, css, page stack, 3d, perspective, navigation, menu" />
 	<meta name="author" content="Codrops" />
@@ -46,145 +46,95 @@
 	<div class="pages-stack">
 		<!-- page -->
 		<div class="page" id="page-home">
-			<!-- Blueprint header -->
-			<!--<header class="bp-header cf">
-				<span class="bp-header__present">Blueprint <span class="bp-tooltip bp-icon bp-icon--about" data-content="The Blueprints are a collection of basic and minimal website concepts, components, plugins and layouts with minimal style for easy adaption and usage, or simply for inspiration."></span></span>
-				<h1 class="bp-header__title">Page Stack Navigation</h1>
-				<p class="bp-header__desc">Based on Mgbams kingsley's design<a href="https://dribbble.com/shots/2286042-Stacked-navigation">Stacked navigation</a></p>
-				<nav class="bp-nav">
-					<a class="bp-nav__item bp-icon bp-icon--prev" href="http://tympanus.net/Blueprints/ZoomSlider/" data-info="previous Blueprint"><span>Previous Blueprint</span></a>
-
-					<a class="bp-nav__item bp-icon bp-icon--drop" href="http://tympanus.net/codrops/?p=25311" data-info="back to the Codrops article"><span>back to the Codrops article</span></a>
-					<a class="bp-nav__item bp-icon bp-icon--archive" href="http://tympanus.net/codrops/category/blueprints/" data-info="Blueprints archive"><span>Go to the archive</span></a>
-				</nav>
-			</header>
-			<img class="poster" src="images/1.jpg" alt="img01" />-->
-			<section id="slideshow">
-				<div class="slick">
-					<div><img src="https://cdn.pixabay.com/photo/2015/12/28/10/19/hotel-1111199__340.jpg" /></div>
-					<div><img src="https://cdn.pixabay.com/photo/2015/03/26/10/01/burj-al-arab-690768__340.jpg" /></div>
-					<div><img src="https://cdn.pixabay.com/photo/2015/10/01/13/08/beach-966994__340.jpg" /></div>
-				</div>
-			</section>
-
-			<!-- Adding About royal palms info using component -->
-			<x-about-royal-palms />
-			<!-- Adding stay block using component -->
-			<x-stay-block />
-			<!-- Adding image block using component -->
-			<x-homepage-room-image />
-			<!-- Adding Eat and Drink block using component -->
-			<x-eat-and-drink />
-			<div class="special-offers-div">
-				<h2>Offres Spéciales</h2>
+			<div id="slideshow">
+			<img src="https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg" style="height: 100%; width: 100%;" />
 			</div>
-			<section id="slideshow-center">
-				<div class="second-carousel">
-					<div><img src="https://cdn.pixabay.com/photo/2018/02/24/17/17/window-3178666__340.jpg" /></div>
-					<div><img src="https://cdn.pixabay.com/photo/2015/11/06/11/45/interior-1026452__340.jpg" /></div>
-					<div><img src="https://cdn.pixabay.com/photo/2018/08/23/00/11/girl-3624933__340.jpg" /></div>
-					<div><img src="https://cdn.pixabay.com/photo/2017/05/31/10/23/manor-house-2359884__340.jpg" /></div>
-					<div><img src="https://cdn.pixabay.com/photo/2015/01/10/11/39/hotel-595121__340.jpg" /></div>
-					<div><img src="https://cdn.pixabay.com/photo/2016/11/18/17/41/summer-1836046__340.jpg" /></div>
+
+			<div style="width: 100%; height: 100vh; margin-top: 80px; display: flex;">
+				<div style="height: 100%; width: 50%;">
+					<img src="https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg" style="height: 100%; width: 100%;" />
 				</div>
-			</section>
-			<div class="special-offers-div">
-				<p><a class="special-offers-link" href="#">Plus d'espace, plus de temps</a></p>
-				<div class="read-more"><a class="special-offers-link read-more-link" href="#">READ MORE</a></div>
+				<div style=" width: 50%; height: 100%; position: relative;">
+					<div style="height: 50%; background-color:pink; margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%);
+  transform: translateY(-50%);" class="col-10">
+						<p class="col-6 offset-6" style="position:relative; bottom: 120px;">
+							Chacune des 50 chambres et suites du palmsRoyal Design Hotel
+							s'inspire du design intérieur contemporain avec une compréhension approfondie
+							des tendances mondiales et des concepts innovants. L'élégance intelligente sans
+							éléments lourds et exagérations impériales met en place un environnement créatif
+							qui inspire et encourage une véritable interaction,
+							tandis que le personnel de l'hôtel fournit un service d'une qualité exceptionnelle.
+						</p>
+					</div>
+				</div>
 			</div>
-			<div id="mixed-div-slider-container" style="width: 100vw; height: 100vh; margin-top: 50px;">
-				<div id="mixed-div-coloured" style="width: 50%; height: 100vh;  background-color: pink; padding-top: 27vh;">
-					<div class="mixed-carousel" style="width: 90vw; height: 60vh; margin-left: 6vw;">
-						<div>
-							<img src="https://images.pexels.com/photos/2227774/pexels-photo-2227774.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
-							<div style="width: 18vw; height: 19vh; padding-top: 10px;">
-								<p><a href="#">palmsRoyal Brand remporte deux prix TripAdvisor</a></p>
-								<div class="readmore">
-									<a href="#">READ MORE</a>
-								</div>
-							</div>
+
+			<!-- Second Block-->
+			<div style="width: 100%; height: 100vh; margin-top: 80px; display: flex;">
+				<div style=" width: 50%; height: 100%; position: relative;">
+					<div style="height: 50%; background-color:pink; margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%);
+  transform: translateY(-50%); width: 80%; left: 20%;">
+						<p class="col-6" style="position:relative; top: 250px;">
+							On ne mérite que l'expérience la plus exaltante et la plus significative.
+							Dans cet esprit, nous avons créé un hôtel design unique en son gen
+							pour vous - voyageurs, chefs d'entreprise et esprits créatifs qui
+							comprennent la vraie valeur de la vie.
+						</p>
+					</div>
+				</div>
+
+				<div style="height: 100%; width: 50%;">
+					<img src="https://cdn.pixabay.com/photo/2018/03/01/03/52/furniture-3189674__340.jpg" style="height: 100%; width: 100%;" />
+				</div>
+			</div>
+
+			<!-- Third Block-->
+
+			<div style="width: 100%; height: 100vh; margin-top: 80px; display: flex;">
+
+				<div style="height: 100%; width: 40%;">
+					<img src="https://cdn.pixabay.com/photo/2018/03/01/03/52/furniture-3189674__340.jpg" style="height: 100%; width: 100%;" />
+				</div>
+
+				<div style=" width: 60%; height: 100%;">
+					<div style="position: relative; bottom: 40px; height: 10vh; text-align: center; font-size: 5rem;">
+						<h2 style=" font-size: 4rem;">palmsRoyal</h2>
+					</div>
+
+					<div style="height: 25vh;" class="col-3 offset-6">
+						<p>
+							palmsRoyal représente les onze reflets d'une personnalité accomplie
+						</p>
+					</div>
+
+					<div style="display: flex; width: 100%; height: 65vh;">
+						<div style="width: 30%; height: 65vh;">
+							<ul style="list-style-type: none; height: 100%; display: flex; flex-direction:column; justify-content:space-evenly">
+								<li><a href="#">CURIOSITÉ</a></li>
+								<li><a href="#">OPTIMISME</a></li>
+								<li><a href="#">COURAGE</a></li>
+								<li><a href="#">LA PASSION</a></li>
+								<li><a href="#">LA CRÉATIVITÉ</a></li>
+								<li><a href="#">SENS DE L'HUMOUR</a></li>
+								<li><a href="#">INDÉPENDANCE</a></li>
+								<li><a href="#">CONFIANCE</a></li>
+								<li><a href="#">FIABILITÉ</a></li>
+								<li><a href="#">GÉNÉROSITÉ</a></li>
+								<li><a href="#">HARMONIE</a></li>
+							</ul>
 						</div>
-						<div>
-							<img src="https://images.pexels.com/photos/2670273/pexels-photo-2670273.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
-							<div style="width: 18vw; height: 19vh; padding-top: 10px;">
-								<p><a href="#">palmsRoyal est le meilleur bar d'hôtel de Lyon</a></p>
-								<div class="readmore">
-									<a href="#">READ MORE</a>
-								</div>
-							</div>
-						</div>
-						<div>
-							<img src="https://images.pexels.com/photos/1769392/pexels-photo-1769392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
-							<div style="width: 18vw; height: 19vh; padding-top: 10px;">
-								<p><a href="#">Histoires de palmiersRoyal - Mgbams Kingsley</a></p>
-								<div class="readmore">
-									<a href="#">READ MORE</a>
-								</div>
-							</div>
-						</div>
-						<div>
-							<img src="https://cdn.pixabay.com/photo/2016/03/16/22/17/hotel-room-1261900__340.jpg" />
-							<div style="width: 18vw; padding-top: 10px; height: 19vh;">
-								<p><a href="#">palmsRoyal Brand remporte deux prix TripAdvisor</a></p>
-								<div class="readmore">
-									<a href="#">READ MORE</a>
-								</div>
-							</div>
-						</div>
-						<div>
-							<img src="https://cdn.pixabay.com/photo/2017/08/09/10/42/hotel-rooms-2614141__340.jpg" />
-							<div style="width: 18vw; height: 19vh; padding-top: 10px;">
-								<p><a href="#">palmsRoyal remporte un prix de style de vie de luxe</a></p>
-								<div class="readmore">
-									<a href="#">READ MORE</a>
-								</div>
-							</div>
-						</div>
-						<div>
-							<img src="https://cdn.pixabay.com/photo/2015/11/02/06/46/hotel-1018039__340.jpg" />
-							<div style="width: 18vw; height: 19vh; padding-top: 10px;">
-								<p><a href="#">palm Royale pour vos meilleurs plats africains</a></p>
-								<div class="readmore">
-									<a href="#">READ MORE</a>
-								</div>
-							</div>
+
+						<div style="width: 60%; height: 30vh; background-color: pink; margin-top: 30px;">
+
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div id="left-image-homepage">
-				<img src="https://cdn.pixabay.com/photo/2020/07/08/01/49/outdoors-5382306__340.jpg" />
-			</div>
-
-			<div>
-				<div style="text-align: center;">
-					<h2>Quartier</h2>
-				</div>
-				<div class="col-5 offset-6">
-					<p>Découvrez les sites, les attractions, les centres commerciaux,
-						la vie nocturne haut de gamme,
-						si que des activités culturelles et de divertissement proposées par le quartier.
-					</p>
-				</div>
-				<div class="read-more offset-6">
-					<p><a href="#">EXPLORE</a></p>
-				</div>
-			</div>
-
-			<div id="new-emotions">
-				<img src="https://i.pinimg.com/originals/ba/c1/18/bac11813914b84eb0ac73b7bb577a22b.gif" />
-				<p class="col-4">Découvrez de nouvelles émotions et laissez-vous inspirer par l'ambiance locale</p>
-			</div>
-
-			<div class="about-hotel-link">
-				<p><a href="#">About Hotel </a><a href="#" id="hotelLink"><i class="fa fa-arrow-right"></i></a></p>
-			</div>
 		</div>
 
 
 
-		
 		<!-- /page -->
 		<div class="page" id="page-docu">
 			<header class="bp-header cf">
@@ -285,70 +235,6 @@
 				speed: 500,
 				fade: true,
 				cssEase: 'linear'
-			});
-
-			// Second slide settings
-			$('.second-carousel').slick({
-				infinite: true,
-				slidesToShow: 2,
-				slidesToScroll: 3,
-				centerMode: true,
-				responsive: [{
-						breakpoint: 1200,
-						settings: {
-							arrows: false,
-							centerMode: true,
-						}
-					},
-					{
-						breakpoint: 768,
-						settings: {
-							arrows: false,
-							centerMode: true,
-							slidesToShow: 3
-						}
-					},
-					{
-						breakpoint: 480,
-						settings: {
-							arrows: false,
-							centerMode: true,
-							slidesToShow: 1
-						}
-					}
-				]
-			});
-
-			// mixed-carousel slide settings
-			$('.mixed-carousel').slick({
-				infinite: true,
-				slidesToShow: 3,
-				slidesToScroll: 3,
-				centerMode: true,
-				responsive: [{
-						breakpoint: 1200,
-						settings: {
-							arrows: false,
-							centerMode: true,
-						}
-					},
-					{
-						breakpoint: 768,
-						settings: {
-							arrows: false,
-							centerMode: true,
-							slidesToShow: 3
-						}
-					},
-					{
-						breakpoint: 480,
-						settings: {
-							arrows: false,
-							centerMode: true,
-							slidesToShow: 1
-						}
-					}
-				]
 			});
 		})
 	</script>

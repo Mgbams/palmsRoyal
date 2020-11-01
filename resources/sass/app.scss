@@ -346,3 +346,16 @@
     }
 }
 // Left-sided image ends here
+
+/* mixed-div-slider-container starts here*/
+
+#mixed-div-slider-container {
+    a {
+        color: $black;
+    }
+    a:hover {
+        color: $blue;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

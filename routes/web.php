@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('navigation', function () {
     return view('main-navigation');
 });
+
+//return view(about-hotel)
+Route::get('about', 'AboutHotelController@show')->name('about');
