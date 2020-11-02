@@ -45,19 +45,18 @@
 	<!-- pages stack -->
 	<div class="pages-stack">
 		<!-- page -->
-		<div class="page" id="page-home">
+		<div class="page about-hotel" id="page-home">
 			<div id="slideshow">
-			<img src="https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg" style="height: 100%; width: 100%;" />
+				<img src="https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg" style="height: 100%; width: 100%;" />
 			</div>
 
-			<div style="width: 100%; height: 100vh; margin-top: 80px; display: flex;">
-				<div style="height: 100%; width: 50%;">
-					<img src="https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg" style="height: 100%; width: 100%;" />
+			<div class="first-div-block">
+				<div class="left-image">
+					<img src="https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg" />
 				</div>
-				<div style=" width: 50%; height: 100%; position: relative;">
-					<div style="height: 50%; background-color:pink; margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%);
-  transform: translateY(-50%);" class="col-10">
-						<p class="col-6 offset-6" style="position:relative; bottom: 120px;">
+				<div class="right-block">
+					<div class="colored-div"  class="col-10">
+						<p class="col-6 offset-6">
 							Chacune des 50 chambres et suites du palmsRoyal Design Hotel
 							s'inspire du design intérieur contemporain avec une compréhension approfondie
 							des tendances mondiales et des concepts innovants. L'élégance intelligente sans
@@ -70,11 +69,10 @@
 			</div>
 
 			<!-- Second Block-->
-			<div style="width: 100%; height: 100vh; margin-top: 80px; display: flex;">
-				<div style=" width: 50%; height: 100%; position: relative;">
-					<div style="height: 50%; background-color:pink; margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%);
-  transform: translateY(-50%); width: 80%; left: 20%;">
-						<p class="col-6" style="position:relative; top: 250px;">
+			<div class="second-div-block">
+				<div class="left-block">
+					<div class="left-block-content">
+						<p class="col-6">
 							On ne mérite que l'expérience la plus exaltante et la plus significative.
 							Dans cet esprit, nous avons créé un hôtel design unique en son gen
 							pour vous - voyageurs, chefs d'entreprise et esprits créatifs qui
@@ -83,33 +81,32 @@
 					</div>
 				</div>
 
-				<div style="height: 100%; width: 50%;">
-					<img src="https://cdn.pixabay.com/photo/2018/03/01/03/52/furniture-3189674__340.jpg" style="height: 100%; width: 100%;" />
+				<div class="right-block">
+					<img src="https://cdn.pixabay.com/photo/2018/03/01/03/52/furniture-3189674__340.jpg" />
 				</div>
 			</div>
 
 			<!-- Third Block-->
 
-			<div style="width: 100%; height: 100vh; margin-top: 80px; display: flex;">
-
-				<div style="height: 100%; width: 40%;">
-					<img src="https://cdn.pixabay.com/photo/2018/03/01/03/52/furniture-3189674__340.jpg" style="height: 100%; width: 100%;" />
+			<div class="third-div-block">
+				<div class="left-block">
+					<img src="https://cdn.pixabay.com/photo/2018/03/01/03/52/furniture-3189674__340.jpg" />
 				</div>
 
-				<div style=" width: 60%; height: 100%;">
-					<div style="position: relative; bottom: 40px; height: 10vh; text-align: center; font-size: 5rem;">
-						<h2 style=" font-size: 4rem;">palmsRoyal</h2>
+				<div class="right-block">
+					<div class="title">
+						<h2>palmsRoyal</h2>
 					</div>
 
-					<div style="height: 25vh;" class="col-3 offset-6">
+					<div class="description">
 						<p>
 							palmsRoyal représente les onze reflets d'une personnalité accomplie
 						</p>
 					</div>
 
-					<div style="display: flex; width: 100%; height: 65vh;">
-						<div style="width: 30%; height: 65vh;">
-							<ul style="list-style-type: none; height: 100%; display: flex; flex-direction:column; justify-content:space-evenly">
+					<div class="list-and-block-container">
+						<div class="list-container">
+							<ul>
 								<li><a href="#">CURIOSITÉ</a></li>
 								<li><a href="#">OPTIMISME</a></li>
 								<li><a href="#">COURAGE</a></li>
@@ -124,7 +121,7 @@
 							</ul>
 						</div>
 
-						<div style="width: 60%; height: 30vh; background-color: pink; margin-top: 30px;">
+						<div class="colored-div">
 
 						</div>
 					</div>

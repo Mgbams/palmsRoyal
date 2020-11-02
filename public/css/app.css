@@ -15798,7 +15798,7 @@ a.text-dark:focus {
   cursor: pointer;
 }
 
-/* about hotel link starts here */
+/* about hotel link found on homepage starts here */
 
 .about-hotel-link {
   margin-top: 50px;
@@ -15847,5 +15847,150 @@ a.text-dark:focus {
   color: #3490dc;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* about-hotel */
+
+.about-hotel .first-div-block {
+  width: 100%;
+  height: 100vh;
+  margin-top: 80px;
+  display: flex;
+}
+
+.about-hotel .first-div-block .left-image {
+  height: 100%;
+  width: 50%;
+}
+
+.about-hotel .first-div-block .left-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.about-hotel .first-div-block .right-block {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.about-hotel .first-div-block .right-block .colored-div {
+  height: 50%;
+  background-color: pink;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.about-hotel .first-div-block .right-block .colored-div p {
+  position: relative;
+  bottom: 120px;
+}
+
+.about-hotel .second-div-block {
+  width: 100%;
+  height: 100vh;
+  margin-top: 80px;
+  display: flex;
+}
+
+.about-hotel .second-div-block .left-block {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.about-hotel .second-div-block .left-block .left-block-content {
+  height: 50%;
+  background-color: pink;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80%;
+  left: 20%;
+}
+
+.about-hotel .second-div-block .left-block .left-block-content p {
+  position: relative;
+  top: 250px;
+}
+
+.about-hotel .second-div-block .right-block {
+  height: 100%;
+  width: 50%;
+}
+
+.about-hotel .second-div-block .right-block img {
+  height: 100%;
+  width: 100%;
+}
+
+.about-hotel .third-div-block {
+  width: 100%;
+  height: 100vh;
+  margin-top: 80px;
+  display: flex;
+}
+
+.about-hotel .third-div-block .left-block {
+  height: 100%;
+  width: 40%;
+}
+
+.about-hotel .third-div-block .left-block img {
+  height: 100%;
+  width: 100%;
+}
+
+.about-hotel .third-div-block .right-block {
+  width: 60%;
+  height: 100%;
+}
+
+.about-hotel .third-div-block .right-block .title {
+  position: relative;
+  bottom: 40px;
+  height: 10vh;
+  text-align: center;
+  font-size: 5rem;
+}
+
+.about-hotel .third-div-block .right-block .title h2 {
+  font-size: 4rem;
+}
+
+.about-hotel .third-div-block .right-block .description {
+  height: 25vh;
+  width: 28%;
+  margin-left: 40%;
+  text-align: justify;
+}
+
+.about-hotel .third-div-block .right-block .list-and-block-container {
+  display: flex;
+  width: 100%;
+  height: 65vh;
+}
+
+.about-hotel .third-div-block .right-block .list-and-block-container .list-container {
+  width: 30%;
+  height: 65vh;
+}
+
+.about-hotel .third-div-block .right-block .list-and-block-container .list-container ul {
+  list-style-type: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.about-hotel .third-div-block .right-block .list-and-block-container .colored-div {
+  width: 60%;
+  height: 30vh;
+  background-color: pink;
+  margin-top: 30px;
 }
 
