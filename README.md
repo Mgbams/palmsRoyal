@@ -353,3 +353,22 @@ npm run dev
 You can visit the below link for solution
 [w3school](https://www.w3schools.com/howto/howto_css_center-vertical.asp)
 
+## Multi Line slide elements
+You can achieve images slides in multi lines using
+
+```
+$('.about-slick').slick({
+	dots: true,
+    slidesPerRow: 3,
+	rows: 2,
+	responsive: [{
+	breakpoint: 478,
+	settings: {
+		slidesPerRow: 1,
+		rows: 1,
+	    }
+    }]
+});
+```
+Other slide settings are found in
+[slicker slide settings](https://stackoverflow.com/questions/29876185/change-the-arrow-buttons-in-slick-slider)
