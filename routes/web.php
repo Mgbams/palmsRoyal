@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('home', 'RoyalPalmsHomePageController@show')->name('home');
+Route::get('/', 'RoyalPalmsHomePageController@show')->name('home');
 Route::get('navigation', function () {
     return view('main-navigation');
 });

@@ -15516,7 +15516,7 @@ a.text-dark:focus {
 #about-homepage {
   height: 80vh;
   color: black;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 #about-homepage #about-inner-container {
@@ -15543,21 +15543,32 @@ a.text-dark:focus {
 }
 
 #about-homepage #about-inner-container div #explore-link {
-  border-radius: 40%;
-  border: 2px solid pink;
-  margin-top: 50px;
-  padding: 50px 0px;
-  position: relative;
+  /*border-radius: 40%; 
+  border: 2px solid pink; 
+  margin-top: 50px; 
+  padding: 50px 0px; */
+  position: absolute;
   width: 110px;
   height: 30px;
+}
+
+#about-homepage #about-inner-container div #explore-link .btn-border {
+  position: relative;
+  right: 15px;
+  bottom: 30px;
+  -webkit-animation-duration: 1.7s;
+          animation-duration: 1.7s;
+  opacity: 0.4;
+  transition-timing-function: cubic-bezier(0.6, 0, 0.41, 1);
 }
 
 #about-homepage #about-inner-container div #explore-link a {
   text-decoration: none;
   position: absolute;
-  left: 30px;
+  left: 60px;
   width: 160px;
-  top: 30px;
+  top: 60px;
+  z-index: 1;
 }
 
 #about-homepage #about-inner-container #image-container {
@@ -15588,7 +15599,7 @@ a.text-dark:focus {
   margin-top: 80px;
   height: 80vh;
   color: black;
-  background-color: white;
+  background-color: #f7f7f7;
   position: absolute;
 }
 
@@ -15613,21 +15624,28 @@ a.text-dark:focus {
 }
 
 #stay-page #courtyard-room #booking-link {
-  border-radius: 40%;
-  border: 2px solid brown;
-  margin-top: 10px;
-  padding: 50px 0px;
-  position: relative;
+  position: absolute;
   width: 110px;
   height: 30px;
+}
+
+#stay-page #courtyard-room #booking-link .btn-border {
+  position: relative;
+  right: 15px;
+  bottom: 30px;
+  -webkit-animation-duration: 1.7s;
+          animation-duration: 1.7s;
+  opacity: 0.4;
+  transition-timing-function: cubic-bezier(0.6, 0, 0.41, 1);
 }
 
 #stay-page #courtyard-room #booking-link a {
   text-decoration: none;
   position: absolute;
-  left: 50%;
+  left: 100%;
   width: 160px;
-  top: 30%;
+  top: 140%;
+  z-index: 1;
 }
 
 /* End of Stay block */
@@ -15673,7 +15691,7 @@ a.text-dark:focus {
 #eat-and-drink {
   height: 100vh;
   color: black;
-  background-color: white;
+  background-color: #f7f7f7;
   margin-top: 50px;
 }
 
@@ -15785,22 +15803,28 @@ a.text-dark:focus {
 .special-offers-div {
   text-align: center;
   margin-top: 50px;
+  position: relative;
 }
 
 .special-offers-div .read-more {
-  border: 1px solid pink;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
   margin: auto;
   text-align: center;
   position: relative;
 }
 
 .special-offers-div .read-more .read-more-link {
+  position: relative;
+  z-index: 1;
+}
+
+.special-offers-div .btn-border {
   position: absolute;
-  top: 40px;
-  right: 10px;
+  left: 580px !important;
+  top: 50px !important;
+  -webkit-animation-duration: 1.7s;
+          animation-duration: 1.7s;
+  opacity: 0.4;
+  transition-timing-function: cubic-bezier(0.6, 0, 0.41, 1);
 }
 
 .special-offers-div .special-offers-link {
@@ -16018,6 +16042,67 @@ a.text-dark:focus {
   height: 30vh;
   background-color: pink;
   margin-top: 30px;
+}
+
+.about-hotel .about-award-title {
+  width: 20vw;
+  position: relative;
+  bottom: 60px;
+}
+
+.about-hotel .sixth-div-block {
+  width: 100%;
+  height: 100vh;
+  margin-top: 720px;
+  display: flex;
+}
+
+.about-hotel .sixth-div-block .left-block {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.about-hotel .sixth-div-block .left-block .left-block-title-div {
+  position: relative;
+  z-index: 10;
+  bottom: 40px;
+}
+
+.about-hotel .sixth-div-block .left-block .left-block-title-div h2 {
+  font-size: 4rem;
+}
+
+.about-hotel .sixth-div-block .left-block .left-block-content {
+  height: 50%;
+  background-color: pink;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80%;
+  left: 22%;
+}
+
+.about-hotel .sixth-div-block .left-block .left-block-content p {
+  position: relative;
+  top: 250px;
+}
+
+.about-hotel .sixth-div-block .right-block {
+  height: 100%;
+  width: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.about-hotel .sixth-div-block .right-block img {
+  height: 100%;
+  width: 100%;
+}
+
+.about-hotel .about-special-offers {
+  margin-top: 100px !important;
 }
 
 .main_h {
