@@ -18,4 +18,12 @@ class Hotel extends Model
     public function rooms() {
         return $this->hasMany(Room::class);
     }
+
+    public function hotelPaymentInfos() {
+        return $this->hasMany(HotelPaymentInfo::class);
+    }
+
+    public function reservations() {
+        return $this->hasMany(Reservation::class);
+    }
 }

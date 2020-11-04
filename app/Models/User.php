@@ -17,7 +17,8 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'phone_number', 'username', 'password', 'address', 'city', 'country_id', 'zip',
+        'first_name', 'last_name', 'email', 'phone_number', 'username', 
+        'password', 'address', 'city', 'country_id', 'zip',
     ];
 
     /**
@@ -44,5 +45,13 @@ class User extends Model
 
     public function reviews() {
         return $this->hasMany(Review::class);
+    }
+
+    public function reservations() {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function invoices() {
+        return $this->hasMany(Invoice::class);
     }
 }
