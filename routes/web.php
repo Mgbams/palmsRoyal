@@ -13,11 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('home', 'RoyalPalmsHomePageController@show')->name('home');
-Route::get('/', 'RoyalPalmsHomePageController@show')->name('home');
+Route::get('palms-royal-homepage', 'RoyalPalmsHomePageController@show')->name('palms-royal-homepage');
+Route::get('/', 'RoyalPalmsHomePageController@show')->name('palms-royal-homepage');
 Route::get('navigation', function () {
     return view('main-navigation');
 });
 
 //return view(about-hotel)
 Route::get('about', 'AboutHotelController@show')->name('about');
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -28,7 +28,7 @@
 <body>
 	<!-- navigation -->
 	<nav class="pages-nav">
-		<div class="pages-nav__item"><a href="{{url('/home')}}">Home</a></div>
+		<div class="pages-nav__item"><a href="{{url('/palms-royal-homepage')}}">Home</a></div>
 		<div class="pages-nav__item"><a class="link link--page" href="#page-docu">Documentation</a></div>
 		<div class="pages-nav__item"><a class="link link--page" href="#page-manuals">Manuals</a></div>
 		<div class="pages-nav__item"><a class="link link--page" href="#page-software">Software</a></div>
@@ -55,7 +55,7 @@
 				<header class="main_h" style="color: yellow; position: fixed; top: 0px;">
 
 					<div class="row">
-						<a class="logo" href="{{url('/about')}}">royalPalms</a>
+						<a class="logo" href="{{url('/palms-royal-homepage')}}">royalPalms</a>
 
 						<div class="mobile-toggle">
 							<span></span>

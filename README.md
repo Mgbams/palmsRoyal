@@ -372,3 +372,70 @@ $('.about-slick').slick({
 ```
 Other slide settings are found in
 [slicker slide settings](https://stackoverflow.com/questions/29876185/change-the-arrow-buttons-in-slick-slider)
+
+##  ADDING A FOREIGN KEY TO A TABLE
+ Below is an example of adding room_id as a foreign key
+
+```
+ $table->bigInteger('room_id')->unsigned();
+$table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade')->onUpdate('cascade');
+```
+**NOTE:** Make sure you have already created and migrated the table that has the key that would serve as a foreign key in another table else you will have error in linking the tables.
+
+## ADDING A COLUMN TO AN ALREADY EXISTING TABLE
+You can visit the below site below for clarification
+[stackoverflow](https://stackoverflow.com/questions/16791613/add-a-new-column-to-existing-table-in-a-migration)
+
+example
+
+```
+php artisan make:migration add_columnName_to_users_table --table=users
+```
+You will have a file like 2018_08_08_093431_add_store_id_to_users_table.php created in database->migrations folder. Then add the column you want to add in the migration file as shown below
+
+```
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class AddStoreIdToUsersTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('users', function (Blueprint $table) {
+
+            // 1. Create new column
+            // You probably want to make the new column nullable
+            $table->integer('store_id')->unsigned()->nullable()->after('password');
+
+            // 2. Create foreign key constraints
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('SET NULL');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('users', function (Blueprint $table) {
+
+            // 1. Drop foreign key constraints
+            $table->dropForeign(['store_id']);
+
+            // 2. Drop the column
+            $table->dropColumn('store_id');
+        });
+    }
+}
+```
+From the above, i created a column called **store-id** which references **id** on **stores** table and i made the column to appear after the **password** column in the database.

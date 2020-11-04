@@ -25,7 +25,7 @@
 <body>
 	<!-- navigation -->
 	<nav class="pages-nav">
-		<div class="pages-nav__item"><a class="link link--page" href="#page-home">Home</a></div>
+		<div class="pages-nav__item"><a class="link" href="{{url('/palms-royal-homepage')}}">Home</a></div>
 		<div class="pages-nav__item"><a class="link link--page" href="#page-docu">Documentation</a></div>
 		<div class="pages-nav__item"><a class="link link--page" href="#page-manuals">Manuals</a></div>
 		<div class="pages-nav__item"><a class="link link--page" href="#page-software">Software</a></div>
@@ -84,7 +84,7 @@
 					</path>
 				</svg>
 			</div>
-			
+
 			<div id="mixed-div-slider-container" style="width: 100vw; height: 100vh; margin-top: 80px;">
 				<div id="mixed-div-coloured" style="width: 50%; height: 100vh;  background-color: pink; padding-top: 27vh;">
 					<div class="mixed-carousel" style="width: 90vw; height: 60vh; margin-left: 6vw;">
