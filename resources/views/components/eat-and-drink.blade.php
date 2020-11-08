@@ -18,13 +18,13 @@
                 <div id="left-image" style="height: 40vh; position: absolute; right: 90%; z-index: 1;">
                     <img src="https://cdn.pixabay.com/photo/2014/01/09/10/14/kimchi-fried-rice-241051__340.jpg" />
                     <h2>Restaurant et bar sur le toit </h2>
-                    <p><a>READ MORE</a></p>
+                    <p><a href="{{url('/eat-and-drink-morning')}}">READ MORE</a></p>
                 </div>
 
                 <div id="right-image" style="height: 40vh; position: absolute; left: 20%;">
                     <img src="https://cdn.pixabay.com/photo/2016/06/29/17/14/water-1487304__340.jpg"  />
                     <h2>Bar du hall</h2>
-                    <p><a>READ MORE</a></p>
+                    <p><a href="#">READ MORE</a></p>
                 </div>
 
             </div>

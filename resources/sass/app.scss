@@ -11,7 +11,13 @@
 @import '~jquery-ui/themes/base/all.css';
 
 //fontawesome icons
-@import "node_modules/font-awesome/scss/font-awesome.scss";
+//@import "node_modules/font-awesome/scss/font-awesome.scss";
+//@import "~font-awesome/scss/font-awesome";
+// Font Awesome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/brands';
 
 * {
     box-sizing: border-box;
@@ -840,3 +846,39 @@
       transform: translateY(20px);
     }
   }
+
+  // MODAL
+  .modal-backdrop {
+      z-index: -1 !important;
+  }
+  
+  // Rooftop Restaurant
+  .rooftop-first-div-background-image {
+        background-image: url('https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg') !important;
+        background-size: 100% 100%;
+        height: 100%; 
+        width: 100%;
+        .rooftop-first-div-inner-image {
+            background-color: gray;
+            //background-size: 100% 100%;
+        }
+        .rooftop-first-div-deepest-image {
+            background-image: url('https://cdn.pixabay.com/photo/2016/01/19/18/01/pizza-1150031_960_720.jpg') !important;
+            background-size: 100% 100%;
+        }
+  }
+
+  //Eat and drink morning second div blade css
+
+  .eat-drink-morning-second-div-image {
+    background-image: url('https://cdn.pixabay.com/photo/2016/01/19/18/01/pizza-1150031_960_720.jpg') !important;
+    background-size: 100% 100%;
+  }
+
+   //Eat and drink morning third div blade css
+  .eat-drink-morning-third-div-image {
+    background-image: url('https://cdn.pixabay.com/photo/2019/05/05/15/11/kiwi-4180811_960_720.jpg') !important;
+    background-size: 100% 100%;
+    opacity: .9;
+  }
+ 

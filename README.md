@@ -336,17 +336,37 @@ npm run dev
 Install it by running the below code
 
 ```bash
-$ npm install font-awesome --save
+$ npm install @fortawesome/fontawesome-free --save
 ```
-Then import it in your app.scss file as shown below
+This dependency entry should now be in your **package.json**
+
+// Font Awesome
+"dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+
+Then import one or more styles in your app.scss file as shown below
 
 ```resources/sass/app.scss
-@import "node_modules/font-awesome/scss/font-awesome.scss";
+// Font Awesome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/brands';
 ```
-Finally compile it by running the below command
+Finally compile it by running the below command for developement
 
 ```
-npm run dev
+$ npm run dev
+```
+OR 
+
+```
+$ npm run production
+```
+**Finally**, reference your generated CSS file in your Blade template/layout.
+
+```
+<link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
 ```
 
 ## Centering a div vertically in another div

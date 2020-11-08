@@ -13,16 +13,20 @@
     <meta name="keywords" content="blueprint, template, html, css, page stack, 3d, perspective, navigation, menu" />
     <meta name="author" content="Codrops" />
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" type="text/css" href="css/component.css" />
-    <link rel="stylesheet" type="text/css" href="css/app.css" />
+     <!--main css file starts here-->
+     <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <!--main css file ends here-->
     <script src="js/modernizr-custom.js"></script>
 
     <!--slick css file-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" rel="stylesheet">
     <!--slick css End Here-->
+
+    <!--css link for bootstrap modal-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -184,6 +188,44 @@
                 </div>
 
             </div>
+
+            <!--TODO: MODALS-->
+            <div class="container">
+                <!--Button trigger modal-->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+
+                {{--Start Add Modal--}}
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                        <input type="text" class="form-control" id="recipient-name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Message:</label>
+                                        <textarea class="form-control" id="message-text"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Send message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{--End Add Modal--}}
+                <!--TODO: END MODAL-->
+            </div>
         </div>
 
 
@@ -281,20 +323,12 @@
     <!--slick js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
+    <!--js link for bootstrap modal-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
     <script>
         $(document).ready(() => {
-            $('.about-slick').slick({
-                slidesPerRow: 3,
-                rows: 2,
-                responsive: [{
-                    breakpoint: 478,
-                    settings: {
-                        slidesPerRow: 1,
-                        rows: 1,
-                    }
-                }]
-            });
-
             $(".main_h").animate({
                 opacity: 0.5,
                 height: "toggle",
@@ -340,7 +374,7 @@
                     }
                 ]
             });
-        })
+        });
     </script>
 
     <script>

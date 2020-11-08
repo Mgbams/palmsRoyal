@@ -23,6 +23,8 @@ Route::get('navigation', function () {
 Route::get('about', 'AboutHotelController@show')->name('about');
 //return view(rooms)
 Route::get('rooms', 'RoomController@show')->name('rooms');
+//return view(eat-and-drink/restaurant-morning)
+Route::get('/eat-and-drink-morning', 'EatAndDrinkMorningController@show')->name('eat-drink-morning');
 
 
 

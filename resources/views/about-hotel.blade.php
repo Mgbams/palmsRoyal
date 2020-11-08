@@ -13,10 +13,11 @@
 	<meta name="keywords" content="blueprint, template, html, css, page stack, 3d, perspective, navigation, menu" />
 	<meta name="author" content="Codrops" />
 	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/demo.css" />
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
-	<link rel="stylesheet" type="text/css" href="css/app.css" />
+	  <!--main css file starts here-->
+	  <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <!--main css file ends here-->
 	<script src="js/modernizr-custom.js"></script>
 
 	<!--slick css file-->
