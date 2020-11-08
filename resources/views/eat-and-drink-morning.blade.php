@@ -138,7 +138,7 @@
             </div>
 
             <!--Third div Restaurant-->
-            <div class="eat-drink-morning-third-div-image" style="width: 90%; height: 100vh; display: flex; margin-top: 120px; color: white;">
+            <div class="eat-drink-morning-third-div-image" style="border-right: 15px solid gray; width: 90%; height: 100vh; display: flex; margin-top: 120px; color: white;">
                 <div style="width: 50%; height: 100%; display: flex; align-items:flex-end; padding-left: 20px;">
                     <div style="width: 50%; height: 50%; color: #f9efea; line-height: 1.75; letter-spacing: .4px; font-weight: 300;  position: relative; z-index: 999;">
                         <p>Dim – Mer</p>
