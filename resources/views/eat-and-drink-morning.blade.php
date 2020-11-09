@@ -255,8 +255,27 @@
 
             </div>
 
+            <!--Nineth div-->
+            <div style="width: 100%; height: 100vh; margin-top: 80px; display: flex;">
+                <div style="width: 50%; height: 100vh; display: flex; align-items: center; justify-content: center;" class="eat-drink-morning-ninenth-div-image">
+                    <div style="width: 40vw; height: 40vh; position: relative; left: 30vw; display: flex; justify-content: space-between;">
+                        <div style="width: 45%; height: 80%;" class="nineth-left-image"></div>
+                        <div style="width: 45%; height: 80%;" class="nineth-right-image"></div>
+                    </div>
+                </div>
+
+                <div style="width: 50%; height: 100vh;">
+                    <h2 class="col-5 offset-2" style="font-size: 4vw;">Galerie</h2>
+                    <div class="col-4 offset-7">
+                        <p style="line-height: 1.6;">Des petits-déjeuners matinaux aux déjeuners panoramiques,
+                            explorez le mode de vie du restaurant royal Palms Rooftop.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <!--Tenth div-->
-            <div style="width: 90%; height: 60vh; margin-top: 80px; margin-left: 20%; padding-top: 40px;" class="eat-drink-morning-tenth-div-image">
+            <div style="width: 90%; height: 60vh; margin-top: 100px; margin-left: 20%; padding-top: 40px;" class="eat-drink-morning-tenth-div-image">
                 <div style="width: 40%; margin-left: 50%; color: white; font-size: 3vw; font-weight: 400; line-height: 36px; letter-spacing: .3px ">
                     <p>Une expérience panoramique exquise en un seul clic</p>
                 </div>
@@ -272,6 +291,14 @@
             <!--Eleventh div-->
             <div style="width: 90%; height: 60vh; margin-top: 120px;" class="eat-drink-morning-eleventh-div-image">
 
+            </div>
+
+            <!--Twelveth div-->
+            <div style="width: 100%; height: 20vh; margin-top: 80px;">
+                <div style="margin-left: 350px;">
+                    <h2><a href="#" style="font-size: 5vw; color: #68625d;">Dans la soirée -></a></h2>
+                </div>
+                <p style="display: flex; flex-direction: column; align-items: flex-end; margin-right: 70px;">&copy; royalPalms 2020<p>
             </div>
 
         </div>
