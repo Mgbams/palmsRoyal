@@ -25,9 +25,14 @@ Route::get('about', 'AboutHotelController@show')->name('about');
 Route::get('rooms', 'RoomController@show')->name('rooms');
 //return view(eat-and-drink/restaurant-morning)
 Route::get('/eat-and-drink-morning', 'EatAndDrinkMorningController@show')->name('eat-drink-morning');
-
+//return view(eat-and-drink/restaurant-morning)
+Route::get('/lobby-bar', 'LobbyBarController@show')->name('lobby-bar');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//routes.php
+Route::get('view/{slashData?}', 'ExampleController@getData')
+    ->where('slashData', '(.*)');
