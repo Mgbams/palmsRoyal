@@ -12,9 +12,9 @@
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/demo.css" />
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
-	  <!--main css file starts here-->
-	  <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <!--main css file ends here-->
+	<!--main css file starts here-->
+	<link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
+	<!--main css file ends here-->
 	<script src="js/modernizr-custom.js"></script>
 
 	<!--slick css file-->
@@ -86,7 +86,8 @@
 				</svg>
 			</div>
 
-			<div id="mixed-div-slider-container" style="width: 100vw; height: 100vh; margin-top: 80px;">
+			<!--News and Events-->
+			<div id="mixed-div-slider-container" style="width: 100vw; height: 100vh; margin-top: 200px; display: flex;">
 				<div id="mixed-div-coloured" style="width: 50%; height: 100vh;  background-color: pink; padding-top: 27vh;">
 					<div class="mixed-carousel" style="width: 90vw; height: 60vh; margin-left: 6vw;">
 						<div>
@@ -145,9 +146,14 @@
 						</div>
 					</div>
 				</div>
+
+				<div style="width: 50%;">
+					<h2 class="col-6" style="font-size: 5vw; position: relative; right: 6vw; bottom: 13vh;">News & Events</h2>
+					<p class="col-4 offset-8" style="position: relative; bottom: 10vh;"><a href="#">READ MORE</a></p>
+				</div>
 			</div>
 
-			<div id="left-image-homepage">
+			<div id="left-image-homepage" style="margin-top: 120px;">
 				<img src="https://cdn.pixabay.com/photo/2020/07/08/01/49/outdoors-5382306__340.jpg" />
 			</div>
 
