@@ -53,13 +53,13 @@
             <div style="position: relative; top: 20vh;">
                 <nav>
                     <ul style="display: flex; list-style-type: none;">
-                        <li style="margin-right: 10px;"><a href="#" style="color: #6d6d6d;">Main</a></li>
+                        <li style="margin-right: 10px;"><a href="{{url('palms-royal-homepage')}}" style="color: #6d6d6d;">Main</a></li>
                         <li style="margin-right: 10px; font-weight: 800;"> - </li>
-                        <li style="margin-right: 10px;"><a href="#" style="color: #6d6d6d;">About</a></li>
+                        <li style="margin-right: 10px;"><a href="{{url('about')}}" style="color: #6d6d6d;">About</a></li>
                         <li style="margin-right: 10px; font-weight: 800;"> - </li>
                         <li style="margin-right: 10px;"><a href="#" style="color: #6d6d6d;">Special Offers</a></li>
                         <li style="margin-right: 10px; font-weight: 800;"> - </li>
-                        <li style="margin-right: 10px;"><a href="#" style="color: #6d6d6d;">More Space, More Time</a></li>
+                        <li style="margin-right: 10px; color: #6d6d6d;">More Space, More Time</li>
                     </ul>
                 </nav>
             </div>
@@ -140,10 +140,18 @@
                     <p style="margin-top: 40px; margin-left: 5vw;" class="col-5">Abonnez-vous à la newsletter palmsRoyal</p>
                 </div>
 
-                <div style="width: 50%; border: 1px solid red;">
-                    <form method="post">
+
+                <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+                    <form style="width: 45%;" method="post" action="{{ route('morespace.store') }}">
 
                         @csrf
+
+                        <!-- Success message -->
+                        @if(Session::has('success'))
+                        <div class="alert alert-success">
+                            {{Session::get('success')}}
+                        </div>
+                        @endif
 
                         <div class="form-group">
                             <label>Name</label>
@@ -168,8 +176,27 @@
                             @endif
                         </div>
 
+                        <div class="form-group">
+                            {{ Form::checkbox('terms', 'yes', null, array('id'=>'terms-and-conditions-checkbox')) }}
+                            {{form::label('skills','I agree to the terms of this')}} <a href="#">Privacy Policy</a>
+                        </div>
+
                         <input type="submit" name="send" value="Submit" class="btn btn-dark btn-block">
                     </form>
+                </div>
+
+            </div>
+
+            <!--Last div-->
+            <div style="margin-top: 100px; width: 100%; margin-bottom: 40px;">
+                <div class="col-6 offset-4">
+                    <a href="#" style="font-size: 1.2vw; letter-spacing: 1.2px;">
+                        <- BACK TO ALL OFFERS
+                    </a> 
+                </div> 
+
+                <div class="col-2 offset-10">
+                    <small>&copy; palmsRoyal 2020</small>
                 </div>
             </div>
 

@@ -29,12 +29,14 @@ Route::get('/eat-and-drink-morning', 'EatAndDrinkMorningController@show')->name(
 Route::get('/lobby-bar', 'LobbyBarController@show')->name('lobby-bar');
 //return view(more-space)
 Route::get('/more-space', 'MoreSpaceController@show')->name('more-space');
+// Post more-space form data
+Route::post('/more-space-submit', [
+    'uses' => 'MoreSpaceController@store',
+    'as' => 'morespace.store'
+]);
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//routes.php
-Route::get('view/{slashData?}', 'ExampleController@getData')
-    ->where('slashData', '(.*)');

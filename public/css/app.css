@@ -19530,3 +19530,7 @@ readers do not read off random characters that represent icons */
   background-size: 100% 100%;
 }
 
+#terms-and-conditions-checkbox {
+  margin-right: 10px;
+}
+

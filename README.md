@@ -459,3 +459,40 @@ class AddStoreIdToUsersTable extends Migration
 }
 ```
 From the above, i created a column called **store-id** which references **id** on **stores** table and i made the column to appear after the **password** column in the database.
+
+## Fatal error: Allowed memory size of 1610612736 bytes exhausted 
+Visit the below page to solve this problem
+
+[stackoverflow](https://stackoverflow.com/questions/49212475/composer-require-runs-out-of-memory-php-fatal-error-allowed-memory-size-of-161)
+Or simply type
+
+```bash
+$ php --ini
+```
+The above command shows you the location of your php.ini file. Then navigate on your system to that file and open the php.ini file in note pad or block note. Search for memory_limit and change it's value to -1.
+e.g
+
+```
+memory_limit = -1
+```
+
+## Using laravel Form command to create forms in laravel
+You have to install laravelcollective for this to work.
+[stackoverflow](https://stackoverflow.com/questions/60921933/class-form-not-found-in-laravel-7)
+```bash
+$ composer require laravelcollective/html
+```
+
+You can check if you already have it installed by running the below command
+
+```bash
+$ composer show -- laravelcollective/html
+```
+After succesfull installation, you can use Form to create forms as shown below
+```blade
+
+{{ Form::checkbox('admin', 'yes', true) }}
+```
+The below link explains working with checkboxes in laravel
+[checkboxes](https://stackoverflow.com/questions/26973442/laravel-blade-check-box)
+
