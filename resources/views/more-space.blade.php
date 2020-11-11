@@ -187,21 +187,25 @@
 
             </div>
 
-            <!--Last div-->
-            <div style="margin-top: 100px; width: 100%; margin-bottom: 40px;">
+            <!--Fourth div-->
+            <div style="margin-top: 100px; width: 100%; margin-bottom: 60px;">
                 <div class="col-6 offset-4">
                     <a href="#" style="font-size: 1.2vw; letter-spacing: 1.2px;">
                         <- BACK TO ALL OFFERS
                     </a> 
-                </div> 
-
-                <div class="col-2 offset-10">
-                    <small>&copy; palmsRoyal 2020</small>
                 </div>
             </div>
 
+            
+            <!--Fifth div-->
+            <div style="margin-top: 100px; width: 40%; height: 55vh; background-color: #f9efea; margin-left: 30vw; margin-top: -80vh; z-index: -10;"></div>
+           
+            <!--Sixth div--> 
+            <div class="col-2 offset-10" style="padding-bottom: 40px; margin-top: 100px; width: 40%; ">
+                    <small>&copy; palmsRoyal 2020</small>
+             </div>
         </div>
-        
+
     </div>
 
     <!-- /pages-stack -->
