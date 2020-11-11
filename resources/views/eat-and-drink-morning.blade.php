@@ -243,11 +243,11 @@
 
                     <div style="width: 30%; margin-bottom: 23vh; color: #68625d;">
                         <p>
-                            Lun – Ven: <br />
+                            <strong>Lun – Ven:</strong> <br />
                             Breakfasts / 7:00 – 11:00
                         </p>
                         <p style="margin-top: 30px;">
-                            Sam – Dim: <br />
+                        <strong>Sam – Dim:</strong> <br />
                             Breakfasts / 7:30 – 12:00
                         </p>
                     </div>
@@ -259,8 +259,8 @@
             <div style="width: 100%; height: 100vh; margin-top: 80px; display: flex;">
                 <div style="width: 50%; height: 100vh; display: flex; align-items: center; justify-content: center;" class="eat-drink-morning-ninenth-div-image">
                     <div style="width: 40vw; height: 40vh; position: relative; left: 30vw; display: flex; justify-content: space-between;">
-                        <div style="width: 45%; height: 80%;" class="nineth-left-image"></div>
-                        <div style="width: 45%; height: 80%;" class="nineth-right-image"></div>
+                        <div style="width: 45%; height: 95%; border-radius: 50%;" class="nineth-left-image"></div>
+                        <div style="width: 45%; height: 95%; border-radius: 50%;" class="nineth-right-image"></div>
                     </div>
                 </div>
 
