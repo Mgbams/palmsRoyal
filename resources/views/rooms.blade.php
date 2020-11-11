@@ -62,7 +62,7 @@
                 <header class="main_h" style="position: fixed; top: 0px;">
 
                     <div class="row">
-                        <a class="logo" href="{{url('/palms-royal-homepage')}}">royalPalms</a>
+                        <a class="logo" href="{{url('/palms-royal-homepage')}}">palmsRoyal</a>
 
                         <div class="mobile-toggle">
                             <span></span>

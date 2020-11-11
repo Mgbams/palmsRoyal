@@ -56,7 +56,7 @@
 				<header class="main_h" style="color: yellow; position: fixed; top: 0px;">
 
 					<div class="row">
-						<a class="logo" href="{{url('/palms-royal-homepage')}}">royalPalms</a>
+						<a class="logo" href="{{url('/palms-royal-homepage')}}">palmsRoyal</a>
 
 						<div class="mobile-toggle">
 							<span></span>
@@ -218,7 +218,7 @@
 			<!-- Sixth Block-->
 			<div class="sixth-div-block">
 				<div class="left-block">
-					<div class="col-5 offset-7 left-block-title-div"><h2>royalPalms in Media</h2></div>
+					<div class="col-5 offset-7 left-block-title-div"><h2>palmsRoyal in Media</h2></div>
 					<div class="left-block-content">
 						<p class="col-7">
 							Beaux visuels et dernières nouvelles sur nos réseaux sociaux: <br />

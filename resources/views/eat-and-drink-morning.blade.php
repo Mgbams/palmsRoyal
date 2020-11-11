@@ -56,7 +56,7 @@
                 <header class="main_h" style="color: yellow; position: fixed; top: 0px;">
 
                     <div class="row">
-                        <a class="logo" href="{{url('/palms-royal-homepage')}}">royalPalms</a>
+                        <a class="logo" href="{{url('/palms-royal-homepage')}}">palmsRoyal</a>
 
                         <div class="mobile-toggle">
                             <span></span>
@@ -298,7 +298,7 @@
                 <div style="margin-left: 350px;">
                     <h2><a href="#" style="font-size: 5vw; color: #68625d;">Dans la soirée -></a></h2>
                 </div>
-                <p style="display: flex; flex-direction: column; align-items: flex-end; margin-right: 70px;">&copy; royalPalms 2020<p>
+                <p style="display: flex; flex-direction: column; align-items: flex-end; margin-right: 70px;">&copy; palmsRoyal 2020<p>
             </div>
 
         </div>

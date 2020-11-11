@@ -27,6 +27,8 @@ Route::get('rooms', 'RoomController@show')->name('rooms');
 Route::get('/eat-and-drink-morning', 'EatAndDrinkMorningController@show')->name('eat-drink-morning');
 //return view(eat-and-drink/restaurant-morning)
 Route::get('/lobby-bar', 'LobbyBarController@show')->name('lobby-bar');
+//return view(more-space)
+Route::get('/more-space', 'MoreSpaceController@show')->name('more-space');
 
 
 Auth::routes();
