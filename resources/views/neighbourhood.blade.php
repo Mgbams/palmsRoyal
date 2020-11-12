@@ -133,13 +133,13 @@
             </div>
 
             <!--Third div-->
-            <div class="first-div-block" style="margin-top: 80px; height: 60vh; width: 100%; margin-bottom: 150px;">
+            <div class="first-div-block" style="margin-top: 10px; height: 60vh; width: 100%; margin-bottom: 150px;">
                 <div style="width: 90%; margin-left: 10%;">
                     <img src="https://www.planetware.com/photos-large/F/france-lyon-mural.jpg" style="width: 100%; height: 100%;" />
                 </div>
             </div>
 
-            <div class="first-div-block" style="margin-top: 100px; height: 60vh; width: 100%;">
+            <div class="first-div-block" style="margin-top: 20px; height: 40vh; width: 100%;">
                 <div style="width: 50%; display: flex; justify-content: space-between; padding-left: 120px;">
                     <div style="width: 45%;">
                         <p>
@@ -171,14 +171,14 @@
             </div>
 
             <!--First div-->
-            <div class="first-div-block" style="margin-top: 20px; height: 60vh; width: 100%;">
+            <div class="first-div-block" style="margin-bottom: 40px; height: 60vh; width: 100%;">
                 <div style="width: 90%;">
                     <img src="https://www.planetware.com/photos-large/F/france-lyon-park.jpg" style="width: 100%; height: 100%;" />
                 </div>
             </div>
 
             <!--Second div-->
-            <div class="first-div-block" style="margin-top: 100px; height: 60vh; width: 100%;">
+            <div class="first-div-block" style="margin-top: 80px; height: 40vh; width: 100%;">
                 <div style="width: 50%; display: flex; justify-content: flex-end; padding-right: 50px;">
                     <h2 style="font-size: 3vw;"> Parc de la Tête d'Or</h2>
                 </div>
@@ -218,7 +218,7 @@
                 </div>
             </div>
 
-            <div class="first-div-block" style="margin-top: 100px; height: 60vh; width: 100%;">
+            <div class="first-div-block" style="margin-top: 100px; height: 40vh; width: 100%;">
                 <div style="width: 50%; display: flex; justify-content: space-between; padding-left: 120px;">
                     <div style="width: 45%;">
                         <p>
@@ -259,7 +259,7 @@
             </div>
 
             <div class="first-div-block" style="margin-top: 100px; height: 60vh; width: 100%;">
-                <div style="width: 50%; display: flex; justify-content: flex-end; padding-right: 50px;">
+                <div style="width: 50%; display: flex; justify-content: flex-start; padding-left: 100px;">
                     <h2 style="font-size: 3vw;">Basilique Notre-Dame de Fourviere</h2>
                 </div>
 
