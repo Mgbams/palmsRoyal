@@ -374,7 +374,9 @@
             </div>
 
             <!--Last div-->
-            <div style="height: 10vh; display: flex; justify-content: flex-end; padding-right: 60px; width: 100%: margin: 40px 0px;"><small>&copy; palmsRoyal 2020</small></div>
+            <div style="height: 10vh; display: flex; justify-content: flex-end; padding-right: 60px; width: 100%; margin: 40px 0px;">
+                <small>&copy; palmsRoyal 2020</small>
+            </div>
 
         </div>
 
