@@ -34,6 +34,12 @@ Route::post('/more-space-submit', [
     'uses' => 'MoreSpaceController@store',
     'as' => 'morespace.store'
 ]);
+// Neighbourhood page: You can access it with 'route' as shown here <a href="{{ route('neighbourhood.show') }}">EXPLORE</a>
+Route::get('/neighbourhood', [
+    'uses' => 'NeighbourhoodController@show',
+    'as' => 'neighbourhood.show'
+]);
+
 
 
 Auth::routes();

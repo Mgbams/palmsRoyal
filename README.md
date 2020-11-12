@@ -496,3 +496,16 @@ After succesfull installation, you can use Form to create forms as shown below
 The below link explains working with checkboxes in laravel
 [checkboxes](https://stackoverflow.com/questions/26973442/laravel-blade-check-box)
 
+## Using Route in web.php
+
+```web.php
+Route::get('/neighbourhood', [
+    'uses' => 'NeighbourhoodController@show',
+    'as' => 'neighbourhood.show'
+]);
+```
+Then in blade template, use the keyword **route** to get the url as shown below
+
+```blade
+    <a href="{{ route('neighbourhood.show') }}">EXPLORE</a>
+```

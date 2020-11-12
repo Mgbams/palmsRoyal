@@ -168,7 +168,7 @@
 					</p>
 				</div>
 				<div class="read-more offset-6">
-					<p><a href="#">EXPLORE</a></p>
+					<p><a href="{{ route('neighbourhood.show') }}">EXPLORE</a></p>
 				</div>
 			</div>
 

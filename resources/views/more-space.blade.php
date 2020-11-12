@@ -169,6 +169,7 @@
                             <label>Email</label>
                             <input type="email" class="form-control {{ $errors->has('email') ? 'error' : '' }}" name="email" id="email">
 
+                            <!-- Error -->
                             @if ($errors->has('email'))
                             <div class="error">
                                 {{ $errors->first('email') }}
@@ -201,8 +202,8 @@
             <div style="margin-top: 100px; width: 40%; height: 55vh; background-color: #f9efea; margin-left: 30vw; margin-top: -80vh; z-index: -10;"></div>
            
             <!--Sixth div--> 
-            <div class="col-2 offset-10" style="padding-bottom: 40px; margin-top: 100px; width: 40%; ">
-                    <small>&copy; palmsRoyal 2020</small>
+            <div class="col-2 offset-10" style="padding-bottom: 40px; margin-top: 100px; width: 40%;">
+                <small>&copy; palmsRoyal 2020</small>
              </div>
         </div>
 
