@@ -509,3 +509,34 @@ Then in blade template, use the keyword **route** to get the url as shown below
 ```blade
     <a href="{{ route('neighbourhood.show') }}">EXPLORE</a>
 ```
+
+## Making Svg Responsive
+The example below explains it better
+
+```blade
+    <div class="svg-container">
+	    <svg version="1.1" viewBox="0 0 500 500" 
+            preserveAspectRatio="xMinYMin meet" class="svg-content">
+	        <circle fill="#F7941E" stroke="#231F20" stroke-width="10" 
+	        stroke-miterlimit="10" cx="250" cy="250" r="200" opacity="0.6" />
+	    </svg>
+    </div>
+```
+
+```app.scss
+    .svg-container { 
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%; 
+	vertical-align: middle; 
+	overflow: hidden; 
+}
+
+.svg-content { 
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+```

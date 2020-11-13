@@ -39,7 +39,11 @@ Route::get('/neighbourhood', [
     'uses' => 'NeighbourhoodController@show',
     'as' => 'neighbourhood.show'
 ]);
-
+// Hotel Info
+Route::get('/hotel-info', [
+    'uses' => 'HotelInfoController@show',
+    'as' => 'hotel-info.show'
+]);
 
 
 Auth::routes();

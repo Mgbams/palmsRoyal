@@ -178,7 +178,7 @@
 			</div>
 
 			<div class="about-hotel-link">
-				<p><a href="#">About Hotel </a><a href="#" id="hotelLink"><i class="fa fa-arrow-right"></i></a></p>
+				<p><a href="{{ route('hotel-info.show') }}">Hotel Info </a><a href="{{ route('hotel-info.show') }}" id="hotelLink"><i class="fa fa-arrow-right"></i></a></p>
 			</div>
 		</div>
 
