@@ -19566,8 +19566,39 @@ readers do not read off random characters that represent icons */
   left: 0;
 }
 
+.svg-container-hotel-info-made-by {
+  display: inline-block;
+  position: relative;
+  width: 20%;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.svg-content-hotel-info-made-by {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .hotel-info-second-div {
   background-image: url("https://cdn.pixabay.com/photo/2018/12/13/22/26/meat-3873890_960_720.jpg");
   background-size: 100% 100%;
+}
+
+.partner-left-div-image {
+  background-image: url("https://cdn.pixabay.com/photo/2018/12/13/22/26/meat-3873890_960_720.jpg");
+  background-size: 100% 100%;
+}
+
+.hotel-info-partners-container .slick-prev:before,
+.hotel-info-partners-container .slick-next:before {
+  color: black;
+}
+
+.hotel-info-partners-container .slick-prev:before {
+  position: relative;
+  left: 62.05vw;
+  bottom: 67px;
 }
 
