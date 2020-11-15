@@ -18569,6 +18569,15 @@ readers do not read off random characters that represent icons */
   box-sizing: border-box;
 }
 
+.pages-stack {
+  width: 100% !important;
+  overflow-x: hidden;
+  height: 100%;
+  border: 2px solid red;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
 #slideshow {
   width: 100%;
   height: 100vh;
@@ -18610,7 +18619,6 @@ readers do not read off random characters that represent icons */
 
 #page-home {
   min-height: 100Vh !important;
-  overflow-y: scroll;
   background-color: #f7f7f7;
 }
 
@@ -18630,7 +18638,6 @@ readers do not read off random characters that represent icons */
 }
 
 #about-homepage #about-inner-container div #about-text #about {
-  margin-left: 120px;
   font-size: 3rem;
 }
 
@@ -18706,7 +18713,6 @@ readers do not read off random characters that represent icons */
 
 #stay-page #image-div {
   height: 80vh;
-  padding-left: 0px !important;
 }
 
 #stay-page #image-div img {

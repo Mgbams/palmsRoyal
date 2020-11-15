@@ -1,8 +1,12 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/css/component.css": "/css/component.css",
-    "/css/demo.css": "/css/demo.css",
-    "/js/main.js": "/js/main.js",
-    "/js/modernizr-custom.js": "/js/modernizr-custom.js"
+    "/css/style1.css": "/css/style1.css",
+    "/css/style2.css": "/css/style2.css",
+    "/css/normalize.css": "/css/normalize.css",
+    "/css/header-effects-component.css": "/css/header-effects-component.css",
+    "/css/header-effects-normalize.css": "/css/header-effects-normalize.css",
+    "/js/gnmenu.js": "/js/gnmenu.js",
+    "/js/header-effects-modernizr-custom.js": "/js/header-effects-modernizr-custom.js",
+    "/js/modernizr1-custom.js": "/js/modernizr1-custom.js"
 }

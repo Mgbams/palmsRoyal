@@ -12,8 +12,16 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .js('resources/js/main.js', 'public/js')
-    .js('resources/js/modernizr-custom.js', 'public/js')
+    .js('resources/js/modernizr1-custom.js', 'public/js')
+    .js('resources/js/gnmenu.js', 'public/js')
+
+    .js('resources/js/header-effects-modernizr-custom.js', 'public/js')
+
     .sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/component.scss', 'public/css')
-    .sass('resources/sass/demo.scss', 'public/css');
+
+    .sass('resources/sass/style1.scss', 'public/css')
+    .sass('resources/sass/style2.scss', 'public/css')
+    .sass('resources/sass/normalize.scss', 'public/css')
+    
+    .sass('resources/sass/header-effects-component.scss', 'public/css')
+    .sass('resources/sass/header-effects-normalize.scss', 'public/css');

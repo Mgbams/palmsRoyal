@@ -22,6 +22,14 @@
 * {
     box-sizing: border-box;
 }
+.pages-stack {
+    width: 100% !important;
+    overflow-x: hidden;
+    height: 100%;
+    border: 2px solid red;
+    margin: 0px !important;
+    padding: 0px !important;
+}
 
 //carousel
 
@@ -64,7 +72,6 @@
 
 #page-home {
     min-height: 100Vh !important;
-    overflow-y: scroll;
     background-color: $yeast;
 }
 
@@ -79,7 +86,7 @@
             z-index: 1; 
             line-height: 1;
             #about {
-                margin-left: 120px;  
+                //margin-left: 120px;  
                 font-size: 3rem; 
             }
             #royalPalms {
@@ -147,7 +154,7 @@
     position: absolute;
     #image-div {
         height: 80vh;
-        padding-left: 0px !important;
+        //padding-left: 0px !important;
         img {
             height: 80vh;  
             width: 100%;
