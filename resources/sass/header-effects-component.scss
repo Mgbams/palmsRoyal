@@ -453,7 +453,12 @@ section p {
 
 /*** About page starts here ***/
 
-//First div
+//Top image section
+.top-image {
+	margin-bottom: 80px;
+}
+
+//First Section
 .first-effects-div {
 	width: 100vw !important;
 	margin: 0px;
@@ -495,7 +500,7 @@ section p {
     }
 }
 
-//Second effects div
+//Second effects Section
 
 .second-effects-div {
 	width: 100vw !important;
@@ -541,7 +546,7 @@ section p {
     }
 }
 
-//Third effects div
+//Third effects Section
 .third-effects-div {
 	width: 100vw !important;
 	margin: 0px;
@@ -612,7 +617,7 @@ section p {
     }
 }
 
-//Trip Advisor div block
+//Trip Advisor Section
 .fourth-effects-div {
 	width: 100vw !important;
 	margin-bottom: 220px;
@@ -662,7 +667,7 @@ section p {
 	}
 }
 
-//Hotel awrds effects div
+//Hotel awrds effects Section
 
 .sixth-effects-div {
 	width: 100vw !important;
@@ -710,11 +715,11 @@ section p {
 	}
 }
 
-//seventh block
+//seventh block section
 .special-offers {
-	Width: 100%;
+	width: 100%;
 	.about-special-offers {
-		Width: 100%;
+		width: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -724,9 +729,8 @@ section p {
 	}
 }
 
-//slideshow div
+//slideshow section
 .slideshow-div {
-	border: 2px solid green;
 	width: 100vw !important;
 	margin: 0px;
 	padding: 0px;
@@ -750,20 +754,35 @@ section p {
 				height: 100%;
 				background-size: cover;
 			}
-    	}
+		}
+		.slick-dots li button:before {
+			color: white !important;
+		}
+		
+		//colour of carousel dot when active
+		.slick-dots li.slick-active button:before {
+			color: blue !important;
+		}
+		
+		.slick-active {
+			opacity: .5;
+		}
+		.slick-current {
+			opacity: 1;
+		}
 	}
 }
 
 .nineth-content-container {
-	border: 2px solid yellow;
-	width: 100vw !important;
-	margin: 0px;
+	width: 100vw;
 	padding: 0px;
 	position: relative;
-	height: 50vh;
-	overflow-x: hidden;
+	height: 40vh;
+	bottom: 160px;
 	.special-offers-div {
 		width: 100%;
+		border: 2px solid yellow;
+		height: 40vh;
 		.about-hotel-svg-container {
 			display: inline-block;
 			position: relative;
@@ -779,10 +798,7 @@ section p {
 				left: 0;
 			}
 		}
-		p {
-			position: relative;
-			left: 40%;
-		}
+		
 	}
 }
 
@@ -790,7 +806,9 @@ section p {
 
 .tenth-content-container {
 	width: 100vw;
-	height: 20vh !important;
+	height: 10vh;
+	position: relative;
+	bottom: 100px;
 	.copy {
 		width: 100%;
 		display: flex;

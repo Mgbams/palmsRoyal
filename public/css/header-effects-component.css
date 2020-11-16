@@ -403,6 +403,10 @@ section p {
 
 /*** About page starts here ***/
 
+.top-image {
+  margin-bottom: 80px;
+}
+
 .first-effects-div {
   width: 100vw !important;
   margin: 0px;
@@ -684,11 +688,11 @@ section p {
 }
 
 .special-offers {
-  Width: 100%;
+  width: 100%;
 }
 
 .special-offers .about-special-offers {
-  Width: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -699,7 +703,6 @@ section p {
 }
 
 .slideshow-div {
-  border: 2px solid green;
   width: 100vw !important;
   margin: 0px;
   padding: 0px;
@@ -729,18 +732,34 @@ section p {
   background-size: cover;
 }
 
+.slideshow-div #slideshow-center .slick-dots li button:before {
+  color: white !important;
+}
+
+.slideshow-div #slideshow-center .slick-dots li.slick-active button:before {
+  color: blue !important;
+}
+
+.slideshow-div #slideshow-center .slick-active {
+  opacity: 0.5;
+}
+
+.slideshow-div #slideshow-center .slick-current {
+  opacity: 1;
+}
+
 .nineth-content-container {
-  border: 2px solid yellow;
-  width: 100vw !important;
-  margin: 0px;
+  width: 100vw;
   padding: 0px;
   position: relative;
-  height: 50vh;
-  overflow-x: hidden;
+  height: 40vh;
+  bottom: 160px;
 }
 
 .nineth-content-container .special-offers-div {
   width: 100%;
+  border: 2px solid yellow;
+  height: 40vh;
 }
 
 .nineth-content-container .special-offers-div .about-hotel-svg-container {
@@ -760,14 +779,11 @@ section p {
   left: 0;
 }
 
-.nineth-content-container .special-offers-div p {
-  position: relative;
-  left: 40%;
-}
-
 .tenth-content-container {
   width: 100vw;
-  height: 20vh !important;
+  height: 10vh;
+  position: relative;
+  bottom: 100px;
 }
 
 .tenth-content-container .copy {

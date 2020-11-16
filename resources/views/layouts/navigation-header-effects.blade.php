@@ -44,6 +44,9 @@
 			</div>
 		</header>
 		<!-- the sections with triggers -->
+		<section class="top-image">
+			@yield('top-image')
+		</section>
 		<section class="first-effects-div">
 			@yield('first-content')
 		</section>
@@ -139,39 +142,6 @@
 				});
 
 			});
-
-			// Second-carousel slide settings
-			$('.second-carousel').slick({
-				infinite: true,
-				slidesToShow: 2,
-				slidesToScroll: 3,
-				centerMode: true,
-				responsive: [{
-						breakpoint: 1200,
-						settings: {
-							arrows: false,
-							centerMode: true,
-						}
-					},
-					{
-						breakpoint: 768,
-						settings: {
-							arrows: false,
-							centerMode: true,
-							slidesToShow: 3
-						}
-					},
-					{
-						breakpoint: 480,
-						settings: {
-							arrows: false,
-							centerMode: true,
-							slidesToShow: 1
-						}
-					}
-				]
-			});
-		})
 	</script>
 
 	<script>
