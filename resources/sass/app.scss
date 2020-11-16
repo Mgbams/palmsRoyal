@@ -845,8 +845,9 @@ h2, p, h3 {
     left: 120px;
 }
 
+// Modify side menu on min screen size of 1025px
 @media screen and (min-width: 1025px) {
-	.lobby-container {
+	.lobby-container, .more-space-container, .eat-and-drink-morning-container {
 		width: 90vw !important;
 		margin: 0 auto !important;
 		font-size: 70%;
