@@ -845,5 +845,12 @@ h2, p, h3 {
     left: 120px;
 }
 
-
+@media screen and (min-width: 1025px) {
+	.lobby-container {
+		width: 90vw !important;
+		margin: 0 auto !important;
+		font-size: 70%;
+		text-align: right;
+	}
+}
   

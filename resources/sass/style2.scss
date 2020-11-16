@@ -134,6 +134,15 @@ body, .container {
 	}
 }
 
+/*@media screen and (min-width: 1025px) {
+	.container > header {
+		padding: 0px 50px;
+		margin: 0 auto;
+		font-size: 70%;
+		text-align: right;
+	}
+}*/
+
 @media screen and (max-width: 740px) {
 
 	.codrops-icon span {

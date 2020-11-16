@@ -3,7 +3,7 @@
 @section('title', 'Lobby Bar')
 
 @section('content')
-<div class="pages-stack">
+<div class="pages-stack lobby-container">
     <!-- page -->
     <div class="page about-hotel" id="page-home">
         <div id="about-top-image">
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <div class="eat-drink-morning-second-div-image" style="border-radius: 5%; width: 40%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 999;">
+            <div class="eat-drink-morning-second-div-image" style="border-radius: 5%; width: 40%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 200;">
                 <div style="width: 70%; height: 60%; background-color: #f9efea; position: relative; right: 17vw;">
                     <ul style="list-style-type: none; padding-top: 20px; text-decoration: underline;">
                         <li style="margin-bottom: 30px;"><i class="far fa-file-pdf" style="margin-right: 10px;"></i><a href="#">MENU PRINCIPAL DU COURS (PDF)</a></li>
