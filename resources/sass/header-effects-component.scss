@@ -2,10 +2,16 @@
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 body {
-	background: #e74c3c;
+	background: #f7f7f7;
 	padding: 240px 0 100%;
 	font-weight: 400;
 	font-family: 'Lato', Arial, sans-serif;
+}
+
+h2, p, h3, h1 {
+	color: black;
+	position: relative;
+	z-index: 1000;
 }
 
 /* Content style */
@@ -445,3 +451,309 @@ section p {
 	}
 }
 
+//First div
+.first-effects-div {
+	width: 100vw !important;
+	margin: 0px;
+	padding: 0px;
+	//first block css
+    .first-div-block {
+        width: 100%; 
+        height: 100vh; 
+        display: flex;
+        .left-image {
+            height: 100%; 
+            width: 50%; 
+            img {
+                height: 100%; 
+                width: 100%;
+            }
+        }
+        .right-block {
+            width: 45%; 
+            height: 100%; 
+            position: relative;
+            .colored-div {
+                height: 50%; 
+                background-color:pink; 
+                margin: 0; 
+                position: absolute; 
+                top: 50%; 
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                p {
+                    position: relative; 
+					bottom: 120px;
+					width: 45%;
+					left: 40%;
+					font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+//Second effects div
+
+.second-effects-div {
+	width: 100vw !important;
+	margin: 0px;
+	padding: 0px;
+	//second block css
+    .second-div-block {
+        width: 100%; 
+        height: 100vh; 
+        margin-top: 80px; 
+        display: flex;
+        .left-block {
+             width: 50%; 
+             height: 100%; 
+             position: relative;
+             .left-block-content {
+                height: 50%; 
+                background-color:pink; 
+                margin: 0; 
+                position: absolute; 
+                top: 50%; 
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%); 
+                width: 80%; 
+                left: 20%;
+                p {
+                    position: relative; 
+					top: 220px;
+					width: 45%;
+					left: 10%;
+					font-size: 16px;
+                }
+             }
+        }
+        .right-block {
+            height: 100%; 
+            width: 50%;
+            img {
+                height: 100%; 
+                width: 100%;
+            }
+        }
+    }
+}
+
+//Third effects div
+.third-effects-div {
+	width: 100vw !important;
+	margin: 0px;
+	padding: 0px;
+
+	//third block css
+    .third-div-block {
+        width: 100%; 
+        height: 100vh;
+        margin-top: 80px; 
+		display: flex;
+        .left-block {
+            height: 100%; 
+            width: 40%;
+            img {
+                height: 100%; 
+                width: 100%;
+            }
+        }
+        .right-block {
+            width: 60%; 
+            height: 100%;
+            .title {
+                position: relative; 
+                bottom: 40px; 
+                height: 10vh; 
+                text-align: center; 
+                font-size: 5rem;
+                h2 {
+                    font-size: 4rem;
+                }
+            }
+            .description {
+                height: 25vh; 
+                width: 28%; 
+                margin-left: 40%;
+				text-align: justify;
+				font-size: 16px;
+            }
+            .list-and-block-container {
+                display: flex; 
+                width: 100%; 
+                height: 65vh;
+                .list-container {
+                    width: 30%; 
+					height: 65vh;
+					position: relative;
+					bottom: 35px;
+                    ul {
+                        list-style-type: none; 
+                        height: 100%; 
+                        display: flex; 
+                        flex-direction: column; 
+						justify-content:space-evenly;
+						li a {
+							font-size: 14px;
+						}
+                    }
+                }
+                .colored-div {
+                    width: 60%; 
+                    height: 30vh; 
+                    background-color:pink; 
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}
+
+.fourth-effects-div {
+	width: 100vw !important;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	top: 40px;
+	//fourth block
+    .about-award-title {
+        width: 20vw;
+        position: relative;
+        top: 60px !important;
+    }
+}
+
+//Trip Advisor div block
+.fifth-effects-div {
+	width: 100vw !important;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	margin-bottom: 150px;
+    .sixth-div-block {
+        width: 100%; 
+        height: 100vh; 
+        margin-top: 720px; 
+        display: flex;
+        .left-block {
+             width: 50%; 
+             height: 100%; 
+             position: relative;
+             .left-block-title-div {
+                position: relative; 
+                z-index: 10; 
+                bottom: 40px;
+                h2 {
+                    font-size: 4rem;
+                }
+             }
+             .left-block-content {
+                height: 50%; 
+                background-color:pink; 
+                margin: 0; 
+                position: absolute; 
+                top: 50%; 
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%); 
+                width: 80%; 
+                left: 22%;
+
+                p {
+                    position: relative; 
+					top: 250px;
+					font-size: 16px;
+                }
+             }
+        }
+        .right-block {
+            height: 100%; 
+            width: 50%;
+            position: relative;
+            z-index: 1;
+            img {
+                height: 100%; 
+                width: 100%;
+            }
+        }
+    }
+}
+
+//Hotel awrds effects div
+
+.sixth-effects-div {
+	width: 100vw !important;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	height: 100vh;
+	.sixth-div-block {
+		display: flex;
+		margin-bottom: 70px;
+		width: 100%;
+		margin-left: 10%;
+		.right-block {
+			width: 50%;
+			height: 100vh;
+			img {
+				width: 100%;
+				height: 100vh;
+			}
+		}
+
+		.left-block {
+			width: 40%;
+			background-color: pink; 
+			height: 50vh;
+			position: relative;
+			top: 30vh;
+			.left-block-content {
+				width: 200px;
+				position: relative;
+				top: 10vh;
+				p, a {
+					font-size: 16px;
+				}
+			}
+			.left-block-title-div {
+				position: relative;
+				bottom: 45vh;
+				left: 18vw;
+				h2 {
+					font-size: 4vw;
+				}
+			}
+		}
+	}
+}
+
+//slideshow div
+
+.slideshow-div {
+	border: 2px solid green;
+	width: 100vw !important;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	height: 100vh;
+
+	#slideshow-center {
+		width: 98%; 
+		height: 50vh;
+		background-color: black;
+		margin-top: 50px;
+		margin-left: auto;
+		margin-right: auto;
+		div {
+			width: 95%;
+			margin: auto !important;
+			height: 50vh !important;
+			display: flex;
+			img {
+				width: 75%;
+				height: 100%;
+				background-size: cover;
+			}
+    	}
+	}
+}

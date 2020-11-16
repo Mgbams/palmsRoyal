@@ -62,8 +62,10 @@
             <li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
             <li><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16030"><span>Back to the Codrops Article</span></a></li>
         </ul>
-      @yield('content')
-    </div><!-- /container -->
+        <header>
+            @yield('content')
+        </header>
+    </div>
 
     <!--js-->
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

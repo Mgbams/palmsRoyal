@@ -44,51 +44,50 @@
 			</div>
 		</header>
 		<!-- the sections with triggers -->
-		<section>
+		<section class="first-effects-div">
 			@yield('first-content')
 		</section>
-		<section class="ha-waypoint" data-animate-down="ha-header-small" data-animate-up="ha-header-large">
+		<section class="ha-waypoint second-effects-div" data-animate-down="ha-header-small" data-animate-up="ha-header-large">
 			@yield('second-content')
 		</section>
-		<section class="ha-waypoint" data-animate-down="ha-header-hide" data-animate-up="ha-header-small">
-		@yield('third-content')
+		<section class="ha-waypoint third-effects-div" data-animate-down="ha-header-hide" data-animate-up="ha-header-small">
+			@yield('third-content')
 		</section>
-		<section class="ha-waypoint" data-animate-down="ha-header-show" data-animate-up="ha-header-hide">
-			
-		@yield('fourth-content')
+		<section class="ha-waypoint fourth-effects-div" data-animate-down="ha-header-show" data-animate-up="ha-header-hide">
+			@yield('fourth-content')
 		</section>
-		<section class="ha-waypoint" data-animate-down="ha-header-subshow" data-animate-up="ha-header-show">
-		@yield('fifth-content')
+		<section class="ha-waypoint fifth-effects-div" data-animate-down="ha-header-subshow" data-animate-up="ha-header-show">
+			@yield('fifth-content')
 		</section>
-		<section class="ha-waypoint" data-animate-down="ha-header-show" data-animate-up="ha-header-subshow">
-		@yield('sixth-content')
+		<section class="ha-waypoint sixth-effects-div" data-animate-down="ha-header-show" data-animate-up="ha-header-subshow">
+			@yield('sixth-content')
 		</section>
 		<section class="ha-waypoint" data-animate-down="ha-header-shrink" data-animate-up="ha-header-show">
-		@yield('seventh-content')
+			@yield('seventh-content')
 		</section>
-		<section class="ha-waypoint" data-animate-down="ha-header-rotateBack" data-animate-up="ha-header-shrink">
-		@yield('eight-content')
+		<section class="ha-waypoint slideshow-div" data-animate-down="ha-header-rotateBack" data-animate-up="ha-header-shrink">
+			@yield('eight-content')
 		</section>
 		<section class="ha-waypoint" data-animate-down="ha-header-rotate" data-animate-up="ha-header-rotateBack">
-		@yield('nineth-content')
+			@yield('nineth-content')
 		</section>
 		<section class="ha-waypoint" data-animate-down="ha-header-rotateBack" data-animate-up="ha-header-rotate">
-		@yield('tenth-content')
+			@yield('tenth-content')
 		</section>
-		<section class="ha-waypoint" data-animate-down="ha-header-color" data-animate-up="ha-header-rotateBack">	
-		@yield('eleventh-content')
+		<section class="ha-waypoint" data-animate-down="ha-header-color" data-animate-up="ha-header-rotateBack">
+			@yield('eleventh-content')
 		</section>
 		<section class="ha-waypoint" data-animate-down="ha-header-small" data-animate-up="ha-header-color">
-		@yield('twelveth-content')
+			@yield('twelveth-content')
 		</section>
 		<section class="ha-waypoint" data-animate-down="ha-header-box" data-animate-up="ha-header-small">
-		@yield('thirteenth-content')
+			@yield('thirteenth-content')
 		</section>
 		<section class="ha-waypoint" data-animate-down="ha-header-fullscreen" data-animate-up="ha-header-box">
-		@yield('fourteenth-content')
+			@yield('fourteenth-content')
 		</section>
 		<section class="ha-waypoint" data-animate-down="ha-header-subfullscreen" data-animate-up="ha-header-fullscreen">
-		@yield('fifteenth-content')
+			@yield('fifteenth-content')
 		</section>
 		<!--<div class="scroll">Scroll down</div>-->
 	</div><!-- /container -->
@@ -110,6 +109,108 @@
 			}, {
 				offset: '100%'
 			});
+		});
+	</script>
+	<script>
+		$(document).ready(() => {
+			$('.about-slick').slick({
+				slidesPerRow: 3,
+				rows: 2,
+				responsive: [{
+					breakpoint: 478,
+					settings: {
+						slidesPerRow: 1,
+						rows: 1,
+					}
+				}]
+			});
+
+			$(".main_h").animate({
+				opacity: 0.5,
+				height: "toggle",
+				scrollTop: '50px'
+			}, 5000, function() {
+				// Animation complete.
+				$(".main_h").animate({
+					opacity: 1,
+					height: "toggle",
+					scrollBottom: '50px'
+				});
+
+			});
+
+			// Second-carousel slide settings
+			$('.second-carousel').slick({
+				infinite: true,
+				slidesToShow: 2,
+				slidesToScroll: 3,
+				centerMode: true,
+				responsive: [{
+						breakpoint: 1200,
+						settings: {
+							arrows: false,
+							centerMode: true,
+						}
+					},
+					{
+						breakpoint: 768,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							slidesToShow: 3
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							slidesToShow: 1
+						}
+					}
+				]
+			});
+		})
+	</script>
+
+	<script>
+		// Sticky Header
+		$(window).on('scroll', function() {
+			console.log('am inside scroll');
+			if ($('.main_h').scrollTop() > 100) {
+				console.log("greater than 100");
+				$('.main_h').addClass('sticky');
+			} else {
+				console.log("remove 100");
+				$('.main_h').removeClass('sticky');
+			}
+		});
+
+		// Mobile Navigation
+		$('.mobile-toggle').click(function() {
+			if ($('.main_h').hasClass('open-nav')) {
+				$('.main_h').removeClass('open-nav');
+			} else {
+				$('.main_h').addClass('open-nav');
+			}
+		});
+
+		$('.main_h li a').click(function() {
+			if ($('.main_h').hasClass('open-nav')) {
+				$('.navigation').removeClass('open-nav');
+				$('.main_h').removeClass('open-nav');
+			}
+		});
+
+		// navigation scroll lijepo radi materem
+		$('nav a').click(function(event) {
+			var id = $(this).attr("href");
+			var offset = 70;
+			var target = $(id).offset().top - offset;
+			$('html, body').animate({
+				scrollTop: target
+			}, 500);
+			event.preventDefault();
 		});
 	</script>
 </body>

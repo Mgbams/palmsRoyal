@@ -7,10 +7,19 @@
 }
 
 body {
-  background: #e74c3c;
+  background: #f7f7f7;
   padding: 240px 0 100%;
   font-weight: 400;
   font-family: "Lato", Arial, sans-serif;
+}
+
+h2,
+p,
+h3,
+h1 {
+  color: black;
+  position: relative;
+  z-index: 1000;
 }
 
 /* Content style */
@@ -391,5 +400,337 @@ section p {
   .ha-header nav {
     font-size: 60%;
   }
+}
+
+.first-effects-div {
+  width: 100vw !important;
+  margin: 0px;
+  padding: 0px;
+}
+
+.first-effects-div .first-div-block {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.first-effects-div .first-div-block .left-image {
+  height: 100%;
+  width: 50%;
+}
+
+.first-effects-div .first-div-block .left-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.first-effects-div .first-div-block .right-block {
+  width: 45%;
+  height: 100%;
+  position: relative;
+}
+
+.first-effects-div .first-div-block .right-block .colored-div {
+  height: 50%;
+  background-color: pink;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.first-effects-div .first-div-block .right-block .colored-div p {
+  position: relative;
+  bottom: 120px;
+  width: 45%;
+  left: 40%;
+  font-size: 16px;
+}
+
+.second-effects-div {
+  width: 100vw !important;
+  margin: 0px;
+  padding: 0px;
+}
+
+.second-effects-div .second-div-block {
+  width: 100%;
+  height: 100vh;
+  margin-top: 80px;
+  display: flex;
+}
+
+.second-effects-div .second-div-block .left-block {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.second-effects-div .second-div-block .left-block .left-block-content {
+  height: 50%;
+  background-color: pink;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80%;
+  left: 20%;
+}
+
+.second-effects-div .second-div-block .left-block .left-block-content p {
+  position: relative;
+  top: 220px;
+  width: 45%;
+  left: 10%;
+  font-size: 16px;
+}
+
+.second-effects-div .second-div-block .right-block {
+  height: 100%;
+  width: 50%;
+}
+
+.second-effects-div .second-div-block .right-block img {
+  height: 100%;
+  width: 100%;
+}
+
+.third-effects-div {
+  width: 100vw !important;
+  margin: 0px;
+  padding: 0px;
+}
+
+.third-effects-div .third-div-block {
+  width: 100%;
+  height: 100vh;
+  margin-top: 80px;
+  display: flex;
+}
+
+.third-effects-div .third-div-block .left-block {
+  height: 100%;
+  width: 40%;
+}
+
+.third-effects-div .third-div-block .left-block img {
+  height: 100%;
+  width: 100%;
+}
+
+.third-effects-div .third-div-block .right-block {
+  width: 60%;
+  height: 100%;
+}
+
+.third-effects-div .third-div-block .right-block .title {
+  position: relative;
+  bottom: 40px;
+  height: 10vh;
+  text-align: center;
+  font-size: 5rem;
+}
+
+.third-effects-div .third-div-block .right-block .title h2 {
+  font-size: 4rem;
+}
+
+.third-effects-div .third-div-block .right-block .description {
+  height: 25vh;
+  width: 28%;
+  margin-left: 40%;
+  text-align: justify;
+  font-size: 16px;
+}
+
+.third-effects-div .third-div-block .right-block .list-and-block-container {
+  display: flex;
+  width: 100%;
+  height: 65vh;
+}
+
+.third-effects-div .third-div-block .right-block .list-and-block-container .list-container {
+  width: 30%;
+  height: 65vh;
+  position: relative;
+  bottom: 35px;
+}
+
+.third-effects-div .third-div-block .right-block .list-and-block-container .list-container ul {
+  list-style-type: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.third-effects-div .third-div-block .right-block .list-and-block-container .list-container ul li a {
+  font-size: 14px;
+}
+
+.third-effects-div .third-div-block .right-block .list-and-block-container .colored-div {
+  width: 60%;
+  height: 30vh;
+  background-color: pink;
+  margin-top: 30px;
+}
+
+.fourth-effects-div {
+  width: 100vw !important;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  top: 40px;
+}
+
+.fourth-effects-div .about-award-title {
+  width: 20vw;
+  position: relative;
+  top: 60px !important;
+}
+
+.fifth-effects-div {
+  width: 100vw !important;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  margin-bottom: 150px;
+}
+
+.fifth-effects-div .sixth-div-block {
+  width: 100%;
+  height: 100vh;
+  margin-top: 720px;
+  display: flex;
+}
+
+.fifth-effects-div .sixth-div-block .left-block {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.fifth-effects-div .sixth-div-block .left-block .left-block-title-div {
+  position: relative;
+  z-index: 10;
+  bottom: 40px;
+}
+
+.fifth-effects-div .sixth-div-block .left-block .left-block-title-div h2 {
+  font-size: 4rem;
+}
+
+.fifth-effects-div .sixth-div-block .left-block .left-block-content {
+  height: 50%;
+  background-color: pink;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80%;
+  left: 22%;
+}
+
+.fifth-effects-div .sixth-div-block .left-block .left-block-content p {
+  position: relative;
+  top: 250px;
+  font-size: 16px;
+}
+
+.fifth-effects-div .sixth-div-block .right-block {
+  height: 100%;
+  width: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.fifth-effects-div .sixth-div-block .right-block img {
+  height: 100%;
+  width: 100%;
+}
+
+.sixth-effects-div {
+  width: 100vw !important;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  height: 100vh;
+}
+
+.sixth-effects-div .sixth-div-block {
+  display: flex;
+  margin-bottom: 70px;
+  width: 100%;
+  margin-left: 10%;
+}
+
+.sixth-effects-div .sixth-div-block .right-block {
+  width: 50%;
+  height: 100vh;
+}
+
+.sixth-effects-div .sixth-div-block .right-block img {
+  width: 100%;
+  height: 100vh;
+}
+
+.sixth-effects-div .sixth-div-block .left-block {
+  width: 40%;
+  background-color: pink;
+  height: 50vh;
+  position: relative;
+  top: 30vh;
+}
+
+.sixth-effects-div .sixth-div-block .left-block .left-block-content {
+  width: 200px;
+  position: relative;
+  top: 10vh;
+}
+
+.sixth-effects-div .sixth-div-block .left-block .left-block-content p,
+.sixth-effects-div .sixth-div-block .left-block .left-block-content a {
+  font-size: 16px;
+}
+
+.sixth-effects-div .sixth-div-block .left-block .left-block-title-div {
+  position: relative;
+  bottom: 45vh;
+  left: 18vw;
+}
+
+.sixth-effects-div .sixth-div-block .left-block .left-block-title-div h2 {
+  font-size: 4vw;
+}
+
+.slideshow-div {
+  border: 2px solid green;
+  width: 100vw !important;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  height: 100vh;
+}
+
+.slideshow-div #slideshow-center {
+  width: 98%;
+  height: 50vh;
+  background-color: black;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slideshow-div #slideshow-center div {
+  width: 95%;
+  margin: auto !important;
+  height: 50vh !important;
+  display: flex;
+}
+
+.slideshow-div #slideshow-center div img {
+  width: 75%;
+  height: 100%;
+  background-size: cover;
 }
 
