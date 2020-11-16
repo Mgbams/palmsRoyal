@@ -105,7 +105,7 @@
         </div>
 
         <!--Fourth div-->
-        <div style="display: flex; justify-content: flex-end; margin-top: 70px; padding: 0px 20px;"><small>&copy; palmsRoyal 2020</small></div>
+        <div style="display: flex; justify-content: flex-end; height: 10vh; margin-top: 70px; margin-bottom: 20px; padding-right: 200px; color: black;"><small>&copy; palmsRoyal 2020</small></div>
 
     </div>
 </div>

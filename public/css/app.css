@@ -19017,6 +19017,11 @@ h3 {
   background-size: cover;
 }
 
+#about-top-image p {
+  color: white;
+  font-size: 18px;
+}
+
 .main_h {
   position: fixed;
   top: 0px;
