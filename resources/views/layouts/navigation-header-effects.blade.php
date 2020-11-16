@@ -62,35 +62,36 @@
 		<section class="ha-waypoint sixth-effects-div" data-animate-down="ha-header-show" data-animate-up="ha-header-subshow">
 			@yield('sixth-content')
 		</section>
-		<section class="ha-waypoint" data-animate-down="ha-header-shrink" data-animate-up="ha-header-show">
+		<section class="ha-waypoint special-offers" data-animate-down="ha-header-shrink" data-animate-up="ha-header-show">
 			@yield('seventh-content')
 		</section>
 		<section class="ha-waypoint slideshow-div" data-animate-down="ha-header-rotateBack" data-animate-up="ha-header-shrink">
 			@yield('eight-content')
 		</section>
-		<section class="ha-waypoint" data-animate-down="ha-header-rotate" data-animate-up="ha-header-rotateBack">
+		<section class="ha-waypoint nineth-content-container" data-animate-down="ha-header-rotate" data-animate-up="ha-header-rotateBack">
 			@yield('nineth-content')
 		</section>
-		<section class="ha-waypoint" data-animate-down="ha-header-rotateBack" data-animate-up="ha-header-rotate">
+		<section class="ha-waypoint tenth-content-container" data-animate-down="ha-header-rotateBack" data-animate-up="ha-header-rotate">
 			@yield('tenth-content')
 		</section>
+
 		<section class="ha-waypoint" data-animate-down="ha-header-color" data-animate-up="ha-header-rotateBack">
-			@yield('eleventh-content')
+			<!--Empty div with no content, only used here to enable top header animation-->
 		</section>
 		<section class="ha-waypoint" data-animate-down="ha-header-small" data-animate-up="ha-header-color">
-			@yield('twelveth-content')
+			<!--Empty div with no content, only used here to enable top header animation-->
 		</section>
 		<section class="ha-waypoint" data-animate-down="ha-header-box" data-animate-up="ha-header-small">
-			@yield('thirteenth-content')
+			<!--Empty div with no content, only used here to enable top header animation-->
 		</section>
 		<section class="ha-waypoint" data-animate-down="ha-header-fullscreen" data-animate-up="ha-header-box">
-			@yield('fourteenth-content')
+			<!--Empty div with no content, only used here to enable top header animation-->
 		</section>
 		<section class="ha-waypoint" data-animate-down="ha-header-subfullscreen" data-animate-up="ha-header-fullscreen">
-			@yield('fifteenth-content')
+			<!--Empty div with no content, only used here to enable top header animation-->
 		</section>
-		<!--<div class="scroll">Scroll down</div>-->
-	</div><!-- /container -->
+		
+	</div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="js/waypoints.min.js"></script>
 	<script>

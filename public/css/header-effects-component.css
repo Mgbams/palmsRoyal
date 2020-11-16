@@ -8,9 +8,11 @@
 
 body {
   background: #f7f7f7;
-  padding: 240px 0 100%;
   font-weight: 400;
   font-family: "Lato", Arial, sans-serif;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h2,
@@ -25,11 +27,8 @@ h1 {
 /* Content style */
 
 section {
-  width: 90%;
-  max-width: 46em;
+  width: 100vw;
   text-align: justify;
-  padding: 1em 2em 0;
-  margin: 0 auto;
   color: #ecf0f1;
   line-height: 1.3;
   font-size: 1.8em;
@@ -402,6 +401,8 @@ section p {
   }
 }
 
+/*** About page starts here ***/
+
 .first-effects-div {
   width: 100vw !important;
   margin: 0px;
@@ -577,76 +578,55 @@ section p {
 
 .fourth-effects-div {
   width: 100vw !important;
-  margin: 0px;
+  margin-bottom: 220px;
   padding: 0px;
-  position: relative;
-  top: 40px;
+  margin-top: 60px;
 }
 
-.fourth-effects-div .about-award-title {
-  width: 20vw;
-  position: relative;
-  top: 60px !important;
+.fourth-effects-div .trip-advisor-container p {
+  font-size: 18px;
 }
 
 .fifth-effects-div {
   width: 100vw !important;
-  margin: 0px;
+  height: 100vh;
   padding: 0px;
   position: relative;
-  margin-bottom: 150px;
+  bottom: 150px;
 }
 
-.fifth-effects-div .sixth-div-block {
+.fifth-effects-div .stay-page-inner-container {
   width: 100%;
-  height: 100vh;
-  margin-top: 720px;
-  display: flex;
+  height: 100%;
 }
 
-.fifth-effects-div .sixth-div-block .left-block {
+.fifth-effects-div .stay-page-inner-container #image-div {
   width: 50%;
   height: 100%;
-  position: relative;
 }
 
-.fifth-effects-div .sixth-div-block .left-block .left-block-title-div {
-  position: relative;
-  z-index: 10;
-  bottom: 40px;
-}
-
-.fifth-effects-div .sixth-div-block .left-block .left-block-title-div h2 {
-  font-size: 4rem;
-}
-
-.fifth-effects-div .sixth-div-block .left-block .left-block-content {
-  height: 50%;
-  background-color: pink;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 80%;
-  left: 22%;
-}
-
-.fifth-effects-div .sixth-div-block .left-block .left-block-content p {
-  position: relative;
-  top: 250px;
-  font-size: 16px;
-}
-
-.fifth-effects-div .sixth-div-block .right-block {
-  height: 100%;
-  width: 50%;
-  position: relative;
-  z-index: 1;
-}
-
-.fifth-effects-div .sixth-div-block .right-block img {
-  height: 100%;
+.fifth-effects-div .stay-page-inner-container #image-div img {
   width: 100%;
+  height: 100%;
+}
+
+.fifth-effects-div .stay-page-inner-container .stay-text {
+  width: 50%;
+}
+
+.fifth-effects-div .stay-page-inner-container .stay-text .about-award-title {
+  position: relative;
+  bottom: 17vh;
+  right: 3vw;
+  font-size: 5vw;
+}
+
+.fifth-effects-div .stay-page-inner-container .stay-text p {
+  width: 20vw;
+  font-size: 18px;
+  position: relative;
+  left: 10vw;
+  bottom: 7vh;
 }
 
 .sixth-effects-div {
@@ -703,6 +683,21 @@ section p {
   font-size: 4vw;
 }
 
+.special-offers {
+  Width: 100%;
+}
+
+.special-offers .about-special-offers {
+  Width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.special-offers .about-special-offers h2 {
+  font-size: 4vw;
+}
+
 .slideshow-div {
   border: 2px solid green;
   width: 100vw !important;
@@ -733,4 +728,57 @@ section p {
   height: 100%;
   background-size: cover;
 }
+
+.nineth-content-container {
+  border: 2px solid yellow;
+  width: 100vw !important;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  height: 50vh;
+  overflow-x: hidden;
+}
+
+.nineth-content-container .special-offers-div {
+  width: 100%;
+}
+
+.nineth-content-container .special-offers-div .about-hotel-svg-container {
+  display: inline-block;
+  position: relative;
+  width: 15vw;
+  height: 30vh;
+  padding-bottom: 100%;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.nineth-content-container .special-offers-div .about-hotel-svg-container .about-hotel-svg-content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.nineth-content-container .special-offers-div p {
+  position: relative;
+  left: 40%;
+}
+
+.tenth-content-container {
+  width: 100vw;
+  height: 20vh !important;
+}
+
+.tenth-content-container .copy {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 30px;
+  color: black;
+  font-size: 16px;
+}
+
+/*** About page Ends here ***/
 
