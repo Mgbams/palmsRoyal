@@ -8,13 +8,6 @@
 	<div class="page about-hotel" id="page-home">
 		<div id="about-top-image">
 			<img src="https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg" style="height: 100%; width: 100%;" />
-
-			<header class="main_h" style="color: yellow; position: fixed; top: 0px;">
-
-				<div class="row">
-					<a class="logo" href="{{url('/palms-royal-homepage')}}">palmsRoyal</a>
-				</div>
-			</header>
 		</div>
 	</div>
 	@stop

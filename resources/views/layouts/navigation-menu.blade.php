@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <meta name="description" content="A sidebar menu as seen on the Google Nexus 7 website" />
-    <meta name="keywords" content="google nexus 7 menu, css transitions, sidebar, side menu, slide out menu" />
-    <meta name="author" content="Codrops" />
+    <meta name="description" content="A hotel reservation website development" />
+    <meta name="keywords" content="palmsRoyal, rooms, hotel, reservation, hotel booking" />
+    <meta name="author" content="Mgbams Kingsley" />
     <link rel="shortcut icon" href="../favicon.ico">
     <script src="js/modernizr1-custom.js"></script>
 
