@@ -77,7 +77,7 @@
             <div class="eat-drink-morning-second-div-image" style="border-radius: 5%; width: 40%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 999;">
                 <div style="width: 70%; height: 60%; background-color: #f9efea; position: relative; right: 20vw;">
                     <ul style="list-style-type: none; padding-top: 20px; text-decoration: underline; text-align:left; width: 100%; color: black; font-size: 12px;">
-                        <li style="margin-bottom: 30px;"><i class="far fa-file-pdf" style="margin-right: 10px; color: black; font-size: 15px;"></i><a href="#">MENU PRINCIPAL DU COURS (PDF)</a></li>
+                        <li style="margin-bottom: 30px;"><i class="far fa-file-pdf" style="margin-right: 10px; color: black; font-size: 15px;"></i><a href="{{ URL::to('/palms-royal-hotel/menu-restaurant.pdf') }}">MENU PRINCIPAL DU COURS (PDF)</a></li>
                         <li style="margin-bottom: 30px;"><i class="far fa-file-pdf" style="margin-right: 10px; color: black; font-size: 15px;"></i><a href="#">LIVRE DE BAR (PDF)</a></li>
                         <li style="margin-bottom: 30px;"><i class="far fa-file-pdf" style="margin-right: 10px; color: black; font-size: 15px;"></i><a href="#">MENU PETIT DÉJEUNER (PDF)</a></li>
                         <li style="margin-bottom: 30px;"><i class="far fa-file-pdf" style="margin-right: 10px; color: black; font-size: 15px;"></i><a href="#">LISTE DES VINS (PDF)</a></li>

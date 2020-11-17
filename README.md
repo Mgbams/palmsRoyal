@@ -540,3 +540,9 @@ The example below explains it better
 	left: 0;
 }
 ```
+## Dompdf
+You will be asked "Which provider or tag's files would you like to publish?:"
+You should make your choice by typing the number that corresponds to your choice and then press ENTER.
+This will create **dompdf** file in **config.php** file.
+
+
