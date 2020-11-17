@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="width: 60%; height: 100%; background-color: green;"></div>
+                <div style="width: 60%; height: 100%; background-color: #f9efea;"></div>
             </div>
         </div>
 
@@ -128,8 +128,8 @@
         <!--Fifth div partners-->
         <div style="margin-top: 120px; height: 100vh; display: flex;" class="hotel-info-partners-container">
             <div style="width: 50%; height: 100vh;" class="partner-left-div-image">
-                <div class="multiple-items" style=" border: 2px solid green; position: relative; top: 35%; width: 60vw; left: 65%; height: 35vh;">
-                    <div style="height: 35vh; width: 20vw;">
+                <div class="multiple-items" style="position: relative; top: 35%; width: 50vw; left: 65%; height: 35vh;">
+                    <div style="height: 35vh; width: 30vw;">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNuJzsaBPQH9odMfq--N7gQ3ANOeNx-kBaiQ&usqp=CAU" style="width: 20vw; height: 100%;" />
                     </div>
                     <div>
@@ -140,7 +140,7 @@
                             de destinations à travers le monde.
                         </p>
                     </div>
-                    <div style="height: 35vh; width: 20vw;">
+                    <div style="height: 35vh; width: 30vw;">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNuJzsaBPQH9odMfq--N7gQ3ANOeNx-kBaiQ&usqp=CAU" style="width: 20vw; height: 100%;" />
                     </div>
                     <div>
@@ -158,8 +158,11 @@
                 <h2 style="position: relative; top: 10%; width: 40%; left: 20%; font-size: 4vw;">Partners</h2>
             </div>
         </div>
-
     </div>
+
+    <!--Necessary in each blade template that has slick carousel for slick to work -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
     <script>
         $(document).ready(() => {

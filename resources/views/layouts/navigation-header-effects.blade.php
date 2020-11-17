@@ -133,15 +133,15 @@
 				opacity: 0.5,
 				height: "toggle",
 				scrollTop: '50px'
-			}, 5000, function() {
+				}, 5000, function() {
 				// Animation complete.
 				$(".main_h").animate({
 					opacity: 1,
 					height: "toggle",
 					scrollBottom: '50px'
 				});
-
-			});
+			})
+		});
 	</script>
 
 	<script>
@@ -182,6 +182,38 @@
 				scrollTop: target
 			}, 500);
 			event.preventDefault();
+		});
+
+		// Second-carousel slide settings
+		$('.about-carousel').slick({
+			infinite: true,
+			slidesToShow: 2,
+			slidesToScroll: 3,
+			centerMode: true,
+			responsive: [{
+					breakpoint: 1200,
+					settings: {
+						arrows: false,
+						centerMode: true,
+					}
+				},
+				{
+					breakpoint: 768,
+					settings: {
+						arrows: false,
+						centerMode: true,
+						slidesToShow: 3
+					}
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						arrows: false,
+						centerMode: true,
+						slidesToShow: 1
+					}
+				}
+			]
 		});
 	</script>
 </body>
