@@ -541,8 +541,72 @@ The example below explains it better
 }
 ```
 ## Dompdf
-You will be asked "Which provider or tag's files would you like to publish?:"
-You should make your choice by typing the number that corresponds to your choice and then press ENTER.
+1. Run the under-mentioned command to install DomPDF
+
+```bash
+$ composer require barryvdh/laravel-dompdf
+```
+2. Open **config/app.php** file and incorporate DomPDF service provider in providers array along with DomPDF facade to the aliases array.
+
+```php
+    'providers' => [
+  Barryvdh\DomPDF\ServiceProvider::class,
+],
+
+'aliases' => [
+  'PDF' => Barryvdh\DomPDF\Facade::class,
+]
+```
+3. Execute the following command to publish the assets from vendor
+
+```bash
+$ php artisan vendor:publish
+```
+
+A handful of packages list appeared on your terminal window, and we have to select the **“Provider: Barryvdh\DomPDF\ServiceProvider”** option from the list. It will create the new file config/dompdf.php, holding global configurations for the DomPDF plugin.
+
 This will create **dompdf** file in **config.php** file.
+
+4. Create your controller for the logic e.g
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
+use App\Employee;
+use PDF; //This line is very important
+
+class EmployeeController extends Controller {
+
+    // Generate PDF
+    public function createPDF() {
+        //pdf_view is the blade template containing the codes
+      $pdf = PDF::loadView('pdf_view');
+
+      // download PDF file with download method
+      //pdf_file.pdf is the name the file will be downloaded with
+      return $pdf->download('pdf_file.pdf');
+    }
+}
+```
+5. create your blade template
+```php
+pdf_view.blade.php
+```
+6. create your route that links to the controller e.g
+
+```php
+Route::get('/employee/pdf','EmployeeController@createPDF');
+```
+7. In your blade template, link to your controller using an anchor tag e.g
+
+```
+<a class="btn btn-primary" href="{{ URL::to('/employee/pdf') }}">Export to PDF</a>
+```
+For more information, visit
+
+[DomPdf](https://www.positronx.io/laravel-pdf-tutorial-generate-pdf-with-dompdf-in-laravel/)
 
 
