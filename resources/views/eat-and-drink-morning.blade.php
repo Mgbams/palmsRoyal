@@ -7,7 +7,7 @@
     <!-- page -->
     <div class="page about-hotel" id="page-home">
         <div id="about-top-image">
-            <img src="https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg" style="height: 100%; width: 100%;" />
+            <img src="https://cdn.pixabay.com/photo/2014/08/06/19/25/restaurant-411942_960_720.jpg" style="height: 100%; width: 100%;" />
 
             <header class="main_h" style="color: yellow; position: fixed; top: 0px;">
 
@@ -53,7 +53,7 @@
             <h2 style="font-size: 5vw;">Restaurant</h2>
         </div>
 
-        <div style="width: 100%; height: 100vh; display:flex;">
+        <div style="width: 100%; height: 100vh; display:flex; position: relative; z-index: 50;">
             <div style="width: 60%; height: 100%;">
                 <div class="col-6">
                     <p style="text-align: left; font-size: 16px;">
@@ -162,7 +162,7 @@
                 </div>
 
                 <div style="width: 40%;">
-                    <p style="text-align: left;">- rencontrez Mgbams Kingsley, le chef du palmsRoyal
+                    <p style="text-align: left;">- &nbsp;rencontrez Mgbams Kingsley, le chef du palmsRoyal
                         Rooftop Restaurant & Bar.</p>
                 </div>
             </div>
