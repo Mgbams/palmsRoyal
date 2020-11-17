@@ -609,4 +609,33 @@ For more information, visit
 
 [DomPdf](https://www.positronx.io/laravel-pdf-tutorial-generate-pdf-with-dompdf-in-laravel/)
 
+## Passing Data from blade to controller
+This example simplifies it
+
+In your route file, you can create the data to be passed in url with two curly braces {} e.g
+```php
+Route::put('user/{name}', 'UserController@show');
+```
+
+then in your controller, you just pass a variable to the function that is to be executed.
+
+```php
+public function show( $name)
+{
+    dd($name);
+}
+```
+
+Finally in your blade template, you link to your controller passing it the variable
+e.g 
+```php
+<a href="{{ URL::to('user/variableToBePassed') }}">MENU PRINCIPAL</a>
+//variableToBePassed is the variable we will be passing
+```
+
+For more info, visit
+
+[Passing data through url](https://stackoverflow.com/questions/37013941/passing-page-url-parameter-to-controller-in-laravel-5-2)
+
+
 
