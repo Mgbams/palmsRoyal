@@ -38,27 +38,23 @@
                                 <a class="gn-icon gn-icon-search"><span>Search</span></a>
                             </li>
                             <li>
-                                <a class="gn-icon gn-icon-download">Downloads</a>
-                                <ul class="gn-submenu">
-                                    <li><a class="gn-icon gn-icon-illustrator">Vector Illustrations</a></li>
-                                    <li><a class="gn-icon gn-icon-photoshop">Photoshop files</a></li>
-                                </ul>
+                                <a href="{{url('/about')}}" class="gn-icon gn-icon-download">About</a>
                             </li>
                             <li><a class="gn-icon gn-icon-cog">Settings</a></li>
                             <li><a class="gn-icon gn-icon-help">Help</a></li>
                             <li>
-                                <a class="gn-icon gn-icon-archive">Archives</a>
-                                <ul class="gn-submenu">
+                                <a  href="{{url('/rooms')}}" class="gn-icon gn-icon-archive">Rooms</a>
+                                <!--<ul class="gn-submenu">
                                     <li><a class="gn-icon gn-icon-article">Articles</a></li>
                                     <li><a class="gn-icon gn-icon-pictures">Images</a></li>
                                     <li><a class="gn-icon gn-icon-videos">Videos</a></li>
-                                </ul>
+                                </ul>-->
                             </li>
                         </ul>
-                    </div><!-- /gn-scroller -->
+                    </div>
                 </nav>
             </li>
-            <li><a href="http://tympanus.net/codrops">Codrops</a></li>
+            <li><a href="{{url('/palms-royal-homepage')}}">palmsRoyal</a></li>
             <li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
             <li><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16030"><span>Back to the Codrops Article</span></a></li>
         </ul>
