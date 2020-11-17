@@ -19416,7 +19416,8 @@ h3 {
 @media screen and (min-width: 1025px) {
   .lobby-container,
   .more-space-container,
-  .eat-and-drink-morning-container {
+  .eat-and-drink-morning-container,
+  .neighbourhood-container {
     width: 90vw !important;
     margin: 0 auto !important;
     font-size: 70%;
