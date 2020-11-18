@@ -37372,6 +37372,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/pdf.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/pdf.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/style1.scss":
 /*!************************************!*\
   !*** ./resources/sass/style1.scss ***!
@@ -37395,9 +37406,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/style1.scss ./resources/sass/style2.scss ./resources/sass/normalize.scss ./resources/sass/header-effects-component.scss ./resources/sass/header-effects-normalize.scss ***!
-  \*****************************************************************************************************************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/style1.scss ./resources/sass/style2.scss ./resources/sass/normalize.scss ./resources/sass/header-effects-component.scss ./resources/sass/pdf.scss ./resources/sass/header-effects-normalize.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -37407,6 +37418,7 @@ __webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\s
 __webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\style2.scss */"./resources/sass/style2.scss");
 __webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\normalize.scss */"./resources/sass/normalize.scss");
 __webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\header-effects-component.scss */"./resources/sass/header-effects-component.scss");
+__webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\pdf.scss */"./resources/sass/pdf.scss");
 module.exports = __webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\header-effects-normalize.scss */"./resources/sass/header-effects-normalize.scss");
 
 
