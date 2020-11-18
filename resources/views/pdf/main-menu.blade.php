@@ -289,7 +289,7 @@
         </tr>
         <tr>
           <th scope="row"></th>
-          <td style="font-size: bold;">CHICKEN KYIV <br /><small>potato cream with dijon mustard | tomato confiture</small></td>
+          <td style="font-size: bold;">CHICKEN LYON <br /><small>potato cream with dijon mustard | tomato confiture</small></td>
           <td>$ 17 | ~€ 15</td>
         </tr>
         <tr>
@@ -315,7 +315,7 @@
       <tbody>
         <tr>
           <th scope="row"></th>
-          <td style="font-size: bold;">KYIV CAKE</td>
+          <td style="font-size: bold;">LYON CAKE</td>
           <td>$ 13 | ~€ 8</td>
         </tr>
         <tr>
