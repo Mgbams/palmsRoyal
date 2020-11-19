@@ -21,19 +21,19 @@
     .table>tbody>tr>th,
     .table>thead>tr>td,
     .table>tbody>tr>td {
-      padding: 1px;
+      padding: 6px;
     }
 
     .table>tbody>tr:nth-child(11) {
       padding-top: 30px !important;
     }
 
-    .main-menu-body .rotate {
-      transform: rotate(-90deg);
-      position: relative;
-      left: 0;
-      right: 150px !important;
-      top: 80px;
+    .page_break {
+      page-break-before: always;
+    }
+
+    caption {
+      color: green;
     }
   </style>
 </head>
@@ -41,7 +41,7 @@
 <body class="main-menu-body">
 <!--<p class="rotate">TASTES OF THE WORLD</p>-->
   <table class="table">
-    <caption style="text-align: center;">PALMS ROYAL</caption>
+    <caption style="text-align: center;">MAIN MENU</caption>
     <thead>
       <tr>
         <th scope="col"></th>
@@ -116,8 +116,9 @@
   </table>
 
   <!--Salads-->
-  <div class="salad-table" style="position: relative; top: 40px !important;">
+  <div class="salad-table page_break" style="position: relative; top: 40px !important;">
     <table class="table">
+    <caption style="text-align: center;">SALADS</caption>
       <thead>
         <tr>
           <th scope="col"></th>
@@ -166,9 +167,9 @@
   </div>
 
   <!--Soups-->
-  <div class="soup-table" style="position: relative; top: 40px !important;">
+  <div class="soup-table page_break" style="position: relative; top: 40px !important;">
     <table class="table">
-      <caption style="text-align: center;">PALMS ROYAL</caption>
+      <caption style="text-align: center;">SOUPS</caption>
       <thead>
         <tr>
           <th scope="col"></th>
@@ -197,8 +198,9 @@
   </div>
 
   <!--Fish and Meat Table-->
-  <div class="fish-meat-table" style="position: relative; top: 80px !important;">
+  <div class="fish-meat-table page_break" style="position: relative; top: 80px !important;">
     <table class="table">
+    <caption style="text-align: center;">FISH AND MEAT</caption>
       <thead>
         <tr>
           <th scope="col"></th>
@@ -262,8 +264,9 @@
   </div>
 
   <!--Lyon borsch-->
-  <div class="lyon-borsch-table" style="position: relative; top: 100px !important;">
+  <div class="lyon-borsch-table page_break" style="position: relative; top: 100px !important;">
     <table class="table">
+    <caption style="text-align: center;">LYON'S BORSCH</caption>
       <thead>
         <tr>
           <th scope="col"></th>
@@ -302,9 +305,9 @@
   </div>
 
   <!--Desserts-->
-  <div class="lyon-borsch-table" style="position: relative; top: 20px !important;">
+  <div class="lyon-borsch-table page_break" style="position: relative; top: 20px !important;">
     <table class="table">
-      <caption style="text-align: center;">PALMS ROYAL</caption>
+      <caption style="text-align: center;">DESSERTS</caption>
       <thead>
         <tr>
           <th scope="col"></th>

@@ -837,6 +837,10 @@ section p {
 		}
 	}
   }
-  //second carousel ends here
+  
+  // Used to set the heights of header sections with no content that helps with header nav animations
+  .dummy-nav {
+	  height: 0.1px !important;
+  }
 /*** About page Ends here ***/
 

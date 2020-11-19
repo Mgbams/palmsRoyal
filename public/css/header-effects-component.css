@@ -814,5 +814,9 @@ section p {
   background-size: cover;
 }
 
+.dummy-nav {
+  height: 0.1px !important;
+}
+
 /*** About page Ends here ***/
 

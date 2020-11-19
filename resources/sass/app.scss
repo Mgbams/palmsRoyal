@@ -1,8 +1,12 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
+
+// Bootstrap
+@import '~admin-lte/build/scss/AdminLTE';
+
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -855,4 +859,3 @@ h2, p, h3 {
 		text-align: right;
 	}
 }
-  

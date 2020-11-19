@@ -57,3 +57,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //PDF download
 Route::get('/palms-royal-hotel/menu-restaurant/{menu}','EatAndDrinkMorningController@createPDF');
+Auth::routes();
+
+//room details
+Route::get('/room-details/rooms', 'RoomDetailsController@show')->name('room-details');
+
+

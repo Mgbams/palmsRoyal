@@ -15,9 +15,9 @@
     <!--main css file starts here-->
     <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
     <!--main css file ends here-->
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="css/style1.css" />
-    <link rel="stylesheet" type="text/css" href="css/style2.css" />
+    <link rel="stylesheet" type="text/css" href="{{url('css/normalize.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url('css/style1.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url('css/style2.css')}}" />
 
     <!--slick css file-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet">
@@ -68,8 +68,8 @@
     <!--slick js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
-    <script src="js/classie1.js"></script>
-    <script src="js/gnmenu.js"></script>
+    <script src="{{url('js/classie1.js')}}"></script>
+    <script src="{{url('js/gnmenu.js')}}"></script>
     <script>
         new gnMenu(document.getElementById('gn-menu'));
     </script>

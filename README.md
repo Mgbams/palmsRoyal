@@ -637,5 +637,30 @@ For more info, visit
 
 [Passing data through url](https://stackoverflow.com/questions/37013941/passing-page-url-parameter-to-controller-in-laravel-5-2)
 
+## Adminlte integration
+ You can run the below commands to install it.
 
+```bash
+$ composer require infyomlabs/laravel-ui-adminlte
+$ php artisan ui adminlte --auth
+$ php artisan ui adminlte
+$ npm install 
+$ npm run dev
+```
+Visit [adminlte](https://github.com/InfyOmLabs/laravel-ui-adminlte) for more information.
+
+## preventing href link from getting appended to current url
+To avoid laravel adding links to our url, always reference your local url using {{}} e.g
+
+Instead of 
+```
+<link rel="stylesheet" type="text/css" href="css/header-effects-component.css" />
+<script src="js/header-effects-modernizr-custom.js"></script>
+```
+USE this below by adding {{url(')}}
+
+```
+<link rel="stylesheet" type="text/css" href="{{url('css/header-effects-component.css')}}" />
+<script src="{{url('js/header-effects-modernizr-custom.js')}}"></script>
+```
 

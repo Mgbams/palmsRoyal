@@ -12,6 +12,38 @@
     .page_break {
       page-break-before: always;
     }
+
+    span {
+    font-size: 1rem;
+    color: green;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 300px;
+    margin-left: -30px;
+    
+    transform: rotate(270deg);
+
+  }
+
+  .span {
+    font-size: 1rem;
+    color: green;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 600px;
+    margin-left: -30px;
+    
+    transform: rotate(270deg);
+    transform-origin: 0 0;
+  }
   </style>
 </head>
 
@@ -51,6 +83,7 @@
     <p>Exotic lollipop wine with a gentle, pleasant taste and smooth texture </p>
     <small style="width: 100%; margin: auto;">- $ 19 - </small><br /><br /><br />
     <small>* — organic wine</small>
+    <span>WHITES</span>
   </div>
 
 
@@ -91,6 +124,7 @@
       <small>flavors and a nice bitter stone fruit finish</small><br />
       <small style="width: 100%; margin: auto;">- $ 15 - </small><br /><br />
       <small style="width: 100%; margin: auto;">* — organic wine</small>
+      <p class="span">FRUIT DRIVEN, AROMATIC WHITES</p>
     </div><br />
   </div>
 
@@ -125,6 +159,7 @@
       <small>an enduring yet delicate aftertaste</small><br />
       <small style="width: 100%; margin: auto;">- $ 21 - </small><br /><br /><br />
       <small style="width: 100%; margin: auto;">* — organic wine</small>
+      <p class="span">SMOOTH, SILKY WHITES</p>
     </div><br />
   </div>
 
@@ -159,6 +194,7 @@
       <p>Born in Italy’s Adriatic Coast, created by legendary winemaker Gianni Masciarelli. </p>
       <small>Very aromatic and drinkable wine with an adequate amount of acidity</small><br />
       <small style="width: 100%; margin: auto;">- $ 18 - </small>
+      <p class="span">SMOOTH, SILKY WHITES</p>
     </div><br /><br />
   </div>
 
@@ -194,6 +230,7 @@
       <small>Chardonnay St-Valentin has a rich mouthfeel of exotic fruits, butter and wood</small><br />
       <small style="width: 100%; margin: auto;">- $ 23 - </small><br /><br /><br />
       <small style="width: 100%; margin: auto;">* — organic wine &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *— biodynamic wine</small>
+      <p class="span">FULL BODIED, RICH WHITES</p>
     </div>
   </div>
 
@@ -241,6 +278,7 @@
       <p>Bright red-hued wine with black fruit and spice notes. Clear and lively,</p>
       <small>Pinot Noir is passion-full and has an oaky finish</small><br />
       <small style="width: 100%; margin: auto;">- $ 15 - </small>
+      <span>REDS</span>
     </div><br />
   </div>
 
