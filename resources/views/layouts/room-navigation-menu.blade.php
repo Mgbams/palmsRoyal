@@ -18,7 +18,7 @@
 <body>
 	<div class="container">
 		<!-- the header that will be animated by adding the respective state class to it -->
-		<header id="ha-header" class="ha-header ha-header-large">
+		<header id="ha-header" class="ha-header ha-header-large" style="z-index: 999;">
 			<div class="ha-header-perspective">
 				<div class="ha-header-front">
 					<h1><span>palmsRoyal</span></h1>

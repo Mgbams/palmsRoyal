@@ -657,7 +657,7 @@ Instead of
 <link rel="stylesheet" type="text/css" href="css/header-effects-component.css" />
 <script src="js/header-effects-modernizr-custom.js"></script>
 ```
-USE this below by adding {{url(')}}
+USE this below by adding {{url('')}}
 
 ```
 <link rel="stylesheet" type="text/css" href="{{url('css/header-effects-component.css')}}" />
