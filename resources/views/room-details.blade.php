@@ -94,18 +94,68 @@
 
 	<!-- Fifth Block-->
 	@section('fifth-content')
-	<div id="stay-page" style="position: relative; z-index: 1;">
-		<div style="display: flex;" class="stay-page-inner-container">
-			<div id="image-div" class="col-7">
-				<img src="https://media.istockphoto.com/photos/five-golden-stars-isolated-against-black-rating-concept-3d-stock-picture-id1208252775?b=1&k=6&m=1208252775&s=170667a&w=0&h=XK8xzwdQua7f1uoje9QntAXoyvWom9tclebKzKBW3RQ=" />
-			</div>
+	<div style="width: 100vw; height: 100vh;">
+		<div class="mixed-carousel" style="width: 90vw; height: 95vh; margin-left: 3vw;">
+			<div>
 
-			<div class="col-5 stay-text">
-				<h1 class="about-award-title">World <br /> Boutique <br /> Hotel Awards</h1>
-				<p class="col-3 offset-2">
-					En 2016, palmsRoyal a reçu deux prix extrêmement influents reconnus dans le monde entier:
-					le meilleur hôtel de lyon avec 5 étoiles.
-				</P>
+				<img src="https://images.pexels.com/photos/2227774/pexels-photo-2227774.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+
+				<div style="width: 80%; height: 35vh; position: relative; z-index: 100; padding-top: 30px;">
+					<p style="width: 80%; margin: auto;"><a href="#">palmsRoyal Brand remporte deux prix TripAdvisor</a></p>
+					<div class="readmore" style="text-align: center; padding-top: 20px;">
+						<a href="#">READ MORE</a>
+					</div>
+				</div>
+			</div>
+			<div>
+				<img src="https://images.pexels.com/photos/2670273/pexels-photo-2670273.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+
+				<div style="width: 80%; height: 35vh; position: relative; z-index: 100; padding-top: 30px;">
+					<p style="width: 80%; margin: auto;"><a href="#">palmsRoyal Brand remporte deux prix TripAdvisor</a></p>
+					<div class="readmore" style="text-align: center; padding-top: 20px;">
+						<a href="#">READ MORE</a>
+					</div>
+				</div>
+			</div>
+			<div>
+				<img src="https://images.pexels.com/photos/1769392/pexels-photo-1769392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+
+				<div style="width: 80%; height: 35vh; position: relative; z-index: 100; padding-top: 30px;">
+					<p style="width: 80%; margin: auto;"><a href="#">palmsRoyal Brand remporte deux prix TripAdvisor</a></p>
+					<div class="readmore" style="text-align: center; padding-top: 20px;">
+						<a href="#">READ MORE</a>
+					</div>
+				</div>
+			</div>
+			<div>
+				<img src="https://cdn.pixabay.com/photo/2016/03/16/22/17/hotel-room-1261900__340.jpg" />
+
+				<div style="width: 80%; height: 35vh; position: relative; z-index: 100; padding-top: 30px;">
+					<p style="width: 80%; margin: auto;"><a href="#">palmsRoyal Brand remporte deux prix TripAdvisor</a></p>
+					<div class="readmore" style="text-align: center; padding-top: 20px;">
+						<a href="#">READ MORE</a>
+					</div>
+				</div>
+			</div>
+			<div>
+				<img src="https://cdn.pixabay.com/photo/2017/08/09/10/42/hotel-rooms-2614141__340.jpg" />
+
+				<div style="width: 80%; height: 35vh; position: relative; z-index: 100; padding-top: 30px;">
+					<p style="width: 80%; margin: auto;"><a href="#">palmsRoyal Brand remporte deux prix TripAdvisor</a></p>
+					<div class="readmore" style="text-align: center; padding-top: 20px;">
+						<a href="#">READ MORE</a>
+					</div>
+				</div>
+			</div>
+			<div>
+				<img src="https://cdn.pixabay.com/photo/2015/11/02/06/46/hotel-1018039__340.jpg" />
+
+				<div style="width: 80%; height: 35vh; position: relative; z-index: 100; padding-top: 30px;">
+					<p style="width: 80%; margin: auto;"><a href="#">palmsRoyal Brand remporte deux prix TripAdvisor</a></p>
+					<div class="readmore" style="text-align: center; padding-top: 20px;">
+						<a href="#">READ MORE</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

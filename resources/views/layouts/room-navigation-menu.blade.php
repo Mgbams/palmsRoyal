@@ -13,6 +13,9 @@
 	<link rel="stylesheet" type="text/css" href="{{url('css/header-effects-normalize.css')}}" />
 	<link rel="stylesheet" type="text/css" href="{{url('css/header-effects-component.css')}}" />
 	<script src="{{url('js/header-effects-modernizr-custom.js')}}"></script>
+	<!--slick-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -75,7 +78,7 @@
 			<!--Empty div with no content, only used here to enable top header animation-->
 		</section>
 		<section class="ha-waypoint tenth-content-container dummy-nav" data-animate-down="ha-header-rotateBack" data-animate-up="ha-header-rotate">
-            <!--Empty div with no content, only used here to enable top header animation-->
+			<!--Empty div with no content, only used here to enable top header animation-->
 		</section>
 
 		<section class="ha-waypoint dummy-nav" data-animate-down="ha-header-color" data-animate-up="ha-header-rotateBack">
@@ -84,7 +87,7 @@
 		<section class="ha-waypoint dummy-nav" data-animate-down="ha-header-small" data-animate-up="ha-header-color">
 			<!--Empty div with no content, only used here to enable top header animation-->
 		</section>
-		
+
 		{{--<section class="ha-waypoint" data-animate-down="ha-header-box" data-animate-up="ha-header-small">
 			<!--Empty div with no content, only used here to enable top header animation-->
 		</section>
@@ -94,10 +97,17 @@
 		<section class="ha-waypoint" data-animate-down="ha-header-subfullscreen" data-animate-up="ha-header-fullscreen">
 			<!--Empty div with no content, only used here to enable top header animation-->
 		</section>--}}
-		
+
 	</div>
+
+	<!--Jquery cdn use this version of jquery cdn as it helps maintain the top navbar functional-->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 	<script src="{{url('js/waypoints.min.js')}}"></script>
+
+	<!--slick js-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous"></script>
+
 	<script>
 		var $head = $('#ha-header');
 		$('.ha-waypoint').each(function(i) {
@@ -122,14 +132,46 @@
 				opacity: 0.5,
 				height: "toggle",
 				scrollTop: '50px'
-				}, 5000, function() {
+			}, 5000, function() {
 				// Animation complete.
 				$(".main_h").animate({
 					opacity: 1,
 					height: "toggle",
 					scrollBottom: '50px'
 				});
-			})
+			});
+
+			// mixed-carousel slide settings
+			$('.mixed-carousel').slick({
+				infinite: true,
+				slidesToShow: 2,
+				slidesToScroll: 1,
+				centerMode: true,
+				responsive: [{
+						breakpoint: 1200,
+						settings: {
+							arrows: false,
+							centerMode: true,
+						}
+					},
+					{
+						breakpoint: 768,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							slidesToShow: 3
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							slidesToShow: 1
+						}
+					}
+				]
+			});
 		});
 	</script>
 
