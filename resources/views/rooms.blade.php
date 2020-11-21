@@ -57,19 +57,19 @@
                 <h2 style="text-align: center;">Deluxe Double with Matterhorn View</h2>
                 <div style="display: flex; justify-content: space-between; width: 100%;">
                     <div style="width: 20%;">
-                        <i class="fa fa-wifi"></i>
+                        <i class="fa fa-wifi" style="color: black;"></i>
                         <p>Wifi</p>
                     </div>
                     <div style="width: 20%;">
-                        <i class="fa fa-wifi"></i>
+                        <i class="fa fa-wifi" style="color: black;"></i>
                         <p>AC</p>
                     </div>
                     <div style="width: 20%;">
-                        <i class="fa fa-wifi"></i>
+                        <i class="fa fa-wifi" style="color: black;"></i>
                         <p>Heater</p>
                     </div>
                     <div style="width: 20%;">
-                        <i class="fa fa-wifi"></i>
+                        <i class="fa fa-wifi" style="color: black;"></i>
                         <p>Other Facilities</p>
                     </div>
                 </div>
@@ -92,19 +92,19 @@
                 <h2 style="text-align: center;">Deluxe Double with Matterhorn View</h2>
                 <div style="display: flex; justify-content: space-between; width: 100%;">
                     <div style="width: 20%;">
-                        <i class="fa fa-wifi"></i>
+                        <i class="fa fa-wifi" style="color: black;"></i>
                         <p>Wifi</p>
                     </div>
                     <div style="width: 20%;">
-                        <i class="fa fa-wifi"></i>
+                        <i class="fa fa-wifi" style="color: black;"></i>
                         <p>AC</p>
                     </div>
                     <div style="width: 20%;">
-                        <i class="fa fa-wifi"></i>
+                        <i class="fa fa-wifi" style="color: black;"></i>
                         <p>Heater</p>
                     </div>
                     <div style="width: 20%;">
-                        <i class="fa fa-wifi"></i>
+                        <i class="fa fa-wifi" style="color: black;"></i>
                         <p>Other Facilities</p>
                     </div>
                 </div>

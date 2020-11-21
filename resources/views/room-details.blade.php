@@ -54,7 +54,7 @@
 			</div>
 		</div>
 		<div class="room-details-right" style="height: 100%; width: 40%; position: relative; z-index: 50;">
-			<div style="font-size: 18px; height: 5vh; color: black;">- ROOM FACILITIES</div>
+			<div style="font-size: 18px; height: 5vh; color: black; background-color: white; width: 80%;">- ROOM FACILITIES</div>
 			<div class="FACILITIES" style="display: flex; height: 50vh; background-color: white; width: 80%">
 				<div style="padding: 20px 0px; width: 40%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
 					<div style="display: flex; justify-content: space-evenly; width: 90%;">

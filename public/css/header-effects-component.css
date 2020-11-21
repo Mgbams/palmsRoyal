@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);@import url(https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap);@import url(https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Lora:ital@1&display=swap);@import url(https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap);@import url(https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap);@charset "UTF-8";
 
 *,
 *:after,
@@ -23,6 +23,28 @@ h1 {
   position: relative;
   z-index: 1000;
 }
+
+/*Fonts*/
+
+h3,
+h2,
+h5,
+h6 {
+  font-family: "Lora", serif;
+}
+
+h1,
+h4 {
+  font-family: "Cinzel Decorative", cursive;
+}
+
+p,
+small,
+a {
+  font-family: "Gilda Display", serif;
+}
+
+/*Fonts end here*/
 
 /* Content style */
 
@@ -444,12 +466,14 @@ section p {
   transform: translateY(-50%);
 }
 
-.first-effects-div .first-div-block .right-block .colored-div p {
+.first-effects-div .first-div-block .right-block .colored-div small {
   position: relative;
+  display: inline-block;
   bottom: 120px;
   width: 45%;
   left: 40%;
   font-size: 16px;
+  color: black;
 }
 
 .second-effects-div {
@@ -482,12 +506,14 @@ section p {
   left: 20%;
 }
 
-.second-effects-div .second-div-block .left-block .left-block-content p {
+.second-effects-div .second-div-block .left-block .left-block-content small {
   position: relative;
+  display: inline-block;
+  color: black;
   top: 220px;
   width: 45%;
   left: 10%;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .second-effects-div .second-div-block .right-block {
@@ -544,6 +570,8 @@ section p {
   height: 25vh;
   width: 28%;
   margin-left: 40%;
+  display: inline-block;
+  color: black;
   text-align: justify;
   font-size: 16px;
 }
@@ -625,7 +653,7 @@ section p {
   font-size: 5vw;
 }
 
-.fifth-effects-div .stay-page-inner-container .stay-text p {
+.fifth-effects-div .stay-page-inner-container .stay-text small {
   width: 20vw;
   font-size: 18px;
   position: relative;
