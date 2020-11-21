@@ -279,6 +279,8 @@ and adding a minified script link as shown below
 You can also visit this below site for more settings of your slick carousel
 [slick carousel](https://www.npmjs.com/package/slick-carousel)
 
+**NOTE** when you're extending a master template and using slick, you only need define the html part of your slick on the child page and jquery script part should be defined on the parent. You can see fifth block in room-details.blade.php and see how it is used in room-navigation-menu.blade.php which is the parent layout.
+
 ## Installing jquery to your project
 
 ```bash
@@ -364,6 +366,8 @@ OR
 $ npm run production
 ```
 **Finally**, reference your generated CSS file in your Blade template/layout.
+To use font awesome by using font awesome kit, Go to
+[fontawesome kit](https://fontawesome.com/start) and create your own kit.
 
 ```
 <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">

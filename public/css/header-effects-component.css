@@ -862,3 +862,29 @@ section p {
   color: black;
 }
 
+.room-details-top-image {
+  background: url("https://cdn.pixabay.com/photo/2019/06/13/17/08/round-window-4272049_960_720.jpg");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  position: relative;
+}
+
+.room-details-top-image .header-text {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 40vh;
+  width: 100%;
+  z-index: 50;
+}
+
+.room-details-top-image .header-text h1 {
+  width: 60vw;
+  color: white;
+  font-size: 4vw;
+}
+
