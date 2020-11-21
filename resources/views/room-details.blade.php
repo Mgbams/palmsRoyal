@@ -28,12 +28,12 @@
 	@stop
 
 	@section('first-content')
-	<div class="room-details-first-div" style="display: flex; height: 100vh; width: 100vw;">
-		<div class="room-details-left" style="height: 100%; width: 50%; position: relative; z-index: 50;">
-			<P style="font-size: 20px; text-align: center;">01 - APPRENDRE ENCORE PLUS</P>
-			<h3 style="font-size: 20px; text-align: center;">À PROPOS DE CETTE CHAMBRE</h3>
+	<div class="room-details-first-div" style="display: flex; height: 70vh; width: 100vw;">
+		<div class="room-details-left" style="height: 100%; width: 60%; position: relative; z-index: 50;">
+			<div style="font-size: 20px; text-align: center; color: black;">01 - APPRENDRE ENCORE PLUS</div>
+			<h3 style="font-size: 20px; text-align: center; color: black;">À PROPOS DE CETTE CHAMBRE</h3>
 			<div style="display: flex; justify-content: center;">
-				<p class="col-6" style="height: 100%; width: 50%; position: relative; z-index: 2; font-size: 18px; line-height: 1.6;">
+				<small class="col-6" style="color: black; height: 100%; width: 50%; position: relative; z-index: 2; font-size: 18px; line-height: 1.6;">
 					Nos chambres doubles de luxe avec vue sur le Cervin
 					sont conçues dans un style boutique européen et disposent
 					d'un grand lit double Queen Size ou de deux lits simples.
@@ -41,7 +41,7 @@
 					Assis sur les chaises longues du balcon orienté au sud, vous pourrez
 					profiter de la vue imprenable sur le Cervin, de l'air frais
 					des montagnes et du doux soleil de l'après-midi.
-				</p>
+				</small>
 			</div>
 			<div style="position: relative;">
 				<a href="{{url('/about')}}" style="font-size: 16px; position: absolute; left: 17vw; top: 8vh; text-decoration: none; z-index: 10;">BOOK NOW</a>
@@ -53,11 +53,53 @@
 				</div>
 			</div>
 		</div>
-		<div class="room-details-right" style="height: 100%; width: 50%; position: relative; z-index: 50;">
-			<p style="font-size: 18px; height: 5vh;">- ROOM FACILITIES</p>
-			<div class="FACILITIES" style="display: flex; height: 95vh;">
-				<div style="width: 50%; background-color: yellow; height: 100%;"> hi</div>
-				<div style="width: 50%; background-color: green; height: 100%;">hello</div>
+		<div class="room-details-right" style="height: 100%; width: 40%; position: relative; z-index: 50;">
+			<div style="font-size: 18px; height: 5vh; color: black;">- ROOM FACILITIES</div>
+			<div class="FACILITIES" style="display: flex; height: 50vh; background-color: white; width: 80%">
+				<div style="padding: 20px 0px; width: 40%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+					<div style="display: flex; justify-content: space-evenly; width: 90%;">
+						<i class='fa fa-bath' style='font-size:22px; color: black;'></i>
+						<small style="color: black; font-size: 18px;">2 Rooms</small>
+					</div>
+					<div style="display: flex; justify-content: space-evenly; width: 90%;">
+						<i class='fa fa-bath' style='font-size:22px; color: black;'></i>
+						<small style="color: black; font-size: 18px;">2 Rooms</small>
+					</div>
+					<div style="display: flex; justify-content: space-evenly; width: 90%;">
+						<i class='fa fa-bath' style='font-size:22px; color: black;'></i>
+						<small style="color: black; font-size: 18px;">2 Rooms</small>
+					</div>
+					<div style="display: flex; justify-content: space-evenly; width: 90%;">
+						<i class='fa fa-bath' style='font-size:22px; color: black;'></i>
+						<small style="color: black; font-size: 18px;">2 Rooms</small>
+					</div>
+					<div style="display: flex; justify-content: space-evenly; width: 90%;">
+						<i class='fa fa-bath' style='font-size:22px; color: black;'></i>
+						<small style="color: black; font-size: 18px;">2 Rooms</small>
+					</div>
+				</div>
+				<div style="padding: 20px 0px; width: 40%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+					<div style="display: flex; justify-content: space-evenly; width: 90%;">
+						<i class='fa fa-bath' style='font-size:22px; color: black;'></i>
+						<small style="color: black; font-size: 18px;">2 Rooms</small>
+					</div>
+					<div style="display: flex; justify-content: space-evenly; width: 90%;">
+						<i class='fa fa-bath' style='font-size:22px; color: black;'></i>
+						<small style="color: black; font-size: 18px;">2 Rooms</small>
+					</div>
+					<div style="display: flex; justify-content: space-evenly; width: 90%;">
+						<i class='fa fa-bath' style='font-size:22px; color: black;'></i>
+						<small style="color: black; font-size: 18px;">2 Rooms</small>
+					</div>
+					<div style="display: flex; justify-content: space-evenly; width: 90%;">
+						<i class='fa fa-bath' style='font-size:22px; color: black;'></i>
+						<small style="color: black; font-size: 18px;">2 Rooms</small>
+					</div>
+					<div style="display: flex; justify-content: space-evenly; width: 90%;">
+						<i class='fa fa-bath' style='font-size:22px; color: black;'></i>
+						<small style="color: black; font-size: 18px;">2 Rooms</small>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -87,11 +129,11 @@
 
 	<div class="room-details-third-block" style="z-index: 50; position: relative; margin-top: 100px; width: 50vw; flex-direction: column; display: flex; justify-content: center; align-items: center;">
 		<h3 style="font-size: 18px;">INFORMATION ADDITIONNELLE</h3>
-		<p style="font-size: 16px; width: 20vw;">
+		<div style="font-size: 16px; width: 20vw; color: black;">
 			Ce type de chambre est disponible avec une porte
 			communicante vers nos chambres doubles standard,
 			offrant la solution parfaite pour les familles de trois à cinq personnes.
-		</p>
+		</div>
 	</div>
 	@stop
 
