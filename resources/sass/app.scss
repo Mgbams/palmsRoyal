@@ -437,6 +437,8 @@ p, small, a {
 
 /* about-hotel */
 .about-hotel {
+  min-width: 100vh !important;
+  overflow-y: scroll;
   .lobby-bar-second-div-container {
     .lobby-bar-second-div-left-image {
       position: relative;

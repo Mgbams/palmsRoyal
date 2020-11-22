@@ -663,8 +663,29 @@ Instead of
 ```
 USE this below by adding {{url('')}}
 
-```
+```php
 <link rel="stylesheet" type="text/css" href="{{url('css/header-effects-component.css')}}" />
 <script src="{{url('js/header-effects-modernizr-custom.js')}}"></script>
 ```
 
+## Creating Repositories in laravel
+Create a folder called **Repositories**.
+Then install the below package
+
+```bash
+$ composer require jason-guru/laravel-make-repository --dev
+```
+After installation, you can use it as below:
+
+```bash
+$ php artisan make:repository your-repository-name
+```
+For more information, you can visit the below link
+[Laravel Repository](https://github.com/jason-guru/laravel-make-repository)
+
+## Replacing strings with other stymbols or spaces
+
+```php
+ str_replace("-", " ", $name);  // Replace hyphen with spaces
+ str_replace(' ', '-', $name); //Replace spaces with hyphen
+```

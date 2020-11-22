@@ -60,6 +60,9 @@ Route::get('/palms-royal-hotel/menu-restaurant/{menu}','EatAndDrinkMorningContro
 Auth::routes();
 
 //room details
-Route::get('/room-details/rooms', 'RoomDetailsController@show')->name('room-details');
+//Route::get('/room-details/rooms', 'RoomDetailsController@show')->name('room-details');
+
+//room details by names
+Route::get('/room/{name}', 'RoomDetailsController@showSingleRoom')->name('room-details');
 
 

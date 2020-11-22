@@ -8,7 +8,11 @@
 	<div class="page room-details-top-image">
 		<div class="header-text">
 			<small>explore</small>
-			<h1>ALPIN JUNIOR SUITE WITH MATTERHORN VIEW</h1>
+			@if($rooms)
+			@foreach($rooms as $room)
+			<h1>{{ strtoupper($room->name) }}</h1>
+			@endforeach
+			@endif
 			<div style="width: 500px; height: 15vh;">
 				<div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
 					<i class='fa fa-bed' style='font-size:24px; color: white;'></i>
@@ -32,17 +36,15 @@
 		<div class="room-details-left" style="height: 100%; width: 60%; position: relative; z-index: 50;">
 			<div style="font-size: 20px; text-align: center; color: black;">01 - APPRENDRE ENCORE PLUS</div>
 			<h3 style="font-size: 20px; text-align: center; color: black;">À PROPOS DE CETTE CHAMBRE</h3>
+			@if($rooms)
+			@foreach($rooms as $room)
 			<div style="display: flex; justify-content: center;">
 				<small class="col-6" style="color: black; height: 100%; width: 50%; position: relative; z-index: 2; font-size: 18px; line-height: 1.6;">
-					Nos chambres doubles de luxe avec vue sur le Cervin
-					sont conçues dans un style boutique européen et disposent
-					d'un grand lit double Queen Size ou de deux lits simples.
-					Le grand salon avec canapé peut accueillir un lit d'appoint.
-					Assis sur les chaises longues du balcon orienté au sud, vous pourrez
-					profiter de la vue imprenable sur le Cervin, de l'air frais
-					des montagnes et du doux soleil de l'après-midi.
+					{{ $room->description }}
 				</small>
 			</div>
+			@endforeach
+			@endif
 			<div style="position: relative;">
 				<a href="{{url('/about')}}" style="font-size: 16px; position: absolute; left: 17vw; top: 8vh; text-decoration: none; z-index: 10;">BOOK NOW</a>
 				<div style="position: absolute; left: 13vw;">

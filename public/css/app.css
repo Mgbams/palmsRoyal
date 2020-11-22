@@ -51746,6 +51746,10 @@ a {
 
 /* about-hotel */
 
+.about-hotel {
+  min-width: 100vh !important;
+}
+
 .about-hotel .lobby-bar-second-div-container .lobby-bar-second-div-left-image {
   position: relative;
   z-index: 5;
