@@ -103,14 +103,14 @@ section p {
 
 .ha-header-perspective {
   width: 100%;
-  height: 100%;
+  height: 50%;
   position: relative;
   perspective: 1100px;
   perspective-origin: 50% 0;
 }
 
 .ha-header-perspective > div {
-  background: #fff;
+  background: #c9af98;
   text-align: left;
   padding: 0 7%;
   height: 50%;
@@ -823,21 +823,23 @@ section p {
   font-size: 16px;
 }
 
-#slideshow-about {
+#slideshow-center {
   width: 98%;
   height: 50vh;
-  background-color: black !important;
+  background-color: black;
   margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#slideshow-about div {
+#slideshow-center div {
   width: 95%;
+  margin: auto !important;
   height: 50vh !important;
-  margin-right: 20px;
 }
 
-#slideshow-about div img {
-  width: 100%;
+#slideshow-center div img {
+  width: 75%;
   height: 100%;
   background-size: cover;
 }
@@ -888,14 +890,6 @@ section p {
 .mixed-carousel .slick-prev:before,
 .mixed-carousel .slick-next:before {
   color: black;
-}
-
-.room-details-top-image {
-  background: url("https://cdn.pixabay.com/photo/2019/06/13/17/08/round-window-4272049_960_720.jpg");
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  position: relative;
 }
 
 .room-details-top-image .header-text {

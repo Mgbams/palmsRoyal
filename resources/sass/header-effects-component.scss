@@ -100,7 +100,7 @@ section p {
 
 .ha-header-perspective {
 	width: 100%;
-	height: 100%;
+	height: 50%;
 	position: relative;
 	-webkit-perspective: 1100px;
 	-moz-perspective: 1100px;
@@ -111,7 +111,7 @@ section p {
 }
 
 .ha-header-perspective > div {
-	background: #fff;
+	background: #c9af98;
 	text-align: left;
 	padding: 0 7%;
 	height: 50%;
@@ -848,22 +848,24 @@ section p {
 
 //second carousel starts here
 
-#slideshow-about {
-	width: 98%; 
-	height: 50vh;
-	background-color: black !important;
-	margin-top: 50px;
-	div {
-		width: 95%;
-		height: 50vh !important;
-		margin-right: 20px;
-		img {
-			width: 100%;
-			height: 100%;
-			background-size: cover;
-		}
-	}
-  }
+#slideshow-center {
+    width: 98%; 
+    height: 50vh;
+    background-color: black;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    div {
+        width: 95%;
+        margin: auto !important;
+        height: 50vh !important;
+        img {
+            width: 75%;
+            height: 100%;
+            background-size: cover;
+        }
+    }
+}
   
   // Used to set the heights of header sections with no content that helps with header nav animations
   .dummy-nav {
@@ -929,12 +931,6 @@ section p {
 //Top Image of room details page
 
 .room-details-top-image {
-	background: url('https://cdn.pixabay.com/photo/2019/06/13/17/08/round-window-4272049_960_720.jpg');
-	height: 100%; 
-	width: 100%;
-	background-size: cover;
-	position: relative;
-
 	.header-text {
 		color: white;
 		display: flex;

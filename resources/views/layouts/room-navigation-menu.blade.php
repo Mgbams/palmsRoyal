@@ -29,7 +29,7 @@
 				<div class="ha-header-front">
 					<h1><span>palmsRoyal</span></h1>
 					<nav>
-						<a href="{{url('/palms-royal-homepage')}}">&lsaquo; page précédente</a>
+						<a href="{{url('/rooms')}}">&lsaquo; page précédente</a>
 						<a>Something</a>
 						<a>Anything</a>
 						<a href="http://tympanus.net/codrops/?p=15935">Back to the article</a>

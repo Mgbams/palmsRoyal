@@ -6,25 +6,43 @@
 	<!-- Top image -->
 	@section('top-image')
 	<div class="page room-details-top-image">
+		<!--TODO: Change the link to the image when i conclude the project-->
+		@if($room)
+		<img src="{{ $room->url }}" style="height: 100%; width: 100%; background-size: cover; position: relative;" />
+		@endif
 		<div class="header-text">
 			<small>explore</small>
-			@if($rooms)
-			@foreach($rooms as $room)
+			@if($room)
 			<h1>{{ strtoupper($room->name) }}</h1>
-			@endforeach
 			@endif
 			<div style="width: 500px; height: 15vh;">
 				<div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+					@if($room->wifi == 1)
 					<i class='fa fa-bed' style='font-size:24px; color: white;'></i>
+					@endif
+					@if($room->ac == 1)
 					<i class='fa fa-bath' style='font-size:24px; color: white;'></i>
+					@endif
+					@if($room->capacity !== null)
 					<i class='fa fa-bath' style='font-size:24px; color: white;'></i>
+					@endif
+					@if($room->heater == 1)
 					<i class='fa fa-bath' style='font-size:24px; color: white;'></i>
+					@endif
 				</div>
 				<div style="display: flex; width: 100%; justify-content: space-between; margin-top: 15px;">
-					<small style="color: white; font-size: 18px;">2 &nbsp;&nbsp; Beds</small>
-					<small style="color: white; font-size: 18px;">1 &nbsp;&nbsp; Bathroom</small>
-					<small style="color: white; font-size: 18px;">32 &nbsp;&nbsp; m<sup>2</sup></small>
-					<small style="color: white; font-size: 18px;">2 &nbsp;&nbsp; Guests</small>
+					@if($room->wifi == 1)
+					<small style="color: white; font-size: 18px;">Wifi</small>
+					@endif
+					@if($room->ac == 1)
+					<small style="color: white; font-size: 18px;">Ac</small>
+					@endif
+					@if($room->capacity !== null)
+					<small style="color: white; font-size: 18px;">{{ $room->capacity }} &nbsp;&nbsp; m<sup>2</sup></small>
+					@endif
+					@if($room->heater == 1)
+					<small style="color: white; font-size: 18px;">Heater</small>
+					@endif
 				</div>
 			</div>
 		</div>
@@ -36,14 +54,12 @@
 		<div class="room-details-left" style="height: 100%; width: 60%; position: relative; z-index: 50;">
 			<div style="font-size: 20px; text-align: center; color: black;">01 - APPRENDRE ENCORE PLUS</div>
 			<h3 style="font-size: 20px; text-align: center; color: black;">À PROPOS DE CETTE CHAMBRE</h3>
-			@if($rooms)
-			@foreach($rooms as $room)
+			@if($room)
 			<div style="display: flex; justify-content: center;">
 				<small class="col-6" style="color: black; height: 100%; width: 50%; position: relative; z-index: 2; font-size: 18px; line-height: 1.6;">
 					{{ $room->description }}
 				</small>
 			</div>
-			@endforeach
 			@endif
 			<div style="position: relative;">
 				<a href="{{url('/about')}}" style="font-size: 16px; position: absolute; left: 17vw; top: 8vh; text-decoration: none; z-index: 10;">BOOK NOW</a>
@@ -110,9 +126,11 @@
 	@section('second-content')
 	<!-- Second Block-->
 	<div class="room-details-second-div" style="width: 100vw; height: 100vh; margin-top: 150px; display:flex;">
+		@if($room)
 		<div style="position: relative; bottom: 40vh; writing-mode: vertical-lr; width: 5vw; height: 100vh; text-align: center; color: black; letter-spacing: 2.5;">
-			COURTYARD DELUXE
+			{{ strtoupper($room->name) }}
 		</div>
+		@endif
 		<div class="right-block" style="width: 70vw; height: 100vh; display: flex; justify-content: center; align-items: center;">
 			<div class="right-block-inner" style="width: 60vw; height: 50%; display: flex; position: relative; left: 25vw; justify-content: space-between">
 				<div class="right-block-inner-first" style="width: 40%; height: 80%;">

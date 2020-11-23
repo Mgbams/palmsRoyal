@@ -13,6 +13,11 @@
 	<link rel="stylesheet" type="text/css" href="css/header-effects-normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/header-effects-component.css" />
 	<script src="js/header-effects-modernizr-custom.js"></script>
+
+	<!--slick css file-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" rel="stylesheet">
+	<!--slick css End Here-->
 </head>
 
 <body>
@@ -93,9 +98,14 @@
 		<section class="ha-waypoint" data-animate-down="ha-header-subfullscreen" data-animate-up="ha-header-fullscreen">
 			<!--Empty div with no content, only used here to enable top header animation-->
 		</section>
-		
+
 	</div>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<!--js-->
+	<script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!--slick js-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
 	<script src="js/waypoints.min.js"></script>
 	<script>
 		var $head = $('#ha-header');
@@ -133,7 +143,7 @@
 				opacity: 0.5,
 				height: "toggle",
 				scrollTop: '50px'
-				}, 5000, function() {
+			}, 5000, function() {
 				// Animation complete.
 				$(".main_h").animate({
 					opacity: 1,
@@ -142,6 +152,39 @@
 				});
 			})
 		});
+
+		// Second-carousel slide settings
+		// Second slide settings
+		$('.second-carousel').slick({
+                infinite: true,
+                slidesToShow: 2,
+                slidesToScroll: 3,
+                centerMode: true,
+                responsive: [{
+                        breakpoint: 1200,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
 	</script>
 
 	<script>

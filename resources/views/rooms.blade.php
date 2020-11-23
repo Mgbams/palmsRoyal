@@ -55,7 +55,7 @@
 
             @if($rooms)
             @foreach($rooms as $room)
-            <div style="height: 100vh; width: 47%; margin-bottom: 15vh;">
+            <div style="height: 100vh; width: 47%; margin-bottom: 15vh; margin-left: 20px;">
                 <div style="width: 100%; height: 70%;">
                     <img src="{{ $room->url }}" style="height: 100%; width: 100%; background-size: cover;" />
                 </div>

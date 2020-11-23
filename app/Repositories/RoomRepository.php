@@ -40,7 +40,7 @@ class RoomRepository
             ->join('room_types', 'room_types.id', '=', 'room_type_rooms.room_type_id')
             ->join('photos', 'photos.room_id', '=', 'rooms.id')
             ->where('rooms.name', '=', $room_name)
-            ->get();
+            ->first();
         return $room;
     }
 }

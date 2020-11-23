@@ -191,22 +191,17 @@
 
 	<!--Eight block-->
 	@section('eight-content')
-	<section id="slideshow-about">
-		<div class="about-carousel" style="display: flex; padding-left: 50px;">
+	<section id="slideshow-center">
+		<div class="second-carousel">
 			<div><img src="https://cdn.pixabay.com/photo/2018/02/24/17/17/window-3178666__340.jpg" /></div>
 			<div><img src="https://cdn.pixabay.com/photo/2015/11/06/11/45/interior-1026452__340.jpg" /></div>
 			<div><img src="https://cdn.pixabay.com/photo/2018/08/23/00/11/girl-3624933__340.jpg" /></div>
 			<div><img src="https://cdn.pixabay.com/photo/2017/05/31/10/23/manor-house-2359884__340.jpg" /></div>
+			<div><img src="https://cdn.pixabay.com/photo/2015/01/10/11/39/hotel-595121__340.jpg" /></div>
+			<div><img src="https://cdn.pixabay.com/photo/2016/11/18/17/41/summer-1836046__340.jpg" /></div>
 		</div>
 	</section>
 
-	<!--js-->
-	<script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!--slick js-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-	<!--Necessary in each blade template that has slick carousel for slick to work -->
-	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 	<script>
 		$(document).ready(() => {
@@ -224,39 +219,6 @@
 		})
 	</script>
 
-	<script>
-		// Second-carousel slide settings
-		$('.about-carousel').slick({
-			infinite: true,
-			slidesToShow: 2,
-			slidesToScroll: 3,
-			centerMode: true,
-			responsive: [{
-					breakpoint: 1200,
-					settings: {
-						arrows: false,
-						centerMode: true,
-					}
-				},
-				{
-					breakpoint: 768,
-					settings: {
-						arrows: false,
-						centerMode: true,
-						slidesToShow: 3
-					}
-				},
-				{
-					breakpoint: 480,
-					settings: {
-						arrows: false,
-						centerMode: true,
-						slidesToShow: 1
-					}
-				}
-			]
-		});
-	</script>
 	@stop
 
 	<!--Nineth block-->
