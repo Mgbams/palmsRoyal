@@ -38,7 +38,7 @@
             <div class="parallax-one" style="display: flex; justify-content: space-between;">
                 <div style="width: 38%; height: 50vh; border: 1px solid red;">
                     <!--Number of nights to be booked-->
-                    <div id="numberOfNights" style="text-align: center;" class="col-2 offset-10"></div>
+                    <div id="numberOfNights" style="text-align: center;" class="col-2 offset-8"></div>
 
                     <!--single date picker-->
                     <div style="margin-top: 20px; display: flex; justify-content: space-between;" class="row">
@@ -110,8 +110,7 @@
 
     </div>
 
-
-
+    <!--script tags used for datetime picker-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
@@ -119,7 +118,7 @@
     <script>
         $(function() {
             var arrival; //Declare an arrival variable to hold arrival dates
-
+            var daysBooked; // passed to controllerfor the number of days reserved
             // single date pickers starts HERE
 
             /***** ARRIVAL DATETIME PICKER *****/
@@ -166,17 +165,20 @@
                 console.log("differenceInMilliseconds  " + differenceInMilliseconds);
                 var differenceInDays = Math.ceil(differenceInMilliseconds / (1000 * 3600 * 24)); // Diff between arrival and departure dates in Days
 
+                /* Check if the selected daterange is valid */
                 if (differenceInDays == 0 || differenceInDays < 0) {
                     alert("Please Enter a valid date range");
                 } else {
                     $('#numberOfNights').html(differenceInDays);
-                    $('#numberOfNights').append("<p>Night(s)</p>");
-                    $('#numberOfNights').css("border", "1px solid yellow");
+                    $('#numberOfNights').append("<p>Night(s)</p>"); // Appending content to div element
+                    $('#numberOfNights').css({
+                        "border": "1px solid #ccc",
+                        "margin-bottom": "10px"
+                    });
                     //alert(differenceInDays);
+                    daysBooked = differenceInDays;
                 }
-
             });
-
             // single date pickers end HERE
         });
     </script>

@@ -717,3 +717,12 @@ $(function() {
 });
 </script>
 ```
+
+## Converting datetime from datepicker in milliseconds and then in days
+
+```
+var departureDate = picker.startDate.format('YYYY-MM-DD'); // date from datetimepicker
+var departure = new Date(departureDate).getTime(); // Convert datetime to milliseconds
+var Days = Math.ceil(Days / (1000 * 3600 * 24)); // Convert dates in Days
+```
+
