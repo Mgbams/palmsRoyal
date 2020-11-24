@@ -37,17 +37,17 @@
         <section>
             <div class="parallax-one" style="display: flex; justify-content: space-between;">
                 <div style="width: 38%; height: 50vh; border: 1px solid red;">
-                    <!--Double date picker-->
-                    <input type="text" name="datetimes" />
+                    <!--Number of nights to be booked-->
+                    <div id="numberOfNights" style="text-align: center;" class="col-2 offset-10"></div>
 
                     <!--single date picker-->
                     <div style="margin-top: 20px; display: flex; justify-content: space-between;" class="row">
-                        <div class="col-sm-8 col-md-6">
+                        <div class="col-sm-8 col-md-6" style="margin-top: 20px;">
                             <div><label>ARRIVAL</label></div>
                             <div><input type="text" name="arrival" value="11/24/2020" /></div>
                         </div>
 
-                        <div class="col-sm-8 col-md-6">
+                        <div class="col-sm-8 col-md-6" style="margin-top: 20px;">
                             <div><label>DEPARTURE</label></div>
                             <div><input type="text" name="departure" value="11/28/2020" /></div>
                         </div>
@@ -118,30 +118,11 @@
 
     <script>
         $(function() {
-            // Multiple date and time
-            $('input[name="datetimes"]').daterangepicker({
-                timePicker: true,
-                startDate: moment().startOf('hour'),
-                endDate: moment().startOf('hour').add(32, 'hour'),
-                locale: {
-                    format: 'M/DD hh:mm A'
-                }
-            });
+            var arrival; //Declare an arrival variable to hold arrival dates
 
-            $("select#PersonSelector").change(function() {
-                var selectedGuests = $(this).children("option:selected").val();
-                alert("You have selected the guest - " + selectedGuests);
-            });
-        });
-    </script>
+            // single date pickers starts HERE
 
-    <!--single date picker-->
-    <script>
-        $(function() {
-            var date1 = null;
-            var date2 = null;
-
-            // Arrival date
+            /***** ARRIVAL DATETIME PICKER *****/
             $('input[name="arrival"]').daterangepicker({
                 singleDatePicker: true,
                 showDropdowns: true,
@@ -153,17 +134,16 @@
                 maxYear: 2030,
             }, function(start, end, label) {
                 var years = moment().diff(start, 'years');
-                console.log(start);
-                alert("You are " + years + " years old!");
+                //console.log(start);
+                //alert("You are " + years + " years old!");
             });
 
             $('input[name="arrival"]').on('apply.daterangepicker', function(ev, picker) {
-                console.log(picker.startDate.format('YYYY-MM-DD'));
-                var date1= picker.startDate.format('YYYY-MM-DD');
-                //console.log(date1);
+                var arrivalDate = picker.startDate.format('YYYY-MM-DD');
+                arrival = new Date(arrivalDate).getTime();
             });
 
-            // Departure date
+            /***** DEPARTURE DATETIME PICKER *****/
             $('input[name="departure"]').daterangepicker({
                 singleDatePicker: true,
                 showDropdowns: true,
@@ -174,31 +154,31 @@
                 },
                 maxYear: 2030,
             }, function(start, end, label) {
-                var years = moment().diff(start, 'years');
-                alert("You are " + years + " years old!");
+                // var years = moment().diff(start, 'years');
+                // alert("You are " + years + " years old!");
             });
 
             $('input[name="departure"]').on('apply.daterangepicker', function(ev, picker) {
-                console.log(picker.startDate.format('YYYY-MM-DD'));
-                var date2 = picker.startDate.format('YYYY-MM-DD');
+                var departureDate = picker.startDate.format('YYYY-MM-DD');
+                var departure = new Date(departureDate).getTime(); // Convert datetime to milliseconds
+
+                var differenceInMilliseconds = departure - arrival; // Diff between arrival and departure dates in milliseconds
+                console.log("differenceInMilliseconds  " + differenceInMilliseconds);
+                var differenceInDays = Math.ceil(differenceInMilliseconds / (1000 * 3600 * 24)); // Diff between arrival and departure dates in Days
+
+                if (differenceInDays == 0 || differenceInDays < 0) {
+                    alert("Please Enter a valid date range");
+                } else {
+                    $('#numberOfNights').html(differenceInDays);
+                    $('#numberOfNights').append("<p>Night(s)</p>");
+                    $('#numberOfNights').css("border", "1px solid yellow");
+                    //alert(differenceInDays);
+                }
+
             });
 
-            // To calculate the time difference of two dates 
-           // var Difference_In_Time = date2 - date1;
-            //console.log(Difference_In_Time );
-            //console.log(date2);
-            // To calculate the no. of days between two dates 
-            //var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-            //console.log(Difference_In_Days);
+            // single date pickers end HERE
         });
-
-        /* 
-         * $('#daterange').daterangepicker();
-         *   $('#daterange').on('apply.daterangepicker', function(ev, picker) {
-         *    console.log(picker.startDate.format('YYYY-MM-DD'));
-         *   console.log(picker.endDate.format('YYYY-MM-DD'));
-         *    });
-         */
     </script>
 
 </body>
