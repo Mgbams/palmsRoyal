@@ -136,7 +136,7 @@
             <p class="col-4">Découvrez de nouvelles émotions et laissez-vous inspirer par l'ambiance locale</p>
         </div>
 
-        <div class="about-hotel-link" style="margin-top: 120px !important;">
+        <div class="about-hotel-link row" style="margin-top: 120px !important;">
             <a class="btn" href="{{ route('hotel-info.show') }}"><span>Hotel Info</span><em></em></a>
         </div>
 

@@ -191,7 +191,7 @@
 
 	<!--Eight block-->
 	@section('eight-content')
-	<section id="slideshow-center">
+	<section id="slideshow-about-center">
 		<div class="second-carousel">
 			<div><img src="https://cdn.pixabay.com/photo/2018/02/24/17/17/window-3178666__340.jpg" /></div>
 			<div><img src="https://cdn.pixabay.com/photo/2015/11/06/11/45/interior-1026452__340.jpg" /></div>

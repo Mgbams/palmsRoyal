@@ -848,13 +848,14 @@ section p {
 
 //second carousel starts here
 
-#slideshow-center {
+#slideshow-about-center {
     width: 98%; 
     height: 50vh;
     background-color: black;
     margin-top: 50px;
     margin-left: auto;
-    margin-right: auto;
+	margin-right: auto;
+	padding: 0px 20px;
     div {
         width: 95%;
         margin: auto !important;
@@ -864,7 +865,7 @@ section p {
             height: 100%;
             background-size: cover;
         }
-    }
+	}
 }
   
   // Used to set the heights of header sections with no content that helps with header nav animations
@@ -949,3 +950,4 @@ section p {
 		}
 	}
 }
+

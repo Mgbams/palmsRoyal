@@ -65,4 +65,6 @@ Auth::routes();
 //room details by names
 Route::get('/room/{name}', 'RoomDetailsController@showSingleRoom')->name('room-details');
 
+//BOOK NOW
+Route::get('/book-now', 'RoomDetailsController@bookNow')->name('book-now');
 

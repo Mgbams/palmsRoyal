@@ -823,22 +823,23 @@ section p {
   font-size: 16px;
 }
 
-#slideshow-center {
+#slideshow-about-center {
   width: 98%;
   height: 50vh;
   background-color: black;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0px 20px;
 }
 
-#slideshow-center div {
+#slideshow-about-center div {
   width: 95%;
   margin: auto !important;
   height: 50vh !important;
 }
 
-#slideshow-center div img {
+#slideshow-about-center div img {
   width: 75%;
   height: 100%;
   background-size: cover;

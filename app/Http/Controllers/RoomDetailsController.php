@@ -24,4 +24,8 @@ class RoomDetailsController extends Controller
             'room' => $room
         ]);
     }
+
+    public function bookNow() {
+        return view('book-now');
+    }
 }

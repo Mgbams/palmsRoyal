@@ -25,4 +25,5 @@ mix.js('resources/js/app.js', 'public/js')
     
     .sass('resources/sass/header-effects-component.scss', 'public/css')
     .sass('resources/sass/pdf.scss', 'public/css')
+    .sass('resources/sass/daterangepicker.scss', 'public/css')
     .sass('resources/sass/header-effects-normalize.scss', 'public/css');
