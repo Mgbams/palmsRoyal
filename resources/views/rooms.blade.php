@@ -19,26 +19,28 @@
         </div>
 
         <!--First block of select elements-->
-        <div style="margin: 60px 0px 60px 15vw; width: 80vw; display:flex; justify-content: flex-end;">
-            <select class="custom-select col-2">
+      
+
+        <div class="row my-5 room-select">
+            <select class="custom-select col-sm-6 col-md-2">
                 <option selected="selected">Type</option>
                 <option>Burger</option>
                 <option>Ice Cream</option>
                 <option>Fried Potatoes</option>
             </select>
-            <select class="custom-select col-2">
+            <select class="custom-select col-sm-6 col-md-2">
                 <option>Space</option>
                 <option>Burger</option>
                 <option>Ice Cream</option>
                 <option>Fried Potatoes</option>
             </select>
-            <select class="custom-select col-2">
+            <select class="custom-select col-sm-6 col-md-2">
                 <option>Guests</option>
                 <option>Burger</option>
                 <option>Ice Cream</option>
                 <option>Fried Potatoes</option>
             </select>
-            <select class="custom-select col-2">
+            <select class="custom-select col-sm-6 col-md-2">
                 <option>Beds</option>
                 <option>Pizzas</option>
                 <option>Burger</option>

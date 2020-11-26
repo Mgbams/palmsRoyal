@@ -68,3 +68,6 @@ Route::get('/room/{name}', 'RoomDetailsController@showSingleRoom')->name('room-d
 //BOOK NOW
 Route::get('/book-now', 'RoomDetailsController@bookNow')->name('book-now');
 
+//BOOK NOW
+Route::get('/cancel-reservation', 'RoomDetailsController@cancelReservation')->name('cancel-reservation');
+

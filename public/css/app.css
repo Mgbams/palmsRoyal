@@ -52268,7 +52268,7 @@ a {
   display: none;
 }
 
-#parallax-world-of-ugg {
+#book-now-container {
   width: 90%;
   margin: auto;
 }
@@ -52289,7 +52289,7 @@ a {
 
 /**************************/
 
-#parallax-world-of-ugg h1 {
+#book-now-container h1 {
   font-family: "Oswald", sans-serif;
   font-size: 24px;
   font-weight: 400;
@@ -52299,7 +52299,7 @@ a {
   margin: 0;
 }
 
-#parallax-world-of-ugg h2 {
+#book-now-container h2 {
   font-family: "Oswald", sans-serif;
   font-size: 70px;
   letter-spacing: 10px;
@@ -52311,7 +52311,7 @@ a {
   opacity: 0.9;
 }
 
-#parallax-world-of-ugg h3 {
+#book-now-container h3 {
   font-family: "Oswald", sans-serif;
   font-size: 14px;
   line-height: 0;
@@ -52321,7 +52321,7 @@ a {
   color: black;
 }
 
-#parallax-world-of-ugg p {
+#book-now-container p {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -52355,50 +52355,22 @@ a {
 
 /**************************/
 
-#parallax-world-of-ugg .title {
-  background: white;
-  padding: 60px;
+#book-now-container .title {
+  padding: 10px;
   margin: 0 auto;
   text-align: center;
 }
 
-#parallax-world-of-ugg .title h1 {
+#book-now-container .title h1 {
   font-size: 35px;
   letter-spacing: 8px;
-}
-
-/* Section - Block */
-
-/**************************/
-
-#parallax-world-of-ugg .block {
-  background: white;
-  padding: 60px;
-  width: 820px;
-  margin: 0 auto;
-  text-align: justify;
-}
-
-#parallax-world-of-ugg .block-gray {
-  background: #f2f2f2;
-  padding: 60px;
-}
-
-#parallax-world-of-ugg .section-overlay-mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  opacity: 0.7;
 }
 
 /* Section - Parallax */
 
 /**************************/
 
-#parallax-world-of-ugg .parallax-one {
+#book-now-container .parallax-one {
   padding-top: 20px;
   overflow: hidden;
   position: relative;
@@ -52412,83 +52384,117 @@ a {
   background-position: top center;
 }
 
-#parallax-world-of-ugg .parallax-two {
-  padding-top: 200px;
-  padding-bottom: 200px;
-  overflow: hidden;
+.parallax-inner button {
+  background-color: #864747;
+  border: none;
+}
+
+.parallax-inner .info-text {
+  width: 60vw;
+  color: white;
+  margin: auto;
+  font-size: 19px;
+}
+
+.parallax-inner .availabilty-div {
+  width: 300px;
+}
+
+/**** Cancel Reservation page ****/
+
+@media only screen and (max-width: 576px) {
+  .cancel-by-number {
+    border-right: none !important;
+  }
+
+  .search-by-email {
+    margin-top: 30px;
+  }
+
+  .room-select select {
+    margin-bottom: 10px;
+    width: 100px;
+  }
+
+  .country-money-toggle {
+    display: none;
+    width: 60vw;
+    margin: auto;
+  }
+
+  .select-dates {
+    width: 60vw;
+    margin: auto;
+  }
+
+  .select-dates p {
+    font-size: 26px;
+  }
+
+  .parallax-inner {
+    height: 100vh !important;
+  }
+
+  .parallax-inner .info-text {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .parallax-inner {
+    height: 100vh !important;
+  }
+}
+
+.cancel-reservation-btn,
+.availabilty-button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
   position: relative;
-  width: 100%;
-  background-image: url(https://images.unsplash.com/photo-1432163230927-a32e4fd5a326?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=);
-  background-attachment: fixed;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-#parallax-world-of-ugg .parallax-three {
-  padding-top: 200px;
-  padding-bottom: 200px;
   overflow: hidden;
-  position: relative;
+  z-index: 1;
+}
+
+.cancel-reservation-btn:after,
+.availabilty-button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  background-image: url(https://images.unsplash.com/photo-1440688807730-73e4e2169fb8?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=);
-  background-attachment: fixed;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  height: 100%;
+  background-color: #864747;
+  border-radius: 10rem;
+  z-index: -2;
 }
 
-/* Extras */
-
-/**************************/
-
-#parallax-world-of-ugg .line-break {
-  border-bottom: 1px solid black;
-  width: 150px;
-  margin: 0 auto;
+.cancel-reservation-btn:before,
+.availabilty-button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #b06a6a;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
 }
 
-/* Media Queries */
-
-/**************************/
-
-@media screen and (max-width: 959px) and (min-width: 768px) {
-  #parallax-world-of-ugg .block {
-    padding: 40px;
-    width: 620px;
-  }
+.cancel-reservation-btn:hover,
+.availabilty-button:hover {
+  color: #fff;
 }
 
-@media screen and (max-width: 767px) {
-  #parallax-world-of-ugg .block {
-    padding: 30px;
-    width: 420px;
-  }
-
-  #parallax-world-of-ugg h2 {
-    font-size: 30px;
-  }
-
-  #parallax-world-of-ugg .block {
-    padding: 30px;
-  }
-
-  #parallax-world-of-ugg .parallax-one,
-  #parallax-world-of-ugg .parallax-two,
-  #parallax-world-of-ugg .parallax-three {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  #parallax-world-of-ugg .block {
-    padding: 30px 15px;
-    width: 290px;
-  }
+.cancel-reservation-btn:hover:before,
+.availabilty-button:hover:before {
+  width: 100%;
 }
 

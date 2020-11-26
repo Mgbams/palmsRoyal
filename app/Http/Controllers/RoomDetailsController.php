@@ -28,4 +28,8 @@ class RoomDetailsController extends Controller
     public function bookNow() {
         return view('book-now');
     }
+
+    public function cancelReservation() {
+        return view('cancel-reservation');
+    }
 }

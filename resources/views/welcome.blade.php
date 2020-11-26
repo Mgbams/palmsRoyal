@@ -6,11 +6,11 @@
 <div class="pages-stack">
     <!-- page -->
     <div class="page" id="page-home">
-        <section id="slideshow">
-            <div class="slick">
-                <div><img src="https://cdn.pixabay.com/photo/2015/12/28/10/19/hotel-1111199__340.jpg" /></div>
-                <div><img src="https://cdn.pixabay.com/photo/2015/03/26/10/01/burj-al-arab-690768__340.jpg" /></div>
-                <div><img src="https://cdn.pixabay.com/photo/2015/10/01/13/08/beach-966994__340.jpg" /></div>
+        <section id="slideshow" class="container-fluid">
+            <div class="slick" class="row">
+                <div><img src="https://cdn.pixabay.com/photo/2015/12/28/10/19/hotel-1111199__340.jpg"  class="img-fluid"/></div>
+                <div><img src="https://cdn.pixabay.com/photo/2015/03/26/10/01/burj-al-arab-690768__340.jpg"  class="img-fluid" /></div>
+                <div><img src="https://cdn.pixabay.com/photo/2015/10/01/13/08/beach-966994__340.jpg"  class="img-fluid" /></div>
             </div>
         </section>
 
