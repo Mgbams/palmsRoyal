@@ -56,7 +56,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //PDF download
-Route::get('/palms-royal-hotel/menu-restaurant/{menu}','EatAndDrinkMorningController@createPDF');
+Route::get('/palms-royal-hotel/menu-restaurant/{menu}', 'EatAndDrinkMorningController@createPDF');
 Auth::routes();
 
 //room details
@@ -71,3 +71,9 @@ Route::get('/book-now', 'RoomDetailsController@bookNow')->name('book-now');
 //BOOK NOW
 Route::get('/cancel-reservation', 'RoomDetailsController@cancelReservation')->name('cancel-reservation');
 
+//Admin panel
+Route::prefix('admin')->group(function () {
+    //Countries Lists
+    Route::get('countries', 'Admin\CountryController@index');
+    Route::get('countries/list', 'Admin\CountryController@getCountries')->name('get.countries'); //redundant, just used to get data that is displayed in the index
+});

@@ -15,7 +15,7 @@ class RoyalPalmsHomePageController extends Controller
     //Navigation menu TODO
     public function index()
     {
-        return view('navigation-menu');
+        return view('layouts.app');
     }
 
     //Navigation menu TODO

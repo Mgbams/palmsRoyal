@@ -755,3 +755,134 @@ You can visit the link below for more information
 var today = new Date(); // current date
 var tomorrow = today.setDate( today.getDate() + 1 ); //tomorrow by adding to today's date
 ```
+
+## Laravel yajra datatable
+1. Install it with the command
+
+```bash
+$ composer require yajra/laravel-datatables
+```
+2. open config->app.php and add the following into providers and aliases part of the code
+
+```php
+.....
+.....
+'providers' => [
+	....
+	....
+	\Yajra\DataTables\DataTablesServiceProvider::class,
+]
+'aliases' => [
+	....
+	....
+	'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+]
+```
+After this configuration, publish it using the below command:
+
+```bash
+$ php artisan vendor:publish --provider="Yajra\DataTables\DataTablesServiceProvider"
+```
+
+3. Add the css links for the bootstrap and datatable to function at the head of your blade template
+
+```php
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+```
+
+4. Add the js links for the bootstrap and datatable to function at the head of your blade template
+
+```php
+<!--Js for datatables-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+```
+
+**NOTE**: For the links above, you can get them from visiting the following link. Jquery cdn should be the 
+first link you add to your site and **ADD THESE LINKS AT THE TOP OF YOUR HTML in the head section**
+
+* [jquery cdn](https://code.jquery.com/)
+click on the minified link and copy and paste the js code in your project
+
+* [datatables cdn](http://cdn.datatables.net/)
+Visit the link, click on Bootstrap 4, then copy and paste the two js links and one css link appearing on the website into your project
+
+* [bootstrap cdn](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
+Visit the link, copy and paste the two css links from the site into your website.
+Also copy the three Js links and paste into your website. Finlly remove the below js link from
+your project to avoid duplication of jquery link:
+remove this link from your project
+
+```php
+//Link with slim.min.js that you copied from bootstrap page
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+```
+
+5. In resourses/js/bootstrap.js, add the code below
+
+```resourses/js/bootstrap.js
+//Datatables
+require('datatables.net-bs4');
+require('datatables.net-buttons-bs4');
+```
+
+6. In resourses/sass/app.scss, add the code below
+
+```resourses/js/bootstrap.js
+//Datatables
+@import "~datatables.net-bs4/css/dataTables.bootstrap4.css";
+@import "~datatables.net-buttons-bs4/css/buttons.bootstrap4.css";
+```
+
+7. In your controller, add 
+
+```php
+use DataTables; 
+```
+8. You need two routes for each page to make the yajra table work. Your index link that will return a view to your blade template and another route that would make the yajra queries e.g
+To display a lists of countries, i used the below two routes
+```web.php
+Route::get('countries', 'Admin\CountryController@index');
+Route::get('countries/list', 'Admin\CountryController@getCountries')->name('get.countries');
+```
+
+And in the controller i added the functions as shown below:
+
+```php
+// returning the view admin.show.country
+ public function index()
+    {
+        return view('admin.show.country');
+    }
+
+    //Getting data from database
+    public function getCountries(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Country::select('nom_en_gb', 'nom_fr_fr')->get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $actionBtn = '<button type="button" name="edit" class="edit btn btn-success btn-sm"     id="'.$data->id.'"><i class="fa fa-edit"></i>&nbsp;Edit</button>';
+                    $actionBtn .=  '
+                                &nbsp; &nbsp; &nbsp;<button 
+                                type="button" name="delete" class="delete btn btn-danger btn-sm" id="'.$data->id.'"><i class="fa fa-trash-alt"></i>&nbsp;Delete</button>';
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+```
+
+For more information, visit:
+[Yajra datatables](https://www.positronx.io/laravel-datatables-example/)
+
+## Laravel Tips
+Visit the following site for more explanation:
+[Laravel Tips](https://laraveldaily.com/8-tricks-with-laravel-timestamps/)

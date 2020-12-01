@@ -16,7 +16,9 @@
         "infyomlabs/laravel-ui-adminlte": "^2.0",
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.0",
-        "laravelcollective/html": "^6.2"
+        "laravelcollective/html": "^6.2",
+        "yajra/laravel-datatables": "^1.5",
+        "yajra/laravel-datatables-oracle": "^9.15"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

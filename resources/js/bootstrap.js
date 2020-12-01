@@ -30,3 +30,7 @@ try {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+//Datatables
+require('datatables.net-bs4');
+require('datatables.net-buttons-bs4');
