@@ -31,6 +31,10 @@
     <div id="book-now-container">
 
         <section>
+            <div class="d-flex flex-row flex-end bg-secondary py-3 justify-content-end">
+                <div class="mr-5">info@palmsroyal-hotel.com</div>
+                <div  class="mr-3">+33759876543</div>
+            </div>
             <div class="title row" style="background-color: yellow;">
                 <div class="col-md-4 col-sm-12 d-flex justify-content-center align-items-center flex-column" style="height: 20vh;">
                     <h3>Let's do some</h3>
