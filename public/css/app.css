@@ -52438,11 +52438,19 @@ a {
   .parallax-inner .info-text {
     display: none;
   }
+
+  .availability-calendar {
+    padding-top: 100px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   .parallax-inner {
     height: 100vh !important;
+  }
+
+  .availability-calendar {
+    padding-top: 100px;
   }
 }
 

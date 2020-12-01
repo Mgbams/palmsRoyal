@@ -16,6 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/gnmenu.js', 'public/js')
 
     .js('resources/js/header-effects-modernizr-custom.js', 'public/js')
+    .js('resources/js/availability-calendar.js', 'public/js')
 
     .sass('resources/sass/app.scss', 'public/css')
 
@@ -26,4 +27,6 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/header-effects-component.scss', 'public/css')
     .sass('resources/sass/pdf.scss', 'public/css')
     .sass('resources/sass/daterangepicker.scss', 'public/css')
+    .sass('resources/sass/availability-calendar.scss', 'public/css')
     .sass('resources/sass/header-effects-normalize.scss', 'public/css');
+    

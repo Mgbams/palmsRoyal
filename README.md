@@ -726,3 +726,32 @@ var departure = new Date(departureDate).getTime(); // Convert datetime to millis
 var Days = Math.ceil(Days / (1000 * 3600 * 24)); // Convert dates in Days
 ```
 
+## How to use Flatpickr in Laravel
+
+Install flatpickr using:
+
+```bash
+$ npm i flatpickr --save
+```
+Then in the blade template where you want to use it, add this css and script link
+
+```
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+```
+
+Then in resources/js/app.js, add this line of code
+
+```app.js
+//flatpickr
+const flatpickr = window.flatpickr = require("flatpickr");
+```
+You can visit the link below for more information 
+[Flatpickr](https://flatpickr.js.org/getting-started/)
+
+## Getting tomorrow's date by adding to new date function
+
+```js
+var today = new Date(); // current date
+var tomorrow = today.setDate( today.getDate() + 1 ); //tomorrow by adding to today's date
+```

@@ -6,3 +6,6 @@ window.$ = window.jQuery = $;
 
 import 'jquery-ui/ui/widgets/datepicker.js';
 $('#datepicker').datepicker();
+
+//flatpickr
+const flatpickr = window.flatpickr = require("flatpickr");

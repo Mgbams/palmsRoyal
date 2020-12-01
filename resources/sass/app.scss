@@ -1128,13 +1128,22 @@ p, small, a {
         display: none;
       }
     }
+    
+     .availability-calendar{
+      padding-top: 100px;
+    }
   }
 
   @media only screen and (max-width: 768px) {
     .parallax-inner {
       height: 100vh !important;
     }
+
+    .availability-calendar{
+      padding-top: 100px;
+    }
   }
+
 
   //Cancel reservation button starts here
 .cancel-reservation-btn, .availabilty-button {

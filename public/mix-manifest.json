@@ -7,7 +7,9 @@
     "/css/header-effects-component.css": "/css/header-effects-component.css",
     "/css/pdf.css": "/css/pdf.css",
     "/css/daterangepicker.css": "/css/daterangepicker.css",
+    "/css/availability-calendar.css": "/css/availability-calendar.css",
     "/css/header-effects-normalize.css": "/css/header-effects-normalize.css",
+    "/js/availability-calendar.js": "/js/availability-calendar.js",
     "/js/gnmenu.js": "/js/gnmenu.js",
     "/js/header-effects-modernizr-custom.js": "/js/header-effects-modernizr-custom.js",
     "/js/modernizr1-custom.js": "/js/modernizr1-custom.js"

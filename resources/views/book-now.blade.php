@@ -16,12 +16,15 @@
     <!--Used for datepicker-->
     <link rel="stylesheet" type="text/css" href="{{url('css/daterangepicker.css')}}" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <!-- Optional theme -->
 
-
+    <!-- Flatpickr css-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
 
     <!--main css file starts here-->
     <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
+     <!--Availability Calendar css-->
+     <link href="{{url('css/availability-calendar.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -42,7 +45,7 @@
 
         <section>
             <div class="parallax-one" style="min-height: 100vh;">
-                <div class="parallax-inner" style="background-color: rgba(0, 0, 0, .5); width: 90%; height: 90vh; margin: auto;">
+                <div class="parallax-inner" style="background-color: rgba(0, 0, 0, .5); width: 90%; height: 75vh; margin: auto;">
                     <div class="row">
                         <div class="col-sm-2 mt-5 ml-2 select-dates">
                             <p style="color: white;">SELECT DATES</p>
@@ -78,21 +81,33 @@
                     </div>
 
                     <!--Number of nights to be booked-->
-                    <div id="numberOfNights" style="text-align: center;" class="col-2 offset-8"></div>
+                    <div id="numberOfNights" class="col-sm-2 offset-sm-8" style="text-align: center; color: white; font-size: 22px;" class="col-2 offset-8"></div>
 
                     <!--single date picker-->
                     <div style="margin-top: 20px; display: flex; justify-content: space-between;" class="container row">
 
                         <!--Arrival div-->
-                        <div class="col-sm-6 col-md-2" style="margin-top: 20px; overflow: hidden;">
+                        <!--<div class="col-sm-6 col-md-2" style="margin-top: 20px; overflow: hidden;">
                             <div><label style="color: white;">ARRIVAL</label></div>
                             <div><input type="text" name="arrival" value="11/24/2020" /></div>
-                        </div>
+                        </div>-->
 
                         <!--Departure div-->
-                        <div class="col-sm-6 col-md-2" style="margin-top: 20px; overflow: hidden;">
+                        <!--<div class="col-sm-6 col-md-2" style="margin-top: 20px; overflow: hidden;">
                             <div><label style="color: white;">DEPARTURE</label></div>
                             <div><input type="text" name="departure" value="11/28/2020" /></div>
+                        </div>-->
+
+                        <!--Flatpickr3-->
+                        <div class="col-sm-6 col-md-2" style="margin-top: 20px; overflow: hidden;">
+                            <div><label style="color: white;">CHECK-IN</label></div>
+                            <input type="text" name="arrival" type="date" class="arrival" placeholder="select date/time">
+                        </div>
+
+                        <!--Flatpickr4-->
+                        <div class="col-sm-6 col-md-2" style="margin-top: 20px; overflow: hidden;">
+                            <div><label style="color: white;">CHECK-OUT</label></div>
+                            <input type="text" type="date" class="checkout" name="checkout" placeholder="select date/time">
                         </div>
 
                         <!--Rooms select-->
@@ -146,6 +161,17 @@
                         <button class="availabilty-button">CHECK AVAILABILITY</button>
                     </div>
                 </div>
+
+                  <!--Availability calendar-->
+                <div class="availability-calendar parallax-inner-two" style="background-color: rgba(0, 0, 0, .5); width: 90%; min-height: 100vh; margin: 0px auto; text-align: center;">
+                    <div id="calendar"></div>
+                    <div style="margin-top: 40px;"><a href="{{url('cancel-reservation')}}" class="cancel-reservation-link" style="color: white; background-color: grey;  padding: 20px;">Modify or Cancel Reservation</a></div>
+                </div>
+
+                 <!--Cancel Reservation-->
+                 <div class="cancel-reservation parallax-inner-three " style="background-color: rgba(0, 0, 0, .5); width: 90%; height: 2vh; margin: 0px auto; text-align: center;">
+                   
+                </div>
             </div>
         </section>
     </div>
@@ -160,58 +186,86 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
+
+    <!--flatpicker-->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!--Availability calendar js-->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="{{url('js/availability-calendar.js')}}"></script>
+
+
     <script>
         $(function() {
             var arrival; //Declare an arrival variable to hold arrival dates
             var daysBooked; // passed to controllerfor the number of days reserved
+            var today = new Date();
+            var tomorrow = today.setDate(today.getDate() + 1);
+
+            /***Availability calendar unavailable dates***/
+            var unavailableDates = [{
+                    start: '2020-12-01',
+                    end: '2020-12-09'
+                },
+                {
+                    start: '2020-11-20',
+                    end: '2020-11-30'
+                },
+                {
+                    start: '2020-12-25',
+                    end: '2020-12-28'
+                }
+            ];
+
             // single date pickers starts HERE
 
             /***** ARRIVAL DATETIME PICKER *****/
-            $('input[name="arrival"]').daterangepicker({
-                singleDatePicker: true,
-                showDropdowns: true,
-                minYear: 1901,
-                timePicker: true,
-                locale: {
-                    format: 'M/DD hh:mm A'
-                },
-                maxYear: 2030,
-            }, function(start, end, label) {
-                var years = moment().diff(start, 'years');
-                //console.log(start);
-                //alert("You are " + years + " years old!");
-            });
+            /* $('input[name="arrival"]').daterangepicker({
+                 singleDatePicker: true,
+                 showDropdowns: true,
+                 minYear: 1901,
+                 timePicker: true,
+                 locale: {
+                     format: 'M/DD hh:mm A'
+                 },
+                 maxYear: 2030,
+             }, function(start, end, label) {
+                 var years = moment().diff(start, 'years');
+                 //console.log(start);
+                 //alert("You are " + years + " years old!");
+             });
 
-            $('input[name="arrival"]').on('apply.daterangepicker', function(ev, picker) {
-                var arrivalDate = picker.startDate.format('YYYY-MM-DD');
-                arrival = new Date(arrivalDate).getTime();
-            });
+             $('input[name="arrival"]').on('apply.daterangepicker', function(ev, picker) {
+                 var arrivalDate = picker.startDate.format('YYYY-MM-DD');
+                 arrival = new Date(arrivalDate).getTime();
+             });*/
 
             /***** DEPARTURE DATETIME PICKER *****/
-            $('input[name="departure"]').daterangepicker({
-                singleDatePicker: true,
-                showDropdowns: true,
-                minYear: 1901,
-                timePicker: true,
-                locale: {
-                    format: 'M/DD hh:mm A'
-                },
-                maxYear: 2030,
-            }, function(start, end, label) {
-                // var years = moment().diff(start, 'years');
-                // alert("You are " + years + " years old!");
-            });
+            /* $('input[name="departure"]').daterangepicker({
+                 singleDatePicker: true,
+                 showDropdowns: true,
+                 minYear: 1901,
+                 timePicker: true,
+                 locale: {
+                     format: 'M/DD hh:mm A'
+                 },
+                 maxYear: 2030,
+             }, function(start, end, label) {
+                 // var years = moment().diff(start, 'years');
+                 // alert("You are " + years + " years old!");
+             });*/
 
-            $('input[name="departure"]').on('apply.daterangepicker', function(ev, picker) {
-                var departureDate = picker.startDate.format('YYYY-MM-DD');
-                var departure = new Date(departureDate).getTime(); // Convert datetime to milliseconds
+            /* $('input[name="departure"]').on('apply.daterangepicker', function(ev, picker) {
+                 var departureDate = picker.startDate.format('YYYY-MM-DD');
+                 var departure = new Date(departureDate).getTime(); // Convert datetime to milliseconds
 
-                var differenceInMilliseconds = departure - arrival; // Diff between arrival and departure dates in milliseconds
-                console.log("differenceInMilliseconds  " + differenceInMilliseconds);
-                var differenceInDays = Math.ceil(differenceInMilliseconds / (1000 * 3600 * 24)); // Diff between arrival and departure dates in Days
+                 var differenceInMilliseconds = departure - arrival; // Diff between arrival and departure dates in milliseconds
+                 console.log("differenceInMilliseconds  " + differenceInMilliseconds);
+                 var differenceInDays = Math.ceil(differenceInMilliseconds / (1000 * 3600 * 24)); // Diff between arrival and departure dates in Days
 
-                /* Check if the selected daterange is valid */
-                if (differenceInDays == 0 || differenceInDays < 0) {
+             */
+            /* Check if the selected daterange is valid */
+            /*if (differenceInDays == 0 || differenceInDays < 0) {
                     alert("Please Enter a valid date range");
                 } else {
                     $('#numberOfNights').html(differenceInDays);
@@ -223,8 +277,76 @@
                     //alert(differenceInDays);
                     daysBooked = differenceInDays;
                 }
+            });*/
+            // single date pickers for daterangepicker ends HERE
+
+            //calender starts here
+            /* $('input[name="multiplecalendar"]').daterangepicker({
+                 opens: 'left',
+             }, function(start, end, label) {
+                 console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+             });*/
+
+
+            //flatpickr CHECK-IN
+            flatpickr('.arrival', {
+                defaultDate: new Date(),
+                minDate: "2020-01",
+                enableTime: true,
+                time_24Hr: true,
+                altInput: true,
+                altFormat: 'd M Y H:i',
+                dateFormat: 'Y-m-d H:i',
             });
-            // single date pickers end HERE
+
+            //flatpickr CHECK-OUT
+            flatpickr('.checkout', {
+                defaultDate: tomorrow,
+                minDate: "2020-01",
+                enableTime: true,
+                time_24Hr: true,
+                altInput: true,
+                altFormat: 'd M Y H:i',
+                dateFormat: 'Y-m-d H:i',
+            });
+
+            //Getting the dates selected for checkout
+
+            $(".checkout").change(getSelectedDate);
+            $(".arrival").change(getSelectedDate);
+
+            function getSelectedDate() {
+                var start = new Date($('.checkout').val()).getTime();
+                console.log(start);
+                var checkin = new Date($('.arrival').val()).getTime();
+                var checkout = new Date($('.checkout').val()).getTime(); // Convert datetime to milliseconds
+
+                var differenceInMilliseconds = checkout - checkin; // Diff between arrival and departure dates in milliseconds
+                console.log("differenceInMilliseconds  " + differenceInMilliseconds);
+                var differenceInDays = Math.ceil(differenceInMilliseconds / (1000 * 3600 * 24)); // Diff between arrival and departure dates in Days
+
+                /* Check if the selected daterange is valid */
+                if (differenceInDays == 0 || differenceInDays < 0) {
+                    alert("Please Enter a valid date range");
+                } else {
+                    $('#numberOfNights').html(differenceInDays);
+                    $('#numberOfNights').append("<p style='color: white; font-size: 22px;'>Night(s)</p>"); // Appending content to div element
+                    $('#numberOfNights').css({
+                        "border": "1px solid #ccc",
+                        "margin-bottom": "10px",
+                        "margin-top": "20px"
+                    });
+                    //alert(differenceInDays);
+                    daysBooked = differenceInDays;
+                    console.log(daysBooked);
+                }
+            }
+           
+
+            //Initializing availability calendar plugin
+            $('#calendar').availabilityCalendar(unavailableDates);
+            
+
         });
     </script>
 
