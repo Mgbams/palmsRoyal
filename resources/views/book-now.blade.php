@@ -45,7 +45,7 @@
 
         <section>
             <div class="parallax-one" style="min-height: 100vh;">
-                <div class="parallax-inner" style="background-color: rgba(0, 0, 0, .5); width: 90%; height: 75vh; margin: auto;">
+                <div class="parallax-inner" style="background-color: rgba(0, 0, 0, .5); width: 90%; height: 76vh; margin: auto;">
                     <div class="row">
                         <div class="col-sm-2 mt-5 ml-2 select-dates">
                             <p style="color: white;">SELECT DATES</p>
