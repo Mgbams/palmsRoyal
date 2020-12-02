@@ -61,7 +61,7 @@
         <!-- Left side column. contains the logo and sidebar -->
         @include('layouts.sidebar')
 
-        
+
 
         @stack('page_scripts')
 
@@ -85,6 +85,14 @@
 
     <!--Js for the navbar-->
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script>
+        $(document).ready(function() {
+            $('.nav-item a').click(function() {
+                $('a').removeClass("active");
+                $(this).addClass("active");
+            });
+        });
+    </script>
 </body>
 
 </html>

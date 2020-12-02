@@ -906,3 +906,17 @@ In the parameters passed in DataTables in your jquery script, add the following
  });
 ```
 **NOTE:** The autoWidth property set to false makes the table to change width on different screen sizes.
+
+## Adding Bootstrap active class dynamically to an active link
+To make the active link have an active class, add **{{ request()->is('admin/countries') ? 'active' : ''}}** to the **anchor tag** that is the **a** tag
+**NOTE** Replace the **admin/countries** link with the appropriate link your a tag links to
+E.g
+
+```php
+<li class="nav-item">
+    <a href="{{ route('countries') }}" class="nav-link countries  {{ request()->is('admin/countries') ? 'active' : ''}}">
+        <i class="nav-icon fas fa-flag"></i>
+        <p style="color: white;">Countries</p>
+    </a>
+</li>
+```

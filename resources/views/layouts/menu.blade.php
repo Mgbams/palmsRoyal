@@ -1,12 +1,12 @@
 <!-- need to remove -->
-<li class="nav-item">
-    <a href="{{ route('home') }}" class="nav-link active home">
+<li class="nav-item ">
+    <a href="{{ route('get.dashboard') }}" class="nav-link home {{ request()->is('admin/dashboard') ? 'active' : ''}}">
         <i class="nav-icon fas fa-home"></i>
-        <p>Home</p>
+        <p style="color: white;">Home</p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('hotel') }}" class="nav-link hotel">
+    <a href="{{ route('hotel') }}" class="nav-link hotel {{ request()->is('admin/hotel') ? 'active' : ''}}">
         <i class="nav-icon fas fa-hotel"></i>
         <p style="color: white;">Hotel</p>
     </a>
@@ -24,13 +24,13 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('countries') }}" class="nav-link countries">
+    <a href="{{ route('countries') }}" class="nav-link countries  {{ request()->is('admin/countries') ? 'active' : ''}}">
         <i class="nav-icon fas fa-flag"></i>
         <p style="color: white;">Countries</p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('home') }}" class="nav-link photos">
+    <a href="{{ route('home') }}" class="nav-link photos ">
         <i class="nav-icon fas fa-image"></i>
         <p style="color: white;">Photos</p>
     </a>
