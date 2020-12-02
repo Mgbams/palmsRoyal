@@ -58,6 +58,13 @@ p, small, a {
 }
 /*Fonts end here*/
 
+/**modal opacity setting when modal shows**/
+
+.modal {
+  background: rgba(0,0,0,0.8) !important;
+}
+/**modal opacity setting when modal shows ends here**/
+
 .pages-stack {
     width: 100vw !important;
     overflow-x: hidden;
