@@ -886,3 +886,13 @@ For more information, visit:
 ## Laravel Tips
 Visit the following site for more explanation:
 [Laravel Tips](https://laraveldaily.com/8-tricks-with-laravel-timestamps/)
+
+## Modal showing but with no opacity
+
+Add the below code to your app.scss to set opacity when modal appears
+
+```app.scss
+.modal {
+  background: rgba(0,0,0,0.8) !important;
+}
+```

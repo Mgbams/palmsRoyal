@@ -46,6 +46,9 @@ class CountryController extends Controller
         $rules = array(
             'english_name'    =>  'required',
             'french_name'     =>  'required',
+            'code'    =>  'required',
+            'alpha2'     =>  'required|min:2|max:2',
+            'alpha3'     =>  'required|min:3|max:3',
             //'image'         =>  'required|image|max:2048'
         );
 
@@ -64,6 +67,9 @@ class CountryController extends Controller
         $form_data = array(
             'nom_en_gb'       =>   $request->english_name,
             'nom_fr_fr'        =>   $request->french_name,
+            'code'             =>   $request->code,
+            'alpha2'           =>   $request->alpha2,
+            'alpha3'           =>   $request->alpha3
             //'image'             =>  $new_name
         );
 
@@ -105,6 +111,9 @@ class CountryController extends Controller
             $rules = array(
                 'english_name'    =>  'required',
                 'french_name'     =>  'required',
+                'code'    =>  'required',
+                'alpha2'     =>  'required|min:2|max:2',
+                'alpha3'     =>  'required|min:3|max:3',
                 //'image'         =>  'image|max:2048'
             );
             $error = Validator::make($request->all(), $rules);
@@ -117,7 +126,10 @@ class CountryController extends Controller
         } else {
             $rules = array(
                 'english_name'    =>  'required',
-                'french_name'     =>  'required'
+                'french_name'     =>  'required',
+                'code'    =>  'required',
+                'alpha2'     =>  'required|min:2|max:2',
+                'alpha3'     =>  'required|min:3|max:3',
             );
 
             $error = Validator::make($request->all(), $rules);
@@ -130,6 +142,9 @@ class CountryController extends Controller
         $form_data = array(
             'nom_en_gb'       =>   $request->english_name,
             'nom_fr_fr'        =>   $request->french_name,
+            'code'             =>   $request->code,
+            'alpha2'           =>   $request->alpha2,
+            'alpha3'           =>   $request->alpha3
             //'image'            =>   $image_name
         );
         Country::whereId($request->hidden_id)->update($form_data);

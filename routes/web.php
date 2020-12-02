@@ -80,7 +80,7 @@ Route::prefix('admin')->group(function () {
     //Edit Country
     Route::get('countries/{id}/edit', 'Admin\CountryController@edit');
     //Store Country
-    Route::get('countries/store', 'Admin\CountryController@store')->name('country.store');
+    Route::post('countries/store', 'Admin\CountryController@store')->name('country.store');
     //Update Country
     Route::post('countries/update', 'Admin\CountryController@update')->name('country.update');
      //Delete Country

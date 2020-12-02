@@ -11,6 +11,10 @@
 @section('content')
 <div class="container-fluid mt-5">
     <h2 class="mb-4">Lists of Countries</h2>
+    <!--Create button-->
+    <div align=right class="mb-5">
+        <button type="button" name="create_record" id="create_record" class="btn btn-success btn-sm">Create Country</button>
+    </div>
     <table class="table table-bordered countries-datatable" id="countries-datatable">
         <thead>
             <tr>
@@ -45,6 +49,24 @@
                             <label class="control-label col-md-6">Name in French: </label>
                             <div class="col-md-8">
                                 <input type="text" name="french_name" id="french_name" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-6">Code: </label>
+                            <div class="col-md-8">
+                                <input type="number" name="code" id="code" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-6">alpha2: </label>
+                            <div class="col-md-8">
+                                <input type="text" name="alpha2" id="alpha2" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-6">alpha3: </label>
+                            <div class="col-md-8">
+                                <input type="text" name="alpha3" id="alpha3" class="form-control" />
                             </div>
                         </div>
                         <br />
@@ -118,7 +140,7 @@
             ]
         });
 
-        /* Edit customer starts here */
+        /* Edit customer starts here  =>EDIT */
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('id');
             $('#form_result').html('');
@@ -141,7 +163,7 @@
         });
         /* Edit customer ends here */
 
-        //Delete starts here
+        //Delete starts here  =>DELETE
         var country_id;
 
         $(document).on('click', '.delete', function() {
@@ -151,7 +173,7 @@
 
         $('#ok_button').click(function() {
             $.ajax({
-                url: "/admin/countries/" + country_id,
+                url: "/admin/countries/destroy/" + country_id,
                 beforeSend: function() {
                     $('#ok_button').text('Deleting...');
                 },
@@ -165,6 +187,15 @@
         });
         // Delete ends here
 
+        //Creating a record starts here =>CREATE
+        $('#create_record').click(function() {
+            $('.modal-title').text("Add New Record");
+            $('#action_button').val("Add");
+            $('#action').val("Add");
+            $('#formModal').modal('show');
+        });
+        //Creating a record ends here
+
 
         /*** Form submission starts here ***/
         $('#country_form').on('submit', function(event) {
@@ -173,6 +204,9 @@
                 $.ajax({
                     url: "{{ route('country.store') }}",
                     method: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     data: new FormData(this),
                     contentType: false,
                     cache: false,
