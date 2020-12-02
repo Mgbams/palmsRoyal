@@ -118,10 +118,11 @@
 <script type="text/javascript">
     $(function() {
 
-        var table = $('.countries-datatable').DataTable({
+        $('.countries-datatable').DataTable({
             processing: true,
             serverSide: true,
             responsive: true,
+            autoWidth: false,
             ajax: "{{ route('get.countries') }}",
             columns: [{
                     data: 'nom_en_gb',

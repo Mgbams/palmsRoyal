@@ -896,3 +896,13 @@ Add the below code to your app.scss to set opacity when modal appears
   background: rgba(0,0,0,0.8) !important;
 }
 ```
+## Making YajraTable responsive
+In the parameters passed in DataTables in your jquery script, add the following
+
+```php
+ $('.countries-datatable').DataTable({
+    responsive: true,
+    autoWidth: false,
+ });
+```
+**NOTE:** The autoWidth property set to false makes the table to change width on different screen sizes.

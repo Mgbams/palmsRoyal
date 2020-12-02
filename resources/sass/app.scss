@@ -1142,6 +1142,11 @@ p, small, a {
      .availability-calendar{
       padding-top: 100px;
     }
+
+    //Used to add margin between edit and delete button in countries page of admin panel
+    #countries-datatable .edit {
+      margin-bottom: 10px;
+    }
   }
 
   @media only screen and (max-width: 768px) {
@@ -1151,6 +1156,11 @@ p, small, a {
 
     .availability-calendar{
       padding-top: 100px;
+    }
+
+    //Used to add margin between edit and delete button in countries page of admin panel
+    #countries-datatable .edit {
+      margin-bottom: 10px;
     }
   }
 
