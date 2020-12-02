@@ -73,7 +73,7 @@
                         <div class="form-group" align="center">
                             <input type="hidden" name="action" id="action" />
                             <input type="hidden" name="hidden_id" id="hidden_id" />
-                            <input type="submit" name="action_button" id="action_button" class="btn btn-warning" value="Add" />
+                            <input type="submit" name="action_button" id="action_button" style="border-top-right-radius: 10%; border-bottom-right-radius: 10%; border-top-left-radius: 10%; border-bottom-left-radius: 10%;" class="btn btn-primary px-5" value="Add" />
                         </div>
                     </form>
                 </div>
@@ -152,6 +152,9 @@
                 success: function(html) {
                     $('#english_name').val(html.data.nom_en_gb);
                     $('#french_name').val(html.data.nom_fr_fr);
+                    $('#code').val(html.data.code);
+                    $('#alpha2').val(html.data.alpha2);
+                    $('#alpha3').val(html.data.alpha3);
                     /*$('#store_image').html("<img src={{ URL::to('/') }}/images/" + html.data.image + " width='70' class='img-thumbnail' />");
                     $('#store_image').append("<input type='hidden' name='hidden_image' value='" + html.data.image + "' />");*/
                     $('#hidden_id').val(html.data.id);
