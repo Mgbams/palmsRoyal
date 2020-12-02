@@ -76,4 +76,13 @@ Route::prefix('admin')->group(function () {
     //Countries Lists
     Route::get('countries', 'Admin\CountryController@index');
     Route::get('countries/list', 'Admin\CountryController@getCountries')->name('get.countries'); //redundant, just used to get data that is displayed in the index
+
+    //Edit Country
+    Route::get('countries/{id}/edit', 'Admin\CountryController@edit');
+    //Store Country
+    Route::get('countries/store', 'Admin\CountryController@store')->name('country.store');
+    //Update Country
+    Route::post('countries/update', 'Admin\CountryController@update')->name('country.update');
+     //Delete Country
+    Route::get('countries/destroy/{id}', 'Admin\CountryController@destroy');
 });

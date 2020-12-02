@@ -11,17 +11,76 @@
 @section('content')
 <div class="container-fluid mt-5">
     <h2 class="mb-4">Lists of Countries</h2>
-        <table class="table table-bordered countries-datatable">
-            <thead>
-                <tr>
-                    <th>English Name</th>
-                    <th>French Name</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+    <table class="table table-bordered countries-datatable" id="countries-datatable">
+        <thead>
+            <tr>
+                <th>English Name</th>
+                <th>French Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <!-- Edit country modal -->
+    <div id="formModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add New Record</h4>
+                </div>
+                <div class="modal-body">
+                    <span id="form_result"></span>
+                    <form method="post" id="country_form" class="form-horizontal" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label class="control-label col-md-6">Name in English: </label>
+                            <div class="col-md-8">
+                                <input type="text" name="english_name" id="english_name" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-6">Name in French: </label>
+                            <div class="col-md-8">
+                                <input type="text" name="french_name" id="french_name" class="form-control" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group" align="center">
+                            <input type="hidden" name="action" id="action" />
+                            <input type="hidden" name="hidden_id" id="hidden_id" />
+                            <input type="submit" name="action_button" id="action_button" class="btn btn-warning" value="Add" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal ends here-->
+
+    <!--Confirm Modal starts here-->
+    <div id="confirmModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">Confirmation</h2>
+                </div>
+                <div class="modal-body">
+                    <h4 align="center" style="margin:0;">Êtes-vous sûr de vouloir supprimer ces données ?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" name="ok_button" id="ok_button" class="btn btn-danger">OK</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Confirm Modal ends here-->
+
 </div>
 @stop
 
@@ -49,7 +108,6 @@
                     data: 'nom_fr_fr',
                     name: 'nom_fr_fr'
                 },
-
                 {
                     data: 'action',
                     name: 'action',
@@ -59,6 +117,118 @@
             ]
         });
 
+        /* Edit customer starts here */
+        $(document).on('click', '.edit', function() {
+            var id = $(this).attr('id');
+            $('#form_result').html('');
+            $('#formModal').modal('show');
+            $.ajax({
+                url: "/admin/countries/" + id + "/edit",
+                dataType: "json",
+                success: function(html) {
+                    $('#english_name').val(html.data.nom_en_gb);
+                    $('#french_name').val(html.data.nom_fr_fr);
+                    /*$('#store_image').html("<img src={{ URL::to('/') }}/images/" + html.data.image + " width='70' class='img-thumbnail' />");
+                    $('#store_image').append("<input type='hidden' name='hidden_image' value='" + html.data.image + "' />");*/
+                    $('#hidden_id').val(html.data.id);
+                    $('.modal-title').text("Edit New Record");
+                    $('#action_button').val("Edit");
+                    $('#action').val("Edit");
+                    $('#formModal').modal('show');
+                }
+            })
+        });
+        /* Edit customer ends here */
+
+        //Delete starts here
+        var country_id;
+
+        $(document).on('click', '.delete', function() {
+            country_id = $(this).attr('id');
+            $('#confirmModal').modal('show');
+        });
+
+        $('#ok_button').click(function() {
+            $.ajax({
+                url: "/admin/countries/" + country_id,
+                beforeSend: function() {
+                    $('#ok_button').text('Deleting...');
+                },
+                success: function(data) {
+                    setTimeout(function() {
+                        $('#confirmModal').modal('hide');
+                        $('#countries-datatable').DataTable().ajax.reload(); //Reloads table after deletion
+                    }, 2000);
+                }
+            })
+        });
+        // Delete ends here
+
+
+        /*** Form submission starts here ***/
+        $('#country_form').on('submit', function(event) {
+            event.preventDefault();
+            if ($('#action').val() == 'Add') {
+                $.ajax({
+                    url: "{{ route('country.store') }}",
+                    method: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    dataType: "json",
+                    success: function(data) {
+                        var html = '';
+                        if (data.errors) {
+                            html = '<div class="alert alert-danger">';
+                            for (var count = 0; count < data.errors.length; count++) {
+                                html += '<p>' + data.errors[count] + '</p>';
+                            }
+                            html += '</div>';
+                        }
+                        if (data.success) {
+                            html = '<div class="alert alert-success">' + data.success + '</div>';
+                            $('#country_form')[0].reset();
+                            $('#countries-datatable').DataTable().ajax.reload();
+                        }
+                        $('#form_result').html(html);
+                    }
+                })
+            }
+
+            if ($('#action').val() == "Edit") {
+                console.log("edit");
+                $.ajax({
+                    url: "{{ route('country.update') }}",
+                    method: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    dataType: "json",
+                    success: function(data) {
+                        var html = '';
+                        if (data.errors) {
+                            html = '<div class="alert alert-danger">';
+                            for (var count = 0; count < data.errors.length; count++) {
+                                html += '<p>' + data.errors[count] + '</p>';
+                            }
+                            html += '</div>';
+                        }
+                        if (data.success) {
+                            html = '<div class="alert alert-success">' + data.success + '</div>';
+                            $('#country_form')[0].reset();
+                            $('#countries-datatable').DataTable().ajax.reload();
+                        }
+                        $('#form_result').html(html);
+                    }
+                });
+            }
+        });
+        //Form submission ends here
     });
 </script>
 @stop
