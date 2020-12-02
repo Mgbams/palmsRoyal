@@ -48,7 +48,7 @@ Route::get('/hotel-info', [
 //Navigation-menu TODO Menu
 
 Route::get('navigation-menu', 'RoyalPalmsHomePageController@index')->name('navigation-menu');
-Route::get('header-effects', 'RoyalPalmsHomePageController@effects')->name('header-effects');
+
 
 
 Auth::routes();

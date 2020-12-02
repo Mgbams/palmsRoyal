@@ -10,14 +10,15 @@
 	<meta name="keywords" content="on scroll, animate, header, transition, css3, 3d, effect, inspiration" />
 	<meta name="author" content="Codrops" />
 	<link rel="shortcut icon" href="../favicon.ico">
-	<link rel="stylesheet" type="text/css" href="css/header-effects-normalize.css" />
-	<link rel="stylesheet" type="text/css" href="css/header-effects-component.css" />
-	<script src="js/header-effects-modernizr-custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{url('css/header-effects-normalize.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{url('css/header-effects-component.css')}}" />
+	<script src="{{url('js/header-effects-modernizr-custom.js')}}"></script>
+	<!--using font awesome kit-->
+	<script src="https://use.fontawesome.com/c6daccf4ba.js"></script>
 
-	<!--slick css file-->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" rel="stylesheet">
-	<!--slick css End Here-->
+	<!--slick-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -100,13 +101,13 @@
 		</section>
 
 	</div>
+<!--Jquery cdn use this version of jquery cdn as it helps maintain the top navbar functional-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-	<!--js-->
-	<script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!--slick js-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="{{url('js/waypoints.min.js')}}"></script>
 
-	<script src="js/waypoints.min.js"></script>
+<!--slick js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous"></script>
 	<script>
 		var $head = $('#ha-header');
 		$('.ha-waypoint').each(function(i) {
@@ -188,18 +189,7 @@
 	</script>
 
 	<script>
-		// Sticky Header
-		$(window).on('scroll', function() {
-			console.log('am inside scroll');
-			if ($('.main_h').scrollTop() > 100) {
-				console.log("greater than 100");
-				$('.main_h').addClass('sticky');
-			} else {
-				console.log("remove 100");
-				$('.main_h').removeClass('sticky');
-			}
-		});
-
+		
 		// Mobile Navigation
 		$('.mobile-toggle').click(function() {
 			if ($('.main_h').hasClass('open-nav')) {

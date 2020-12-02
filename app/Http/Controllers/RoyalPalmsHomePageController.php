@@ -18,9 +18,4 @@ class RoyalPalmsHomePageController extends Controller
         return view('layouts.app');
     }
 
-    //Navigation menu TODO
-    public function effects()
-    {
-        return view('navigation-header-effects');
-    }
 }
