@@ -15,7 +15,7 @@
     <div align=right class="mb-5">
         <button type="button" name="create_record" id="create_record" class="btn btn-success btn-sm">Create Hotel</button>
     </div>
-    <table class="table table-bordered hotel-datatable" id="hotel-datatable">
+    <table class="table table-bordered hotel-datatable datatables-button-formatter" id="hotel-datatable">
         <thead>
             <tr>
                 <th>Hotel Name</th>

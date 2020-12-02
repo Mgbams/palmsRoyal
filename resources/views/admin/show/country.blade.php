@@ -15,7 +15,7 @@
     <div align=right class="mb-5">
         <button type="button" name="create_record" id="create_record" class="btn btn-success btn-sm">Create Country</button>
     </div>
-    <table class="table table-bordered countries-datatable" id="countries-datatable">
+    <table class="table table-bordered countries-datatable datatables-button-formatter" id="countries-datatable">
         <thead>
             <tr>
                 <th>English Name</th>

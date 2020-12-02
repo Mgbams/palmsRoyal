@@ -52831,7 +52831,7 @@ a {
     padding-top: 100px;
   }
 
-  #countries-datatable .edit {
+  .datatables-button-formatter .edit {
     margin-bottom: 10px;
   }
 }
@@ -52845,7 +52845,7 @@ a {
     padding-top: 100px;
   }
 
-  #countries-datatable .edit {
+  .datatables-button-formatter .edit {
     margin-bottom: 10px;
   }
 }
