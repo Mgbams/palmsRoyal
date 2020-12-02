@@ -73,8 +73,25 @@ Route::get('/cancel-reservation', 'RoomDetailsController@cancelReservation')->na
 
 //Admin panel
 Route::prefix('admin')->group(function () {
+    //Admin Dashboard
+    Route::get('dashboard', 'Admin\DashBoardController@index')->name('get.dashboard');
+
+    //Hotel
+    Route::get('hotel', 'Admin\HotelController@index')->name('hotel'); //Link used to display countries
+    Route::get('hotel/list', 'Admin\HotelController@getHotel')->name('get.hotel'); //redundant, just used to get data that is displayed in the index
+
+    //Edit Hotel
+    Route::get('hotel/{id}/edit', 'Admin\HotelController@edit');
+    //Store Hotel
+    Route::post('hotel/store', 'Admin\HotelController@store')->name('hotel.store');
+    //Update Hotel
+    Route::post('hotel/update', 'Admin\HotelController@update')->name('hotel.update');
+     //Delete Hotel
+    Route::get('hotel/destroy/{id}', 'Admin\HotelController@destroy');
+
+
     //Countries Lists
-    Route::get('countries', 'Admin\CountryController@index');
+    Route::get('countries', 'Admin\CountryController@index')->name('countries'); //Link used to display countries
     Route::get('countries/list', 'Admin\CountryController@getCountries')->name('get.countries'); //redundant, just used to get data that is displayed in the index
 
     //Edit Country

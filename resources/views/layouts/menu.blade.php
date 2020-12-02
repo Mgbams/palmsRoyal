@@ -1,7 +1,43 @@
 <!-- need to remove -->
 <li class="nav-item">
-    <a href="{{ route('home') }}" class="nav-link active">
+    <a href="{{ route('home') }}" class="nav-link active home">
         <i class="nav-icon fas fa-home"></i>
         <p>Home</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('hotel') }}" class="nav-link hotel">
+        <i class="nav-icon fas fa-hotel"></i>
+        <p style="color: white;">Hotel</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('home') }}" class="nav-link rooms">
+        <i class="nav-icon fas fa-bed"></i>
+        <p style="color: white;">Rooms</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('home') }}" class="nav-link room-types">
+        <i class="nav-icon fas fa-list" aria-hidden="true"></i>
+        <p style="color: white;">Room Types</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('countries') }}" class="nav-link countries">
+        <i class="nav-icon fas fa-flag"></i>
+        <p style="color: white;">Countries</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('home') }}" class="nav-link photos">
+        <i class="nav-icon fas fa-image"></i>
+        <p style="color: white;">Photos</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('home') }}" class="nav-link users">
+        <i class="nav-icon fas fa-user"></i>
+        <p style="color: white;">Users</p>
     </a>
 </li>

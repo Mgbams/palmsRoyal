@@ -15,6 +15,9 @@ class Hotel extends Model
         'hotel_name', 'location', 'owner',
     ];
 
+    protected $hidden = ['created_at', 'updated_at'];
+    public $timestamps = false;
+
     public function rooms() {
         return $this->hasMany(Room::class);
     }
