@@ -1209,3 +1209,7 @@ p, small, a {
   }
 }
 //Cancel reservation button ends here
+//Used to add margin between edit and delete button in countries page of admin panel on large screens
+.datatables-button-formatter .edit {
+  margin-bottom: 10px;
+}

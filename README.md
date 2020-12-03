@@ -920,3 +920,30 @@ E.g
     </a>
 </li>
 ```
+
+## For validating a checkbox
+
+I used this below
+
+```php
+//used for validating a checkbox
+$request->validate([
+            'name' => 'required|max:255',
+            'terms' => 'accepted'
+        ]);
+
+//Or use the below to verify if the checkbox was checked
+if($request->has('terms')){
+            //Checkbox checked
+        }else{
+            //Checkbox not checked
+        }
+```
+
+For more informations on checkbox visit,
+
+[checkboxes](https://5balloons.info/working-with-checkbox-input-in-laravel-form/)
+
+## Dynamically checking or unchecking a checkbox depending on the value from database
+Visit the link below to understand more
+[Checking a checkbox](https://stackoverflow.com/questions/426258/setting-checked-for-a-checkbox-with-jquery)

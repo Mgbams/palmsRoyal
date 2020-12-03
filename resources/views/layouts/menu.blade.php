@@ -12,7 +12,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('home') }}" class="nav-link rooms">
+    <a href="{{ route('rooms') }}" class="nav-link rooms {{ request()->is('admin/rooms') ? 'active' : ''}}">
         <i class="nav-icon fas fa-bed"></i>
         <p style="color: white;">Rooms</p>
     </a>

@@ -76,7 +76,7 @@ Route::prefix('admin')->group(function () {
     //Admin Dashboard
     Route::get('dashboard', 'Admin\DashBoardController@index')->name('get.dashboard');
 
-    //Hotel
+    /*** Hotel ***/
     Route::get('hotel', 'Admin\HotelController@index')->name('hotel'); //Link used to display countries
     Route::get('hotel/list', 'Admin\HotelController@getHotel')->name('get.hotel'); //redundant, just used to get data that is displayed in the index
 
@@ -90,7 +90,7 @@ Route::prefix('admin')->group(function () {
     Route::get('hotel/destroy/{id}', 'Admin\HotelController@destroy');
 
 
-    //Countries Lists
+    /*** Countries Lists ***/
     Route::get('countries', 'Admin\CountryController@index')->name('countries'); //Link used to display countries
     Route::get('countries/list', 'Admin\CountryController@getCountries')->name('get.countries'); //redundant, just used to get data that is displayed in the index
 
@@ -102,4 +102,19 @@ Route::prefix('admin')->group(function () {
     Route::post('countries/update', 'Admin\CountryController@update')->name('country.update');
      //Delete Country
     Route::get('countries/destroy/{id}', 'Admin\CountryController@destroy');
+
+
+    /*** Room ***/
+    Route::get('rooms', 'Admin\RoomController@index')->name('rooms'); //Link used to display countries
+    Route::get('rooms/list', 'Admin\RoomController@getRooms')->name('get.rooms'); //redundant, just used to get data that is displayed in the index
+
+    //Edit Room
+    Route::get('room/{id}/edit', 'Admin\RoomController@edit');
+    //Store Room
+    Route::post('room/store', 'Admin\RoomController@store')->name('room.store');
+    //Update Room
+    Route::post('room/update', 'Admin\RoomController@update')->name('room.update');
+     //Delete Room
+    Route::get('room/destroy/{id}', 'Admin\RoomController@destroy');
+
 });

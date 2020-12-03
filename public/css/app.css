@@ -52902,3 +52902,7 @@ a {
   width: 100%;
 }
 
+.datatables-button-formatter .edit {
+  margin-bottom: 10px;
+}
+
