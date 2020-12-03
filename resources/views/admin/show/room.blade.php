@@ -221,16 +221,16 @@
         /* Edit customer ends here */
 
         //Delete starts here  =>DELETE
-        var country_id;
+        var room_id;
 
         $(document).on('click', '.delete', function() {
-            country_id = $(this).attr('id');
+            room_id = $(this).attr('id');
             $('#confirmModal').modal('show');
         });
 
         $('#ok_button').click(function() {
             $.ajax({
-                url: "/admin/hotel/destroy/" + country_id,
+                url: "/admin/room/destroy/" + room_id,
                 beforeSend: function() {
                     $('#ok_button').text('Deleting...');
                 },
