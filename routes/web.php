@@ -118,3 +118,7 @@ Route::prefix('admin')->group(function () {
     Route::get('room/destroy/{id}', 'Admin\RoomController@destroy');
 
 });
+
+//store product images from controller
+Route::post('dropzone/store','Admin\RoomController@imageStore')->name('projects.storeMedia');
+Route::post('delete-uploaded-image', 'Admin\RoomController@deleteImage');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Hotel;
 use App\Models\Room;
+use App\Models\Photo;
 use Illuminate\Http\Request;
 
 use DataTables; //imports datatables code into this file
@@ -44,13 +45,16 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
+        return $request;
+        exit();
+
         $rules = array(
             'price'             =>  'required',
             'name'              =>  'required',
             'description'       =>  'required',
             'available_date'    =>  'required',
-            'hotel_id'          =>  'required'
-            //'image'         =>  'required|image|max:2048'
+            'hotel_id'          =>  'required',
+            'images.*'          =>  'required|image|mimes:jpeg,png,jpg,gif,svg'
         );
 
         $error = Validator::make($request->all(), $rules);
@@ -58,12 +62,6 @@ class RoomController extends Controller
         if ($error->fails()) {
             return response()->json(['errors' => $error->errors()->all()]);
         }
-
-        //$image = $request->file('image');
-
-        //$new_name = rand() . '.' . $image->getClientOriginalExtension();
-
-        //$image->move(public_path('images'), $new_name);
 
         $form_data = array(
             'price'             =>   $request->price,
@@ -74,11 +72,16 @@ class RoomController extends Controller
             'published'         =>   $request->published,
             'is_available'      =>   $request->is_available,
             'hotel_id'          =>   $request->hotel_id
-            //'image'             =>  $new_name
         );
 
-        Room::create($form_data);
-
+        //Room::create($form_data);
+        //if(Room::create($form_data)) {
+            //$imageUpload = new Photo;
+            //$imageUpload->url = $request->files[0];
+            //$imageUpload->room_id = Room::create($form_data)->id;
+            //$imageUpload->save();
+        //}
+        
         return response()->json(['success' => 'Data Added successfully.']);
     }
 
@@ -122,19 +125,19 @@ class RoomController extends Controller
             return response()->json(['errors' => $error->errors()->all()]);
         } else {
 
-            if($request->auto_approve == 'on') {
+            if ($request->auto_approve == 'on') {
                 $auto_approve  = 1;
             } else {
                 $auto_approve  = 0;
             };
 
-            if($request->published == 'on') {
+            if ($request->published == 'on') {
                 $published   = 1;
             } else {
                 $published   = 0;
             };
 
-            if($request->is_available == 'on') {
+            if ($request->is_available == 'on') {
                 $is_available   = 1;
             } else {
                 $is_available   = 0;
@@ -167,5 +170,34 @@ class RoomController extends Controller
     {
         $data = Room::findOrFail($id);
         $data->delete();
+    }
+
+    /******* Store image to database and to folder on this project *****/
+
+    public function imageStore(Request $request)
+    {
+        $image = $request->file('file');
+        $filename = $image->getClientOriginalName();
+
+        $image->move(public_path('rooms/images/'), $filename);
+
+        //$imageUpload = new Photo;
+        //$imageUpload->url = $filename;
+        //$imageUpload->id = Room::create($form_data)->id;
+        //$imageUpload->save();
+        return response()->json(['success' => $filename]);
+    }
+
+    /****Delete image from folder and from database on clicking remove file link below the image ******/
+
+    public function deleteImage(Request $request)
+    {
+        $filename = $request->get('filename');
+        Photo::where('url', $filename)->delete();
+        $path = public_path() . '/rooms/images/' . $filename;
+        if (file_exists($path)) {
+            unlink($path);
+        }
+       // return $filename;
     }
 }

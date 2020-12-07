@@ -35,6 +35,14 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
+// Dropzone
+@import '~dropzone/dist/min/dropzone.min.css';
+
+.dropzone {
+  margin-bottom: 20px;
+  min-height: auto;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -1212,4 +1220,10 @@ p, small, a {
 //Used to add margin between edit and delete button in countries page of admin panel on large screens
 .datatables-button-formatter .edit {
   margin-bottom: 10px;
+}
+
+//file inputs
+.fileinput-remove,
+.fileinput-upload{
+    display: none;
 }

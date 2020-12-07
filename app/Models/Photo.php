@@ -11,6 +11,9 @@ class Photo extends Model
      *
      * @var array
      */
+
+    protected $table = 'photos';
+
     protected $fillable = [
         'url', 'room_id',
     ];

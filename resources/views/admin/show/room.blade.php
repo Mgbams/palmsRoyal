@@ -6,9 +6,33 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+
+<!--dropzone-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" />
+
 @stop
 
 @section('content')
+<!--image upload errors-->
+@if (count($errors) > 0)
+<div class="alert alert-danger">
+    <strong>Sorry !</strong> There were some problems with your input.<br><br>
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+<!--image upload errors end here-->
+
+
 <div class="container-fluid mt-5">
     <h2 class="mb-4">Rooms Info</h2>
     <!--Create button-->
@@ -95,12 +119,31 @@
                             </select>
                         </div>
                         <br />
+
+                        <!-- print success message after file upload  -->
+                        @if(Session::has('success'))
+                        <div class="alert alert-success">
+                            {{ Session::get('success') }}
+                            @php
+                            Session::forget('success');
+                            @endphp
+                        </div>
+                        @endif
+
+                        <!--Photo display ends here-->
+                        <div class="form-group row ">
+                            <div class="col-md-10">
+                                <div id="file" class="dropzone"></div>
+                            </div>
+                        </div>
+
                         <div class="form-group" align="center">
                             <input type="hidden" name="action" id="action" />
                             <input type="hidden" name="hidden_id" id="hidden_id" />
                             <input type="submit" name="action_button" id="action_button" style="border-top-right-radius: 10%; border-bottom-right-radius: 10%; border-top-left-radius: 10%; border-bottom-left-radius: 10%;" class="btn btn-primary px-5" value="Add" />
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -139,6 +182,8 @@
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 
+<!--dropzone-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js" integrity="sha512-9WciDs0XP20sojTJ9E7mChDXy6pcO0qHpwbEJID1YVavz2H6QBz5eLoDD8lseZOb2yGT8xDNIV7HIe1ZbuiDWg==" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
     $(function() {
@@ -198,13 +243,13 @@
                     $('#name').val(html.data.name);
                     $('#description').val(html.data.description);
                     $('#price').val(html.data.price);
-                    if(html.data.published == 1) {
+                    if (html.data.published == 1) {
                         $('#published').prop('checked', true);
                     }
-                    if(html.data.auto_approve == 1) {
+                    if (html.data.auto_approve == 1) {
                         $('#auto_approve').prop('checked', true);
                     }
-                    if(html.data.is_available == 1) {
+                    if (html.data.is_available == 1) {
                         $('#is_available').prop('checked', true);
                     }
                     $('#available_date').val(html.data.available_date);
@@ -321,6 +366,51 @@
             }
         });
         //Form submission ends here
+
+
+        /**********Dropzone usage  **********/
+        var drop = new Dropzone('#file', {
+            createImageThumbnails: true,
+            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            parallelUploads: 5,
+            url: "{{url('dropzone/store')}}",
+            headers: {
+                'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+            },
+            success: function(file, response) {
+                console.log(response);
+                $('#hidden_images_names').val(response.success);
+                /********** Attach a hidden input field to store the uploaded files **********/
+                $('#file').append('<input type="hidden" name="files[]" value="'+ response.success +'">');
+            },
+            error: function(file, response) {
+                console.log('errorrrr');
+                return false;
+            },
+            addRemoveLinks: true,
+            removedfile: function(file) {
+                var name = file.upload.filename;
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                    },
+                    type: 'POST',
+                    url: '{{ url("delete-uploaded-image") }}',
+                    data: {
+                        filename: name
+                    },
+                    success: function(data) {
+                        console.log("File has been successfully removed!!");
+                    },
+                    error: function(e) {
+                        console.log(e);
+                    }
+                });
+                var fileRef;
+                return (fileRef = file.previewElement) != null ?
+                    fileRef.parentNode.removeChild(file.previewElement) : void 0;
+            }
+        });
     });
 </script>
 @stop

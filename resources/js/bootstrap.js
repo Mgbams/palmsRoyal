@@ -34,3 +34,10 @@ try {
 //Datatables
 require('datatables.net-bs4');
 require('datatables.net-buttons-bs4');
+
+/**
+ * Dropzone
+ */
+
+window.Dropzone = require('dropzone');
+Dropzone.autoDiscover = false;
