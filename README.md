@@ -947,3 +947,115 @@ For more informations on checkbox visit,
 ## Dynamically checking or unchecking a checkbox depending on the value from database
 Visit the link below to understand more
 [Checking a checkbox](https://stackoverflow.com/questions/426258/setting-checked-for-a-checkbox-with-jquery)
+
+## Image uploads using dropzone
+follow the following steps
+
+1. Install the Dropzone library using the following command.
+
+```bash
+$ npm install dropzone --save
+```
+
+2. Now, include this library inside resources >> js >> bootstrap.js file. We need to add the code inside that file.
+
+```php
+// bootstrap.js
+
+/**
+ * Dropzone
+ */
+
+ window.Dropzone = require('dropzone');
+ Dropzone.autoDiscover = false;
+```
+
+3.  import the Dropzone CSS files inside resources >> sass >> app.scss file, add the following code.
+
+```scss
+// Dropzone
+@import '~dropzone/dist/min/dropzone.min.css';
+
+.dropzone {
+  margin-bottom: 20px;
+  min-height: auto;
+}
+```
+
+4. In your blade template, add these links as a fallback option incase your imports in app.scss fails
+
+```blade
+    <!--dropzone script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js" integrity="sha512-9WciDs0XP20sojTJ9E7mChDXy6pcO0qHpwbEJID1YVavz2H6QBz5eLoDD8lseZOb2yGT8xDNIV7HIe1ZbuiDWg==" crossorigin="anonymous"></script>
+
+<!--dropzone stylesheet-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" />
+```
+
+5. Add your dropzone area in your form as shown below
+
+```blade
+<div class="form-group row ">
+    <div class="col-md-10">
+        <div id="file" class="dropzone"></div>
+    </div>
+</div>
+```
+
+6. Write your jquery code to handle dropzone e.g is shown below
+
+```js
+var drop = new Dropzone('#file', {
+    createImageThumbnails: true,
+    acceptedFiles: ".jpeg,.jpg,.png,.gif",
+    parallelUploads: 5,
+    url: "{{url('dropzone/store')}}",
+    headers: {
+        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+    },
+    success: function(file, response) {
+        console.log(response);
+        $('#hidden_images_names').val(response.success);
+        /********** Attach a hidden input field to store the uploaded files **********/
+        $('#file').append('<input type="hidden" name="files[]" value="'+ response.success +'">');
+    },
+    error: function(file, response) {
+        console.log('errorrrr');
+        return false;
+    },
+    addRemoveLinks: true,
+    removedfile: function(file) {
+        var name = file.upload.filename;
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+            },
+            type: 'POST',
+            url: '{{ url("delete-uploaded-image") }}',
+            data: {
+                filename: name
+            },
+            success: function(data) {
+                console.log("File has been successfully removed!!");
+            },
+            error: function(e) {
+                console.log(e);
+            }
+        });
+        var fileRef;
+        return (fileRef = file.previewElement) != null ?
+            fileRef.parentNode.removeChild(file.previewElement) : void 0;
+    }
+});
+```
+**IMPORTANT** Use to different functions in your controller to handle dropzone file upload and your blade form submit function. e.g
+
+1. function store() {
+    //Your form submit goes here
+}
+
+2. function dropZoneImageUpload() {
+    //Your dropzone image upload code goes here
+}
+
+You can check my **Controllers/Admin/RoomController.php** for the dropzone and form submit function codes
