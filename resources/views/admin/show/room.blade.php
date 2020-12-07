@@ -378,8 +378,6 @@
                 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
             },
             success: function(file, response) {
-                console.log(response);
-                $('#hidden_images_names').val(response.success);
                 /********** Attach a hidden input field to store the uploaded files **********/
                 $('#file').append('<input type="hidden" name="files[]" value="'+ response.success +'">');
             },

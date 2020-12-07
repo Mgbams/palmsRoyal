@@ -119,6 +119,8 @@ Route::prefix('admin')->group(function () {
 
 });
 
-//store product images from controller
-Route::post('dropzone/store','Admin\RoomController@imageStore')->name('projects.storeMedia');
+/******** DROPZONE: A package to implement drag and drop of images *******/
+//store hotel room images 
+Route::post('dropzone/store','Admin\RoomController@imageStore');
+//Delete hotel room images 
 Route::post('delete-uploaded-image', 'Admin\RoomController@deleteImage');
