@@ -49,15 +49,22 @@ Route::get('/hotel-info', [
 
 Route::get('navigation-menu', 'RoyalPalmsHomePageController@index')->name('navigation-menu');
 
-
-
 Auth::routes();
+
+/***Login Route ***/
+Route::post('login', 'Auth\LoginController@login');
+
+/***Register Route ***/
+Route::post('register', 'Auth\RegisterController@login');
+
+/***Logout Route ***/
+Route::post('logout', 'Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 //PDF download
 Route::get('/palms-royal-hotel/menu-restaurant/{menu}', 'EatAndDrinkMorningController@createPDF');
-Auth::routes();
+//Auth::routes();
 
 //room details
 //Route::get('/room-details/rooms', 'RoomDetailsController@show')->name('room-details');

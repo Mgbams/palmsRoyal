@@ -1075,3 +1075,29 @@ For more information, please visit
         'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
     },
 ```
+
+## What to do if you want your login and register links to be on other page that's not home page
+
+You need to manually define all the Auth routes in web.php as shown below
+
+```php
+/***Login Route ***/
+Route::post('login', 'Auth\LoginController@login');
+
+/***Register Route ***/
+Route::post('register', 'Auth\RegisterController@login');
+
+/***Logout Route ***/
+Route::post('logout', 'Auth\LoginController@logout');
+```
+Visit **app/providers/RouteServiceProvider.php** and add the link to be redirected to e.g
+
+```php
+public const ROOM = '/show-rooms';
+//Where '/show-rooms' is the route to the room page declared in routes/web.php
+```
+Then in **Http/Controllers/Auth/LoginController.php** and **Http/Controllers/Auth/RegisterController.php**, change the page to be redirected to if the page is different from HOME e.g
+
+```php
+protected $redirectTo = RouteServiceProvider::ROOM;
+```

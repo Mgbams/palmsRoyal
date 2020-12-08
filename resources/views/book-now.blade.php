@@ -55,7 +55,7 @@
                             <p style="color: white;">SELECT DATES</p>
                         </div>
                         <div class="btn-group col-sm-4 offset-md-4 mt-5 country-money-toggle">
-                            <button type="button" class="btn btn-primary">Log In</button>
+                            <a type="button" href="{{url('/login')}}" class="btn btn-primary">Log In</a>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                     Euros <span class="caret"></span></button>

@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Country;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use DataTables; //imports datatables code into this file
 use Validator;
 
-class CountryController extends Controller
+class RoomFacilityController extends Controller
 {
     public function index()
     {

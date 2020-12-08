@@ -141,9 +141,10 @@ body,
 	}
 }*/
 
-@media screen and (max-width: 740px) {
-  .codrops-icon span {
-    display: none;
-  }
-}
+/*@media screen and (max-width: 740px) {
+
+	.codrops-icon span {
+		display: none;
+	}
+}*/
 

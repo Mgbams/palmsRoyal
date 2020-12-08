@@ -332,3 +332,11 @@ input.gn-search:focus {
   }
 }
 
+@media screen and (max-width: 540px) {
+  .gn-menu-main > li:last-child {
+    border-left: none;
+    width: 40vw;
+    float: left;
+  }
+}
+

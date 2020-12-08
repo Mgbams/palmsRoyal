@@ -43,7 +43,7 @@
                             <li><a class="gn-icon gn-icon-cog">Settings</a></li>
                             <li><a class="gn-icon gn-icon-help">Help</a></li>
                             <li>
-                                <a  href="{{url('/show-rooms')}}" class="gn-icon gn-icon-archive">Rooms</a>
+                                <a href="{{url('/show-rooms')}}" class="gn-icon gn-icon-archive">Rooms</a>
                                 <!--<ul class="gn-submenu">
                                     <li><a class="gn-icon gn-icon-article">Articles</a></li>
                                     <li><a class="gn-icon gn-icon-pictures">Images</a></li>
@@ -55,8 +55,15 @@
                 </nav>
             </li>
             <li><a href="{{url('/palms-royal-homepage')}}">palmsRoyal</a></li>
-            <li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
-            <li><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16030"><span>Back to the Codrops Article</span></a></li>
+            {{--<li><a class="codrops-icon codrops-icon-prev" href="#"><span>Previous Demo</span></a></li>--}}
+            <li class="d-flex" style="padding-right: 10px;">
+                <a class="codrops-icon" href="{{url('/login')}}">
+                    <span>Login</span>
+                </a>
+                <a class="codrops-icon" href="{{url('/register')}}">
+                    <span>Register</span>
+                </a>
+            </li>
         </ul>
         <header>
             @yield('content')
