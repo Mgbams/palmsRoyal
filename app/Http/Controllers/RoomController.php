@@ -19,6 +19,7 @@ class RoomController extends Controller
     {
         $room_links = array(); //Declare an array to hold room names that are appended with hyphens
         $rooms = $this->roomRepository->getAllRooms(); // Get all the rooms
+       
         foreach ($rooms as $room) {
             $name = $room->name;
             $url = str_replace(' ', '-', $name); //Replace spaces in room names with hyphen

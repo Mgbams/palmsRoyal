@@ -1061,7 +1061,9 @@ var drop = new Dropzone('#file', {
 You can check my **Controllers/Admin/RoomController.php** for the dropzone and form submit function codes
 Also attach the response from the controller dynamically by appending a hidden input field and passing the result from the contriller into it e.g
 
-**$('#file').append('<input type="hidden" name="files[]" value="'+ response.success +'">');**
+```blade
+    $('#file').append('<input type="hidden" name="files[]" value="'+ response.success +'">');
+```
 
 For more information, please visit
 [DropZone](https://appdividend.com/2018/08/15/laravel-file-upload-example/)

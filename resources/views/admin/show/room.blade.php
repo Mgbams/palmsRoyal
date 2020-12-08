@@ -59,7 +59,7 @@
     <!-- Edit Hotel modal -->
     <div id="formModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style="width: 60vw !important; margin: 0px auto;">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Add New Record</h4>
@@ -92,7 +92,7 @@
                                 <input type="date" name="available_date" id="available_date" class="form-control" />
                             </div>
                         </div>
-                        <div class="form-group d-flex justify-content-between">
+                        <div class="form-group row">
                             <div class="col-md-4">
                                 <input type="checkbox" name="auto_approve" id="auto_approve" />
                                 <label class="control-label col-md-6">Auto_approve </label>

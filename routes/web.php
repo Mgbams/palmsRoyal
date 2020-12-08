@@ -22,7 +22,7 @@ Route::get('navigation', function () {
 //return view(about-hotel)
 Route::get('about', 'AboutHotelController@show')->name('about');
 //return view(rooms)
-Route::get('rooms', 'RoomController@show')->name('rooms');
+Route::get('show-rooms', 'RoomController@show')->name('rooms');
 //return view(eat-and-drink/restaurant-morning)
 Route::get('/eat-and-drink-morning', 'EatAndDrinkMorningController@show')->name('eat-drink-morning');
 //return view(eat-and-drink/restaurant-morning)
@@ -105,7 +105,7 @@ Route::prefix('admin')->group(function () {
 
 
     /*** Room ***/
-    Route::get('rooms', 'Admin\RoomController@index')->name('rooms'); //Link used to display countries
+    Route::get('rooms', 'Admin\RoomController@index')->name('rooms'); //Link used to display rooms
     Route::get('rooms/list', 'Admin\RoomController@getRooms')->name('get.rooms'); //redundant, just used to get data that is displayed in the index
 
     //Edit Room

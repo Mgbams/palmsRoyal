@@ -43,7 +43,7 @@
                             <li><a class="gn-icon gn-icon-cog">Settings</a></li>
                             <li><a class="gn-icon gn-icon-help">Help</a></li>
                             <li>
-                                <a  href="{{url('/rooms')}}" class="gn-icon gn-icon-archive">Rooms</a>
+                                <a  href="{{url('/show-rooms')}}" class="gn-icon gn-icon-archive">Rooms</a>
                                 <!--<ul class="gn-submenu">
                                     <li><a class="gn-icon gn-icon-article">Articles</a></li>
                                     <li><a class="gn-icon gn-icon-pictures">Images</a></li>

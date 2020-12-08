@@ -19,7 +19,7 @@ class RoomRepository
         $rooms = DB::table('room_type_rooms')
             ->join('rooms', 'rooms.id', '=', 'room_type_rooms.room_id')
             ->join('room_types', 'room_types.id', '=', 'room_type_rooms.room_type_id')
-            ->join('photos', 'photos.room_id', '=', 'rooms.id')
+            ->join('photos', 'photos.id', '=', 'rooms.photo_id')
             ->get();
 
         return $rooms;
@@ -38,7 +38,7 @@ class RoomRepository
         $room = DB::table('room_type_rooms')
             ->join('rooms', 'rooms.id', '=', 'room_type_rooms.room_id')
             ->join('room_types', 'room_types.id', '=', 'room_type_rooms.room_type_id')
-            ->join('photos', 'photos.room_id', '=', 'rooms.id')
+            ->join('photos', 'photos.id', '=', 'rooms.photo_id')
             ->where('rooms.name', '=', $room_name)
             ->first();
         return $room;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 04 nov. 2020 à 20:57
+-- Généré le : mar. 08 déc. 2020 à 01:08
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.2.32
 
@@ -310,6 +310,13 @@ CREATE TABLE `hotels` (
   `owner` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Déchargement des données de la table `hotels`
+--
+
+INSERT INTO `hotels` (`id`, `hotel_name`, `location`, `owner`) VALUES
+(1, 'royalPalms', '3 Rue Helene Boucher', 'Kingsley');
+
 -- --------------------------------------------------------
 
 --
@@ -374,7 +381,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2020_11_04_183249_create_reservations_table', 10),
 (13, '2020_11_04_190220_create_invoices_table', 11),
 (14, '2020_11_04_192611_create_payments_table', 12),
-(15, '2020_11_04_194852_create_send_email_on_reservations_table', 13);
+(15, '2020_11_04_194852_create_send_email_on_reservations_table', 13),
+(16, '2020_12_07_234111_add_photo_id_to_rooms_table', 14);
 
 -- --------------------------------------------------------
 
@@ -410,9 +418,16 @@ CREATE TABLE `payments` (
 
 CREATE TABLE `photos` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `url` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `room_id` bigint(20) UNSIGNED NOT NULL
+  `url` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `photos`
+--
+
+INSERT INTO `photos` (`id`, `url`) VALUES
+(1, 'https://cdn.pixabay.com/photo/2014/05/21/14/56/bedroom-349698_960_720.jpg'),
+(2, 'https://cdn.pixabay.com/photo/2014/05/17/18/03/lobby-346426_960_720.jpg');
 
 -- --------------------------------------------------------
 
@@ -468,8 +483,17 @@ CREATE TABLE `rooms` (
   `auto_approve` tinyint(1) NOT NULL,
   `published` tinyint(1) NOT NULL,
   `is_available` tinyint(1) NOT NULL,
-  `hotel_id` bigint(20) UNSIGNED NOT NULL
+  `hotel_id` bigint(20) UNSIGNED NOT NULL,
+  `photo_id` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `price`, `name`, `description`, `available_date`, `auto_approve`, `published`, `is_available`, `hotel_id`, `photo_id`) VALUES
+(1, '120.00', 'king size four poster', 'Our king size four poster provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.', '2020-12-07 23:45:20', 0, 1, 1, 1, 1),
+(2, '300.00', 'queen size four poster', 'Our king size sleigh bedded also provides views over landscaped gardens. It has ample storage, a seating area, digital safe, minibar and luxurious duck down bedding.\r\n', '2020-12-07 23:45:35', 0, 1, 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -489,6 +513,13 @@ CREATE TABLE `room_types` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Déchargement des données de la table `room_types`
+--
+
+INSERT INTO `room_types` (`id`, `capacity`, `wifi`, `ac`, `heater`, `other_facilities`, `floor`, `created_at`, `updated_at`) VALUES
+(1, 250, 1, 1, 1, 'Television, Hot bath, Radio, Fan', 2, '2020-11-16 01:22:33', '2020-11-18 01:22:33');
+
 -- --------------------------------------------------------
 
 --
@@ -502,6 +533,14 @@ CREATE TABLE `room_type_rooms` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `room_type_rooms`
+--
+
+INSERT INTO `room_type_rooms` (`id`, `room_type_id`, `room_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2020-11-12 01:23:44', '2020-11-17 01:23:44'),
+(2, 1, 2, '2020-11-24 01:23:44', '2020-11-26 01:23:44');
 
 -- --------------------------------------------------------
 
@@ -526,21 +565,28 @@ CREATE TABLE `send_email_on_reservations` (
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone_number` int(11) NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_number` int(11) DEFAULT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `city` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `country_id` bigint(20) UNSIGNED NOT NULL,
-  `zip` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `zip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `phone_number`, `username`, `password`, `address`, `city`, `country_id`, `zip`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Kingsley', NULL, 'king@gmail.com', NULL, NULL, '$2y$10$v7HpmY5XNdEZTY4.Wvf.HuHfPjEWqrRgYBg0XU8vQYbAnrTluB1rm', NULL, NULL, NULL, NULL, NULL, NULL, '2020-11-19 17:03:02', '2020-11-19 17:03:02');
 
 --
 -- Index pour les tables déchargées
@@ -602,8 +648,7 @@ ALTER TABLE `payments`
 -- Index pour la table `photos`
 --
 ALTER TABLE `photos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `photos_room_id_foreign` (`room_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `reservations`
@@ -627,7 +672,9 @@ ALTER TABLE `reviews`
 --
 ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `rooms_hotel_id_foreign` (`hotel_id`);
+  ADD UNIQUE KEY `name` (`name`),
+  ADD KEY `rooms_hotel_id_foreign` (`hotel_id`),
+  ADD KEY `rooms_photo_id_foreign` (`photo_id`);
 
 --
 -- Index pour la table `room_types`
@@ -672,13 +719,13 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT pour la table `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
 
 --
 -- AUTO_INCREMENT pour la table `hotels`
 --
 ALTER TABLE `hotels`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `hotel_payment_infos`
@@ -696,7 +743,7 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `payments`
@@ -708,7 +755,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT pour la table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `reservations`
@@ -726,19 +773,19 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT pour la table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `room_types`
 --
 ALTER TABLE `room_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `room_type_rooms`
 --
 ALTER TABLE `room_type_rooms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `send_email_on_reservations`
@@ -750,7 +797,7 @@ ALTER TABLE `send_email_on_reservations`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées
@@ -776,12 +823,6 @@ ALTER TABLE `payments`
   ADD CONSTRAINT `payments_reservation_id_foreign` FOREIGN KEY (`reservation_id`) REFERENCES `reservations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `photos`
---
-ALTER TABLE `photos`
-  ADD CONSTRAINT `photos_room_id_foreign` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Contraintes pour la table `reservations`
 --
 ALTER TABLE `reservations`
@@ -800,7 +841,8 @@ ALTER TABLE `reviews`
 -- Contraintes pour la table `rooms`
 --
 ALTER TABLE `rooms`
-  ADD CONSTRAINT `rooms_hotel_id_foreign` FOREIGN KEY (`hotel_id`) REFERENCES `hotels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `rooms_hotel_id_foreign` FOREIGN KEY (`hotel_id`) REFERENCES `hotels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rooms_photo_id_foreign` FOREIGN KEY (`photo_id`) REFERENCES `photos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `room_type_rooms`
