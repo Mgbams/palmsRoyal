@@ -55,7 +55,9 @@
                 </nav>
             </li>
             <li><a href="{{url('/palms-royal-homepage')}}">palmsRoyal</a></li>
-            {{--<li><a class="codrops-icon codrops-icon-prev" href="#"><span>Previous Demo</span></a></li>--}}
+            @role('Super Admin')
+                <li><a class="codrops-icon codrops-icon-prev" href="{{url('/admin/dashboard')}}"><span>DashBoard</span></a></li>
+            @endrole
             <li class="d-flex" style="padding-right: 10px;">
                 <a class="codrops-icon" href="{{url('/login')}}">
                     <span>Login</span>

@@ -55,10 +55,10 @@ Auth::routes();
 Route::post('login', 'Auth\LoginController@login');
 
 /***Register Route ***/
-Route::post('register', 'Auth\RegisterController@login');
+Route::post('register', 'Auth\RegisterController@register');
 
 /***Logout Route ***/
-Route::post('logout', 'Auth\LoginController@logout');
+//Route::post('logout', 'Auth\LogoutController@logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -123,6 +123,20 @@ Route::prefix('admin')->group(function () {
     Route::post('room/update', 'Admin\RoomController@update')->name('room.update');
      //Delete Room
     Route::get('room/destroy/{id}', 'Admin\RoomController@destroy');
+
+    
+    /*** Facility ***/
+    Route::get('facilities', 'Admin\FacilityController@index')->name('facilities'); //Link used to display facilities
+    Route::get('facilities/list', 'Admin\FacilityController@getFacilities')->name('get.facilities'); //redundant, just used to get data that is displayed in the index
+
+    //Edit Facility
+    Route::get('facility/{id}/edit', 'Admin\FacilityController@edit');
+    //Store Facility
+    Route::post('facility/store', 'Admin\FacilityController@store')->name('facility.store');
+    //Update Facility
+    Route::post('facility/update', 'Admin\FacilityController@update')->name('facility.update');
+     //Delete Facility
+    Route::get('facility/destroy/{id}', 'Admin\FacilityController@destroy');
 
 });
 

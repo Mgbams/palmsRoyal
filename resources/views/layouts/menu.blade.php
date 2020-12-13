@@ -18,6 +18,12 @@
     </a>
 </li>
 <li class="nav-item">
+    <a href="{{ route('facilities') }}" class="nav-link rooms {{ request()->is('admin/facilities') ? 'active' : ''}}">
+        <i class="nav-icon fas fa-bed"></i>
+        <p style="color: white;">Facilities</p>
+    </a>
+</li>
+<li class="nav-item">
     <a href="{{ route('home') }}" class="nav-link room-types">
         <i class="nav-icon fas fa-list" aria-hidden="true"></i>
         <p style="color: white;">Room Types</p>
