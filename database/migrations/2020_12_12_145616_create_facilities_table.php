@@ -15,12 +15,12 @@ class CreateFacilitiesTable extends Migration
     {
         Schema::create('facilities', function (Blueprint $table) {
             $table->id();
-            $table->integer('capacity');
+            $table->string('capacity');
             $table->boolean('wifi');
             $table->boolean('ac');
             $table->boolean('heater');
             $table->string('other_facilities');
-            $table->integer('floor');
+            $table->string('floor');
             $table->timestamps();
         });
     }

@@ -48,36 +48,56 @@ class FacilityController extends Controller
      */
     public function store(Request $request)
     {
-        dd(implode(",", $request->other_facilities));
-        
-
+        $wifi = 0;
+        $ac = 0;
+        $heater = 0;
         $rules = array(
-            'price'             =>  'required',
-            'name'              =>  'required',
-            'description'       =>  'required',
-            'available_date'    =>  'required',
-            'hotel_id'          =>  'required',
-            'images.*'          =>  'required|image|mimes:jpeg,png,jpg,gif,svg'
+            'wifi'         =>  'required',
+            'ac'           =>  'required',
+            'heater'       =>  'required'
         );
 
+        $comma_separated = implode(",", $request->other_facilities);
+        $floor_lists = implode(",", $request->floor);
+        $capacity_lists = implode(",", $request->capacity);
+        
+    
         $error = Validator::make($request->all(), $rules);
 
         if ($error->fails()) {
             return response()->json(['errors' => $error->errors()->all()]);
+        } else {
+
+            if ($request->wifi == 'on') {
+                $wifi  = 1;
+            } else {
+                $wifi  = 0;
+            };
+
+            if ($request->ac == 'on') {
+                $ac   = 1;
+            } else {
+                $ac   = 0;
+            };
+
+            if ($request->heater == 'on') {
+                $heater  = 1;
+            } else {
+                $heater   = 0;
+            };
+
+            $form_data = array(
+                'wifi'              =>   $wifi,
+                'ac'                =>   $ac,
+                'heater'            =>   $heater,
+                'other_facilities'  =>   $comma_separated,
+                'floor'             =>   $floor_lists,
+                'capacity'          =>   $capacity_lists
+            );
+            Facility::create($form_data);
+
+            return response()->json(['success' => 'Data is successfully updated']);
         }
-
-        $form_data = array(
-            'price'             =>   $request->price,
-            'name'              =>   $request->name,
-            'description'       =>   $request->description,
-            'available_date'    =>   $request->available_date,
-            'auto_approve'      =>   $request->auto_approve,
-            'published'         =>   $request->published,
-            'is_available'      =>   $request->is_available,
-            'hotel_id'          =>   $request->hotel_id
-        );
-
-        return response()->json(['success' => 'Data Added successfully.']);
     }
 
 
@@ -104,50 +124,53 @@ class FacilityController extends Controller
      */
     public function update(Request $request)
     {
-        dd($request);
-
+        //dd($request);
+        $wifi = 0;
+        $ac = 0;
+        $heater = 0;
         $rules = array(
-            'price'             =>  'required',
-            'name'              =>  'required',
-            'description'       =>  'required',
-            'available_date'    =>  'required',
-            'hotel_id'          =>  'required'
-            //'image'         =>  'image|max:2048'
+            'wifi'         =>  'required',
+            'ac'           =>  'required',
+            'heater'       =>  'required'
         );
+
+        $comma_separated = implode(",", $request->other_facilities);
+        $floor_lists = implode(",", $request->floor);
+        $capacity_lists = implode(",", $request->capacity);
+        //dd($floor_lists);
+        //dd( explode( ',', $floor_lists) );
+        
         $error = Validator::make($request->all(), $rules);
 
         if ($error->fails()) {
             return response()->json(['errors' => $error->errors()->all()]);
         } else {
 
-            if ($request->auto_approve == 'on') {
-                $auto_approve  = 1;
+            if ($request->wifi == 'on') {
+                $wifi  = 1;
             } else {
-                $auto_approve  = 0;
+                $wifi  = 0;
             };
 
-            if ($request->published == 'on') {
-                $published   = 1;
+            if ($request->ac == 'on') {
+                $ac   = 1;
             } else {
-                $published   = 0;
+                $ac   = 0;
             };
 
-            if ($request->is_available == 'on') {
-                $is_available   = 1;
+            if ($request->heater == 'on') {
+                $heater  = 1;
             } else {
-                $is_available   = 0;
+                $heater   = 0;
             };
 
             $form_data = array(
-                'price'             =>   $request->price,
-                'name'              =>   $request->name,
-                'description'       =>   $request->description,
-                'available_date'    =>   $request->available_date,
-                'auto_approve'      =>   $auto_approve,
-                'published'         =>   $published,
-                'is_available'      =>   $is_available,
-                'hotel_id'          =>   $request->hotel_id
-                //'image'            =>   $image_name
+                'wifi'              =>   $wifi,
+                'ac'                =>   $ac,
+                'heater'            =>   $heater,
+                'other_facilities'  =>   $comma_separated,
+                'floor'             =>   $floor_lists,
+                'capacity'          =>   $capacity_lists
             );
             Facility::whereId($request->hidden_id)->update($form_data);
 
@@ -165,29 +188,5 @@ class FacilityController extends Controller
     {
         $data = Facility::findOrFail($id);
         $data->delete();
-    }
-
-    /******* Store image to database and to folder on this project *****/
-
-    public function imageStore(Request $request)
-    {
-        $image = $request->file('file');
-        $filename = $image->getClientOriginalName();
-
-        $image->move(public_path('rooms/images/'), $filename);
-        return response()->json(['success' => $filename]);
-    }
-
-    /****Delete image from folder and from database on clicking remove file link below the image ******/
-
-    public function deleteImage(Request $request)
-    {
-        $filename = $request->get('filename');
-        Photo::where('url', $filename)->delete();
-        $path = public_path() . '/rooms/images/' . $filename;
-        if (file_exists($path)) {
-            unlink($path);
-        }
-        // return $filename;
     }
 }

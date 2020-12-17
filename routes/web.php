@@ -93,7 +93,7 @@ Route::prefix('admin')->group(function () {
     Route::post('hotel/store', 'Admin\HotelController@store')->name('hotel.store');
     //Update Hotel
     Route::post('hotel/update', 'Admin\HotelController@update')->name('hotel.update');
-     //Delete Hotel
+    //Delete Hotel
     Route::get('hotel/destroy/{id}', 'Admin\HotelController@destroy');
 
 
@@ -107,7 +107,7 @@ Route::prefix('admin')->group(function () {
     Route::post('countries/store', 'Admin\CountryController@store')->name('country.store');
     //Update Country
     Route::post('countries/update', 'Admin\CountryController@update')->name('country.update');
-     //Delete Country
+    //Delete Country
     Route::get('countries/destroy/{id}', 'Admin\CountryController@destroy');
 
 
@@ -121,10 +121,10 @@ Route::prefix('admin')->group(function () {
     Route::post('room/store', 'Admin\RoomController@store')->name('room.store');
     //Update Room
     Route::post('room/update', 'Admin\RoomController@update')->name('room.update');
-     //Delete Room
+    //Delete Room
     Route::get('room/destroy/{id}', 'Admin\RoomController@destroy');
 
-    
+
     /*** Facility ***/
     Route::get('facilities', 'Admin\FacilityController@index')->name('facilities'); //Link used to display facilities
     Route::get('facilities/list', 'Admin\FacilityController@getFacilities')->name('get.facilities'); //redundant, just used to get data that is displayed in the index
@@ -135,13 +135,28 @@ Route::prefix('admin')->group(function () {
     Route::post('facility/store', 'Admin\FacilityController@store')->name('facility.store');
     //Update Facility
     Route::post('facility/update', 'Admin\FacilityController@update')->name('facility.update');
-     //Delete Facility
+    //Delete Facility
     Route::get('facility/destroy/{id}', 'Admin\FacilityController@destroy');
 
+
+    /*** ROLES ***/
+    Route::get('roles', 'Admin\RoleController@index')->name('roles'); //Link used to display facilities
+    Route::get('roles/list', 'Admin\RoleController@getRoles')->name('get.roles'); //redundant, just used to get data that is displayed in the index
+
+    //Edit Roles
+    Route::get('role/{id}/edit', 'Admin\RoleController@edit');
+    //Store Role
+    Route::post('role/store', 'Admin\RoleController@store')->name('role.store');
+    //Update Role
+    Route::post('role/update', 'Admin\RoleController@update')->name('role.update');
+    //View Permissions
+    Route::get('permissions/{id}/view', 'Admin\RoleController@view');
+    //Delete Role
+    Route::get('role/destroy/{id}', 'Admin\RoleController@destroy');
 });
 
 /******** DROPZONE: A package to implement drag and drop of images *******/
 //store hotel room images 
-Route::post('dropzone/store','Admin\RoomController@imageStore');
+Route::post('dropzone/store', 'Admin\RoomController@imageStore');
 //Delete hotel room images 
 Route::post('delete-uploaded-image', 'Admin\RoomController@deleteImage');

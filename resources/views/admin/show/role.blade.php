@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Facilities')
+@section('title', 'Roles')
 
 @section('third_party_stylesheets')
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -31,20 +31,16 @@
 
 
 <div class="container-fluid mt-5">
-    <h2 class="mb-4">Facilities Info</h2>
+    <h2 class="mb-4">Roles</h2>
     <!--Create button-->
     <div align=right class="mb-5">
-        <button type="button" name="create_record" id="create_record" class="btn btn-success btn-sm">Create Facilities</button>
+        <button type="button" name="create_record" id="create_record" class="btn btn-success btn-sm">Create Roles</button>
     </div>
-    <table class="table table-bordered facility-datatable datatables-button-formatter" id="facility-datatable">
+    <table class="table table-bordered role-datatable datatables-button-formatter" id="role-datatable">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Wifi</th>
-                <th>Ac</th>
-                <th>Heater</th>
-                <th>Other Facilities</th>
-                <th>Floor</th>
+                <th>name</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -62,58 +58,16 @@
                 </div>
                 <div class="modal-body">
                     <span id="form_result"></span>
-                    <form method="post" id="facility_form" class="form-horizontal" enctype="multipart/form-data">
+                    <form method="post" id="role_form" class="form-horizontal" enctype="multipart/form-data">
                         @csrf
                         <div class="col-lg-8 col-md-8 col-sm-8 container justify-content-center">
                             <div class="form-group">
                                 <div class="col-md-8">
-                                    <label class="control-label col-md-6">Wifi: </label>
-                                    <input type="checkbox" name="wifi" id="wifi">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-8">
-                                    <label class="control-label col-md-6">Ac: </label>
-                                    <input type="checkbox" name="ac" id="ac">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-8">
-                                    <label class="control-label col-md-6">Heater: </label>
-                                    <input type="checkbox" name="heater" id="heater">
+                                    <label class="control-label col-md-6">Name: </label>
+                                    <input type="text" name="name" id="name">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-6">Other Facilities: </label>
-                            <div class="col-md-8">
-                                <input type="checkbox" id="television" name="other_facilities[]" value="television"> Télévision <br />
-                                <input type="checkbox" id="desk" name="other_facilities[]" value="desk"> Desk <br />
-                                <input type="checkbox" id="hairdryer" name="other_facilities[]" value="hairdryer"> Hairdryer <br />
-                                <input type="checkbox" id="breakfast_included" name="other_facilities[]" value="breakfast_included"> Breakfast included <br />
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-6">Floor</label>
-                            <div class="col-md-8">
-                                <input type="checkbox" name="floor[]" value="1"> 1 <br />
-                                <input type="checkbox" name="floor[]" value="2"> 2 <br />
-                                <input type="checkbox" name="floor[]" value="3"> 3 <br />
-                                <input type="checkbox" name="floor[]" value="4"> 4 <br />
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-6">Capacity</label>
-                            <div class="col-md-8">
-                                <input type="checkbox" name="capacity[]" value="25"> 25 <br />
-                                <input type="checkbox" name="capacity[]" value="40"> 40 <br />
-                                <input type="checkbox" name="capacity[]" value="60"> 60 <br />
-                                <input type="checkbox" name="capacity[]" value="70"> 70 <br />
-                            </div>
-                        </div>
-
                         <div class="form-group" align="center">
                             <input type="hidden" name="action" id="action" />
                             <input type="hidden" name="hidden_id" id="hidden_id" />
@@ -148,6 +102,39 @@
 
     <!--Confirm Modal ends here-->
 
+    <!-- View modal starts here -->
+    <div id="viewModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 60vw !important; margin: 0px auto;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Permission Lists</h4>
+                </div>
+                <div class="modal-body">
+                    <span id="form_result"></span>
+                    <form method="post" id="role_form" class="form-horizontal" enctype="multipart/form-data">
+                        @csrf
+                        <div class="col-lg-8 col-md-8 col-sm-8 container justify-content-center">
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <label class="control-label col-md-6">Name: </label>
+                                    <input type="text" name="name" id="name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" align="center">
+                            <input type="hidden" name="action" id="action" />
+                            <input type="hidden" name="hidden_id" id="hidden_id" />
+                            <input type="submit" name="action_button" id="action_button" style="border-top-right-radius: 10%; border-bottom-right-radius: 10%; border-top-left-radius: 10%; border-bottom-left-radius: 10%;" class="btn btn-primary px-5" value="Add" />
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--View Modal ends here-->
+
 </div>
 @stop
 
@@ -162,35 +149,19 @@
 <script type="text/javascript">
     $(function() {
 
-        $('.facility-datatable').DataTable({
+        $('.role-datatable').DataTable({
             processing: true,
             serverSide: true,
             responsive: true,
             autoWidth: false,
-            ajax: "{{ route('get.facilities') }}",
+            ajax: "{{ route('get.roles') }}",
             columns: [{
                     data: 'id',
                     name: 'Id'
                 },
                 {
-                    data: 'wifi',
-                    name: 'Wifi'
-                },
-                {
-                    data: 'ac',
-                    name: 'Ac'
-                },
-                {
-                    data: 'heater',
-                    name: 'Heater'
-                },
-                {
-                    data: 'other_facilities',
-                    name: 'Other Facilities'
-                },
-                {
-                    data: 'floor',
-                    name: 'Floor'
+                    data: 'name',
+                    name: 'Name'
                 },
                 {
                     data: 'action',
@@ -201,35 +172,18 @@
             ]
         });
 
-        /* Edit customer starts here  =>EDIT */
+        /* Edit role starts here  =>EDIT */
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('id');
             $('#form_result').html('');
             $('#formModal').modal('show');
             $.ajax({
-                url: "/admin/facility/" + id + "/edit",
+                url: "/admin/role/" + id + "/edit",
                 dataType: "json",
                 success: function(html) {
-                    if (html.data.wifi == 1) {
-                        $('#wifi').prop('checked', true);
+                    if (html.data.name) {
+                        $('#name').val(html.data.name);
                     }
-                    if (html.data.ac == 1) {
-                        $('#ac').prop('checked', true);
-                    }
-                    if (html.data.heater == 1) {
-                        $('#heater').prop('checked', true);
-                    }
-
-                    if (html.data.television == 1) {
-                        $('#television').prop('checked', true);
-                    }
-                    if (html.data.desk == 1) {
-                        $('#desk').prop('checked', true);
-                    }
-                    if (html.data.hairdryer== 1) {
-                        $('#hairdryer').prop('checked', true);
-                    }
-                  
                     $('#hidden_id').val(html.data.id);
                     $('.modal-title').text("Edit New Record");
                     $('#action_button').val("Edit");
@@ -238,26 +192,48 @@
                 }
             })
         });
-        /* Edit customer ends here */
+        /* Edit role ends here */
+
+        /* View permission starts here  =>VIEW */
+        $(document).on('click', '.view', function() {
+            var id = $(this).attr('id');
+            $('#form_result').html('');
+            $('#viewModal').modal('show');
+            $.ajax({
+                url: "/admin/permissions/" + id + "/view",
+                dataType: "json",
+                success: function(html) {
+                    if (html.data.name) {
+                        $('#name').val(html.data.name);
+                    }
+                    $('#hidden_id').val(html.data.id);
+                    $('.modal-title').text("Permission Lists");
+                    $('#action_button').val("Edit");
+                    $('#action').val("Edit");
+                    $('#viewModal').modal('show');
+                }
+            })
+        });
+        /* View permission ends here */
 
         //Delete starts here  =>DELETE
-        var facility_id;
+        var role_id;
 
         $(document).on('click', '.delete', function() {
-            facility_id = $(this).attr('id');
+            role_id = $(this).attr('id');
             $('#confirmModal').modal('show');
         });
 
         $('#ok_button').click(function() {
             $.ajax({
-                url: "/admin/facility/destroy/" + facility_id,
+                url: "/admin/role/destroy/" + role_id,
                 beforeSend: function() {
                     $('#ok_button').text('Deleting...');
                 },
                 success: function(data) {
                     setTimeout(function() {
                         $('#confirmModal').modal('hide');
-                        $('#facility-datatable').DataTable().ajax.reload(); //Reloads table after deletion
+                        $('#role-datatable').DataTable().ajax.reload(); //Reloads table after deletion
                     }, 2000);
                 }
             })
@@ -275,11 +251,11 @@
 
 
         /*** Form submission starts here ***/
-        $('#facility_form').on('submit', function(event) {
+        $('#role_form').on('submit', function(event) {
             event.preventDefault();
             if ($('#action').val() == 'Add') {
                 $.ajax({
-                    url: "{{ route('facility.store') }}",
+                    url: "{{ route('role.store') }}",
                     method: "POST",
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -300,8 +276,8 @@
                         }
                         if (data.success) {
                             html = '<div class="alert alert-success">' + data.success + '</div>';
-                            $('#facility_form')[0].reset();
-                            $('#facility-datatable').DataTable().ajax.reload();
+                            $('#role_form')[0].reset();
+                            $('#role-datatable').DataTable().ajax.reload();
                         }
                         $('#form_result').html(html);
                     }
@@ -311,7 +287,7 @@
             if ($('#action').val() == "Edit") {
                 console.log("edit");
                 $.ajax({
-                    url: "{{ route('facility.update') }}",
+                    url: "{{ route('role.update') }}",
                     method: "POST",
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -332,8 +308,8 @@
                         }
                         if (data.success) {
                             html = '<div class="alert alert-success">' + data.success + '</div>';
-                            $('#facility_form')[0].reset();
-                            $('#facility-datatable').DataTable().ajax.reload();
+                            $('#role_form')[0].reset();
+                            $('#role-datatable').DataTable().ajax.reload();
                         }
                         $('#form_result').html(html);
                     }
