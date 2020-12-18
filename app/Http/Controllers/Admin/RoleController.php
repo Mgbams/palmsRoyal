@@ -31,7 +31,7 @@ class RoleController extends Controller
                                 type="button" name="delete" class="delete btn btn-danger btn-sm" id="' . $data->id . '"><i class="fa fa-trash-alt"></i>&nbsp;Delete</button>';
                     $actionBtn .=  '
                                 &nbsp; &nbsp; &nbsp;<button 
-                                type="button" style="color: white;" name="view" class="view btn btn-warning btn-sm" id="' . $data->id . '"><i class="fa fa-list-ul"></i>&nbsp;View</button>';
+                                type="button" style="color: white;" name="view" class="view btn btn-warning btn-sm" id="' . $data->id . '"><i class="fa fa-eye"></i>&nbsp;View</button>';
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
@@ -131,11 +131,14 @@ class RoleController extends Controller
      */
     public function view($id)
     {
+        //dd($id);
         if (request()->ajax()) {
             //$data = Role::findOrFail($id);
             $data = DB::table('role_has_permissions')
+                ->join('permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
                 ->where('role_id', '=', $id)
                 ->get();
+            //dd($data);
             return response()->json(['data' => $data]);
         }
 
@@ -143,6 +146,7 @@ class RoleController extends Controller
             LEFT JOIN permissions ON role_has_permissions.permission_id = permissions.id
             LEFT JOIN roles ON role_has_permissions.role_id = roles.id
             WHERE roles.id = 2
+            <i class="fa fa-list-ul"></i>
         */
     }
 }

@@ -116,10 +116,36 @@
                         @csrf
                         <div class="col-lg-8 col-md-8 col-sm-8 container justify-content-center">
                             <div class="form-group">
-                                <div class="col-md-8">
-                                    <label class="control-label col-md-6">Name: </label>
-                                    <input type="text" name="name" id="name">
-                                </div>
+                                <fieldset class="border p-3">
+                                    <legend class="w-auto">Room Management</legend>
+                                    <div class="col-md-8">
+                                        <input type="checkbox" name="edit-room" value="edit room" id="edit-room"> Edit Room <br />
+                                        <input type="checkbox" name="create-room" value="create room" id="create-room"> Create Room <br />
+                                        <input type="checkbox" name="delete-room" value="delete room" id="delete-room"> Delete Room <br />
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="form-group">
+                                <fieldset class="border p-3">
+                                    <legend class="w-auto">User Management</legend>
+                                    <div class="col-md-8">
+                                        <input type="checkbox" name="edit-user" value="edit user" id="edit-user"> Edit User <br />
+                                        <input type="checkbox" name="create-user" value="create user" id="create-user"> Create User <br />
+                                        <input type="checkbox" name="delete-user" value="delete user" id="delete-user"> Delete User <br />
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="form-group">
+                                <fieldset class="border p-3">
+                                    <legend class="w-auto">Country Management</legend>
+                                    <div class="col-md-8">
+                                        <input type="checkbox" name="edit-country" value="edit user" id="edit-country"> Edit Country <br />
+                                        <input type="checkbox" name="create-country" value="create user" id="create-country"> Create Country <br />
+                                        <input type="checkbox" name="delete-country" value="delete user" id="delete-country"> Delete Country <br />
+                                    </div>
+                                </fieldset>
                             </div>
                         </div>
                         <div class="form-group" align="center">
@@ -197,12 +223,62 @@
         /* View permission starts here  =>VIEW */
         $(document).on('click', '.view', function() {
             var id = $(this).attr('id');
+            console.log('my id is', id);
             $('#form_result').html('');
             $('#viewModal').modal('show');
+
+            /*** clearing checkboxes values at each 
+             *** click before data is fetched 
+             ***/
+            $('#edit-room').prop('checked', false);
+            $('#create-room').prop('checked', false);
+            $('#delete-room').prop('checked', false);
+            $('#edit-user').prop('checked', false);
+            $('#create-user').prop('checked', false);
+            $('#delete-user').prop('checked', false);
+            $('#edit-country').prop('checked', false);
+            $('#create-country').prop('checked', false);
+            $('#delete-country').prop('checked', false);
+
             $.ajax({
                 url: "/admin/permissions/" + id + "/view",
                 dataType: "json",
                 success: function(html) {
+                    console.log(html.data);
+                    for (let i = 0; i < html.data.length; i++) {
+                        /******* room management ******/
+                        if (html.data[i].name === 'edit room') {
+                            $('#edit-room').prop('checked', true);
+                        }
+                        if (html.data[i].name == 'create room') {
+                            $('#create-room').prop('checked', true);
+                        }
+                        if (html.data[i].name == 'delete room') {
+                            $('#delete-room').prop('checked', true);
+                        }
+
+                        /***** User Management *****/
+                        if (html.data[i].name === 'edit user') {
+                            $('#edit-user').prop('checked', true);
+                        }
+                        if (html.data[i].name === 'create user') {
+                            $('#create-user').prop('checked', true);
+                        }
+                        if (html.data[i].name === 'delete user') {
+                            $('#delete-user').prop('checked', true);
+                        }
+
+                        /***** Country Management *****/
+                        if (html.data[i].name === 'edit country') {
+                            $('#edit-country').prop('checked', true);
+                        }
+                        if (html.data[i].name === 'create country') {
+                            $('#create-country').prop('checked', true);
+                        }
+                        if (html.data[i].name === 'delete country') {
+                            $('#delete-country').prop('checked', true);
+                        }
+                    }
                     if (html.data.name) {
                         $('#name').val(html.data.name);
                     }
