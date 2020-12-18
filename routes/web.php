@@ -151,6 +151,8 @@ Route::prefix('admin')->group(function () {
     Route::post('role/update', 'Admin\RoleController@update')->name('role.update');
     //View Permissions
     Route::get('permissions/{id}/view', 'Admin\RoleController@view');
+    //Update Permissions
+    Route::post('update-permissions', 'Admin\RoleController@updatePermissions')->name('update-permissions');
     //Delete Role
     Route::get('role/destroy/{id}', 'Admin\RoleController@destroy');
 });

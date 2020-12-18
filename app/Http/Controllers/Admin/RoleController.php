@@ -31,7 +31,7 @@ class RoleController extends Controller
                                 type="button" name="delete" class="delete btn btn-danger btn-sm" id="' . $data->id . '"><i class="fa fa-trash-alt"></i>&nbsp;Delete</button>';
                     $actionBtn .=  '
                                 &nbsp; &nbsp; &nbsp;<button 
-                                type="button" style="color: white;" name="view" class="view btn btn-warning btn-sm" id="' . $data->id . '"><i class="fa fa-eye"></i>&nbsp;View</button>';
+                                type="button" style="color: white;" name="view" class="view btn btn-warning btn-sm" id="' . $data->id . '" role="' . $data->name . '"><i class="fa fa-eye"></i>&nbsp;View</button>';
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
@@ -148,5 +148,34 @@ class RoleController extends Controller
             WHERE roles.id = 2
             <i class="fa fa-list-ul"></i>
         */
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updatePermissions(Request $request)
+    {
+        dd($request);
+
+        /* $rules = array(
+            'name'    =>  'required'
+        );
+
+        $error = Validator::make($request->all(), $rules);
+
+        if ($error->fails()) {
+            return response()->json(['errors' => $error->errors()->all()]);
+        }
+
+        $form_data = array(
+            'name'       =>   $request->name
+        );
+        Role::whereId($request->hidden_id)->update($form_data);
+
+        return response()->json(['success' => 'Data is successfully updated']);*/
     }
 }

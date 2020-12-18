@@ -108,11 +108,11 @@
             <div class="modal-content" style="width: 60vw !important; margin: 0px auto;">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Permission Lists</h4>
+                    <h4 class="modal-title" id="modal-title"></h4>
                 </div>
                 <div class="modal-body">
                     <span id="form_result"></span>
-                    <form method="post" id="role_form" class="form-horizontal" enctype="multipart/form-data">
+                    <form method="post" id="view_form" class="form-horizontal" enctype="multipart/form-data">
                         @csrf
                         <div class="col-lg-8 col-md-8 col-sm-8 container justify-content-center">
                             <div class="form-group">
@@ -149,9 +149,9 @@
                             </div>
                         </div>
                         <div class="form-group" align="center">
-                            <input type="hidden" name="action" id="action" />
-                            <input type="hidden" name="hidden_id" id="hidden_id" />
-                            <input type="submit" name="action_button" id="action_button" style="border-top-right-radius: 10%; border-bottom-right-radius: 10%; border-top-left-radius: 10%; border-bottom-left-radius: 10%;" class="btn btn-primary px-5" value="Add" />
+                            <input type="hidden" name="action_save" id="action_save" />
+                            <input type="hidden" name="save_hidden_id" id="save_hidden_id" />
+                            <input type="submit" name="save_button" id="save_button" style="border-top-right-radius: 10%; border-bottom-right-radius: 10%; border-top-left-radius: 10%; border-bottom-left-radius: 10%;" class="btn btn-primary px-5" value="save" />
                         </div>
                     </form>
 
@@ -223,7 +223,7 @@
         /* View permission starts here  =>VIEW */
         $(document).on('click', '.view', function() {
             var id = $(this).attr('id');
-            console.log('my id is', id);
+            var role = $(this).attr('role');
             $('#form_result').html('');
             $('#viewModal').modal('show');
 
@@ -239,12 +239,12 @@
             $('#edit-country').prop('checked', false);
             $('#create-country').prop('checked', false);
             $('#delete-country').prop('checked', false);
+            $('#modal-title').text('');
 
             $.ajax({
                 url: "/admin/permissions/" + id + "/view",
                 dataType: "json",
                 success: function(html) {
-                    console.log(html.data);
                     for (let i = 0; i < html.data.length; i++) {
                         /******* room management ******/
                         if (html.data[i].name === 'edit room') {
@@ -279,13 +279,9 @@
                             $('#delete-country').prop('checked', true);
                         }
                     }
-                    if (html.data.name) {
-                        $('#name').val(html.data.name);
-                    }
-                    $('#hidden_id').val(html.data.id);
-                    $('.modal-title').text("Permission Lists");
-                    $('#action_button').val("Edit");
-                    $('#action').val("Edit");
+                    $('#modal-title').text(role + ' Permissions');
+                    $('#save_hidden_id').val(id);
+                    $('#save_button').val("Save Changes");
                     $('#viewModal').modal('show');
                 }
             })
@@ -361,7 +357,6 @@
             }
 
             if ($('#action').val() == "Edit") {
-                console.log("edit");
                 $.ajax({
                     url: "{{ route('role.update') }}",
                     method: "POST",
@@ -393,6 +388,40 @@
             }
         });
         //Form submission ends here
+
+        /***** Submitting permissions modifications starts here *****/
+        $('#view_form').on('submit', function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: "/admin/update-permissions",
+                method: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: "json",
+                success: function(data) {
+                    var html = '';
+                    if (data.errors) {
+                        html = '<div class="alert alert-danger">';
+                        for (var count = 0; count < data.errors.length; count++) {
+                            html += '<p>' + data.errors[count] + '</p>';
+                        }
+                        html += '</div>';
+                    }
+                    if (data.success) {
+                        html = '<div class="alert alert-success">' + data.success + '</div>';
+                        $('#role_form')[0].reset();
+                        $('#role-datatable').DataTable().ajax.reload();
+                    }
+                    $('#form_result').html(html);
+                }
+            });
+            console.log('view submitted');
+        });
     });
 </script>
 @stop
