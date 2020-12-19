@@ -55,9 +55,11 @@
                 </nav>
             </li>
             <li><a href="{{url('/palms-royal-homepage')}}">palmsRoyal</a></li>
-            @role('Super Admin')
-                <li><a class="codrops-icon codrops-icon-prev" href="{{url('/admin/dashboard')}}"><span>DashBoard</span></a></li>
-            @endrole
+            @if(Auth::check())
+            @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 3 )
+            <li><a class="codrops-icon" href="{{url('/admin/dashboard')}}"><span>DashBoard</span></a></li>
+            @endif
+            @endif
             <li class="d-flex" style="padding-right: 10px;">
                 <a class="codrops-icon" href="{{url('/login')}}">
                     <span>Login</span>

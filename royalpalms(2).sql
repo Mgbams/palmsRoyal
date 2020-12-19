@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 08 déc. 2020 à 01:08
+-- Généré le : sam. 19 déc. 2020 à 04:51
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.2.32
 
@@ -300,6 +300,32 @@ INSERT INTO `countries` (`id`, `code`, `alpha2`, `alpha3`, `nom_en_gb`, `nom_fr_
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `facilities`
+--
+
+CREATE TABLE `facilities` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `capacity` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wifi` tinyint(1) NOT NULL,
+  `ac` tinyint(1) NOT NULL,
+  `heater` tinyint(1) NOT NULL,
+  `other_facilities` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `floor` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `facilities`
+--
+
+INSERT INTO `facilities` (`id`, `capacity`, `wifi`, `ac`, `heater`, `other_facilities`, `floor`, `created_at`, `updated_at`) VALUES
+(1, '200', 1, 1, 1, 'TV', '2', '2020-12-09 22:10:09', '2020-12-15 22:10:09'),
+(2, '25,40,60,70', 1, 1, 1, 'television,desk,hairdryer,breakfast_included', '1,2,3,4', '2020-12-15 23:55:37', '2020-12-15 23:55:37');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `hotels`
 --
 
@@ -382,7 +408,37 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2020_11_04_190220_create_invoices_table', 11),
 (14, '2020_11_04_192611_create_payments_table', 12),
 (15, '2020_11_04_194852_create_send_email_on_reservations_table', 13),
-(16, '2020_12_07_234111_add_photo_id_to_rooms_table', 14);
+(16, '2020_12_07_234111_add_photo_id_to_rooms_table', 14),
+(17, '2020_12_08_212847_create_permission_tables', 15),
+(18, '2020_12_08_232331_create_role_user_table', 16),
+(19, '2020_12_08_235752_create_role_user_table', 17),
+(20, '2020_12_12_145616_create_facilities_table', 18),
+(21, '2020_12_18_235349_add_role_id_to_users', 19),
+(22, '2020_12_19_000416_add_role_id_to_users', 20);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `model_has_permissions`
+--
+
+CREATE TABLE `model_has_permissions` (
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `model_has_roles`
+--
+
+CREATE TABLE `model_has_roles` (
+  `role_id` bigint(20) UNSIGNED NOT NULL,
+  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -409,6 +465,35 @@ CREATE TABLE `payments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
+(1, 'edit room', 'web', '2020-12-08 21:52:03', '2020-12-08 21:52:03'),
+(2, 'create room', 'web', '2020-12-08 21:52:41', '2020-12-08 21:52:41'),
+(3, 'delete room', 'web', '2020-12-08 21:53:09', '2020-12-08 21:53:09'),
+(4, 'edit user', 'web', '2020-12-08 21:54:40', '2020-12-08 21:54:40'),
+(5, 'create user', 'web', '2020-12-08 21:54:40', '2020-12-08 21:54:40'),
+(6, 'delete user', 'web', '2020-12-08 21:54:40', '2020-12-08 21:54:40'),
+(7, 'edit country', 'web', '2020-12-08 21:55:51', '2020-12-08 21:55:51'),
+(8, 'create country', 'web', '2020-12-08 21:55:51', '2020-12-08 21:55:51'),
+(9, 'delete country', 'web', '2020-12-08 21:55:51', '2020-12-08 21:55:51');
 
 -- --------------------------------------------------------
 
@@ -467,6 +552,76 @@ CREATE TABLE `reviews` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
+(1, 'Administrateur', 'web', '2020-12-08 21:48:20', '2020-12-18 01:03:09'),
+(2, 'User', 'web', '2020-12-08 21:49:23', '2020-12-08 21:49:23'),
+(3, 'Super Admin', 'web', '2020-12-08 21:50:15', '2020-12-08 21:50:15');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `role_has_permissions`
+--
+
+CREATE TABLE `role_has_permissions` (
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `role_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `role_has_permissions`
+--
+
+INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
+(1, 3),
+(2, 3),
+(3, 3),
+(4, 3),
+(5, 3),
+(6, 3),
+(7, 3),
+(8, 3),
+(9, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `role_user`
+--
+
+CREATE TABLE `role_user` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `role_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `role_user`
+--
+
+INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`) VALUES
+(1, 2, 3, '2020-12-09 00:09:32', '2020-12-09 00:09:32');
 
 -- --------------------------------------------------------
 
@@ -578,15 +733,17 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `role_id` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `phone_number`, `username`, `password`, `address`, `city`, `country_id`, `zip`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Kingsley', NULL, 'king@gmail.com', NULL, NULL, '$2y$10$v7HpmY5XNdEZTY4.Wvf.HuHfPjEWqrRgYBg0XU8vQYbAnrTluB1rm', NULL, NULL, NULL, NULL, NULL, NULL, '2020-11-19 17:03:02', '2020-11-19 17:03:02');
+INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `phone_number`, `username`, `password`, `address`, `city`, `country_id`, `zip`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`, `role_id`) VALUES
+(1, 'Kingsley', NULL, 'king@gmail.com', NULL, NULL, '$2y$10$v7HpmY5XNdEZTY4.Wvf.HuHfPjEWqrRgYBg0XU8vQYbAnrTluB1rm', NULL, NULL, NULL, NULL, NULL, NULL, '2020-11-19 17:03:02', '2020-11-19 17:03:02', 1),
+(2, 'Kingsley Mgbams', NULL, 'admin@admin.com', NULL, NULL, '$2y$10$mthNoc.EAdEoAZn.ndoYp.tZRODVggqN7v6SE4J/aUnom30Ceyecq', NULL, NULL, NULL, NULL, NULL, NULL, '2020-12-08 23:08:13', '2020-12-08 23:08:13', 3);
 
 --
 -- Index pour les tables déchargées
@@ -602,6 +759,12 @@ ALTER TABLE `cities`
 -- Index pour la table `countries`
 --
 ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `facilities`
+--
+ALTER TABLE `facilities`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -632,6 +795,20 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `model_has_permissions`
+--
+ALTER TABLE `model_has_permissions`
+  ADD PRIMARY KEY (`permission_id`,`model_id`,`model_type`),
+  ADD KEY `model_has_permissions_model_id_model_type_index` (`model_id`,`model_type`);
+
+--
+-- Index pour la table `model_has_roles`
+--
+ALTER TABLE `model_has_roles`
+  ADD PRIMARY KEY (`role_id`,`model_id`,`model_type`),
+  ADD KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`);
+
+--
 -- Index pour la table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -643,6 +820,12 @@ ALTER TABLE `password_resets`
 ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `payments_reservation_id_foreign` (`reservation_id`);
+
+--
+-- Index pour la table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `photos`
@@ -666,6 +849,27 @@ ALTER TABLE `reviews`
   ADD PRIMARY KEY (`id`),
   ADD KEY `reviews_user_id_foreign` (`user_id`),
   ADD KEY `reviews_room_id_foreign` (`room_id`);
+
+--
+-- Index pour la table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `role_has_permissions`
+--
+ALTER TABLE `role_has_permissions`
+  ADD PRIMARY KEY (`permission_id`,`role_id`),
+  ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
+
+--
+-- Index pour la table `role_user`
+--
+ALTER TABLE `role_user`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `role_user_user_id_foreign` (`user_id`),
+  ADD KEY `role_user_role_id_foreign` (`role_id`);
 
 --
 -- Index pour la table `rooms`
@@ -703,7 +907,8 @@ ALTER TABLE `send_email_on_reservations`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`),
-  ADD KEY `users_country_id_foreign` (`country_id`);
+  ADD KEY `users_country_id_foreign` (`country_id`),
+  ADD KEY `users_role_id_foreign` (`role_id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -720,6 +925,12 @@ ALTER TABLE `cities`
 --
 ALTER TABLE `countries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
+
+--
+-- AUTO_INCREMENT pour la table `facilities`
+--
+ALTER TABLE `facilities`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `hotels`
@@ -743,13 +954,19 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT pour la table `payments`
 --
 ALTER TABLE `payments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `photos`
@@ -768,6 +985,18 @@ ALTER TABLE `reservations`
 --
 ALTER TABLE `reviews`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `role_user`
+--
+ALTER TABLE `role_user`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `rooms`
@@ -797,7 +1026,7 @@ ALTER TABLE `send_email_on_reservations`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
@@ -815,6 +1044,18 @@ ALTER TABLE `hotel_payment_infos`
 ALTER TABLE `invoices`
   ADD CONSTRAINT `invoices_reservation_id_foreign` FOREIGN KEY (`reservation_id`) REFERENCES `reservations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `invoices_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `model_has_permissions`
+--
+ALTER TABLE `model_has_permissions`
+  ADD CONSTRAINT `model_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `model_has_roles`
+--
+ALTER TABLE `model_has_roles`
+  ADD CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `payments`
@@ -836,6 +1077,20 @@ ALTER TABLE `reservations`
 ALTER TABLE `reviews`
   ADD CONSTRAINT `reviews_room_id_foreign` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reviews_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `role_has_permissions`
+--
+ALTER TABLE `role_has_permissions`
+  ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `role_user`
+--
+ALTER TABLE `role_user`
+  ADD CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `role_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `rooms`
@@ -861,7 +1116,8 @@ ALTER TABLE `send_email_on_reservations`
 -- Contraintes pour la table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_country_id_foreign` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `users_country_id_foreign` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

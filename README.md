@@ -1208,3 +1208,50 @@ protected $redirectTo = RouteServiceProvider::ROOM;
 
 Visit this stackoverflow page for more info
 [fieldset](https://stackoverflow.com/questions/16852484/use-fieldset-legend-with-bootstrap)
+
+## Middleware
+
+1. Install using
+
+```bash
+php artisan make:middleware  middlewareName
+```
+
+2. Open kernel file and add your middle way in it. There are different options available in kernel.php
+
+-   If you want the middleware to affect all pages, then add it under protected
+
+```php
+protected $middleware = []
+```
+
+section.
+
+-   If you want the middleware to affect a group of routes, then add it under
+
+```php
+protected $routeMiddleware = []
+```
+
+section.
+
+-   If you want the middleware to affect the api or web routes, then add it under
+
+```php
+protected $middlewareGroups = []
+```
+
+section either under api or web.
+
+3. Then in your web.php file, if you want some groups of routes to be affected by the middleware then you define them inside a middleware group e.t.c
+
+```php
+Route::group(['middleware' => ['auth', 'admin']], function () {
+     //Edit Hotel
+    Route::get('hotel/{id}/edit', 'Admin\HotelController@edit');
+})
+```
+
+From the above, we are adding two middlewares to the edit hotel route
+
+4. In your middleware file, add the logic.

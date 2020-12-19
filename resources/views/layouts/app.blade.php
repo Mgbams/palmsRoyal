@@ -32,15 +32,15 @@
                 <li class="nav-item dropdown user-menu">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                         <img src="https://infyom.com/images/logo/blue_logo_150x150.jpg" class="user-image img-circle elevation-2" alt="User Image">
-                        {{--<span class="d-none d-md-inline">{{ Auth::user()->name }}</span>--}}
+                        <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <!-- User image -->
                         <li class="user-header bg-primary">
                             <img src="https://infyom.com/images/logo/blue_logo_150x150.jpg" class="img-circle elevation-2" alt="User Image">
                             <p>
-                                {{-- {{ Auth::user()->name }} --}}
-                                <small>Member since {{--{{ Auth::user()->created_at->format('M. Y') }} --}}</small>
+                                {{ Auth::user()->name }}
+                                <small>Member since {{ Auth::user()->created_at->format('M. Y') }}</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
@@ -73,13 +73,13 @@
         </div>
 
         <!-- Main Footer -->
-        {{--<footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.5
-        </div>
-        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">Mgbams</a>.</strong> All rights
-        reserved.
-    </footer>--}}
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 3.0.5
+            </div>
+            <strong>Copyright &copy; 2019-<?php echo date("Y"); ?> <a href="https://adminlte.io">Mgbams</a>.</strong> All rights
+            reserved.
+        </footer>
     </div>
 
 
