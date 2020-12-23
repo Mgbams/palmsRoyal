@@ -157,8 +157,22 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
         Route::post('update-permissions', 'Admin\RoleController@updatePermissions')->name('update-permissions');
         //Delete Role
         Route::get('role/destroy/{id}', 'Admin\RoleController@destroy');
+
+
+        /****ROLES AND PERMISSIONS */
+
+        //Route::resource('users', 'UserController');
+        Route::get('roles-and-permissions/store', 'Admin\RoleAndPermissionController@store');
+        Route::get('roles-and-permissions/create', 'Admin\RoleAndPermissionController@create');
+        Route::get('roles-and-permissions/index', 'Admin\RoleAndPermissionController@index')->name('roles-and-permissions.index');
+        Route::get('roles-and-permissions/show/{id}', 'Admin\RoleAndPermissionController@show');
+        Route::get('roles-and-permissions/edit/{id}', 'Admin\RoleAndPermissionController@edit');
+        Route::post('roles-and-permissions/update/{id}', 'Admin\RoleAndPermissionController@update');
+        Route::delete('roles-and-permissions/destroy', 'Admin\RoleAndPermissionController@destroy');
     });
 });
+
+
 
 
 /******** DROPZONE: A package to implement drag and drop of images *******/

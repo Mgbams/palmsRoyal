@@ -1,75 +1,82 @@
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~admin-lte/build/scss/AdminLTE';
-@import '~jquery-ui/themes/base/all.css';
+@import "~admin-lte/build/scss/AdminLTE";
+@import "~jquery-ui/themes/base/all.css";
 
 //Datatables
 @import "~datatables.net-bs4/css/dataTables.bootstrap4.css";
 @import "~datatables.net-buttons-bs4/css/buttons.bootstrap4.css";
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Lora:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Lora:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap");
 
-
-@import url(https://fonts.googleapis.com/css?family=Oswald:300,400,700);
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+@import url("https://fonts.googleapis.com/css?family=Oswald:300, 400, 700");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic");
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 // jquery
-@import '~jquery-ui/themes/base/all.css';
+@import "~jquery-ui/themes/base/all.css";
 
 //fontawesome icons
 //@import "node_modules/font-awesome/scss/font-awesome.scss";
 //@import "~font-awesome/scss/font-awesome";
 // Font Awesome
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/brands';
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
 
 // Dropzone
-@import '~dropzone/dist/min/dropzone.min.css';
+@import "~dropzone/dist/min/dropzone.min.css";
 
 .dropzone {
-  margin-bottom: 20px;
-  min-height: auto;
+    margin-bottom: 20px;
+    min-height: auto;
 }
 
 * {
     box-sizing: border-box;
 }
 
-h2, p, h3 {
+h2,
+p,
+h3 {
     color: black;
 }
 
 /*Fonts*/
-h3 , h2, h5, h6 {
-	font-family: 'Lora', serif;
+h3,
+h2,
+h5,
+h6 {
+    font-family: "Lora", serif;
 }
 
-h1, h4 {
-	font-family: 'Cinzel Decorative', cursive;
+h1,
+h4 {
+    font-family: "Cinzel Decorative", cursive;
 }
 
-p, small, a {
-  //font-family: 'Libre Baskerville', serif;
-  font-family: 'Gilda Display', serif;
+p,
+small,
+a {
+    //font-family: 'Libre Baskerville', serif;
+    font-family: "Gilda Display", serif;
 }
 /*Fonts end here*/
 
 /**modal opacity setting when modal shows**/
 
 .modal {
-  background: rgba(0,0,0,0.8) !important;
+    background: rgba(0, 0, 0, 0.8) !important;
 }
 /**modal opacity setting when modal shows ends here**/
 
@@ -84,10 +91,10 @@ p, small, a {
 //carousel
 
 #slideshow {
-    width: 100vw; 
+    width: 100vw;
     height: 100vh;
     background-color: black;
-    padding: 10vh  0px !important;
+    padding: 10vh 0px !important;
     div {
         width: 95%;
         margin: auto !important;
@@ -111,7 +118,7 @@ p, small, a {
 }
 
 .slick-active {
-    opacity: .5;
+    opacity: 0.5;
 }
 .slick-current {
     opacity: 1;
@@ -121,27 +128,27 @@ p, small, a {
 }*/
 
 #page-home {
-    min-height: 100Vh !important;
+    min-height: 100vh !important;
     background-color: $yeast;
 }
 
 //About block in HomePage
 #about-homepage {
-    height: 80vh; 
-    color: black; 
+    height: 80vh;
+    color: black;
     background-color: $yeast;
     #about-inner-container {
-        display:flex;
+        display: flex;
         div #about-text {
-            z-index: 1; 
+            z-index: 1;
             line-height: 1;
             #about {
-                //margin-left: 120px;  
-                font-size: 3rem; 
+                //margin-left: 120px;
+                font-size: 3rem;
             }
             #royalPalms {
-                font-size: 3rem; 
-                line-height: .9;
+                font-size: 3rem;
+                line-height: 0.9;
             }
         }
         div #description {
@@ -152,39 +159,39 @@ p, small, a {
             border: 2px solid pink; 
             margin-top: 50px; 
             padding: 50px 0px; */
-            //position: relative; 
+            //position: relative;
             position: absolute;
-            width: 110px; 
+            width: 110px;
             height: 30px;
             .btn-border {
                 position: relative;
                 right: 15px;
                 bottom: 30px;
                 animation-duration: 1.7s;
-                opacity: .4;
-                transition-timing-function: cubic-bezier(.6,0,.41,1);
+                opacity: 0.4;
+                transition-timing-function: cubic-bezier(0.6, 0, 0.41, 1);
             }
 
             a {
-                text-decoration: none; 
-                position:absolute; 
-                left: 60px; 
-                width: 160px; 
+                text-decoration: none;
+                position: absolute;
+                left: 60px;
+                width: 160px;
                 top: 60px;
                 z-index: 1;
             }
         }
         #image-container {
-            height: 80vh; 
-            display:flex; 
-            align-items: center; 
-            justify-content:center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             div {
-                width: 80%; 
+                width: 80%;
                 height: 50vh;
                 img {
-                    background-size: cover; 
-                    height: 100%; 
+                    background-size: cover;
+                    height: 100%;
                     width: 100%;
                 }
             }
@@ -197,43 +204,43 @@ p, small, a {
 #stay-page {
     width: 100vw;
     margin-top: 80px;
-    height: 80vh; 
-    color: black; 
+    height: 80vh;
+    color: black;
     position: absolute;
     #image-div {
         height: 80vh;
         //padding-left: 0px !important;
         img {
-            height: 80vh;  
+            height: 80vh;
             width: 100%;
             background-size: cover;
         }
     }
     #courtyard-room {
-        background-color: pink; 
-        width: 35%; 
-        height: 75%; 
-        position:relative; 
-        bottom: 70%; 
-        left: 40%; 
+        background-color: pink;
+        width: 35%;
+        height: 75%;
+        position: relative;
+        bottom: 70%;
+        left: 40%;
         #booking-link {
             position: absolute;
-            width: 110px; 
+            width: 110px;
             height: 30px;
             .btn-border {
                 position: relative;
                 right: 15px;
                 bottom: 30px;
                 animation-duration: 1.7s;
-                opacity: .4;
-                transition-timing-function: cubic-bezier(.6,0,.41,1);
+                opacity: 0.4;
+                transition-timing-function: cubic-bezier(0.6, 0, 0.41, 1);
             }
 
             a {
-                text-decoration: none; 
-                position:absolute; 
-                left: 100%; 
-                width: 160px; 
+                text-decoration: none;
+                position: absolute;
+                left: 100%;
+                width: 160px;
                 top: 140%;
                 z-index: 1;
             }
@@ -249,7 +256,7 @@ p, small, a {
     padding-left: 0px !important;
     margin-top: 700px;
     img {
-        height: 60vh;  
+        height: 60vh;
         width: 100%;
         background-size: cover;
     }
@@ -259,11 +266,11 @@ p, small, a {
 #new-emotions {
     height: 60vh;
     width: 90vw;
-    margin-left: 10vw; 
+    margin-left: 10vw;
     margin-top: 50px;
-    position: relative; 
+    position: relative;
     img {
-        height: 60vh;  
+        height: 60vh;
         width: 100%;
         background-size: cover;
     }
@@ -278,41 +285,41 @@ p, small, a {
 
 //Eat and drink block in HomePage
 #eat-and-drink {
-    height: 100vh; 
+    height: 100vh;
     width: 100% !important;
-    color: black; 
+    color: black;
     margin-top: 50px;
     #eat-inner-container {
-        display:flex;
+        display: flex;
         width: 100vw !important;
         div #about-text {
-            z-index: 1; 
+            z-index: 1;
             line-height: 1;
             #about {
-                margin-left: 120px;  
-                font-size: 3rem; 
+                margin-left: 120px;
+                font-size: 3rem;
             }
             #royalPalms {
-                font-size: 3rem; 
-                line-height: .9;
+                font-size: 3rem;
+                line-height: 0.9;
             }
         }
         div #description {
             margin-top: 30px;
         }
         #image-container {
-            height: 100vh; 
-            background-color: pink; 
-            display:flex; 
-            align-items: center; 
-            justify-content:center;
+            height: 100vh;
+            background-color: pink;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding-top: 100px;
             div {
-                width: 80%; 
+                width: 80%;
                 height: 40vh;
                 img {
-                    background-size: cover; 
-                    height: 100%; 
+                    background-size: cover;
+                    height: 100%;
                     width: 80%;
                 }
                 a {
@@ -331,7 +338,7 @@ p, small, a {
 //second carousel starts here
 
 #slideshow-center {
-    width: 98%; 
+    width: 98%;
     height: 50vh;
     background-color: black;
     margin-top: 50px;
@@ -353,22 +360,24 @@ p, small, a {
 /* mixed-carousel starts here*/
 .about-slick {
     position: relative;
-    .slick-prev:before, .slick-next:before {
+    .slick-prev:before,
+    .slick-next:before {
         color: black;
-    } 
+    }
     .slick-next:before {
         position: absolute;
         right: 51.68vw;
         top: 60px;
-    } 
+    }
 }
 .mixed-carousel {
     img {
         width: 65%;
         height: 40vh;
         background-size: cover;
-    } 
-    .slick-prev:before, .slick-next:before {
+    }
+    .slick-prev:before,
+    .slick-next:before {
         color: black;
     }
 }
@@ -376,12 +385,12 @@ p, small, a {
 
 // Special offers block starts here
 .special-offers-div {
-    text-align: center; 
+    text-align: center;
     margin-top: 50px;
     position: relative;
     .read-more {
         margin: auto;
-        text-align: center; 
+        text-align: center;
         position: relative;
         .read-more-link {
             position: relative;
@@ -393,12 +402,12 @@ p, small, a {
         left: 580px !important;
         top: 50px !important;
         animation-duration: 1.7s;
-        opacity: .4;
-        transition-timing-function: cubic-bezier(.6,0,.41,1);
+        opacity: 0.4;
+        transition-timing-function: cubic-bezier(0.6, 0, 0.41, 1);
     }
     .special-offers-link {
-        text-decoration: none;  
-        color: black; 
+        text-decoration: none;
+        color: black;
     }
     .special-offers-link:hover {
         color: blue;
@@ -410,79 +419,80 @@ p, small, a {
 /* about hotel link found on homepage starts here */
 .about-hotel-link {
     .btn {
-      cursor: pointer;
-      background-color: #000;
-      width: 330px;
-      height: 64px;
-      line-height: 64px;
-      position: relative;
-      left: 50%;
-      top: 60%;
-      transform: translate(-50%, -50%);
-      z-index: 0;
-      box-shadow: 0px 0px 17px 1px rgba(0, 0, 0, 0.34);
-      span {
-        color: #fff;
-        display: block;
-        padding-left: 35px;
-        text-transform: uppercase;
-        font: bold 18px/66px Arial;
-        transform: scaleX(0.6);
-        letter-spacing: 3px;
-        transform-origin: center left;
-        transition: color 0.3s ease;
+        cursor: pointer;
+        background-color: #000;
+        width: 330px;
+        height: 64px;
+        line-height: 64px;
         position: relative;
-        z-index: 1;
-      }
-      em {
-        position: absolute;
-        height: 1px;
-        background: #fff;
-        width: 47%;
-        right: 23px;
-        top: 50%;
-        transform: scaleX(0.25);
-        transform-origin: center right;
-        transition: all 0.3s ease;
-        z-index: 1;
-      }
-      &:before, &:after {
-        content: '';
-        background: #fff;
-        height: 50%;
-        width: 0;
-        position: absolute;
-        transition: .3s cubic-bezier(.785,.135,.15,.86);
-      }
-      &:before {
-        top: 0;
-        left: 0;
-        right: auto;
-      }
-      &:after {
-        bottom: 0;
-        right: 0;
-        left: auto;
-      }
-      &:hover {
-        &:before {
-          width: 100%;
-          right: 0;
-          left: auto;
-        }
-        &:after {
-          width: 100%;
-          left: 0;
-          right: auto;
-        }
+        left: 50%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        box-shadow: 0px 0px 17px 1px rgba(0, 0, 0, 0.34);
         span {
-          color: #000;
+            color: #fff;
+            display: block;
+            padding-left: 35px;
+            text-transform: uppercase;
+            font: bold 18px/66px Arial;
+            transform: scaleX(0.6);
+            letter-spacing: 3px;
+            transform-origin: center left;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
         em {
-          background: #000;
-          transform: scaleX(1);
+            position: absolute;
+            height: 1px;
+            background: #fff;
+            width: 47%;
+            right: 23px;
+            top: 50%;
+            transform: scaleX(0.25);
+            transform-origin: center right;
+            transition: all 0.3s ease;
+            z-index: 1;
         }
-      }
+        &:before,
+        &:after {
+            content: "";
+            background: #fff;
+            height: 50%;
+            width: 0;
+            position: absolute;
+            transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        }
+        &:before {
+            top: 0;
+            left: 0;
+            right: auto;
+        }
+        &:after {
+            bottom: 0;
+            right: 0;
+            left: auto;
+        }
+        &:hover {
+            &:before {
+                width: 100%;
+                right: 0;
+                left: auto;
+            }
+            &:after {
+                width: 100%;
+                left: 0;
+                right: auto;
+            }
+            span {
+                color: #000;
+            }
+            em {
+                background: #000;
+                transform: scaleX(1);
+            }
+        }
     }
 }
 
@@ -495,7 +505,7 @@ p, small, a {
     padding-left: 0px !important;
     margin: 50px 0px;
     img {
-        height: 60vh;  
+        height: 60vh;
         width: 100%;
         background-size: cover;
     }
@@ -519,18 +529,18 @@ p, small, a {
 
 /* about-hotel */
 .about-hotel {
-  min-width: 100vh !important;
-  overflow-y: scroll;
-  .lobby-bar-second-div-container {
-    .lobby-bar-second-div-left-image {
-      position: relative;
-      z-index: 5;
+    min-width: 100vh !important;
+    overflow-y: scroll;
+    .lobby-bar-second-div-container {
+        .lobby-bar-second-div-left-image {
+            position: relative;
+            z-index: 5;
+        }
     }
-  }
 }
 
 #about-top-image {
-    width: 100%; 
+    width: 100%;
     height: 100vh;
     img {
         width: 100%;
@@ -538,8 +548,8 @@ p, small, a {
         background-size: cover;
     }
     p {
-      color: white;
-      font-size: 18px;
+        color: white;
+        font-size: 18px;
     }
 }
 
@@ -561,40 +571,40 @@ p, small, a {
     font-family: "Montserrat", sans-serif;
     .open-nav {
         max-height: 400px !important;
-      }
-      .open-nav .mobile-toggle {
+    }
+    .open-nav .mobile-toggle {
         transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
-      }
-      
-      .sticky {
+    }
+
+    .sticky {
         background-color: rgba(255, 255, 255, 0.93);
         opacity: 1;
         top: 0px;
         border-bottom: 1px solid gainsboro;
-      }
+    }
 
-      nav {
+    nav {
         float: right;
         width: 60%;
-      }
-      nav ul {
+    }
+    nav ul {
         list-style: none;
         overflow: hidden;
         text-align: right;
         float: right;
-      }
-      nav ul li {
+    }
+    nav ul li {
         display: inline-block;
         margin-left: 35px;
         line-height: 1.5;
-      }
-      nav ul a {
+    }
+    nav ul a {
         color: #888888;
         text-transform: uppercase;
         font-size: 12px;
-      }
-      .mobile-toggle {
+    }
+    .mobile-toggle {
         display: none;
         cursor: pointer;
         font-size: 20px;
@@ -605,48 +615,49 @@ p, small, a {
         -webkit-transition: all 200ms ease-in;
         -moz-transition: all 200ms ease-in;
         transition: all 200ms ease-in;
-      }
-      .mobile-toggle span {
+    }
+    .mobile-toggle span {
         width: 30px;
         height: 4px;
         margin-bottom: 6px;
         border-radius: 1000px;
         background: #8f8f8f;
         display: block;
-      }
-      
-      .row {
+    }
+
+    .row {
         width: 100%;
         max-width: 940px;
         margin: 0 auto;
         position: relative;
         padding: 0 2%;
-      }
-      
-      a {
+    }
+
+    a {
         text-decoration: none;
-      }
-      
-      h1 {
+    }
+
+    h1 {
         font-size: 30px;
         line-height: 1.8;
         text-transform: uppercase;
         font-family: "Montserrat", sans-serif;
-      }
-      
-      p {
+    }
+
+    p {
         margin-bottom: 20px;
         font-size: 17px;
         line-height: 2;
-      }
-      
-      .content {
+    }
+
+    .content {
         padding: 50px 2% 250px;
-      }
-      
-      .hero {
+    }
+
+    .hero {
         position: relative;
-        background: url(http://www.philippefercha.com/cd/toggle-menu-bg.jpg) no-repeat center center fixed;
+        background: url(http://www.philippefercha.com/cd/toggle-menu-bg.jpg)
+            no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
@@ -656,20 +667,20 @@ p, small, a {
         min-height: 500px;
         letter-spacing: 2px;
         font-family: "Montserrat", sans-serif;
-      }
-      .hero h1 {
+    }
+    .hero h1 {
         font-size: 50px;
         line-height: 1.3;
-      }
-      .hero h1 span {
+    }
+    .hero h1 span {
         font-size: 25px;
         color: #e8f380;
         border-bottom: 2px solid #e8f380;
         padding-bottom: 12px;
         line-height: 3;
-      }
-      
-      .mouse {
+    }
+
+    .mouse {
         display: block;
         margin: 0 auto;
         width: 26px;
@@ -681,8 +692,8 @@ p, small, a {
         position: absolute;
         left: 50%;
         margin-left: -26px;
-      }
-      .mouse span {
+    }
+    .mouse span {
         display: block;
         margin: 6px auto;
         width: 2px;
@@ -698,246 +709,245 @@ p, small, a {
         animation-iteration-count: infinite;
         -webkit-animation-name: scroll;
         animation-name: scroll;
-      }
-      
-  }
-  
-  @media only screen and (max-width: 766px) {
-    .logo {
-      float: none;
     }
-  }
-  
-  
-  @media only screen and (max-width: 766px) {
-    nav {
-      width: 100%;
-    }
-  }
- 
-  @media only screen and (max-width: 766px) {
-    nav ul {
-      padding-top: 10px;
-      margin-bottom: 22px;
-      float: left;
-      text-align: center;
-      width: 100%;
-    }
-  }
- 
-  @media only screen and (max-width: 766px) {
-    nav ul li {
-      width: 100%;
-      padding: 7px 0;
-      margin: 0;
-    }
-  }
-  
-  @media only screen and (max-width: 766px) {
-    .mobile-toggle {
-      display: block;
-    }
-  }
- 
-  @-webkit-keyframes scroll {
-    0% {
-      opacity: 1;
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-    }
-  
-    100% {
-      opacity: 0;
-      -webkit-transform: translateY(20px);
-      transform: translateY(20px);
-    }
-  }
-  @keyframes scroll {
-    0% {
-      opacity: 1;
-      -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-      transform: translateY(0);
-    }
-  
-    100% {
-      opacity: 0;
-      -webkit-transform: translateY(20px);
-      -ms-transform: translateY(20px);
-      transform: translateY(20px);
-    }
-  }
-
-  // MODAL
-  .modal-backdrop {
-      z-index: -1 !important;
-  }
-  
-  // Rooftop Restaurant
-  .rooftop-first-div-background-image {
-        background-image: url('https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg') !important;
-        background-size: 100% 100%;
-        height: 100%; 
-        width: 100%;
-        .rooftop-first-div-inner-image {
-            background-color: #f9efea;
-            //background-size: 100% 100%;
-        }
-        .rooftop-first-div-deepest-image {
-            background-image: url('https://cdn.pixabay.com/photo/2016/01/19/18/01/pizza-1150031_960_720.jpg') !important;
-            background-size: 100% 100%;
-        }
-  }
-
-  //Eat and drink morning second div blade css
-
-  .eat-drink-morning-second-div-image {
-    background-image: url('https://cdn.pixabay.com/photo/2016/01/19/18/01/pizza-1150031_960_720.jpg') !important;
-    background-size: 100% 100%;
-  }
-
-   //Eat and drink morning third div blade css
-  .eat-drink-morning-third-div-image {
-    background-image: url('https://cdn.pixabay.com/photo/2019/05/05/15/11/kiwi-4180811_960_720.jpg') !important;
-    background-size: 100% 100%;
-    opacity: .9;
-  }
-
-  //Eat and drink morning fourth div blade css
-  .eat-drink-morning-fourth-div-image {
-    background-image: url('https://cdn.pixabay.com/photo/2016/12/11/22/41/lasagna-1900529_960_720.jpg') !important;
-    background-size: 100% 100%;
-  }
-
-  //Eat and drink morning fifth div blade css
-  .eat-drink-morning-fifth-div-image {
-    background-image: url('https://cdn.pixabay.com/photo/2019/11/14/11/10/chef-4625935_960_720.jpg');
-    background-size: 100% 100%;
-  }
-
-  //Eat and drink morning seventh div blade css
-  .eat-drink-morning-seventh-div-image {
-    background-image: url('https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908_960_720.jpg');
-    background-size: 100% 100%;
-  }
- 
-  //Eat and drink morning Tenth div blade css
-  .eat-drink-morning-tenth-div-image {
-    background-image: url('https://cdn.pixabay.com/photo/2017/05/02/07/16/wine-2277482_960_720.jpg');
-    background-size: 100% 100%;
-  }
- 
-  //Eat and drink morning Tenth div blade css
-  .eat-drink-morning-eleventh-div-image {
-    background-image: url('https://cdn.pixabay.com/photo/2017/01/12/14/22/coffee-1974841_960_720.jpg');
-    background-size: 100% 100%;
-  }
-
-  //Eat and drink morning Ninenth div blade css
-  .eat-drink-morning-ninenth-div-image {
-    background-image: url('https://cdn.pixabay.com/photo/2018/10/14/18/29/meat-loaf-3747129_960_720.jpg');
-    background-size: 100% 100%;
-  }
-
-   //Eat and drink morning nineth-left-image div blade css
-  .nineth-left-image {
-    background-image: url('https://cdn.pixabay.com/photo/2018/04/09/18/23/fruit-3304977_960_720.jpg');
-    background-size: 100% 100%;
-  }
-
-   //Eat and drink morning nineth-right-image div blade css
-  .nineth-right-image {
-    background-image: url('https://cdn.pixabay.com/photo/2016/01/22/02/13/meat-1155132_960_720.jpg');
-    background-size: 100% 100%;
-  }
-
-  //lobby-bar-second-div-left-image div blade css
-  .lobby-bar-second-div-left-image, .lobby-bar-second-div-right-floating-image  {
-    background-image: url('https://cdn.pixabay.com/photo/2018/08/22/15/35/beer-3623913_960_720.jpg');
-    background-size: 100% 100%;
-  }
-
- 
-  //lobby-bar-third-div-right-floating-image div blade css
-  .lobby-bar-third-div-right-floating-image, .lobby-bar-third-div-left-image {
-    background-image: url('https://cdn.pixabay.com/photo/2017/08/06/18/07/bistro-2594762_960_720.jpg');
-    background-size: 100% 100%;
-  }
-
-  #terms-and-conditions-checkbox {
-      margin-right: 10px;
-  }
-
-  //
-  .svg-container { 
-	display: inline-block;
-	position: relative;
-	width: 60%;
-	padding-bottom: 100%; 
-	vertical-align: middle; 
-	overflow: hidden; 
 }
 
-.svg-content { 
-	display: inline-block;
-	position: absolute;
-	top: 0;
-	left: 0;
+@media only screen and (max-width: 766px) {
+    .logo {
+        float: none;
+    }
+}
+
+@media only screen and (max-width: 766px) {
+    nav {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 766px) {
+    nav ul {
+        padding-top: 10px;
+        margin-bottom: 22px;
+        float: left;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 766px) {
+    nav ul li {
+        width: 100%;
+        padding: 7px 0;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 766px) {
+    .mobile-toggle {
+        display: block;
+    }
+}
+
+@-webkit-keyframes scroll {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+}
+@keyframes scroll {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+}
+
+// MODAL
+.modal-backdrop {
+    z-index: -1 !important;
+}
+
+// Rooftop Restaurant
+.rooftop-first-div-background-image {
+    background-image: url("https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg") !important;
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    .rooftop-first-div-inner-image {
+        background-color: #f9efea;
+        //background-size: 100% 100%;
+    }
+    .rooftop-first-div-deepest-image {
+        background-image: url("https://cdn.pixabay.com/photo/2016/01/19/18/01/pizza-1150031_960_720.jpg") !important;
+        background-size: 100% 100%;
+    }
+}
+
+//Eat and drink morning second div blade css
+
+.eat-drink-morning-second-div-image {
+    background-image: url("https://cdn.pixabay.com/photo/2016/01/19/18/01/pizza-1150031_960_720.jpg") !important;
+    background-size: 100% 100%;
+}
+
+//Eat and drink morning third div blade css
+.eat-drink-morning-third-div-image {
+    background-image: url("https://cdn.pixabay.com/photo/2019/05/05/15/11/kiwi-4180811_960_720.jpg") !important;
+    background-size: 100% 100%;
+    opacity: 0.9;
+}
+
+//Eat and drink morning fourth div blade css
+.eat-drink-morning-fourth-div-image {
+    background-image: url("https://cdn.pixabay.com/photo/2016/12/11/22/41/lasagna-1900529_960_720.jpg") !important;
+    background-size: 100% 100%;
+}
+
+//Eat and drink morning fifth div blade css
+.eat-drink-morning-fifth-div-image {
+    background-image: url("https://cdn.pixabay.com/photo/2019/11/14/11/10/chef-4625935_960_720.jpg");
+    background-size: 100% 100%;
+}
+
+//Eat and drink morning seventh div blade css
+.eat-drink-morning-seventh-div-image {
+    background-image: url("https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908_960_720.jpg");
+    background-size: 100% 100%;
+}
+
+//Eat and drink morning Tenth div blade css
+.eat-drink-morning-tenth-div-image {
+    background-image: url("https://cdn.pixabay.com/photo/2017/05/02/07/16/wine-2277482_960_720.jpg");
+    background-size: 100% 100%;
+}
+
+//Eat and drink morning Tenth div blade css
+.eat-drink-morning-eleventh-div-image {
+    background-image: url("https://cdn.pixabay.com/photo/2017/01/12/14/22/coffee-1974841_960_720.jpg");
+    background-size: 100% 100%;
+}
+
+//Eat and drink morning Ninenth div blade css
+.eat-drink-morning-ninenth-div-image {
+    background-image: url("https://cdn.pixabay.com/photo/2018/10/14/18/29/meat-loaf-3747129_960_720.jpg");
+    background-size: 100% 100%;
+}
+
+//Eat and drink morning nineth-left-image div blade css
+.nineth-left-image {
+    background-image: url("https://cdn.pixabay.com/photo/2018/04/09/18/23/fruit-3304977_960_720.jpg");
+    background-size: 100% 100%;
+}
+
+//Eat and drink morning nineth-right-image div blade css
+.nineth-right-image {
+    background-image: url("https://cdn.pixabay.com/photo/2016/01/22/02/13/meat-1155132_960_720.jpg");
+    background-size: 100% 100%;
+}
+
+//lobby-bar-second-div-left-image div blade css
+.lobby-bar-second-div-left-image,
+.lobby-bar-second-div-right-floating-image {
+    background-image: url("https://cdn.pixabay.com/photo/2018/08/22/15/35/beer-3623913_960_720.jpg");
+    background-size: 100% 100%;
+}
+
+//lobby-bar-third-div-right-floating-image div blade css
+.lobby-bar-third-div-right-floating-image,
+.lobby-bar-third-div-left-image {
+    background-image: url("https://cdn.pixabay.com/photo/2017/08/06/18/07/bistro-2594762_960_720.jpg");
+    background-size: 100% 100%;
+}
+
+#terms-and-conditions-checkbox {
+    margin-right: 10px;
+}
+
+//
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 60%;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .about-hotel-svg-container {
-  display: inline-block;
-	position: relative;
-	width: 13%;
-	padding-bottom: 100%; 
-	vertical-align: middle; 
-	overflow: hidden; 
+    display: inline-block;
+    position: relative;
+    width: 13%;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    overflow: hidden;
 }
 
 .about-hotel-svg-content {
     display: inline-block;
-	position: absolute;
-	top: 0;
-	left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .svg-container-hotel-info-made-by {
     display: inline-block;
-	position: relative;
-	width: 20%;
-	vertical-align: middle; 
-	overflow: hidden; 
+    position: relative;
+    width: 20%;
+    vertical-align: middle;
+    overflow: hidden;
 }
 
 .svg-content-hotel-info-made-by {
     display: inline-block;
-	position: absolute;
-	top: 0;
-	left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 // Hotel info page
 .hotel-info-second-div {
-    background-image: url('https://cdn.pixabay.com/photo/2018/12/13/22/26/meat-3873890_960_720.jpg');
+    background-image: url("https://cdn.pixabay.com/photo/2018/12/13/22/26/meat-3873890_960_720.jpg");
     background-size: 100% 100%;
 }
 
 .partner-left-div-image {
-    background-image: url('https://cdn.pixabay.com/photo/2018/12/13/22/26/meat-3873890_960_720.jpg');
+    background-image: url("https://cdn.pixabay.com/photo/2018/12/13/22/26/meat-3873890_960_720.jpg");
     background-size: 100% 100%;
 }
 
 .hotel-info-partners-container {
-    .slick-prev:before, .slick-next:before {
+    .slick-prev:before,
+    .slick-next:before {
         color: black;
-    } 
+    }
     .slick-prev:before {
         position: relative;
         left: 52vw;
         bottom: 67px;
-    } 
+    }
 }
-
 
 //in rooms
 .logo {
@@ -956,274 +966,307 @@ p, small, a {
 
 // Modify side menu on min screen size of 1025px
 @media screen and (min-width: 1025px) {
-	.lobby-container, .more-space-container, .eat-and-drink-morning-container, .neighbourhood-container {
-		width: 90vw !important;
-		margin: 0 auto !important;
-		font-size: 70%;
-		text-align: right;
-	}
+    .lobby-container,
+    .more-space-container,
+    .eat-and-drink-morning-container,
+    .neighbourhood-container {
+        width: 90vw !important;
+        margin: 0 auto !important;
+        font-size: 70%;
+        text-align: right;
+    }
 }
 
 /*BOOK NOW Parallax*/
 .parallax {
-  /* Full height */
-  min-height: 100%; 
+    /* Full height */
+    min-height: 100%;
 
-  width: 100%;
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
+    width: 100%;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
     /* The image used */
-    background: url('https://cdn.pixabay.com/photo/2020/01/15/18/02/room-4768554_960_720.jpg');
+    background: url("https://cdn.pixabay.com/photo/2020/01/15/18/02/room-4768554_960_720.jpg");
 }
-
 
 /*************BOOK NOW PAGE******************/
 
 /* Override UGG site */
 #main {
-  width: 100%; 
-  padding:0;
+    width: 100%;
+    padding: 0;
 }
 
 .content-asset p {
-  margin:0 auto;
+    margin: 0 auto;
 }
 
 .breadcrumb {
-  display:none;
+    display: none;
 }
 
 #book-now-container {
-  width: 90%; margin: auto;
+    width: 90%;
+    margin: auto;
 }
 
 /* Helpers */
 /**************************/
 .margin-top-10 {
-  padding-top:10px;
+    padding-top: 10px;
 }
 
 .margin-bot-10 {
-  padding-bottom:10px;
+    padding-bottom: 10px;
 }
 
 /* Typography */
 /**************************/
 #book-now-container h1 {
-  font-family:'Oswald', sans-serif; 
-  font-size:24px; 
-  font-weight:400; 
-  text-transform: uppercase; 
-  color:black; 
-  padding:0; 
-  margin:0;
+    font-family: "Oswald", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: black;
+    padding: 0;
+    margin: 0;
 }
 
 #book-now-container h2 {
-  font-family:'Oswald', sans-serif; 
-  font-size:70px; 
-  letter-spacing:10px; 
-  text-align:center; 
-  color:white; 
-  font-weight:400; 
-  text-transform:uppercase; 
-  z-index:10; 
-  opacity:.9;
+    font-family: "Oswald", sans-serif;
+    font-size: 70px;
+    letter-spacing: 10px;
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    text-transform: uppercase;
+    z-index: 10;
+    opacity: 0.9;
 }
 
 #book-now-container h3 {
-  font-family:'Oswald', sans-serif; 
-  font-size:14px; 
-  line-height:0; 
-  font-weight:400; 
-  letter-spacing:8px; 
-  text-transform: uppercase; 
-  color:black;
+    font-family: "Oswald", sans-serif;
+    font-size: 14px;
+    line-height: 0;
+    font-weight: 400;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: black;
 }
 
 #book-now-container p {
-  font-family:'Source Sans Pro', sans-serif; 
-  font-weight:400; 
-  font-size:14px; line-height:24px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
 }
 
 .first-character {
-  font-weight:400; 
-  float: left; 
-  font-size: 84px; 
-  line-height: 64px; 
-  padding-top: 4px; 
-  padding-right: 8px; 
-  padding-left: 3px; 
-  font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    float: left;
+    font-size: 84px;
+    line-height: 64px;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-left: 3px;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
-.sc {color: #3b8595;}
-.ny {color: #3d3c3a;}
-.atw {color: #c48660;}
+.sc {
+    color: #3b8595;
+}
+.ny {
+    color: #3d3c3a;
+}
+.atw {
+    color: #c48660;
+}
 
 /* Section - Title */
 /**************************/
 #book-now-container .title {
-  padding: 10px; 
-  margin:0 auto; 
-  text-align:center;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 #book-now-container .title h1 {
-  font-size:35px; 
-  letter-spacing:8px;
+    font-size: 35px;
+    letter-spacing: 8px;
 }
 
 /* Section - Parallax */
 /**************************/
 #book-now-container .parallax-one {
-  padding-top: 20px; 
- // padding-bottom: 200px; 
-  overflow: hidden; 
-  position: relative; 
-  width: 100%;
-  background-image: url(https://images.unsplash.com/photo-1415018255745-0ec3f7aee47b?dpr=1&auto=format&fit=crop&w=1500&h=938&q=80&cs=tinysrgb&crop=); 
-  background-attachment: fixed; 
-  background-size: cover; 
-  -moz-background-size: cover; 
-  -webkit-background-size: cover; 
-  background-repeat: no-repeat; 
-  background-position: top center;
+    padding-top: 20px;
+    // padding-bottom: 200px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-image: url(https://images.unsplash.com/photo-1415018255745-0ec3f7aee47b?dpr=1&auto=format&fit=crop&w=1500&h=938&q=80&cs=tinysrgb&crop=);
+    background-attachment: fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
 }
 
 .parallax-inner {
-  button {
-    background-color: #864747;
-    border: none;
-  }
+    button {
+        background-color: #864747;
+        border: none;
+    }
 
-  .info-text {
-    width: 60vw; 
-    color: white;
-     margin: auto; 
-     font-size: 19px;
-  }
+    .info-text {
+        width: 60vw;
+        color: white;
+        margin: auto;
+        font-size: 19px;
+    }
 
-  .availabilty-div {
-    width: 300px;
-  }
+    .availabilty-div {
+        width: 300px;
+    }
 }
 
-
-
 /**** Cancel Reservation page ****/
-  //remove right sided border on small screen
-  @media only screen and (max-width: 576px) {
+//remove right sided border on small screen
+@media only screen and (max-width: 576px) {
     .cancel-by-number {
         border-right: none !important;
     }
     .search-by-email {
-      margin-top: 30px;
+        margin-top: 30px;
     }
     .room-select select {
-      margin-bottom: 10px;
-      width: 100px;
+        margin-bottom: 10px;
+        width: 100px;
     }
     .country-money-toggle {
-      display: none;
-      width: 60vw;
-      margin: auto;
+        display: none;
+        width: 60vw;
+        margin: auto;
     }
     .select-dates {
-      width: 60vw;
-      margin: auto;
-      p {
-        font-size: 26px;
-      }
+        width: 60vw;
+        margin: auto;
+        p {
+            font-size: 26px;
+        }
     }
     .parallax-inner {
-      height: 100vh !important;
+        height: 100vh !important;
 
-      .info-text {
-        display: none;
-      }
+        .info-text {
+            display: none;
+        }
     }
-    
-     .availability-calendar{
-      padding-top: 100px;
+
+    .availability-calendar {
+        padding-top: 100px;
     }
 
     //Used to add margin between edit and delete button in countries page of admin panel
     .datatables-button-formatter .edit {
-      margin-bottom: 10px;
+        margin-bottom: 10px;
     }
-  }
+}
 
-  @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .parallax-inner {
-      height: 100vh !important;
+        height: 100vh !important;
     }
 
-    .availability-calendar{
-      padding-top: 100px;
+    .availability-calendar {
+        padding-top: 100px;
     }
 
     //Used to add margin between edit and delete button in countries page of admin panel
     .datatables-button-formatter .edit {
-      margin-bottom: 10px;
+        margin-bottom: 10px;
     }
-  }
+}
 
-
-  //Cancel reservation button starts here
-.cancel-reservation-btn, .availabilty-button {
-  display: inline-block;
-  padding: .75rem 1.25rem;
-  border-radius: 10rem;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: .15rem;
-  transition: all .3s;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #864747;
+//Cancel reservation button starts here
+.cancel-reservation-btn,
+.availabilty-button {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
     border-radius: 10rem;
-    z-index: -2;
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: lighten(#864747, 15%);
-    transition: all .3s;
-    border-radius: 10rem;
-    z-index: -1;
-  }
-  &:hover {
     color: #fff;
-    &:before {
-      width: 100%;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.15rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #864747;
+        border-radius: 10rem;
+        z-index: -2;
     }
-  }
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: lighten(#864747, 15%);
+        transition: all 0.3s;
+        border-radius: 10rem;
+        z-index: -1;
+    }
+    &:hover {
+        color: #fff;
+        &:before {
+            width: 100%;
+        }
+    }
 }
 //Cancel reservation button ends here
 //Used to add margin between edit and delete button in countries page of admin panel on large screens
 .datatables-button-formatter .edit {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 //file inputs
 .fileinput-remove,
-.fileinput-upload{
+.fileinput-upload {
     display: none;
+}
+
+//DashBoard
+
+/* Container holding the image and the text */
+.image-containers {
+    position: relative;
+    background-image: url("https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=1098,format=auto/sites/default/files/styles/1200x800/public/d8/images/methode/2020/11/18/cc1774c0-2999-11eb-bf26-f2b76f37a526_image_hires_225622.jpg?itok=P459OJYz&v=1605711389");
+}
+
+/* Bottom right text */
+.text-block {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.roles-navigation {
+    .active {
+        background-color: blue;
+    }
 }

@@ -161,6 +161,63 @@ class RoleController extends Controller
     {
         dd($request);
 
+        /***** ROOMS *****/
+        if ($request->has('edit-room')) {
+            //Checkbox checked
+        } else {
+            //Checkbox not checked
+        }
+
+        if ($request->has('create-room')) {
+            //Checkbox checked
+        } else {
+            //Checkbox not checked
+        }
+
+        if ($request->has('delete-room')) {
+            //Checkbox checked
+        } else {
+            //Checkbox not checked
+        }
+
+        /***** USER *****/
+        if ($request->has('edit-user')) {
+            //Checkbox checked
+        } else {
+            //Checkbox not checked
+        }
+
+        if ($request->has('create-user')) {
+            //Checkbox checked
+        } else {
+            //Checkbox not checked
+        }
+
+        if ($request->has('delete-user')) {
+            //Checkbox checked
+        } else {
+            //Checkbox not checked
+        }
+
+        /***** COUNTRY *****/
+        if ($request->has('edit-country')) {
+            //Checkbox checked
+        } else {
+            //Checkbox not checked
+        }
+
+        if ($request->has('create-country')) {
+            //Checkbox checked
+        } else {
+            //Checkbox not checked
+        }
+
+        if ($request->has('delete-country')) {
+            //Checkbox checked
+        } else {
+            //Checkbox not checked
+        }
+
         /* $rules = array(
             'name'    =>  'required'
         );
@@ -169,13 +226,13 @@ class RoleController extends Controller
 
         if ($error->fails()) {
             return response()->json(['errors' => $error->errors()->all()]);
-        }
+        }*/
 
-        $form_data = array(
+        /*$form_data = array(
             'name'       =>   $request->name
-        );
-        Role::whereId($request->hidden_id)->update($form_data);
+        );*/
+        //Role::whereId($request->save_hidden_id)->update($form_data);
 
-        return response()->json(['success' => 'Data is successfully updated']);*/
+        //return response()->json(['success' => 'Data is successfully updated']);
     }
 }

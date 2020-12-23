@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap);@import url(https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Lora:ital@1&display=swap);@import url(https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap);@import url(https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap);@import url(https://fonts.googleapis.com/css?family=Oswald:300,400,700);@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap);@import url(https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Lora:ital@1&display=swap);@import url(https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap);@import url(https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap);@import url(https://fonts.googleapis.com/css?family=Oswald:300, 400, 700);@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);/*!
  * jQuery UI CSS Framework 1.12.1
  * http://jqueryui.com
  *
@@ -51762,7 +51762,7 @@ a {
 }*/
 
 #page-home {
-  min-height: 100Vh !important;
+  min-height: 100vh !important;
   background-color: #f7f7f7;
 }
 
@@ -52840,10 +52840,6 @@ a {
   .datatables-button-formatter .edit {
     margin-bottom: 10px;
   }
-
-  .visually-hide-on-small-screen {
-    display: none !important;
-  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -52919,5 +52915,28 @@ a {
 .fileinput-remove,
 .fileinput-upload {
   display: none;
+}
+
+/* Container holding the image and the text */
+
+.image-containers {
+  position: relative;
+  background-image: url("https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=1098,format=auto/sites/default/files/styles/1200x800/public/d8/images/methode/2020/11/18/cc1774c0-2999-11eb-bf26-f2b76f37a526_image_hires_225622.jpg?itok=P459OJYz&v=1605711389");
+}
+
+/* Bottom right text */
+
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.roles-navigation .active {
+  background-color: blue;
 }
 

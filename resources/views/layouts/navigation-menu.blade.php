@@ -56,7 +56,7 @@
             </li>
             <li><a href="{{url('/palms-royal-homepage')}}">palmsRoyal</a></li>
             @if(Auth::check())
-            @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 3 )
+            @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 3 || Auth::user()->role_id == 5)
             <li><a class="codrops-icon" href="{{url('/admin/dashboard')}}"><span>DashBoard</span></a></li>
             @endif
             @endif

@@ -35,8 +35,14 @@
         <p style="color: white;">Countries</p>
     </a>
 </li>
+{{--<li class="nav-item">
+    <a href="{{ route('roles') }}" class="nav-link countries {{ request()->is('admin/roles') ? 'active' : ''}}">
+<i class="nav-icon fas fa-flag"></i>
+<p style="color: white;">Roles</p>
+</a>
+</li>--}}
 <li class="nav-item">
-    <a href="{{ route('roles') }}" class="nav-link countries  {{ request()->is('admin/roles') ? 'active' : ''}}">
+    <a href="{{ route('roles-and-permissions.index') }}" class="nav-link countries  {{ request()->is('admin/roles-and-permissions.index') ? 'active' : ''}}">
         <i class="nav-icon fas fa-flag"></i>
         <p style="color: white;">Roles</p>
     </a>
