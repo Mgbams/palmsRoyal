@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container w-50">
-    <div class="mt-5">
+    <div class="pt-5">
         <div>
             <h2> Show Role</h2>
         </div>

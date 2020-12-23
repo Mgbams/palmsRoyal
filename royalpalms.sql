@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 19 déc. 2020 à 04:51
+-- Généré le : mer. 23 déc. 2020 à 01:47
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.2.32
 
@@ -493,7 +493,11 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 (6, 'delete user', 'web', '2020-12-08 21:54:40', '2020-12-08 21:54:40'),
 (7, 'edit country', 'web', '2020-12-08 21:55:51', '2020-12-08 21:55:51'),
 (8, 'create country', 'web', '2020-12-08 21:55:51', '2020-12-08 21:55:51'),
-(9, 'delete country', 'web', '2020-12-08 21:55:51', '2020-12-08 21:55:51');
+(9, 'delete country', 'web', '2020-12-08 21:55:51', '2020-12-08 21:55:51'),
+(10, 'role-list', 'web', '2020-12-21 00:31:09', '2020-12-21 00:31:09'),
+(11, 'role-create', 'web', '2020-12-21 00:31:31', '2020-12-21 00:31:31'),
+(12, 'role-edit', 'web', '2020-12-21 00:31:46', '2020-12-21 00:31:46'),
+(13, 'role-delete', 'web', '2020-12-21 00:32:01', '2020-12-21 00:32:01');
 
 -- --------------------------------------------------------
 
@@ -592,36 +596,26 @@ CREATE TABLE `role_has_permissions` (
 --
 
 INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
+(1, 1),
 (1, 3),
+(2, 1),
 (2, 3),
 (3, 3),
+(4, 1),
 (4, 3),
+(5, 1),
 (5, 3),
 (6, 3),
+(7, 1),
 (7, 3),
+(8, 1),
 (8, 3),
-(9, 3);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `role_user`
---
-
-CREATE TABLE `role_user` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `role_id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `role_user`
---
-
-INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`) VALUES
-(1, 2, 3, '2020-12-09 00:09:32', '2020-12-09 00:09:32');
+(9, 3),
+(10, 1),
+(10, 3),
+(11, 3),
+(12, 3),
+(13, 3);
 
 -- --------------------------------------------------------
 
@@ -864,14 +858,6 @@ ALTER TABLE `role_has_permissions`
   ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
 
 --
--- Index pour la table `role_user`
---
-ALTER TABLE `role_user`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `role_user_user_id_foreign` (`user_id`),
-  ADD KEY `role_user_role_id_foreign` (`role_id`);
-
---
 -- Index pour la table `rooms`
 --
 ALTER TABLE `rooms`
@@ -966,7 +952,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT pour la table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `photos`
@@ -990,13 +976,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT pour la table `role_user`
---
-ALTER TABLE `role_user`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `rooms`
@@ -1084,13 +1064,6 @@ ALTER TABLE `reviews`
 ALTER TABLE `role_has_permissions`
   ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
-
---
--- Contraintes pour la table `role_user`
---
-ALTER TABLE `role_user`
-  ADD CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `role_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `rooms`

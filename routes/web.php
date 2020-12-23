@@ -140,25 +140,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
         //Delete Facility
         Route::get('facility/destroy/{id}', 'Admin\FacilityController@destroy');
 
-
-        /*** ROLES ***/
-        Route::get('roles', 'Admin\RoleController@index')->name('roles'); //Link used to display facilities
-        Route::get('roles/list', 'Admin\RoleController@getRoles')->name('get.roles'); //redundant, just used to get data that is displayed in the index
-
-        //Edit Roles
-        Route::get('role/{id}/edit', 'Admin\RoleController@edit');
-        //Store Role
-        Route::post('role/store', 'Admin\RoleController@store')->name('role.store');
-        //Update Role
-        Route::post('role/update', 'Admin\RoleController@update')->name('role.update');
-        //View Permissions
-        Route::get('permissions/{id}/view', 'Admin\RoleController@view');
-        //Update Permissions
-        Route::post('update-permissions', 'Admin\RoleController@updatePermissions')->name('update-permissions');
-        //Delete Role
-        Route::get('role/destroy/{id}', 'Admin\RoleController@destroy');
-
-
         /****ROLES AND PERMISSIONS */
 
         //Route::resource('users', 'UserController');
