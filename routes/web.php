@@ -45,6 +45,9 @@ Route::get('/hotel-info', [
     'as' => 'hotel-info.show'
 ]);
 
+//return view(available-rooms)
+Route::get('available-rooms', 'AvailableRoomsController@index')->name('available-rooms');
+
 //Navigation-menu TODO Menu
 
 Route::get('navigation-menu', 'RoyalPalmsHomePageController@index')->name('navigation-menu');
@@ -152,9 +155,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
         Route::delete('roles-and-permissions/destroy', 'Admin\RoleAndPermissionController@destroy');
     });
 });
-
-
-
 
 /******** DROPZONE: A package to implement drag and drop of images *******/
 //store hotel room images 

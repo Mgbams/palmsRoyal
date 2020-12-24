@@ -23,8 +23,8 @@
 
     <!--main css file starts here-->
     <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
-     <!--Availability Calendar css-->
-     <link href="{{url('css/availability-calendar.css')}}" rel="stylesheet">
+    <!--Availability Calendar css-->
+    <link href="{{url('css/availability-calendar.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -33,12 +33,12 @@
         <section>
             <div class="d-flex flex-row flex-end bg-secondary py-3 justify-content-end">
                 <div class="mr-5">info@palmsroyal-hotel.com</div>
-                <div  class="mr-3">+33759876543</div>
+                <div class="mr-3">+33759876543</div>
             </div>
             <div class="title row" style="background-color: yellow;">
                 <div class="col-md-4 col-sm-12 d-flex justify-content-center align-items-center flex-column" style="height: 20vh;">
                     <h3>Let's do some</h3>
-                    <h1>PARALLAX</h1>
+                    <h1>BOOKING</h1>
                 </div>
                 <div class="col-md-8 col-sm-12 d-flex justify-content-center align-items-center flex-column" style="height: 20vh;">
                     <h1>pamsRoyal</h1>
@@ -135,11 +135,11 @@
                             <select style="font-size:0.9em;" id="PersonSelector" class="fieldDrop">
                                 <option selected="selected disabled" value="0">All</option>
 
-                                <option value="1">1</option>
+                                <option value="1">1 adult</option>
 
-                                <option value="2">2</option>
+                                <option value="2">2 adults</option>
 
-                                <option value="3">3</option>
+                                <option value="3">3 adults</option>
 
                             </select>
                         </div>
@@ -150,11 +150,11 @@
                             <select style="font-size:0.9em;" id="PersonSelector" class="fieldDrop">
                                 <option selected="selected disabled" value="0">All</option>
 
-                                <option value="1">1</option>
+                                <option value="1">1 child</option>
 
-                                <option value="2">2</option>
+                                <option value="2">2 children</option>
 
-                                <option value="3">3</option>
+                                <option value="3">3 children</option>
 
                             </select>
                         </div>
@@ -162,19 +162,19 @@
 
                     <!--Check Availability button-->
                     <div class="availabilty-div" style="margin: 60px auto;">
-                        <button class="availabilty-button">CHECK AVAILABILITY</button>
+                        <a class="availabilty-button btn" href="{{ route('available-rooms') }}">CHECK AVAILABILITY</a>
                     </div>
                 </div>
 
-                  <!--Availability calendar-->
+                <!--Availability calendar-->
                 <div class="availability-calendar parallax-inner-two" style="background-color: rgba(0, 0, 0, .5); width: 90%; min-height: 100vh; margin: 0px auto; text-align: center;">
                     <div id="calendar"></div>
                     <div style="margin-top: 40px;"><a href="{{url('cancel-reservation')}}" class="cancel-reservation-link" style="color: white; background-color: grey;  padding: 20px;">Modify or Cancel Reservation</a></div>
                 </div>
 
-                 <!--Cancel Reservation-->
-                 <div class="cancel-reservation parallax-inner-three " style="background-color: rgba(0, 0, 0, .5); width: 90%; height: 2vh; margin: 0px auto; text-align: center;">
-                   
+                <!--Cancel Reservation-->
+                <div class="cancel-reservation parallax-inner-three " style="background-color: rgba(0, 0, 0, .5); width: 90%; height: 2vh; margin: 0px auto; text-align: center;">
+
                 </div>
             </div>
         </section>
@@ -345,11 +345,11 @@
                     console.log(daysBooked);
                 }
             }
-           
+
 
             //Initializing availability calendar plugin
             $('#calendar').availabilityCalendar(unavailableDates);
-            
+
 
         });
     </script>
