@@ -1255,3 +1255,33 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 From the above, we are adding two middlewares to the edit hotel route
 
 4. In your middleware file, add the logic.
+
+## PAYPAL
+
+-   Adding the smart button payment.
+    You can search in the searchbox <<Smart payment button overview>> and this will display the integration page for the button.
+    [Paypal-button-setup](https://developer.paypal.com/docs/checkout/?mark=smart%20butt#hashLinkContainer)
+
+-   setting up the code to handle payment processing
+    [Paypal-code-setup](https://developer.paypal.com/docs/checkout/integrate#1-set-up-your-development-environment)
+
+-   Changing the locale
+    [locale](https://developer.paypal.com/docs/checkout/reference/customize-sdk/#locale)
+
+    To change the currency to EUR, add &currency=EUR to the script tag i.e
+
+    ```js
+    <script src="https://www.paypal.com/sdk/js?client-id=AbjLG9bJbEU_WotUwl26G8Rzvg_yJPaI9UOfP-Gtsi1dJyuqDhVM9RMymN9FvOgtF0qTbW9AhaOS4ZMJ&currency=EUR"></script>
+    ```
+
+*   To disable the funding button from your page, add the disable-funding=credit,card to your link as shown below:
+
+    ```js
+    <script src="https://www.paypal.com/sdk/js?client-id=AbjLG9bJbEU_WotUwl26G8Rzvg_yJPaI9UOfP-Gtsi1dJyuqDhVM9RMymN9FvOgtF0qTbW9AhaOS4ZMJ&currency=EUR&disable-funding=credit,card"></script>
+    ```
+
+*   server integration
+    [server integration](https://developer.paypal.com/docs/archive/checkout/how-to/server-integration/?mark=how%20a%20server%20integration%20works#how-a-server-integration-works)
+
+*   Paypal php sdk
+    [sdk](https://github.com/paypal/PayPal-PHP-SDK)

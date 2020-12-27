@@ -38,7 +38,7 @@
                     </div>
                     <div class="d-flex align-items-end">
                         <p class="d-flex justify-content-center align-items-center" style="background-color: #444; color:white; width: 80px; height: 50px; margin: 0px;">{{ $room->price }}&nbsp;&euro;</p>
-                        <button class="btn" style="background-color: #A61D27; color: white; border-radius: 0px; height: 50px;">BOOK</button>
+                        <a class="btn d-flex justify-content-center align-items-center" href="{{url('/paywithpaypal/'.$room->id)}}" style="background-color: #A61D27; color: white !important; border-radius: 0px; height: 50px;">BOOK</a>
                     </div>
                 </div>
             </div>

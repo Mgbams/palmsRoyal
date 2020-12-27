@@ -161,3 +161,16 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 Route::post('dropzone/store', 'Admin\RoomController@imageStore');
 //Delete hotel room images 
 Route::post('delete-uploaded-image', 'Admin\RoomController@deleteImage');
+
+//paypal payment
+// Route::get('paypal-payment', 'PaypalPaymentController@index')->name('paypal-payment');
+
+//successful payment
+Route::get('successful-payment', 'SuccessfullyPaidController@index')->name('successful-payment');
+
+// //Cancelled payment
+Route::get('cancelled-payment', 'CancelledPaymentController@index')->name('cancelled-payment');
+
+Route::get('paywithpaypal/{id}', array('as' => 'paywithpaypal','uses' => 'PaypalPaymentController@payWithPaypal',));
+Route::post('paypal', array('as' => 'paypal','uses' => 'PaypalPaymentController@postPaymentWithpaypal',));
+Route::get('paypal', array('as' => 'status','uses' => 'PaypalPaymentController@getPaymentStatus',));
