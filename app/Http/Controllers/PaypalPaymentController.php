@@ -116,7 +116,7 @@ class PaypalPaymentController extends Controller
 
     public function getPaymentStatus(Request $request)
     {        
-        dd($request);
+        //dd($request);
         $payment_id = Session::get('paypal_payment_id');
 
         Session::forget('paypal_payment_id');
