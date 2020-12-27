@@ -24,6 +24,9 @@ use PayPal\Api\ExecutePayment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
 
+//country modal
+use App\Models\Country;
+
 
 class PaypalPaymentController extends Controller
 {
@@ -44,15 +47,42 @@ class PaypalPaymentController extends Controller
     public function payWithPaypal(Request $request)
     {
         $roomById = $this->roomRepository->getById($request->id);
-        
+
+        //save the roomid so i can access it from other functions
         Session::put('room_id', $request->id);
-        //dd($roomById->price);
-        return view('paywithpaypal', compact('roomById'));
+        //$roomId = Session::get('room_id');
+        $countries = Country::select('id', 'nom_en_gb', 'nom_fr_fr')->get();
+        //dd($roomId);
+        return view('paywithpaypal', compact(['roomById', 'countries']));
     }
 
     public function postPaymentWithpaypal(Request $request)
     {
-        //dd($request);
+        dd($request);
+
+        // Form validation
+       /*  $this->validate($request, [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'adresse'=>'required',
+            'ville' => 'required',
+            'country' => 'required',
+            'postale' => 'required',
+            'terms' => 'accepted'
+         ]);
+
+        if($request->has('terms')){
+            //Checkbox checked
+        }else{
+            //Checkbox not checked
+        }
+
+        //  Store data in database
+        Contact::create($request->all()); */
+
+        $roomId = Session::get('room_id');
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
@@ -90,10 +120,10 @@ class PaypalPaymentController extends Controller
         } catch (\PayPal\Exception\PPConnectionException $ex) {
             if (\Config::get('app.debug')) {
                 \Session::put('error','Connection timeout');
-                return Redirect::route('paywithpaypal');                
+                return redirect()->to('paywithpaypal/'.$roomId);                
             } else {
                 \Session::put('error','Some error occur, sorry for inconvenient');
-                return Redirect::route('paywithpaypal');                
+                return redirect()->to('paywithpaypal/'.$roomId);                
             }
         }
 
@@ -111,18 +141,19 @@ class PaypalPaymentController extends Controller
         }
 
         \Session::put('error','Unknown error occurred');
-    	return Redirect::route('paywithpaypal');
+    	return redirect()->to('paywithpaypal/'.$roomId );
     }
 
     public function getPaymentStatus(Request $request)
     {        
         //dd($request);
+        $roomId = Session::get('room_id');
         $payment_id = Session::get('paypal_payment_id');
 
         Session::forget('paypal_payment_id');
         if (empty($request->input('PayerID')) || empty($request->input('token'))) {
             \Session::put('error','Payment failed');
-            return Redirect::route('paywithpaypal');
+            return redirect()->to('paywithpaypal/'.$roomId);
         }
         $payment = Payment::get($payment_id, $this->_api_context);        
         $execution = new PaymentExecution();
@@ -133,10 +164,12 @@ class PaypalPaymentController extends Controller
             \Session::put('success','Payment success !!');
             //Add data to your database on successful payment: TODO code
 
+            //return redirect()->to('available-rooms');
             return Redirect::route('successful-payment');
         }
 
         \Session::put('error','Payment failed !!');
 		return Redirect::route('cancelled-payment');
     }
+
 }
