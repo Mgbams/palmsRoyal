@@ -26,13 +26,13 @@ use PayPal\Api\Transaction;
 
 //country modal
 use App\Models\Country;
-
+use App\User;
 
 class PaypalPaymentController extends Controller
 {
    private $_api_context;
    private $roomRepository;
-    
+
     public function __construct(RoomRepository $roomRepository)
     {
             
@@ -50,7 +50,7 @@ class PaypalPaymentController extends Controller
 
         //save the roomid so i can access it from other functions
         Session::put('room_id', $request->id);
-        //$roomId = Session::get('room_id');
+        
         $countries = Country::select('id', 'nom_en_gb', 'nom_fr_fr')->get();
         //dd($roomId);
         return view('paywithpaypal', compact(['roomById', 'countries']));
@@ -58,10 +58,10 @@ class PaypalPaymentController extends Controller
 
     public function postPaymentWithpaypal(Request $request)
     {
-        dd($request);
+        //dd($request);
 
         // Form validation
-       /*  $this->validate($request, [
+        $this->validate($request, [
             'firstname' => 'required',
             'lastname' => 'required',
             'email' => 'required|email',
@@ -71,16 +71,21 @@ class PaypalPaymentController extends Controller
             'country' => 'required',
             'postale' => 'required',
             'terms' => 'accepted'
-         ]);
+        ]);
 
         if($request->has('terms')){
-            //Checkbox checked
-        }else{
+              Session::put('firstname', $request->firstname);
+              Session::put('lastname',  $request->lastname);
+              Session::put('email', $request->email);
+              Session::put('zip', $request->postale);
+              Session::put('phone',   $request->phone);
+              Session::put('country', $request->country);
+              Session::put('city', $request->ville);
+              Session::put('address',   $request->adresse);
+        }else {
             //Checkbox not checked
         }
 
-        //  Store data in database
-        Contact::create($request->all()); */
 
         $roomId = Session::get('room_id');
         $payer = new Payer();
@@ -163,6 +168,21 @@ class PaypalPaymentController extends Controller
         if ($result->getState() == 'approved') {         
             \Session::put('success','Payment success !!');
             //Add data to your database on successful payment: TODO code
+            
+            //role_id = 2 i.e User by default
+            $form_data = array(
+                'name'              =>   Session::get('firstname'),
+                'last_name'         =>   Session::get('lastname'),
+                'email'             =>   Session::get('email'),
+                'phone_number'      =>   Session::get('phone'),
+                'address'           =>   Session::get('address'),
+                'city'              =>   Session::get('city'),
+                'country_id'        =>   Session::get('country'),
+                'zip'               =>   Session::get('zip')
+            );
+
+            // Store data in database
+            User::create($form_data);
 
             //return redirect()->to('available-rooms');
             return Redirect::route('successful-payment');
