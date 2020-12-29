@@ -9,16 +9,67 @@
 <body>
 	<div class="container" style="padding: 40px 0px;">
         <div class="row">    	
-            <div>        	
-                <h1 class="text-center" style="margin: 30px 0px;">Effectuer vos Paiements</h1>
+            <div>
+                <div><a href="{{route('book-now')}}" class="btn btn-primary">Go Back</a></div>        	
+                <div>
+                    <h1 class="text-center" style="margin: 30px 0px;">Effectuer vos Paiements</h1>
+                </div>
                 <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('paypal') !!}">
                         @csrf
                     <div style="display: flex; justify-content: space-between;">
                         <div class="panel panel-default col-sm-3" style="1px solid red; height: 40vh;">
                             <div class="panel-body">
-                               3
+                               <div>
+                                 @if(Session::has('numberOfDaysBooked'))
+                                 <div style="display: flex; justify-content: space-between;">
+                                    <div>
+                                        <p><strong>No Of Days Booked:&nbsp;</strong>
+                                    </div>
+                                    <div>
+                                        <p>{{ Session::get('numberOfDaysBooked') }}</p></p>
+                                    </div>
+                                 </div>
+                                 @endif
+                               </div>
+
+                               <div>
+                                 @if(Session::has('checkInDate'))
+                                 <div style="display: flex; justify-content: space-between;">
+                                    <div>
+                                        <p><strong>CheckIN Date:&nbsp;</strong>
+                                    </div>
+                                    <div>
+                                        <p>{{ Session::get('checkInDate') }}</p>
+                                    </div>
+                                 </div>
+                                 @endif
+                               </div>
+
+                               <div>
+                                 @if(Session::has('checkOutDate'))
+                                 <div style="display: flex; justify-content: space-between;">
+                                    <div>
+                                        <p><strong>CheckOut Date:&nbsp;</strong>
+                                    </div>
+                                    <div>
+                                        <p>{{ Session::get('checkOutDate') }}</p>
+                                    </div>
+                                 </div>
+                                 @endif
+                               </div>
+
+                                <div style="display: flex; justify-content: space-between;">
+                                    <div>
+                                        <p><strong>Room Price:&nbsp;</strong>
+                                    </div>
+                                    <div>
+                                        <p>&euro;&nbsp;{{ $totalAmountToPay }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        
+                        @if (!Auth::check())
                         <div class="col-sm-4">
                                    
                             <div class="form-group">
@@ -111,7 +162,14 @@
                                 @endif
                             </div>
                         </div>
+                        @endif
 
+                        @if (Auth::check())
+                        <div class="col-sm-4" style="height: 70vh;">
+                            <img src="{{$roomById->url}}" alt="{{$roomById->name}}" style="width: 100%; height: 100%;" />
+                        </div>
+                        @endif
+                        
                         <div class="panel panel-default col-sm-3" style="height: 40vh;">
                             <div class="panel-heading"><b>Paywith Paypal</b></div>
                             <div class="panel-body">
@@ -128,9 +186,14 @@
                                     </label>
                                 </div>
 
-                                <div>
+                                <div class="hiddenInputs">
                                     <input id="prix" type="hidden" class="form-control" name="prix" value="{{$roomById->price}}">
                                     <input id="room_name" type="hidden" class="form-control" name="room_name" value="{{$roomById->name}}">
+
+                                    <input id="totalAmount" type="hidden" class="form-control" name="totalAmount" value="{{ $totalAmountToPay }}">
+                                    <input id="checkOutDate" type="hidden" class="form-control" name="checkOutDate" value="{{ Session::get('checkOutDate') }}">
+                                    <input id="numberOfDaysBooked" type="hidden" class="form-control" name="numberOfDaysBooked" value="{{ Session::get('numberOfDaysBooked') }}">
+                                    <input id="checkInDate" type="hidden" class="form-control" name="checkInDate" value="{{ Session::get('checkInDate') }}">
                                 </div>
                                             
                                 <div class="form-group">

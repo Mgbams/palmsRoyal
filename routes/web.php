@@ -46,7 +46,7 @@ Route::get('/hotel-info', [
 ]);
 
 //return view(available-rooms)
-Route::get('available-rooms', 'AvailableRoomsController@index')->name('available-rooms');
+Route::get('available-rooms/{days}/{checkin}/{checkout}', 'AvailableRoomsController@index')->name('available-rooms');
 
 //Navigation-menu TODO Menu
 

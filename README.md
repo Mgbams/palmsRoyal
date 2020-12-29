@@ -1285,3 +1285,8 @@ From the above, we are adding two middlewares to the edit hotel route
 
 *   Paypal php sdk
     [sdk](https://github.com/paypal/PayPal-PHP-SDK)
+
+## Manipulating dates in JQuery
+
+You can visit the below site for more information
+[dates in jquery](https://stackoverflow.com/questions/33204168/jquery-new-date-convert-to-yyyy-mm-dd-and-use-tolocaledatestring)

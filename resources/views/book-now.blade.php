@@ -90,18 +90,6 @@
                     <!--single date picker-->
                     <div style="margin-top: 20px; display: flex; justify-content: space-between;" class="container row">
 
-                        <!--Arrival div-->
-                        <!--<div class="col-sm-6 col-md-2" style="margin-top: 20px; overflow: hidden;">
-                            <div><label style="color: white;">ARRIVAL</label></div>
-                            <div><input type="text" name="arrival" value="11/24/2020" /></div>
-                        </div>-->
-
-                        <!--Departure div-->
-                        <!--<div class="col-sm-6 col-md-2" style="margin-top: 20px; overflow: hidden;">
-                            <div><label style="color: white;">DEPARTURE</label></div>
-                            <div><input type="text" name="departure" value="11/28/2020" /></div>
-                        </div>-->
-
                         <!--Flatpickr3-->
                         <div class="col-sm-6 col-md-2" style="margin-top: 20px; overflow: hidden;">
                             <div><label style="color: white;">CHECK-IN</label></div>
@@ -117,7 +105,7 @@
                         <!--Rooms select-->
                         <div style="margin-top: 22px;" class="col-sm-6 col-md-2 select-divs">
                             <div><label style="color: white;">Room(s)</label></div>
-                            <select style="font-size:0.9em;" id="PersonSelector" class="fieldDrop">
+                            <select style="font-size:0.9em;" id="roomSelector" class="fieldDrop">
                                 <option selected="selected disabled" value="0">All</option>
 
                                 <option value="1">1</option>
@@ -132,7 +120,7 @@
                         <!--Adults select-->
                         <div style="margin-top: 22px;" class="col-sm-6 col-md-2 select-divs">
                             <div><label style="color: white;">Adult(s)</label></div>
-                            <select style="font-size:0.9em;" id="PersonSelector" class="fieldDrop">
+                            <select style="font-size:0.9em;" id="adultSelector" class="fieldDrop">
                                 <option selected="selected disabled" value="0">All</option>
 
                                 <option value="1">1 adult</option>
@@ -147,7 +135,7 @@
                         <!--Kids select-->
                         <div style="margin-top: 22px;" class="col-sm-6 col-md-2 select-divs">
                             <div><label style="color: white;">Kids(s)</label></div>
-                            <select style="font-size:0.9em;" id="PersonSelector" class="fieldDrop">
+                            <select style="font-size:0.9em;" id="kidsSelector" class="fieldDrop">
                                 <option selected="selected disabled" value="0">All</option>
 
                                 <option value="1">1 child</option>
@@ -162,7 +150,7 @@
 
                     <!--Check Availability button-->
                     <div class="availabilty-div" style="margin: 60px auto;">
-                        <a class="availabilty-button btn" href="{{ route('available-rooms') }}">CHECK AVAILABILITY</a>
+                        <a id="availability-dates-link" class="availabilty-button btn" href="">CHECK AVAILABILITY</a>
                     </div>
                 </div>
 
@@ -202,9 +190,36 @@
     <script>
         $(function() {
             var arrival; //Declare an arrival variable to hold arrival dates
-            var daysBooked; // passed to controllerfor the number of days reserved
+            var daysBooked; // NUMBER OF DAYS BOOKED
+            var checkinDate; // Date CHECKED IN, used when we select from the calendar
+            var checkOutDate; // Date CHECKED OUT,  used when we select from the calendar
             var today = new Date();
             var tomorrow = today.setDate(today.getDate() + 1);
+        
+            /**Manipulating tomorrow's date**/
+            var tomorrowDate = new Date(tomorrow);
+            tomorrowDate = tomorrowDate.toLocaleDateString().split("/");
+            var z =  tomorrowDate.splice(-1)[0];
+            // set `z` as item at index `0` of `d`
+             tomorrowDate.splice(0, 0, z);
+            // join items within `d` with dash character `"-"`
+            var tomorrowCheckoutDate =  tomorrowDate.join("-");
+            //console.log(tomorrowCheckoutDate);
+
+            /**Manipulating today's date**/
+            var todayDate = new Date().toLocaleDateString().split("/"); 
+            var y = todayDate.splice(-1)[0];
+            // set `y` as item at index `0` of `d`
+            todayDate.splice(0, 0, y);
+            // join items within `d` with dash character `"-"`
+            var presentDayDate = todayDate.join("-");
+            //console.log(date);
+
+            console.log($('#roomSelector').val());
+            console.log($('#adultSelector').val());
+            console.log($('#kidsSelector').val());
+            
+             $("#availability-dates-link").prop("href", `available-rooms/${daysBooked || 1}/${presentDayDate}/${tomorrowCheckoutDate }`);
 
             /***Availability calendar unavailable dates***/
             var unavailableDates = [{
@@ -220,77 +235,6 @@
                     end: '2020-12-28'
                 }
             ];
-
-            // single date pickers starts HERE
-
-            /***** ARRIVAL DATETIME PICKER *****/
-            /* $('input[name="arrival"]').daterangepicker({
-                 singleDatePicker: true,
-                 showDropdowns: true,
-                 minYear: 1901,
-                 timePicker: true,
-                 locale: {
-                     format: 'M/DD hh:mm A'
-                 },
-                 maxYear: 2030,
-             }, function(start, end, label) {
-                 var years = moment().diff(start, 'years');
-                 //console.log(start);
-                 //alert("You are " + years + " years old!");
-             });
-
-             $('input[name="arrival"]').on('apply.daterangepicker', function(ev, picker) {
-                 var arrivalDate = picker.startDate.format('YYYY-MM-DD');
-                 arrival = new Date(arrivalDate).getTime();
-             });*/
-
-            /***** DEPARTURE DATETIME PICKER *****/
-            /* $('input[name="departure"]').daterangepicker({
-                 singleDatePicker: true,
-                 showDropdowns: true,
-                 minYear: 1901,
-                 timePicker: true,
-                 locale: {
-                     format: 'M/DD hh:mm A'
-                 },
-                 maxYear: 2030,
-             }, function(start, end, label) {
-                 // var years = moment().diff(start, 'years');
-                 // alert("You are " + years + " years old!");
-             });*/
-
-            /* $('input[name="departure"]').on('apply.daterangepicker', function(ev, picker) {
-                 var departureDate = picker.startDate.format('YYYY-MM-DD');
-                 var departure = new Date(departureDate).getTime(); // Convert datetime to milliseconds
-
-                 var differenceInMilliseconds = departure - arrival; // Diff between arrival and departure dates in milliseconds
-                 console.log("differenceInMilliseconds  " + differenceInMilliseconds);
-                 var differenceInDays = Math.ceil(differenceInMilliseconds / (1000 * 3600 * 24)); // Diff between arrival and departure dates in Days
-
-             */
-            /* Check if the selected daterange is valid */
-            /*if (differenceInDays == 0 || differenceInDays < 0) {
-                    alert("Please Enter a valid date range");
-                } else {
-                    $('#numberOfNights').html(differenceInDays);
-                    $('#numberOfNights').append("<p>Night(s)</p>"); // Appending content to div element
-                    $('#numberOfNights').css({
-                        "border": "1px solid #ccc",
-                        "margin-bottom": "10px"
-                    });
-                    //alert(differenceInDays);
-                    daysBooked = differenceInDays;
-                }
-            });*/
-            // single date pickers for daterangepicker ends HERE
-
-            //calender starts here
-            /* $('input[name="multiplecalendar"]').daterangepicker({
-                 opens: 'left',
-             }, function(start, end, label) {
-                 console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-             });*/
-
 
             //flatpickr CHECK-IN
             flatpickr('.arrival', {
@@ -321,12 +265,23 @@
 
             function getSelectedDate() {
                 var start = new Date($('.checkout').val()).getTime();
-                console.log(start);
                 var checkin = new Date($('.arrival').val()).getTime();
                 var checkout = new Date($('.checkout').val()).getTime(); // Convert datetime to milliseconds
+                
+                /* Splitting the arrival and departure 
+                dates using split method */
+                var arrivalSplitArray = new Array();
+                arrivalSplitArray = ($('.arrival').val().split(" "));
+                checkinDate = arrivalSplitArray[0];
+                console.log(checkinDate);
 
+                var departureSplitArray = new Array();
+                departureSplitArray  = ($('.checkout').val().split(" "));
+                checkOutDate = departureSplitArray[0];
+                console.log(checkOutDate);
+                            
                 var differenceInMilliseconds = checkout - checkin; // Diff between arrival and departure dates in milliseconds
-                console.log("differenceInMilliseconds  " + differenceInMilliseconds);
+                //console.log("differenceInMilliseconds  " + differenceInMilliseconds);
                 var differenceInDays = Math.ceil(differenceInMilliseconds / (1000 * 3600 * 24)); // Diff between arrival and departure dates in Days
 
                 /* Check if the selected daterange is valid */
@@ -342,6 +297,7 @@
                     });
                     //alert(differenceInDays);
                     daysBooked = differenceInDays;
+                    $("#availability-dates-link").prop("href", `available-rooms/${daysBooked || 1}/${checkinDate || presentDayDate}/${checkOutDate || tomorrowCheckoutDate }`);
                     console.log(daysBooked);
                 }
             }

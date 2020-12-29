@@ -50,10 +50,18 @@ class PaypalPaymentController extends Controller
 
         //save the roomid so i can access it from other functions
         Session::put('room_id', $request->id);
+
+        //Reservation data
+        $numberOfDaysBooked     = Session::get('numberOfDaysBooked');
         
+        //formatting the price
+        $roomPrice              =  $roomById->price;
+        $intPrice               = (int)$roomPrice;
+        $totalAmountToPay       = (int)$numberOfDaysBooked * $intPrice; //displayed on blade
+    
         $countries = Country::select('id', 'nom_en_gb', 'nom_fr_fr')->get();
-        //dd($roomId);
-        return view('paywithpaypal', compact(['roomById', 'countries']));
+        //dd($roomById);
+        return view('paywithpaypal', compact(['roomById', 'countries', 'totalAmountToPay']));
     }
 
     public function postPaymentWithpaypal(Request $request)
@@ -82,10 +90,14 @@ class PaypalPaymentController extends Controller
               Session::put('country', $request->country);
               Session::put('city', $request->ville);
               Session::put('address',   $request->adresse);
+
+              Session::put('checkInDate', $request->checkInDate);
+              Session::put('checkOutDate', $request->checkOutDate);
+              Session::put('numberOfDaysBooked',   $request->numberOfDaysBooked);
+              Session::put('totalAmount',   $request->totalAmount);
         }else {
             //Checkbox not checked
         }
-
 
         $roomId = Session::get('room_id');
         $payer = new Payer();
@@ -95,7 +107,7 @@ class PaypalPaymentController extends Controller
 
         $item_1->setName($request->room_name)
             ->setCurrency('EUR')
-            ->setQuantity(1)
+            ->setQuantity($request->get('numberOfDaysBooked'))
             ->setPrice($request->get('prix'));
 
         $item_list = new ItemList();
@@ -104,7 +116,7 @@ class PaypalPaymentController extends Controller
 
         $amount = new Amount();
         $amount->setCurrency('EUR')
-            ->setTotal($request->get('prix'));
+            ->setTotal($request->get('totalAmount'));
 
         $transaction = new Transaction();
         $transaction->setAmount($amount)
@@ -167,9 +179,8 @@ class PaypalPaymentController extends Controller
         
         if ($result->getState() == 'approved') {         
             \Session::put('success','Payment success !!');
-            //Add data to your database on successful payment: TODO code
-            
-            //role_id = 2 i.e User by default
+            /* Add data to your database on successful payment: TODO code
+            role_id = 2 i.e User by default */
             $form_data = array(
                 'name'              =>   Session::get('firstname'),
                 'last_name'         =>   Session::get('lastname'),
