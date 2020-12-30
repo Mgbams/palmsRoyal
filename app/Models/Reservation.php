@@ -14,20 +14,20 @@ class Reservation extends Model
     protected $fillable = [
         'guest_count', 'check_in', 'check_out', 'user_id', 
         'balance_amount', 'status', 'paid_amount', 'discount_percent', 
-        'room_type_id', 'cancelled_at', 'hotel_id',
+        'room_name', 'cancelled_at', 'number_of_days_booked',
     ];
 
-    public function hotel() {
+    /* public function hotel() {
         return $this->belongsTo(Hotel::class);
     }
-
+    */
     public function user() {
         return $this->belongsTo(User::class);
     }
 
-    public function roomType() {
+    /* public function roomType() {
         return $this->belongsTo(RoomType::class);
-    }
+    } */
 
     public function invoice() {
         return $this->hasOne(Invoice::class);

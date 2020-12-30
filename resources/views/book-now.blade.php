@@ -31,9 +31,14 @@
     <div id="book-now-container">
 
         <section>
-            <div class="d-flex flex-row flex-end bg-secondary py-3 justify-content-end">
-                <div class="mr-5">info@palmsroyal-hotel.com</div>
-                <div class="mr-3">+33759876543</div>
+            <div class="d-flex bg-secondary py-3 justify-content-between">
+                <div class="ml-5">
+                    <a href="{{ url('/show-rooms') }}" class="btn btn-primary btn-md">Go Back</a>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="mr-5">info@palmsroyal-hotel.com</div>
+                    <div class="mr-3">+33759876543</div>
+                </div>
             </div>
             <div class="title row" style="background-color: yellow;">
                 <div class="col-md-4 col-sm-12 d-flex justify-content-center align-items-center flex-column" style="height: 20vh;">
@@ -123,11 +128,11 @@
                             <select style="font-size:0.9em;" id="adultSelector" class="fieldDrop">
                                 <option selected="selected disabled" value="0">All</option>
 
-                                <option value="1">1 adult</option>
+                                <option value="1">1</option>
 
-                                <option value="2">2 adults</option>
+                                <option value="2">2</option>
 
-                                <option value="3">3 adults</option>
+                                <option value="3">3</option>
 
                             </select>
                         </div>
@@ -138,11 +143,11 @@
                             <select style="font-size:0.9em;" id="kidsSelector" class="fieldDrop">
                                 <option selected="selected disabled" value="0">All</option>
 
-                                <option value="1">1 child</option>
+                                <option value="1">1</option>
 
-                                <option value="2">2 children</option>
+                                <option value="2">2</option>
 
-                                <option value="3">3 children</option>
+                                <option value="3">3</option>
 
                             </select>
                         </div>

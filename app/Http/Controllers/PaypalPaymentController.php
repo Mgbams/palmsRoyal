@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Repositories\RoomRepository;
+use App\Repositories\UserRepository;
    /** Paypal Details classes **/ 
 use Validator;
 use URL;
@@ -23,17 +24,20 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\ExecutePayment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
+use DateTime;
 
 //country modal
 use App\Models\Country;
+use App\Models\Reservation;
 use App\User;
 
 class PaypalPaymentController extends Controller
 {
    private $_api_context;
    private $roomRepository;
+   private $userRepository;
 
-    public function __construct(RoomRepository $roomRepository)
+    public function __construct(RoomRepository $roomRepository, UserRepository $userRepository)
     {
             
         $paypal_configuration = \Config::get('paypal');
@@ -42,12 +46,13 @@ class PaypalPaymentController extends Controller
 
         //Repository
         $this->roomRepository = $roomRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function payWithPaypal(Request $request)
     {
         $roomById = $this->roomRepository->getById($request->id);
-
+    
         //save the roomid so i can access it from other functions
         Session::put('room_id', $request->id);
 
@@ -60,7 +65,6 @@ class PaypalPaymentController extends Controller
         $totalAmountToPay       = (int)$numberOfDaysBooked * $intPrice; //displayed on blade
     
         $countries = Country::select('id', 'nom_en_gb', 'nom_fr_fr')->get();
-        //dd($roomById);
         return view('paywithpaypal', compact(['roomById', 'countries', 'totalAmountToPay']));
     }
 
@@ -95,6 +99,7 @@ class PaypalPaymentController extends Controller
               Session::put('checkOutDate', $request->checkOutDate);
               Session::put('numberOfDaysBooked',   $request->numberOfDaysBooked);
               Session::put('totalAmount',   $request->totalAmount);
+              Session::put('room_name', $request->room_name);
         }else {
             //Checkbox not checked
         }
@@ -164,6 +169,7 @@ class PaypalPaymentController extends Controller
     public function getPaymentStatus(Request $request)
     {        
         //dd($request);
+        
         $roomId = Session::get('room_id');
         $payment_id = Session::get('paypal_payment_id');
 
@@ -192,8 +198,50 @@ class PaypalPaymentController extends Controller
                 'zip'               =>   Session::get('zip')
             );
 
-            // Store data in database
+            /*
+                ===========================
+                Store data in User database
+                ============================
+             */
             User::create($form_data);
+
+
+            /* 
+                =========================
+                Store in Reservation table 
+                ==========================
+            */
+            $email = Session::get('email');
+            $registeredUser = $this->userRepository->getByEmail($email);
+            $newGuestId =  $registeredUser->id;
+            
+            //formatting checkin and checkout date to correspond with database format
+             $checkInDateTime = DateTime::createFromFormat('Y-d-m', Session::get('checkInDate'));
+             $check_in = $checkInDateTime->format('Y-m-d');
+
+             $checkOutDateTime = DateTime::createFromFormat('Y-d-m', Session::get('checkOutDate'));
+             $check_out = $checkOutDateTime->format('Y-m-d');
+             //cancelled at by default = 1970-01-01
+
+            if ( $newGuestId ) {
+                 $reservation_data = array(
+                'check_in'                 =>   $check_in,
+                'check_out'                =>   $check_out,
+                'guest_count'              =>   1,
+                'user_id'                  =>   $newGuestId,
+                'balance_amount'           =>   0.0,
+                'status'                   =>   'User',
+                'paid_amount'              =>   Session::get('totalAmount'),
+                'discount_percent'         =>   0.0,
+                'room_name'                =>   Session::get('room_name'),
+                'cancelled_at'             =>   '1970-01-01',
+                'number_of_days_booked'    =>   Session::get('numberOfDaysBooked')
+                );
+
+                // Store data in User database
+                Reservation::create($reservation_data);
+
+            }
 
             //return redirect()->to('available-rooms');
             return Redirect::route('successful-payment');

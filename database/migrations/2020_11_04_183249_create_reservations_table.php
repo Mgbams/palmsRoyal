@@ -24,11 +24,10 @@ class CreateReservationsTable extends Migration
             $table->char('status');
             $table->decimal('paid_amount', 10, 2);
             $table->decimal('discount_percent', 5, 2)->nullable();
-            $table->bigInteger('room_type_id')->unsigned();
+            $table->string('room_name');
             $table->foreign('room_type_id')->references('id')->on('room_types')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamp('cancelled_at')->nullable();
-            $table->bigInteger('hotel_id')->unsigned();
-            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('number_of_days_booked');
             $table->timestamps();
         });
     }
