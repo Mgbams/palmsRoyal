@@ -2,9 +2,11 @@
 <head>
 	<meta charset="utf-8">
 	<title>How to integrate paypal into palmsRoyal</title>
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+     <!--main css file starts here-->
+    <link type="text/css" rel="stylesheet" href="{{ mix('css/paypal.css') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container" style="padding: 40px 0px;">
@@ -74,7 +76,7 @@
                                    
                             <div class="form-group">
                                 <label>Prénom</label>
-                                <input type="text" class="form-control {{ $errors->has('firstname') ? 'error' : '' }}" name="firstname" id="firstname">
+                                <input type="text" minlength="2" class="form-control {{ $errors->has('firstname') ? 'error' : '' }}" name="firstname" id="firstname">
 
                                 <!-- Error -->
                                 @if ($errors->has('firstname'))
@@ -86,7 +88,7 @@
 
                             <div class="form-group">
                                 <label>Nom</label>
-                                <input type="text" class="form-control {{ $errors->has('lastname') ? 'error' : '' }}" name="lastname" id="lastname">
+                                <input type="text" minlength="2" class="form-control {{ $errors->has('lastname') ? 'error' : '' }}" name="lastname" id="lastname">
 
                                 <!-- Error -->
                                 @if ($errors->has('lastname'))
@@ -210,5 +212,43 @@
             </div>
         </div>
     </div>
+
+    <!--js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#payment-form").validate({
+                rules: {
+                    firstname : {
+                        required: true,
+                        minlength: 3
+                    },
+                    lastname: {
+                        required: true,
+                        minlength: 3
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    messages : {
+                        firstname: {
+                            required: 'Firstname is required',
+                            minlength: "Name should be at least 3 characters"
+                        },
+                        lastname: {
+                            required: 'Lastname is required',
+                            minlength: "Name should be at least 3 characters"
+                        },
+                        email: {
+                            required: 'Email is required',
+                            email: "The email should be in the format: abc@domain.tld"
+                        },
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
