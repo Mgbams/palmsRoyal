@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Repositories\RoomRepository;
 use App\Repositories\UserRepository;
+use App\Repositories\RoleRepository;
    /** Paypal Details classes **/ 
 use Validator;
 use URL;
@@ -25,6 +26,7 @@ use PayPal\Api\ExecutePayment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
 use DateTime;
+use Auth;
 
 //country modal
 use App\Models\Country;
@@ -36,8 +38,9 @@ class PaypalPaymentController extends Controller
    private $_api_context;
    private $roomRepository;
    private $userRepository;
+   private $roleRepository;
 
-    public function __construct(RoomRepository $roomRepository, UserRepository $userRepository)
+    public function __construct(RoomRepository $roomRepository, UserRepository $userRepository, RoleRepository $roleRepository)
     {
             
         $paypal_configuration = \Config::get('paypal');
@@ -47,10 +50,12 @@ class PaypalPaymentController extends Controller
         //Repository
         $this->roomRepository = $roomRepository;
         $this->userRepository = $userRepository;
+        $this->roleRepository = $roleRepository;
     }
 
     public function payWithPaypal(Request $request)
     {
+        //dd(Auth::user());
         $roomById = $this->roomRepository->getById($request->id);
     
         //save the roomid so i can access it from other functions
@@ -73,35 +78,37 @@ class PaypalPaymentController extends Controller
         //dd($request);
 
         // Form validation
-        $this->validate($request, [
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'adresse'=>'required',
-            'ville' => 'required',
-            'country' => 'required',
-            'postale' => 'required',
-            'terms' => 'accepted'
-        ]);
+        if(!Auth::check()) { //If user is not an authenticated user
+                $this->validate($request, [
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'email' => 'required|email',
+                'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+                'adresse'=>'required',
+                'ville' => 'required',
+                'country' => 'required',
+                'postale' => 'required',
+                'terms' => 'accepted'
+            ]);
 
-        if($request->has('terms')){
-              Session::put('firstname', $request->firstname);
-              Session::put('lastname',  $request->lastname);
-              Session::put('email', $request->email);
-              Session::put('zip', $request->postale);
-              Session::put('phone',   $request->phone);
-              Session::put('country', $request->country);
-              Session::put('city', $request->ville);
-              Session::put('address',   $request->adresse);
+            if($request->has('terms')){
+                Session::put('firstname', $request->firstname);
+                Session::put('lastname',  $request->lastname);
+                Session::put('email', $request->email);
+                Session::put('zip', $request->postale);
+                Session::put('phone',   $request->phone);
+                Session::put('country', $request->country);
+                Session::put('city', $request->ville);
+                Session::put('address',   $request->adresse);
 
-              Session::put('checkInDate', $request->checkInDate);
-              Session::put('checkOutDate', $request->checkOutDate);
-              Session::put('numberOfDaysBooked',   $request->numberOfDaysBooked);
-              Session::put('totalAmount',   $request->totalAmount);
-              Session::put('room_name', $request->room_name);
-        }else {
-            //Checkbox not checked
+                Session::put('checkInDate', $request->checkInDate);
+                Session::put('checkOutDate', $request->checkOutDate);
+                Session::put('numberOfDaysBooked',   $request->numberOfDaysBooked);
+                Session::put('totalAmount',   $request->totalAmount);
+                Session::put('room_name', $request->room_name);
+            }else {
+                //Checkbox not checked
+            }
         }
 
         $roomId = Session::get('room_id');
@@ -182,70 +189,118 @@ class PaypalPaymentController extends Controller
         $execution = new PaymentExecution();
         $execution->setPayerId($request->input('PayerID'));        
         $result = $payment->execute($execution, $this->_api_context);
-        
-        if ($result->getState() == 'approved') {         
-            \Session::put('success','Payment success !!');
-            /* Add data to your database on successful payment: TODO code
-            role_id = 2 i.e User by default */
-            $form_data = array(
-                'name'              =>   Session::get('firstname'),
-                'last_name'         =>   Session::get('lastname'),
-                'email'             =>   Session::get('email'),
-                'phone_number'      =>   Session::get('phone'),
-                'address'           =>   Session::get('address'),
-                'city'              =>   Session::get('city'),
-                'country_id'        =>   Session::get('country'),
-                'zip'               =>   Session::get('zip')
-            );
-
-            /*
-                ===========================
-                Store data in User database
-                ============================
-             */
-            User::create($form_data);
 
 
-            /* 
-                =========================
-                Store in Reservation table 
-                ==========================
-            */
-            $email = Session::get('email');
-            $registeredUser = $this->userRepository->getByEmail($email);
-            $newGuestId =  $registeredUser->id;
-            
-            //formatting checkin and checkout date to correspond with database format
-             $checkInDateTime = DateTime::createFromFormat('Y-d-m', Session::get('checkInDate'));
-             $check_in = $checkInDateTime->format('Y-m-d');
+        if(!Auth::check()) {
+            if ($result->getState() == 'approved') {         
+                \Session::put('success','Payment success !!');
+                /* Add data to your database on successful payment: TODO code
+                role_id = 2 i.e User by default */
+                $form_data = array(
+                    'name'              =>   Session::get('firstname'),
+                    'last_name'         =>   Session::get('lastname'),
+                    'email'             =>   Session::get('email'),
+                    'phone_number'      =>   Session::get('phone'),
+                    'address'           =>   Session::get('address'),
+                    'city'              =>   Session::get('city'),
+                    'country_id'        =>   Session::get('country'),
+                    'zip'               =>   Session::get('zip')
+                );
 
-             $checkOutDateTime = DateTime::createFromFormat('Y-d-m', Session::get('checkOutDate'));
-             $check_out = $checkOutDateTime->format('Y-m-d');
-             //cancelled at by default = 1970-01-01
+                /*
+                    ===========================
+                    Store data in User database
+                    ============================
+                */
+                User::create($form_data);
 
-            if ( $newGuestId ) {
-                 $reservation_data = array(
-                'check_in'                 =>   $check_in,
-                'check_out'                =>   $check_out,
-                'guest_count'              =>   1,
-                'user_id'                  =>   $newGuestId,
-                'balance_amount'           =>   0.0,
-                'status'                   =>   'User',
-                'paid_amount'              =>   Session::get('totalAmount'),
-                'discount_percent'         =>   0.0,
-                'room_name'                =>   Session::get('room_name'),
-                'cancelled_at'             =>   '1970-01-01',
-                'number_of_days_booked'    =>   Session::get('numberOfDaysBooked')
+
+                /* 
+                    =========================
+                    Store in Reservation table 
+                    ==========================
+                */
+                $email = Session::get('email');
+                $registeredUser = $this->userRepository->getByEmail($email);
+                $newGuestId =  $registeredUser->id;
+                
+                //formatting checkin and checkout date to correspond with database format
+                $checkInDateTime = DateTime::createFromFormat('Y-d-m', Session::get('checkInDate'));
+                $check_in = $checkInDateTime->format('Y-m-d');
+
+                $checkOutDateTime = DateTime::createFromFormat('Y-d-m', Session::get('checkOutDate'));
+                $check_out = $checkOutDateTime->format('Y-m-d');
+                //cancelled at by default = 1970-01-01
+
+                if ( $newGuestId ) {
+                    $reservation_data = array(
+                    'check_in'                 =>   $check_in,
+                    'check_out'                =>   $check_out,
+                    'guest_count'              =>   1,
+                    'user_id'                  =>   $newGuestId,
+                    'balance_amount'           =>   0.0,
+                    'status'                   =>   'User',
+                    'paid_amount'              =>   Session::get('totalAmount'),
+                    'discount_percent'         =>   0.0,
+                    'room_name'                =>   Session::get('room_name'),
+                    'cancelled_at'             =>   '1970-01-01',
+                    'number_of_days_booked'    =>   Session::get('numberOfDaysBooked')
+                    );
+
+                    // Store data in User database
+                    Reservation::create($reservation_data);
+
+                }
+
+                //return redirect()->to('available-rooms');
+                return Redirect::route('successful-payment');
+            }
+        } else if(Auth::check()) { //If user is authenticated
+
+            if ($result->getState() == 'approved') {         
+                \Session::put('success','Payment success !!');
+                
+                /* 
+                    =========================
+                    Store in Reservation table 
+                    ==========================
+                */
+               
+                //get authenticated User status
+                $userRole = $this->roleRepository->getRoleById(Auth::user()->role_id);
+                $userStatus = $userRole->name;
+                
+                //formatting checkin and checkout date to correspond with database format
+                $checkInDateTime = DateTime::createFromFormat('Y-d-m', Session::get('checkInDate'));
+                $check_in = $checkInDateTime->format('Y-m-d');
+
+                $checkOutDateTime = DateTime::createFromFormat('Y-d-m', Session::get('checkOutDate'));
+                $check_out = $checkOutDateTime->format('Y-m-d');
+
+                //cancelled_at by default is = 1970-01-01
+
+                $reservation_data = array(
+                    'check_in'                 =>   $check_in,
+                    'check_out'                =>   $check_out,
+                    'guest_count'              =>   1,
+                    'user_id'                  =>   Auth::user()->id,
+                    'balance_amount'           =>   0.0,
+                    'status'                   =>   $userStatus,
+                    'paid_amount'              =>   Session::get('totalAmount'),
+                    'discount_percent'         =>   0.0,
+                    'room_name'                =>   Session::get('room_name'),
+                    'cancelled_at'             =>   '1970-01-01',
+                    'number_of_days_booked'    =>   Session::get('numberOfDaysBooked')
                 );
 
                 // Store data in User database
                 Reservation::create($reservation_data);
 
+                //return redirect()->to('available-rooms');
+                return Redirect::route('successful-payment');
             }
-
-            //return redirect()->to('available-rooms');
-            return Redirect::route('successful-payment');
         }
+        
 
         \Session::put('error','Payment failed !!');
 		return Redirect::route('cancelled-payment');

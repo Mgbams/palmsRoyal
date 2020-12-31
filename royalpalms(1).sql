@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 23 déc. 2020 à 01:47
+-- Généré le : jeu. 31 déc. 2020 à 02:14
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.2.32
 
@@ -527,16 +527,16 @@ INSERT INTO `photos` (`id`, `url`) VALUES
 CREATE TABLE `reservations` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `guest_count` int(11) NOT NULL,
-  `check_in` datetime NOT NULL,
-  `check_out` datetime NOT NULL,
+  `check_in` date NOT NULL,
+  `check_out` date NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `balance_amount` decimal(10,2) NOT NULL,
   `status` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `paid_amount` decimal(10,2) NOT NULL,
   `discount_percent` decimal(5,2) DEFAULT NULL,
-  `room_type_id` bigint(20) UNSIGNED NOT NULL,
-  `cancelled_at` timestamp NULL DEFAULT NULL,
-  `hotel_id` bigint(20) UNSIGNED NOT NULL,
+  `room_name` varchar(225) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cancelled_at` date DEFAULT '1970-01-01',
+  `number_of_days_booked` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -641,7 +641,7 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `price`, `name`, `description`, `available_date`, `auto_approve`, `published`, `is_available`, `hotel_id`, `photo_id`) VALUES
-(1, '120.00', 'king size four poster', 'Our king size four poster provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.', '2020-12-07 23:45:20', 0, 1, 1, 1, 1),
+(1, '120.00', 'king size four poster', 'Our king size four poster provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.', '2020-12-24 02:17:07', 0, 1, 1, 1, 1),
 (2, '300.00', 'queen size four poster', 'Our king size sleigh bedded also provides views over landscaped gardens. It has ample storage, a seating area, digital safe, minibar and luxurious duck down bedding.\r\n', '2020-12-07 23:45:35', 0, 1, 1, 1, 2);
 
 -- --------------------------------------------------------
@@ -719,7 +719,7 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone_number` int(11) DEFAULT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `country_id` bigint(20) UNSIGNED DEFAULT NULL,
@@ -728,7 +728,7 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `role_id` bigint(20) UNSIGNED DEFAULT NULL
+  `role_id` bigint(20) UNSIGNED DEFAULT 2
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -832,9 +832,7 @@ ALTER TABLE `photos`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `reservations_user_id_foreign` (`user_id`),
-  ADD KEY `reservations_room_type_id_foreign` (`room_type_id`),
-  ADD KEY `reservations_hotel_id_foreign` (`hotel_id`);
+  ADD KEY `reservations_user_id_foreign` (`user_id`);
 
 --
 -- Index pour la table `reviews`
@@ -964,7 +962,7 @@ ALTER TABLE `photos`
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `reviews`
@@ -1006,7 +1004,7 @@ ALTER TABLE `send_email_on_reservations`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Contraintes pour les tables déchargées
@@ -1047,8 +1045,6 @@ ALTER TABLE `payments`
 -- Contraintes pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  ADD CONSTRAINT `reservations_hotel_id_foreign` FOREIGN KEY (`hotel_id`) REFERENCES `hotels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `reservations_room_type_id_foreign` FOREIGN KEY (`room_type_id`) REFERENCES `room_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reservations_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
