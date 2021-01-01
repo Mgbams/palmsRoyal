@@ -230,12 +230,17 @@ class PaypalPaymentController extends Controller
 
                 $checkOutDateTime = DateTime::createFromFormat('Y-d-m', Session::get('checkOutDate'));
                 $check_out = $checkOutDateTime->format('Y-m-d');
+
+                //Generate reservation number 
+                $reservationNumber = $this->generateBarcodeNumber();
+
                 //cancelled at by default = 1970-01-01
 
                 if ( $newGuestId ) {
                     $reservation_data = array(
                     'check_in'                 =>   $check_in,
                     'check_out'                =>   $check_out,
+                    'reservation_number'       =>   $reservationNumber,
                     'guest_count'              =>   1,
                     'user_id'                  =>   $newGuestId,
                     'balance_amount'           =>   0.0,
@@ -277,11 +282,15 @@ class PaypalPaymentController extends Controller
                 $checkOutDateTime = DateTime::createFromFormat('Y-d-m', Session::get('checkOutDate'));
                 $check_out = $checkOutDateTime->format('Y-m-d');
 
+                //Generate reservation number 
+                $reservationNumber = $this->generateBarcodeNumber();
+
                 //cancelled_at by default is = 1970-01-01
 
                 $reservation_data = array(
                     'check_in'                 =>   $check_in,
                     'check_out'                =>   $check_out,
+                    'reservation_number'       =>   $reservationNumber,
                     'guest_count'              =>   1,
                     'user_id'                  =>   Auth::user()->id,
                     'balance_amount'           =>   0.0,
@@ -306,4 +315,28 @@ class PaypalPaymentController extends Controller
 		return Redirect::route('cancelled-payment');
     }
 
+
+    /*
+        ==============================
+        Generating reservation number
+        ==============================
+    */
+
+    public function generateBarcodeNumber() {
+        $number = mt_rand(1000000000, 9999999999); // better than rand()
+
+        // call the same function if the barcode exists already
+        if ($this->barcodeNumberExists($number)) {
+            return $this->generateBarcodeNumber();
+        }
+
+        // otherwise, it's valid and can be used
+        return $number;
+    }
+
+    public function barcodeNumberExists($number) {
+        // query the database and return a boolean
+        // for instance, it might look like this in Laravel
+        return Reservation::where('reservation_number', '=', $number)->exists();
+    }
 }

@@ -67,10 +67,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //PDF download
 Route::get('/palms-royal-hotel/menu-restaurant/{menu}', 'EatAndDrinkMorningController@createPDF');
-//Auth::routes();
 
-//room details
-//Route::get('/room-details/rooms', 'RoomDetailsController@show')->name('room-details');
 
 //room details by names
 Route::get('/room/{name}', 'RoomDetailsController@showSingleRoom')->name('room-details');
@@ -162,9 +159,6 @@ Route::post('dropzone/store', 'Admin\RoomController@imageStore');
 //Delete hotel room images 
 Route::post('delete-uploaded-image', 'Admin\RoomController@deleteImage');
 
-//paypal payment
-// Route::get('paypal-payment', 'PaypalPaymentController@index')->name('paypal-payment');
-
 //successful payment
 Route::get('successful-payment', 'SuccessfullyPaidController@index')->name('successful-payment');
 
@@ -174,3 +168,10 @@ Route::get('cancelled-payment', 'CancelledPaymentController@index')->name('cance
 Route::get('paywithpaypal/{id}', array('as' => 'paywithpaypal','uses' => 'PaypalPaymentController@payWithPaypal',));
 Route::post('paypal', array('as' => 'paypal','uses' => 'PaypalPaymentController@postPaymentWithpaypal',));
 Route::get('paypal', array('as' => 'status','uses' => 'PaypalPaymentController@getPaymentStatus',));
+
+/** Cancel room reservation **/
+Route::post('cancel-by-email', 'ModifyOrCancelReservationController@cancelByEmailAndPassword')->name('cancel.email.password');
+Route::post('cancel-by-password', 'ModifyOrCancelReservationController@cancelByPasswordAndReservationNumber')->name('cancel.reservation.number');
+
+// Submit reservation modifications
+Route::get('reservation-modification', 'ModifyOrCancelReservationController@updateReservation')->name('reservation.update');
