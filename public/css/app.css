@@ -52857,9 +52857,10 @@ a {
 }
 
 .cancel-reservation-btn,
-.availabilty-button {
+.availabilty-button,
+.return-back-btn {
   display: inline-block;
-  padding: 0.75rem 1.25rem;
+  padding: 0.4rem 1rem;
   border-radius: 10rem;
   color: #fff;
   text-transform: uppercase;
@@ -52872,7 +52873,8 @@ a {
 }
 
 .cancel-reservation-btn:after,
-.availabilty-button:after {
+.availabilty-button:after,
+.return-back-btn:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -52885,7 +52887,8 @@ a {
 }
 
 .cancel-reservation-btn:before,
-.availabilty-button:before {
+.availabilty-button:before,
+.return-back-btn:before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -52899,12 +52902,14 @@ a {
 }
 
 .cancel-reservation-btn:hover,
-.availabilty-button:hover {
+.availabilty-button:hover,
+.return-back-btn:hover {
   color: #fff;
 }
 
 .cancel-reservation-btn:hover:before,
-.availabilty-button:hover:before {
+.availabilty-button:hover:before,
+.return-back-btn:hover:before {
   width: 100%;
 }
 

@@ -1192,9 +1192,10 @@ a {
 
 //Cancel reservation button starts here
 .cancel-reservation-btn,
-.availabilty-button {
+.availabilty-button,
+.return-back-btn {
     display: inline-block;
-    padding: 0.75rem 1.25rem;
+    padding: 0.4rem 1rem;
     border-radius: 10rem;
     color: #fff;
     text-transform: uppercase;

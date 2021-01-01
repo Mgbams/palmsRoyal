@@ -33,7 +33,7 @@
         <section>
             <div class="d-flex bg-secondary py-3 justify-content-between">
                 <div class="ml-5">
-                    <a href="{{ url('/show-rooms') }}" class="btn btn-primary btn-md">Go Back</a>
+                    <a href="{{ url('/show-rooms') }}" class="btn mt-2 return-back-btn" style="background-color: #864747; color: white;">Go Back</a>
                 </div>
                 <div class="d-flex justify-content-between">
                     <div class="mr-5">info@palmsroyal-hotel.com</div>
