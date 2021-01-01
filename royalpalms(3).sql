@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 01 jan. 2021 à 04:29
+-- Généré le : ven. 01 jan. 2021 à 04:46
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.2.32
 
@@ -530,7 +530,7 @@ CREATE TABLE `reservations` (
   `guest_count` int(11) NOT NULL,
   `check_in` date NOT NULL,
   `check_out` date NOT NULL,
-  `reservation_number` int(10) UNSIGNED DEFAULT NULL,
+  `reservation_number` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `balance_amount` decimal(10,2) NOT NULL,
   `status` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -964,7 +964,7 @@ ALTER TABLE `photos`
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `reviews`
@@ -1006,7 +1006,7 @@ ALTER TABLE `send_email_on_reservations`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Contraintes pour les tables déchargées

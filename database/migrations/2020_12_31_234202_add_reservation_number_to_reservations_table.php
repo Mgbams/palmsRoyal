@@ -14,7 +14,7 @@ class AddReservationNumberToReservationsTable extends Migration
     public function up()
     {
         Schema::table('reservations', function (Blueprint $table) {
-            $table->integer('reservation_number')->unsigned()->after('check_out');
+            $table->text('reservation_number')->after('check_out');
         });
     }
 
