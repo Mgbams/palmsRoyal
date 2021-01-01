@@ -1305,3 +1305,176 @@ You can visit the below site for more information
     </li>
  @endif
 ```
+
+## Adding parameters to your url in Laravel
+
+You can use windows.location to attach parameters to your url
+
+```js
+window.location.href = url + "?lang=" + $("#elementId").val();
+```
+
+## Multiple Language usage
+
+1. First get the route of yur current page and store it to a hidden input that has id and value attributes
+   in your blade template.
+
+```js
+<input
+    type="hidden"
+    id="hidden-route"
+    name="hidden-route"
+    value="{{ Route::currentRouteName() }}"
+/>
+```
+
+2. Get the route stored in your hiddent input in the jquery section and store it in a variable
+
+```js
+var url = $("#hidden-route").val();
+```
+
+3. Write the change function that targets the controller that handles the localization
+
+```js
+// Where LangChange is the class of the select item that contains the language lists
+$(".Langchange").change(function() {
+    window.location.href = url + "?lang=" + $(this).val();
+});
+```
+
+4.  write the localization code in your controller e.g
+
+```php
+use App;
+
+App::setLocale($request->lang);
+session()->put('locale', $request->lang);
+```
+
+## Dynamically using Localization
+
+1. Create a controller and add the code below
+
+```php
+// php artisan make:controller LocalizationController
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App;
+use Session;
+
+class LocalizationController extends Controller
+{
+     public function index($locale)
+    {
+        Session::put('locale', $locale);
+        return redirect()->back();
+    }
+}
+```
+
+2. Create a route to link to the created controller
+
+```php
+//web.php
+
+Route::get('locale/{locale}', 'LocalizationController@index');
+```
+
+3. Create a middleware to register the selected language in session e.g
+
+```bash
+php artisan make:middleware Language
+```
+
+**Open App/Http/Middleware/Language**
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class Language
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        if(\Session::has('locale')) {
+            \App::setLocale(\Session::get('locale'));
+        }
+        return $next($request);
+    }
+}
+//NOTE: i saved the language in the controller with the key 'locale' and i get the language inside the middleware with the same key 'locale' inside our session
+```
+
+Then save your middleware inside **App/Http/kernel** under the **\$middlewareGroups** section as
+
+```php
+   protected $middlewareGroups = [
+       \App\Http\Middleware\Language::class,
+   ];
+   // Here **Language** is the name of the middleware
+```
+
+4. Open **app/config/app.php** and add the languages you wish to have in your website and also define the default language e.g
+
+```php
+    'locale' => 'en', //Language by default
+
+    'available_locales' => [
+        'en',
+        'fr',
+        'es'
+    ],
+```
+
+5. Open your blade page where you want the language lists to appear and display it as follows:
+
+```php
+// Blade template
+
+@foreach (config('app.available_locales') as $locale)
+<a class="nav-link"
+    href="locale/{{$locale}}"
+    @if (app()->getLocale() == $locale) style="font-weight: bold; text-decoration: underline" @endif>
+    {{ strtoupper($locale) }}
+</a>
+ @endforeach
+```
+
+6. create your translation folders and files for each page. If you have three languages, then create three folder for them and inside each folder create a page you need to translate and write the translation code e.g
+
+**resources/lang/fr/login.php**
+
+```php
+<?php
+return [
+        "Sign In" => "Se connecter",
+        "E-Mail Address" => "E-mail",
+        "Password"  => "Mot de passe",
+        "Remember Me"  => "Se souvenir de moi",
+        "I forgot my password"  => "J'ai oublié mon mot de passe",
+        "Sign in to start your session"  => "Connectez-vous pour démarrer votre session",
+        "Register a new guest"  => "Enregistrer un nouvel invité"
+];
+```
+
+7. To display the translated content in your blade, do as follows
+
+```php
+//NOTE: login is the name of the page we created i.e **resources/lang/fr/login.php** file that we are translating and Sign In is the key we used to save our translated text
+{{ __('login.Sign In') }}
+```

@@ -27,6 +27,7 @@
 
 <body>
     <div class="container">
+        <input type="hidden" id="hidden-route" name="hidden-route" value="{{ Route::currentRouteName() }}" />
         <ul id="gn-menu" class="gn-menu-main">
             <li class="gn-trigger">
                 <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
@@ -81,6 +82,19 @@
                 <a class="codrops-icon" href="{{url('/register')}}">
                     <span>Register</span>
                 </a>
+                 <!-- <select class="form-control Langchange">
+                  @foreach (config('app.available_locales') as $locale)
+                    <option value="{{ strtoupper($locale) }}" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
+                  @endforeach
+                </select> -->
+                
+                @foreach (config('app.available_locales') as $locale)
+                <a class="nav-link"
+                    href="locale/{{$locale}}"
+                    @if (app()->getLocale() == $locale) style="font-weight: bold; text-decoration: underline" @endif>{{ strtoupper($locale) }}
+                </a>
+                @endforeach
+       
             </li>
         </ul>
         <header>
@@ -101,6 +115,13 @@
 
     <script>
         $(document).ready(() => {
+            //language starts here
+            //  var url =  $('#hidden-route').val();
+            //     $(".Langchange").change(function(){
+            //         window.location.href = url + "?lang="+ $(this).val();
+            //     });  
+            //language ends here
+
             $('#slideshow .slick').slick({
                 dots: true,
                 speed: 500,

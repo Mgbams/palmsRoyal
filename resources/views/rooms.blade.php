@@ -6,6 +6,7 @@
 <!-- pages stack -->
 <div class="pages-stack">
     <!-- page -->
+    
     <div class="page about-hotel" id="page-home">
         <div id="about-top-image">
             <img src="https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg" style="height: 100%; width: 100%;" />
@@ -120,7 +121,6 @@
 
 <script>
     $(document).ready(() => {
-
         // Second-carousel slide settings
         $('.second-carousel').slick({
             infinite: true,

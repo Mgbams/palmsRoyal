@@ -22,7 +22,7 @@ Route::get('navigation', function () {
 //return view(about-hotel)
 Route::get('about', 'AboutHotelController@show')->name('about');
 //return view(rooms)
-Route::get('show-rooms', 'RoomController@show')->name('rooms');
+Route::get('show-rooms', 'RoomController@show')->name('show-rooms');
 //return view(eat-and-drink/restaurant-morning)
 Route::get('/eat-and-drink-morning', 'EatAndDrinkMorningController@show')->name('eat-drink-morning');
 //return view(eat-and-drink/restaurant-morning)
@@ -175,3 +175,6 @@ Route::post('cancel-by-password', 'ModifyOrCancelReservationController@cancelByP
 
 // Submit reservation modifications
 Route::get('reservation-modification', 'ModifyOrCancelReservationController@updateReservation')->name('reservation.update');
+
+// Language change
+Route::get('locale/{locale}', 'LocalizationController@index');

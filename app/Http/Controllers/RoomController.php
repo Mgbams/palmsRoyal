@@ -16,7 +16,7 @@ class RoomController extends Controller
     }
 
     //
-    public function show()
+    public function show(Request $request)
     {
         $room_links = array(); //Declare an array to hold room names that are appended with hyphens
         $rooms = $this->roomRepository->getAllRooms(); // Get all the rooms
