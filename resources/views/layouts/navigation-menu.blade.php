@@ -60,10 +60,24 @@
             <li><a class="codrops-icon" href="{{url('/admin/dashboard')}}"><span>DashBoard</span></a></li>
             @endif
             @endif
+
+            @if(Auth::check())
+            <li  class="float-right">
+                <a href="#" class="codrops-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Sign out
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </li>
+             @endif
+
             <li class="d-flex" style="padding-right: 10px;">
+                @if(!Auth::check())
                 <a class="codrops-icon" href="{{url('/login')}}">
                     <span>Login</span>
                 </a>
+                @endif
                 <a class="codrops-icon" href="{{url('/register')}}">
                     <span>Register</span>
                 </a>

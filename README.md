@@ -1290,3 +1290,18 @@ From the above, we are adding two middlewares to the edit hotel route
 
 You can visit the below site for more information
 [dates in jquery](https://stackoverflow.com/questions/33204168/jquery-new-date-convert-to-yyyy-mm-dd-and-use-tolocaledatestring)
+
+## Adding signout button when user is signed in
+
+```php
+@if(Auth::check())
+    <li  class="float-right">
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Sign out
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+    </li>
+ @endif
+```
