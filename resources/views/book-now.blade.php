@@ -162,7 +162,11 @@
                 <!--Availability calendar-->
                 <div class="availability-calendar parallax-inner-two" style="background-color: rgba(0, 0, 0, .5); width: 90%; min-height: 100vh; margin: 0px auto; text-align: center;">
                     <div id="calendar"></div>
-                    <div style="margin-top: 40px;"><a href="{{url('cancel-reservation')}}" class="cancel-reservation-link" style="color: white; background-color: grey;  padding: 20px;">Modify or Cancel Reservation</a></div>
+
+                    <div class=" cancel-reservation-link row" style="margin-top: 60px">
+                        <a class="btn" href="{{url('cancel-reservation')}}"><span>Modify or Cancel Reservation</span><em></em></a>
+                    </div>
+                    <!-- <div style="margin-top: 40px;"><a href="{{url('cancel-reservation')}}" class="cancel-reservation-link" style="color: white; background-color: grey;  padding: 20px;">Modify or Cancel Reservation</a></div> -->
                 </div>
 
                 <!--Cancel Reservation-->
