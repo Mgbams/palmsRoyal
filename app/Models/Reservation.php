@@ -12,7 +12,7 @@ class Reservation extends Model
      * @var array
      */
     protected $fillable = [
-        'guest_count', 'check_in', 'check_out', 'user_id', 
+        'guest_count', 'check_in', 'check_out', 'reservation_number', 'user_id', 
         'balance_amount', 'status', 'paid_amount', 'discount_percent', 
         'room_name', 'cancelled_at', 'number_of_days_booked',
     ];

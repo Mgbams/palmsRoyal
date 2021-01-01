@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 31 déc. 2020 à 02:14
+-- Généré le : ven. 01 jan. 2021 à 04:29
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.2.32
 
@@ -414,7 +414,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2020_12_08_235752_create_role_user_table', 17),
 (20, '2020_12_12_145616_create_facilities_table', 18),
 (21, '2020_12_18_235349_add_role_id_to_users', 19),
-(22, '2020_12_19_000416_add_role_id_to_users', 20);
+(22, '2020_12_19_000416_add_role_id_to_users', 20),
+(23, '2020_12_31_234202_add_reservation_number_to_reservations_table', 21);
 
 -- --------------------------------------------------------
 
@@ -529,6 +530,7 @@ CREATE TABLE `reservations` (
   `guest_count` int(11) NOT NULL,
   `check_in` date NOT NULL,
   `check_out` date NOT NULL,
+  `reservation_number` int(10) UNSIGNED DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `balance_amount` decimal(10,2) NOT NULL,
   `status` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -938,7 +940,7 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT pour la table `payments`
@@ -962,7 +964,7 @@ ALTER TABLE `photos`
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `reviews`
@@ -1004,7 +1006,7 @@ ALTER TABLE `send_email_on_reservations`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Contraintes pour les tables déchargées
