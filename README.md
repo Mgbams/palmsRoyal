@@ -1475,6 +1475,6 @@ return [
 7. To display the translated content in your blade, do as follows
 
 ```php
-//NOTE: login is the name of the page we created i.e **resources/lang/fr/login.php** file that we are translating and Sign In is the key we used to save our translated text
+//NOTE: login is the name of the page we created i.e **resources/lang/fr/login.php** file that we are translating and Sign In is the key we used to save our translated text. We use **two** underscore I.e __
 {{ __('login.Sign In') }}
 ```
