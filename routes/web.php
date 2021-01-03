@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,12 +11,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('palms-royal-homepage', 'RoyalPalmsHomePageController@show')->name('palms-royal-homepage');
+/* Route::get('palms-royal-homepage', 'RoyalPalmsHomePageController@show')->name('palms-royal-homepage'); */
 Route::get('/', 'RoyalPalmsHomePageController@show')->name('palms-royal-homepage');
-Route::get('navigation', function () {
+/* Route::get('navigation', function () {
     return view('main-navigation');
-});
+}); */
 
 //return view(about-hotel)
 Route::get('about', 'AboutHotelController@show')->name('about');
@@ -52,10 +50,10 @@ Route::get('available-rooms/{days}/{checkin}/{checkout}', 'AvailableRoomsControl
 
 Route::get('navigation-menu', 'RoyalPalmsHomePageController@index')->name('navigation-menu');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 /***Login Route ***/
-Route::post('login', 'Auth\LoginController@login');
+Route::post('login/{locale}', 'Auth\LoginController@login');
 
 /***Register Route ***/
 Route::post('register', 'Auth\RegisterController@register');
@@ -63,7 +61,7 @@ Route::post('register', 'Auth\RegisterController@register');
 /***Logout Route ***/
 //Route::post('logout', 'Auth\LogoutController@logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 //PDF download
 Route::get('/palms-royal-hotel/menu-restaurant/{menu}', 'EatAndDrinkMorningController@createPDF');
@@ -177,4 +175,4 @@ Route::post('cancel-by-password', 'ModifyOrCancelReservationController@cancelByP
 Route::get('reservation-modification', 'ModifyOrCancelReservationController@updateReservation')->name('reservation.update');
 
 // Language change
-Route::get('locale/{locale}', 'LocalizationController@index');
+Route::get('locale/{locale}', 'LocalizationController@languageChange');

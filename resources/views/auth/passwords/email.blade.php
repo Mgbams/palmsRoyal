@@ -57,10 +57,10 @@
             </form>
 
             <p class="mt-3 mb-1">
-                <a href="{{ route("login") }}">Login</a>
+                <a href="{{ route('login', app()->getlocale()) }}">Login</a>
             </p>
             <p class="mb-0">
-                <a href="{{ route("register") }}" class="text-center">Register a new membership</a>
+                <a href="{{ route('register', app()->getlocale()) }}" class="text-center">Register a new membership</a>
             </p>
         </div>
         <!-- /.login-card-body -->

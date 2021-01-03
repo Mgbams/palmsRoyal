@@ -52,7 +52,7 @@
             </form>
 
             <p class="mt-3 mb-1">
-                <a href="{{ route('password.request') }}">Forgot Your Password?</a>
+                <a href="{{ route('password.request', app()->getlocale()) }}">Forgot Your Password?</a>
             </p>
         </div>
         <!-- /.login-card-body -->

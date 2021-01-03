@@ -33,12 +33,12 @@
                 <!-- Authentication Links -->
                 @guest
                 <li>
-                    <a class="nav-link" href="{{ route('login') }}">
+                    <a class="nav-link" href="{{ route('login', app()->getlocale()) }}">
                         {{ __('Login') }}
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="{{ route('register') }}">
+                    <a class="nav-link" href="{{ route('register', app()->getlocale()) }}">
                         {{ __('Register') }}
                     </a>
                 </li>

@@ -3,9 +3,9 @@
 @section('title', 'Eat and Drink Morning restaurant')
 
 @section('content')
-    <div class="pages-stack neighbourhood-container">
+    <div class="pages-stack neighbourhood-container" style="margin-top: 60px !important;">
         <!-- page -->
-        <div class="page about-hotel" id="page-home">
+        <div class="page about-hotel" id="page-home"  style="overflow: hidden !important;">
             <div style="position: relative; top: 20vh;">
                 <h1 style="margin-left: 35px; font-size: 4vw; margin-bottom: 30px; letter-spacing: 1.3px; color: black;">Quartier</h1>
                 <nav>

@@ -9,6 +9,10 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+// USED FOR sending email
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeMail;
+
 class RegisterController extends Controller
 {
     /*
@@ -64,10 +68,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+         /* 
+            ============================
+            SEND EMAIL ON REGISTRATION
+            ============================
+        */
+
+        $userData = ([
+            "name" =>  $data['name'],
+            "email" =>  $data['email'],
+            "message" => "Click on the link to activate your account"
+        ]);
+        
+        $email = $data['email']; // Mail address to receive the email
+        Mail::to($email)->send(new WelcomeMail($userData));
+        //flash("You have been registered succesfully!", "success")->important();
+
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
     }
 }

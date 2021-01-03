@@ -28,6 +28,7 @@
 <body>
     <div class="container">
         <input type="hidden" id="hidden-route" name="hidden-route" value="{{ Route::currentRouteName() }}" />
+        <input type="hidden" id="hidden-language" name="hidden-language" value="{{ app()->getlocale() }}" />
         <ul id="gn-menu" class="gn-menu-main">
             <li class="gn-trigger">
                 <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
@@ -89,7 +90,7 @@
                 </select> -->
                 
                 @foreach (config('app.available_locales') as $locale)
-                <a class="nav-link"
+                <a class="nav-link lang-change"
                     href="locale/{{$locale}}"
                     @if (app()->getLocale() == $locale) style="font-weight: bold; text-decoration: underline" @endif>{{ strtoupper($locale) }}
                 </a>
@@ -114,14 +115,13 @@
     </script>
 
     <script>
+        
         $(document).ready(() => {
             //language starts here
-            //  var url =  $('#hidden-route').val();
-            //     $(".Langchange").change(function(){
-            //         window.location.href = url + "?lang="+ $(this).val();
-            //     });  
+              /* var url =  $('#hidden-route').val();
+              var language =  $('#hidden-language').val();
+              window.location.href = url + "?lang="+ language;  */
             //language ends here
-
             $('#slideshow .slick').slick({
                 dots: true,
                 speed: 500,

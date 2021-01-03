@@ -18,6 +18,7 @@ class Language
         if(\Session::has('locale')) {
             \App::setLocale(\Session::get('locale'));
         }
+       //\App::setLocale($request->locale);
         return $next($request);
     }
 }

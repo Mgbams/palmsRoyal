@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Traits\SendEmailTrait;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -39,6 +40,10 @@ class PaypalPaymentController extends Controller
    private $roomRepository;
    private $userRepository;
    private $roleRepository;
+
+    //This adds all the functions functions in the trait into this class. 
+    //You can use $this->functionName to access the function
+    use SendEmailTrait; 
 
     public function __construct(RoomRepository $roomRepository, UserRepository $userRepository, RoleRepository $roleRepository)
     {

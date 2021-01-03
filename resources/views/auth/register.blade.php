@@ -102,7 +102,7 @@
                 </div>
             </form>
 
-            <a href="{{ route('login') }}" class="text-center">{{__('register.I already have an account') }}</a>
+            <a href="{{ route('login', app()->getlocale()) }}" class="text-center">{{__('register.I already have an account') }}</a>
         </div>
         <!-- /.form-box -->
     </div><!-- /.card -->

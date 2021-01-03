@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+ */
 // Route::post('create-payment', 'PaypalPaymentController@createPayment')->name('createPayment');
 // Route::post('execute-paypal', 'PaypalPaymentController@execute-paypal')->name('execute-paypal');
 

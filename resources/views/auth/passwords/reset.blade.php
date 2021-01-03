@@ -25,7 +25,7 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">You are only one step a way from your new password, recover your password now.</p>
 
-            <form action="{{ route('password.update') }}" method="POST">
+            <form action="{{ route('password.update', app()->getlocale()) }}" method="POST">
                 @csrf
 
                 <input type="hidden" name="token" value="{{ $token }}">
@@ -78,7 +78,7 @@
             </form>
 
             <p class="mt-3 mb-1">
-                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('login', app()->getlocale()) }}">Login</a>
             </p>
         </div>
         <!-- /.login-card-body -->

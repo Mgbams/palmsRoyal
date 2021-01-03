@@ -15,8 +15,8 @@ class RoyalPalmsHomePageController extends Controller
 
     public function show(Request $request)
     {
-        App::setLocale($request->lang);
-        session()->put('locale', $request->lang);
+       /*  App::setLocale($request->lang);
+        session()->put('locale', $request->lang); */
 
         return view('welcome');
     }

@@ -27,7 +27,7 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">{{ __('login.Sign in to start your session') }}</p>
 
-            <form method="post" action="{{ url('/login') }}">
+            <form method="post" action="{{ url('/login', app()->getlocale()) }}">
                 @csrf
 
                 <div class="input-group mb-3">
@@ -79,7 +79,7 @@
                 <a href="{{ route('password.request', app()->getLocale()) }}"> {{ __('login.I forgot my password') }}</a>
             </p>
             <p class="mb-0">
-                <a href="{{ route('register') }}" class="text-center"> {{ __('login.Register a new guest') }}</a>
+                <a href="{{ route('register', app()->getlocale()) }}" class="text-center"> {{ __('login.Register a new guest') }}</a>
             </p>
         </div>
         <!-- /.login-card-body -->

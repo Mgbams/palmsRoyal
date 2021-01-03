@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
 
+
 class UserController extends Controller
 {
     /*** Display a listing of the resource.** 
@@ -35,10 +36,8 @@ class UserController extends Controller
      * */
     public function store(Request $request)
     {
-        $this->validate(
-            $request,
-            [
-                'name' => 'required',
+        $request->validate([
+                'name' => ['required', 'string', 'max:100'],
                 'email' => 'required|email|unique:users,email',
                 'password' => 'required|same:confirm-password',
                 'roles' => 'required'
@@ -49,6 +48,7 @@ class UserController extends Controller
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
+
         return redirect()->route('users.index')->with('success', 'User created successfully');
     }
 
