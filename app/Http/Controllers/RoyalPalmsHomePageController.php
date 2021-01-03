@@ -21,10 +21,4 @@ class RoyalPalmsHomePageController extends Controller
         return view('welcome');
     }
 
-    //Navigation menu TODO
-    /* public function index()
-    {
-        return view('layouts.app');
-    } */
-
 }

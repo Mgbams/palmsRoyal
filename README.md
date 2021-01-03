@@ -1478,3 +1478,39 @@ return [
 //NOTE: login is the name of the page we created i.e **resources/lang/fr/login.php** file that we are translating and Sign In is the key we used to save our translated text. We use **two** underscore I.e __
 {{ __('login.Sign In') }}
 ```
+
+## Resetting the app
+
+```bash
+php artisan config:cache
+php artisan view:clear;
+php artisan config:cache;
+php artisan cache:clear;
+php artisan route:cache;
+```
+
+## BASIC EMAIL SETUP
+
+Create a mailtrap account from
+[Mailtrap](https://mailtrap.io)
+
+```env
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=your_username
+MAIL_PASSWORD=your_password
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=example@gmail.com **here**
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+## Accessing config file contents
+
+e.g
+
+```config
+\Config::get('mail.from.address')
+```
+
+**NOTE:** From the above, mail is the name of the folder in config file, from is an array inside mail folder and address is the key that holds the information we neeed

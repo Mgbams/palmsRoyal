@@ -29,16 +29,15 @@ class WelcomeMail extends Mailable
      */
     public function build()
     {   
-        $address = 'palmsroyal@example.com';
+        $address = \Config::get('mail.from.address');
         $subject = 'Welcome to PalmsRoyal Hotel';
-        $name = 'Kingsley Mgbams';
-        $myaddress = "mgbamsstephen@gmail.com";
+        $name = \Config::get('mail.from.name');
+        //$myaddress = "mgbamsstephen@gmail.com";
         
         return $this->view('emails.welcome')
                     ->from($address, $name)
-                    ->cc($myaddress , $name)
-                    ->bcc($myaddress , $name)
-                    ->replyTo($myaddress , $name)
+                    ->bcc($address , $name)
+                    ->replyTo($address , $name)
                     ->subject($subject)
                     ->with([ 'message' => $this->data['message'] ]);
     }
