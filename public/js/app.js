@@ -61569,6 +61569,17 @@ Dropzone.autoDiscover = false;
 
 /***/ }),
 
+/***/ "./resources/sass/invoice.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/invoice.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/normalize.scss":
 /*!***************************************!*\
   !*** ./resources/sass/normalize.scss ***!
@@ -61625,9 +61636,9 @@ Dropzone.autoDiscover = false;
 /***/ }),
 
 /***/ 0:
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/style1.scss ./resources/sass/style2.scss ./resources/sass/normalize.scss ./resources/sass/header-effects-component.scss ./resources/sass/pdf.scss ./resources/sass/paypal.scss ./resources/sass/daterangepicker.scss ./resources/sass/availability-calendar.scss ./resources/sass/header-effects-normalize.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/style1.scss ./resources/sass/style2.scss ./resources/sass/normalize.scss ./resources/sass/header-effects-component.scss ./resources/sass/pdf.scss ./resources/sass/paypal.scss ./resources/sass/daterangepicker.scss ./resources/sass/availability-calendar.scss ./resources/sass/header-effects-normalize.scss ./resources/sass/invoice.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -61641,7 +61652,8 @@ __webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\p
 __webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\paypal.scss */"./resources/sass/paypal.scss");
 __webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\daterangepicker.scss */"./resources/sass/daterangepicker.scss");
 __webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\availability-calendar.scss */"./resources/sass/availability-calendar.scss");
-module.exports = __webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\header-effects-normalize.scss */"./resources/sass/header-effects-normalize.scss");
+__webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\header-effects-normalize.scss */"./resources/sass/header-effects-normalize.scss");
+module.exports = __webpack_require__(/*! C:\Users\Utilisateur\Desktop\palmsRoyal\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
 
 
 /***/ })

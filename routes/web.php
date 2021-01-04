@@ -1,6 +1,10 @@
 <?php
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+// ///////////////////////////////TEST ROUTES TODO
+Route::get('senddetails', 'TestController@index');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -176,3 +180,4 @@ Route::get('reservation-modification', 'ModifyOrCancelReservationController@upda
 
 // Language change
 Route::get('locale/{locale}', 'LocalizationController@languageChange');
+
