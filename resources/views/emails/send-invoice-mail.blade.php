@@ -56,7 +56,7 @@
         </div>
         <div class="row mt-2" style="width: 100%;">
             <table class="table able-borderless">
-                    <thead style="border: none !important;">
+                    <thead class="text-info" style="border: none !important; ">
                         <tr style="border: none !important;">
                         <th class="text-uppercase" scope="col" colspan="5">description</th>
                         <th class="text-uppercase" scope="col">price</th>
@@ -67,6 +67,9 @@
                     <tbody>
                         <tr >
                             <td colspan="5">
+                            <span class="badge bg-primary text-wrap" style="width: 2rem;">
+                                01
+                            </span>
                                 <span>title</span><br />
                                 <span>description</span>
                             </td>
@@ -92,15 +95,66 @@
                             <td colspan="5"></td>
                             <td></td>
                             <td class="bg-info text-white">
-                               <span><strong>subtotal</strong></span>
+                               <span><strong class="text-uppercase">total</strong></span>
                             </td>
                             <td class="bg-info text-white">
                                 <span><strong>&euro; 2, 313</strong></span>
                            </td>
                         </tr>
+                         <tr >
+                            <td colspan="5"></td>
+                            <td></td>
+                            <td class="bg-warning text-white">
+                               <span><strong class="text-uppercase">balance</strong></span>
+                            </td>
+                            <td class="bg-warning text-white">
+                                <span><strong>&euro; 0.0</strong></span>
+                           </td>
+                        </tr>
                     </tbody>
                 </table>
         </div>
+
+        <div class="row my-5" style="width: 100%;">
+            <div class="col-sm-6">
+                <h1>Thank You <br />for patronizing us.</h1>
+            </div>
+        </div>
+
+         <div class="col-sm-6 table-responsive" style="width: 100%;">
+                <table class="table able-borderless">
+                    <thead class="bg-info text-white" style="border: none !important;">
+                        <tr style="border: none !important;">
+                        <th class="text-uppercase" scope="col">payment</th>
+                        <th class="text-uppercase" scope="col">company info</th>
+                        <th class="text-uppercase" scope="col">address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr >
+                            <td>
+                                <span>
+                                    Balance is to be paid before checkout
+                                </span>
+                            </td>
+                            <td>
+                                <span>wwww.palmsroyal.netlify</span><br />
+                                <span>welcome@royalpalms.co.uk</span><br /><br />
+                                <span>Company no: 1234567</span><br />
+                                <span>VAT no: 1234567</span><br /><br />
+                                <small><a href="#">Terms: wwww.royalpalms.netlify/terms</a></small>
+                            </td>
+                            <td>
+                                <span  class="text-capitalize">Part Dieu</span><br />
+                                <span  class="text-capitalize">5 Rue vivier Merle</span><br />
+                                <span class="text-uppercase">lyon</span><br />
+                                <span class="text-uppercase">france</span><br />
+                                <span>69003</span><br />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
     </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
