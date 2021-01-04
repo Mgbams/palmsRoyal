@@ -2,3 +2,8 @@
 .table tbody tr td {
     border: none;
 }
+
+.card {
+    border-top-left-radius: none !important;
+    border-top-right-radius: none !important;
+}

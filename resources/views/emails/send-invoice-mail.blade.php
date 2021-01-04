@@ -10,7 +10,7 @@
 
     <!--Custom css for sendinvoice mail-->
      <link rel="stylesheet" type="text/css" href="{{url('css/invoice.css')}}" />
-    <title>Hello, world!</title>
+    <title>Invoice</title>
   </head>
   <body>
     <div class="container-sm pl-5 d-flex flex-column justify-content-center align-items-center">
