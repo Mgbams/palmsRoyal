@@ -10,8 +10,37 @@
 
     <!--Custom css for sendinvoice mail-->
      <link rel="stylesheet" type="text/css" href="{{url('css/invoice.css')}}" />
+     
      <!--Inline style-->
      <style>
+
+        /**** Fonts ****/
+        @import url("https://fonts.googleapis.com/css?family=Nunito");
+        @import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Lora:ital@1&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap");
+
+        @import url("https://fonts.googleapis.com/css?family=Oswald:300, 400, 700");
+        @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic");
+
+        h2, p, h3 {
+            color: black;
+        }
+
+        /*Fonts*/
+        h3, h2, h5, h6 {
+            font-family: "Lora", serif;
+        }
+
+        h1, h4 {
+            font-family: "Cinzel Decorative", cursive;
+        }
+
+        p, small, a {
+            font-family: "Gilda Display", serif;
+        }
+
         .card {
             border-top-left-radius: none !important;
             border-top-right-radius: none !important;
@@ -137,8 +166,8 @@
             align-items: center;
             margin-bottom: 10px;
         }
-
      </style>
+
     <title>Successful Registration</title>
   </head>
   <body>

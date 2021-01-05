@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 01 jan. 2021 à 04:46
+-- Généré le : mar. 05 jan. 2021 à 03:22
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.2.32
 
@@ -415,7 +415,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (20, '2020_12_12_145616_create_facilities_table', 18),
 (21, '2020_12_18_235349_add_role_id_to_users', 19),
 (22, '2020_12_19_000416_add_role_id_to_users', 20),
-(23, '2020_12_31_234202_add_reservation_number_to_reservations_table', 21);
+(23, '2020_12_31_234202_add_reservation_number_to_reservations_table', 21),
+(24, '2021_01_05_020947_add_vat_to_rooms_table', 22),
+(25, '2021_01_05_021458_add_discount_to_rooms_table', 23);
 
 -- --------------------------------------------------------
 
@@ -633,6 +635,8 @@ CREATE TABLE `rooms` (
   `available_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `auto_approve` tinyint(1) NOT NULL,
   `published` tinyint(1) NOT NULL,
+  `discount` decimal(8,2) DEFAULT 0.00,
+  `vat` decimal(8,2) DEFAULT 0.00,
   `is_available` tinyint(1) NOT NULL,
   `hotel_id` bigint(20) UNSIGNED NOT NULL,
   `photo_id` bigint(20) UNSIGNED DEFAULT NULL
@@ -642,9 +646,9 @@ CREATE TABLE `rooms` (
 -- Déchargement des données de la table `rooms`
 --
 
-INSERT INTO `rooms` (`id`, `price`, `name`, `description`, `available_date`, `auto_approve`, `published`, `is_available`, `hotel_id`, `photo_id`) VALUES
-(1, '120.00', 'king size four poster', 'Our king size four poster provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.', '2020-12-24 02:17:07', 0, 1, 1, 1, 1),
-(2, '300.00', 'queen size four poster', 'Our king size sleigh bedded also provides views over landscaped gardens. It has ample storage, a seating area, digital safe, minibar and luxurious duck down bedding.\r\n', '2020-12-07 23:45:35', 0, 1, 1, 1, 2);
+INSERT INTO `rooms` (`id`, `price`, `name`, `description`, `available_date`, `auto_approve`, `published`, `discount`, `vat`, `is_available`, `hotel_id`, `photo_id`) VALUES
+(1, '120.00', 'king size four poster', 'Our king size four poster provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.', '2021-01-05 02:20:34', 0, 1, '2.00', '1.30', 1, 1, 1),
+(2, '300.00', 'queen size four poster', 'Our king size sleigh bedded also provides views over landscaped gardens. It has ample storage, a seating area, digital safe, minibar and luxurious duck down bedding.\r\n', '2021-01-05 02:21:26', 0, 1, '6.50', '0.75', 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -739,7 +743,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `phone_number`, `username`, `password`, `address`, `city`, `country_id`, `zip`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`, `role_id`) VALUES
 (1, 'Kingsley', NULL, 'king@gmail.com', NULL, NULL, '$2y$10$v7HpmY5XNdEZTY4.Wvf.HuHfPjEWqrRgYBg0XU8vQYbAnrTluB1rm', NULL, NULL, NULL, NULL, NULL, NULL, '2020-11-19 17:03:02', '2020-11-19 17:03:02', 1),
-(2, 'Kingsley Mgbams', NULL, 'admin@admin.com', NULL, NULL, '$2y$10$mthNoc.EAdEoAZn.ndoYp.tZRODVggqN7v6SE4J/aUnom30Ceyecq', NULL, NULL, NULL, NULL, NULL, NULL, '2020-12-08 23:08:13', '2020-12-08 23:08:13', 3);
+(2, 'Kingsley Mgbams', NULL, 'admin@admin.com', NULL, NULL, '$2y$10$mthNoc.EAdEoAZn.ndoYp.tZRODVggqN7v6SE4J/aUnom30Ceyecq', NULL, NULL, NULL, NULL, NULL, NULL, '2020-12-08 23:08:13', '2020-12-08 23:08:13', 3),
+(40, 'Kingsley', NULL, 'mgbamsstephen@gmail.com', NULL, NULL, '$2y$10$KTN8YPsEAekewmS2TaTpEeHlJxcBOtN14Z6PGI2OHJ6RlL2lNhgnu', NULL, NULL, NULL, NULL, NULL, NULL, '2021-01-04 22:53:43', '2021-01-04 22:53:43', 2);
 
 --
 -- Index pour les tables déchargées
@@ -940,7 +945,7 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT pour la table `payments`
@@ -1006,7 +1011,7 @@ ALTER TABLE `send_email_on_reservations`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- Contraintes pour les tables déchargées

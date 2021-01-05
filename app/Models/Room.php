@@ -12,7 +12,7 @@ class Room extends Model
      * @var array
      */
     protected $fillable = [
-        'price', 'name', 'description', 'available_date', 'auto_approve', 'published', 'is_available', 'hotel_id',
+        'price', 'name', 'description', 'available_date', 'auto_approve', 'published', 'vat', 'discount', 'is_available', 'hotel_id',
     ];
 
     public function hotel() {

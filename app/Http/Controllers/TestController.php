@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class TestController extends Controller
 {
      public function index() {
-        return view('emails.welcome');
+        return view('emails.send-invoice-mail');
     }
 }

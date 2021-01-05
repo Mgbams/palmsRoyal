@@ -29,5 +29,4 @@ mix.js("resources/js/app.js", "public/js")
     .sass("resources/sass/paypal.scss", "public/css")
     .sass("resources/sass/daterangepicker.scss", "public/css")
     .sass("resources/sass/availability-calendar.scss", "public/css")
-    .sass("resources/sass/header-effects-normalize.scss", "public/css")
-    .sass("resources/sass/invoice.scss", "public/css");
+    .sass("resources/sass/header-effects-normalize.scss", "public/css");
