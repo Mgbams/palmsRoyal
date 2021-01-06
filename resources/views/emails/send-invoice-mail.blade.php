@@ -229,7 +229,7 @@
                                 <span><strong>{{ $data['room_discount'] }}% discount</strong></span> 
                             </td>
                             <td>
-                                <span><strong>&euro; {{ $data['amount'] }}</strong></span><br />
+                                <span><strong>&euro; {{ $data['actualRoomPrice'] }}</strong></span><br />
                                 <span><strong>+&nbsp;&euro; {{ $data['vatAmount'] }}</strong></span><br />
                                 <span><strong>-&nbsp;&euro; {{ $data['discountAmount'] }}</strong></span> 
                            </td>
