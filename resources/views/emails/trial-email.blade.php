@@ -8,9 +8,6 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <!--Custom css for sendinvoice mail-->
-     <link rel="stylesheet" type="text/css" href="{{url('css/invoice.css')}}" />
-
      <!-- Inline style -->
      <style>
         /***Fonts *****/ 
@@ -57,30 +54,30 @@
         }
         .invoice-container {
             padding-left: 20px;
-            width: 100% !important;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center; 
         }
         .invoice-container .first-div {
-            width: 80% !important;
+            width: 80%;
             display: flex; 
             justify-content: space-between;
             align-items: center; 
         }
         .first-div-inner-container {
-            width: 40% !important;
+            width: 40%;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
             align-items: center; 
         }
         .invoice {
-            width: 20% !important;
+            width: 20%;
         }
         #invoice-container {
-            width: 100% !important;
+            width: 100%;
             display: flex;
             flex-wrap: wrap;
             flex-direction: row  !important;
@@ -88,19 +85,21 @@
             margin-top: 20px;
         }
         .left-invoice {
-            width: 30% !important;
+            width: 30%;
             margin-bottom: 20px;
         }
         .right-invoice {
-            width: 60% !important;
+            width: 60%;
             background-color: #0dcaf0;
             color: white;
         }
-        .right-invoice thead th:not(:last-child) {
-           margin-right: 80px;
+        .right-invoice thead tr {
+            display: flex;
+            justify-content: space-between;
         }
-         .right-invoice tbody td:not(:last-child) {
-             margin-right: 90px;
+         .right-invoice tbody tr {
+            display: flex;
+            justify-content: space-between;
         }
         .text-uppercase {
             text-transform: uppercase;
@@ -115,19 +114,12 @@
             font-weight: bold;
         }
         .second-table {
-            width: 100% !important;
+            width: 100%;
             margin-top: 20px;
-        } 
-        .second-table table {
-            width: 100% !important;
-        }
-        .second-table tbody {
-            width: 100% !important;
         }
         .second-table-heading {
             border: none !important;
             color: #0dcaf0;
-            width: 100%;
         }
         .white-color {
             color: white;
@@ -138,14 +130,14 @@
              background-color: #F3D849 !important;
         }
         .last-table {
-            width: 100% !important;
+            width: 100%;
         }
         .last-table thead {
             color: white;
             background-color: #0dcaf0 !important;
         }
         .patronize {
-            width: 100% !important;
+            width: 100%;
             margin: 20px 0px;
         }
         .patronize-div {
@@ -172,25 +164,25 @@
         <div class="invoice-container" id="invoice-container">
             <div class="left-invoice">
                 <h6 class="text-uppercase invoice-to">invoice to</h6>
-                <span class="text-capitalize">{{ $data['name'] }} &nbsp; {{ $data['lastName'] }}</span><br /><br />
-                <span class="text-capitalize">{{ $data['address'] }} </span><br /><br />
-                <span class="text-capitalize">{{ $data['city'] }}</span><br /><br />
-                <span class="text-capitalize">{{ $data['country_name'] }}</span>
+                <span class="text-capitalize">Thomas &nbsp; Andrew</span><br /><br />
+                <span class="text-capitalize">4 Rue Albert Thomas </span><br /><br />
+                <span class="text-capitalize">Lyon</span><br /><br />
+                <span class="text-capitalize">France</span>
             </div>
             <div class="right-invoice">
                 <table class="table borderless-table">
                     <thead>
                         <tr>
-                            <th class="text-uppercase" scope="col">Date</th>
-                            <th class="text-uppercase" scope="col">invoice no</th>
-                            <th class="text-uppercase" scope="col">total due</th>
+                        <th class="text-uppercase" scope="col">Date</th>
+                        <th class="text-uppercase" scope="col">invoice no</th>
+                        <th class="text-uppercase" scope="col">total due</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr >
                             <td>12/10/2015</td>
-                            <td>{{ $data['reservationNumber'] }} </td>
-                            <td>&euro; {{ $data['amount'] }}</td>
+                            <td>567843290 </td>
+                            <td>&euro; 500</td>
                         </tr>
                     </tbody>
                 </table>
@@ -213,25 +205,25 @@
                             <span class="badge bg-primary text-wrap" style="width: 2rem;">
                                 01
                             </span>
-                                <span> {{ $data['roomName'] }}</span><br />
+                                <span> Four Square room</span><br />
                                 <span>description</span>
                             </td>
-                            <td>&euro; {{ $data['actualRoomPrice'] }}</td>
+                            <td>&euro; 5</td>
                             <td>1</td>
-                            <td>&euro; {{ $data['amount'] }}</td>
+                            <td>&euro; 8</td>
                         </tr>
                          <tr >
                             <td colspan="5"></td>
                             <td></td>
                             <td>
                                <span><strong>subtotal</strong></span><br />
-                                <span><strong>{{ $data['room_vat'] }}% VAT</strong></span><br />
-                                <span><strong>{{ $data['room_discount'] }}% discount</strong></span> 
+                                <span><strong>2% VAT</strong></span><br />
+                                <span><strong>3% discount</strong></span> 
                             </td>
                             <td>
-                                <span><strong>&euro; {{ $data['amount'] }}</strong></span><br />
-                                <span><strong>+&nbsp;&euro; {{ $data['vatAmount'] }}</strong></span><br />
-                                <span><strong>-&nbsp;&euro; {{ $data['discountAmount'] }}</strong></span> 
+                                <span><strong>&euro; 33</strong></span><br />
+                                <span><strong>+&nbsp;&euro; 34</strong></span><br />
+                                <span><strong>-&nbsp;&euro; 200</strong></span> 
                            </td>
                         </tr>
                          <tr >
@@ -241,7 +233,7 @@
                                <span><strong class="text-uppercase">total</strong></span>
                             </td>
                             <td class="white-color">
-                                <span><strong>&euro; {{ $data['amount'] }}</strong></span>
+                                <span><strong>&euro; 456</strong></span>
                            </td>
                         </tr>
                          <tr >
@@ -288,8 +280,8 @@
                                 <small><a href="#">Terms: wwww.royalpalms.netlify/terms</a></small>
                             </td>
                             <td>
-                                <span  class="text-capitalize">{{ $data['hotelName'] }}</span><br />
-                                <span  class="text-capitalize">{{ $data['hotelLocation'] }}</span><br />
+                                <span  class="text-capitalize">RoyalPalms</span><br />
+                                <span  class="text-capitalize">4 Rue Auguste chollat</span><br />
                                 <span class="text-uppercase">lyon</span><br />
                                 <span class="text-uppercase">france</span><br />
                                 <span>69003</span><br />

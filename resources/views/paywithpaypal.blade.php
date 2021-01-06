@@ -25,7 +25,7 @@
                                  @if(Session::has('numberOfDaysBooked'))
                                  <div style="display: flex; justify-content: space-between;">
                                     <div>
-                                        <p><strong>No Of Days Booked:&nbsp;</strong>
+                                        <p><strong>No Of Days Booked&nbsp;:</strong>
                                     </div>
                                     <div>
                                         <p>{{ Session::get('numberOfDaysBooked') }}</p></p>
@@ -38,7 +38,7 @@
                                  @if(Session::has('checkInDate'))
                                  <div style="display: flex; justify-content: space-between;">
                                     <div>
-                                        <p><strong>CheckIN Date:&nbsp;</strong>
+                                        <p><strong>CheckIN Date&nbsp;:</strong>
                                     </div>
                                     <div>
                                         <p>{{ Session::get('checkInDate') }}</p>
@@ -51,7 +51,7 @@
                                  @if(Session::has('checkOutDate'))
                                  <div style="display: flex; justify-content: space-between;">
                                     <div>
-                                        <p><strong>CheckOut Date:&nbsp;</strong>
+                                        <p><strong>CheckOut Date&nbsp;:</strong>
                                     </div>
                                     <div>
                                         <p>{{ Session::get('checkOutDate') }}</p>
@@ -62,10 +62,28 @@
 
                                 <div style="display: flex; justify-content: space-between;">
                                     <div>
-                                        <p><strong>Room Price:&nbsp;</strong>
+                                        <p><strong>Room Price&nbsp;:</strong>
                                     </div>
                                     <div>
                                         <p>&euro;&nbsp;{{ $totalAmountToPay }}</p>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; justify-content: space-between;">
+                                    <div>
+                                        <p><strong>VAT&nbsp;:</strong>
+                                    </div>
+                                    <div>
+                                        <p>&euro;&nbsp; {{ $roomById->vat}}%</p>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; justify-content: space-between;">
+                                    <div>
+                                        <p><strong>Discount&nbsp;:</strong>
+                                    </div>
+                                    <div>
+                                        <p>{{ $roomById->discount}}%</p>
                                     </div>
                                 </div>
                             </div>
@@ -196,8 +214,10 @@
                                     <input id="checkOutDate" type="hidden" class="form-control" name="checkOutDate" value="{{ Session::get('checkOutDate') }}">
                                     <input id="numberOfDaysBooked" type="hidden" class="form-control" name="numberOfDaysBooked" value="{{ Session::get('numberOfDaysBooked') }}">
                                     <input id="checkInDate" type="hidden" class="form-control" name="checkInDate" value="{{ Session::get('checkInDate') }}">
+                                     <input id="vat" type="hidden" class="form-control" name="vat" value="{{ $roomById->vat }}">
+                                    <input id="discount" type="hidden" class="form-control" name="discount" value="{{ $roomById->discount }}">
                                 </div>
-                                            
+             
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
                                         <button type="submit" class="btn btn-primary">

@@ -42,21 +42,16 @@
                             <li>
                                 <a href="{{url('/about')}}" class="gn-icon gn-icon-download">About</a>
                             </li>
-                            <li><a class="gn-icon gn-icon-cog">Settings</a></li>
-                            <li><a class="gn-icon gn-icon-help">Help</a></li>
                             <li>
                                 <a href="{{url('/show-rooms')}}" class="gn-icon gn-icon-archive">Rooms</a>
-                                <!--<ul class="gn-submenu">
-                                    <li><a class="gn-icon gn-icon-article">Articles</a></li>
-                                    <li><a class="gn-icon gn-icon-pictures">Images</a></li>
-                                    <li><a class="gn-icon gn-icon-videos">Videos</a></li>
-                                </ul>-->
                             </li>
+                            <li><a class="gn-icon gn-icon-cog">Settings</a></li>
+                            <li><a class="gn-icon gn-icon-help">Help</a></li>
                         </ul>
                     </div>
                 </nav>
             </li>
-            <li><a href="{{url('/palms-royal-homepage')}}">palmsRoyal</a></li>
+            <li><a href="{{url('/')}}">palmsRoyal</a></li>
             @if(Auth::check())
             @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 3 || Auth::user()->role_id == 5)
             <li><a class="codrops-icon" href="{{url('/admin/dashboard')}}"><span>DashBoard</span></a></li>

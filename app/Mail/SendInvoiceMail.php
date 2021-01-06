@@ -30,17 +30,16 @@ class SendInvoiceMail extends Mailable
      */
     public function build()
     {
-          $address = \Config::get('mail.from.address');
-        $subject = 'Welcome to PalmsRoyal Hotel';
+        $address = \Config::get('mail.from.address');
+        $subject = 'Your palmsRoyal Invoice';
         $name = \Config::get('mail.from.name');
         //$myaddress = "mgbamsstephen@gmail.com";
         
-        return $this->view('emails.welcome')
+        return $this->view('emails.send-invoice-mail')
                     ->from($address, $name)
                     ->bcc($address , $name)
                     ->replyTo($address , $name)
                     ->subject($subject)
-                    ->with([ 'message' => $this->data['message'] ]);
-        return $this->view('emails.send-invoice-mail');
+                    ->with([ 'data' => $this->data]);
     }
 }

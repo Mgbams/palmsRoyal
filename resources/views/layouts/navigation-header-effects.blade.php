@@ -29,10 +29,8 @@
 				<div class="ha-header-front">
 					<h1><span>palmsRoyal</span></h1>
 					<nav>
-						<a href="{{url('/show-rooms')}}">&lsaquo; page précédente</a>
-						<!-- <a>Something</a>
-						<a>Anything</a> -->
-						<a href="http://tympanus.net/codrops/?p=15935">Back to the article</a>
+						<a href="{{ route('show-rooms') }}">&lsaquo; page précédente</a>
+						<a href="#">Back to the article</a>
 					</nav>
 				</div>
 				<div class="ha-header-bottom">

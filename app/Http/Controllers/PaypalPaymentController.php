@@ -33,6 +33,11 @@ use Auth;
 use App\Models\Country;
 use App\Models\Reservation;
 use App\User;
+use App\Models\Hotel;
+
+// USED FOR sending email
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendInvoiceMail;
 
 class PaypalPaymentController extends Controller
 {
@@ -70,8 +75,8 @@ class PaypalPaymentController extends Controller
         $numberOfDaysBooked     = Session::get('numberOfDaysBooked');
         
         //formatting the price
-        $roomPrice              =  $roomById->price;
-        $intPrice               = (int)$roomPrice;
+        $roomPrice              =  $roomById->price + (($roomById->vat) / 100) - (($roomById->discount) / 100);  ;
+        $intPrice               = floatval($roomPrice);
         $totalAmountToPay       = (int)$numberOfDaysBooked * $intPrice; //displayed on blade
     
         $countries = Country::select('id', 'nom_en_gb', 'nom_fr_fr')->get();
@@ -81,6 +86,17 @@ class PaypalPaymentController extends Controller
     public function postPaymentWithpaypal(Request $request)
     {
         //dd($request);
+        $vatPercent         =   $request->vat;
+        $discountPercent    =   $request->discount;
+        $vatAmount          =   ($vatPercent * $request->prix) / 100;
+        $discountAmount     =   ($discountPercent * $request->prix) / 100;
+        Session::put('actualRoomPrice', $request->prix);
+
+        Session::put('vat',  $vatPercent);
+        Session::put('discount',  $discountPercent );
+        Session::put('vatAmount', $vatAmount);
+        Session::put('discountAmount',  $discountAmount);
+        Session::put('room_name', $request->room_name);
 
         // Form validation
         if(!Auth::check()) { //If user is not an authenticated user
@@ -110,7 +126,7 @@ class PaypalPaymentController extends Controller
                 Session::put('checkOutDate', $request->checkOutDate);
                 Session::put('numberOfDaysBooked',   $request->numberOfDaysBooked);
                 Session::put('totalAmount',   $request->totalAmount);
-                Session::put('room_name', $request->room_name);
+               
             }else {
                 //Checkbox not checked
             }
@@ -125,7 +141,7 @@ class PaypalPaymentController extends Controller
         $item_1->setName($request->room_name)
             ->setCurrency('EUR')
             ->setQuantity($request->get('numberOfDaysBooked'))
-            ->setPrice($request->get('prix'));
+            ->setPrice($request->get('totalAmount'));
 
         $item_list = new ItemList();
         //$totalToPay = $request->get('prix') * $request->get('quantity');
@@ -181,7 +197,10 @@ class PaypalPaymentController extends Controller
     public function getPaymentStatus(Request $request)
     {        
         //dd($request);
-        
+        // get hotel info
+        $hotelInfo = Hotel::select('id', 'hotel_name', 'location', 'owner')->get();
+        //dd($hotelInfo[0]['hotel_name'], gettype($hotelInfo));
+
         $roomId = Session::get('room_id');
         $payment_id = Session::get('paypal_payment_id');
 
@@ -262,6 +281,40 @@ class PaypalPaymentController extends Controller
 
                 }
 
+                 /* 
+                    ============================
+                    SEND EMAIL ON REGISTRATION
+                    ============================
+                */
+
+
+                $userData = ([
+                    "name"                  =>   Session::get('firstname'),
+                    "lastName"              =>   Session::get('lastname'),
+                    "email"                 =>   $email,
+                    "reservationNumber"     =>   $reservationNumber,
+                    "checkIn"               =>   $check_in,
+                    "checkOut"              =>   $check_out,
+                    'phone_number'          =>   Session::get('phone'),
+                    'address'               =>   Session::get('address'),
+                    'city'                  =>   Session::get('city'),
+                    'country_name'          =>   Session::get('country'),
+                    'zip'                   =>   Session::get('zip'),
+                    'hotelName'             =>   $hotelInfo[0]['hotel_name'],
+                    'hotelLocation'         =>   $hotelInfo[0]['location'],
+                    'hotelOwner'            =>   $hotelInfo[0]['owner'],
+                    'room_vat'              =>   Session::get('vat'),
+                    'room_discount'         =>   Session::get('discount'),
+                    'amount'                =>   Session::get('totalAmount'),
+                    'vatAmount'             =>   Session::get('vatAmount'),
+                    'discountAmount'        =>   Session::get('discountAmount'),
+                    'actualRoomPrice'       =>   Session::get('actualRoomPrice'),
+                    'roomName'              =>   Session::get('room_name')
+                ]);
+                
+                $userMail =  $email; // Mail address to receive the email
+                Mail::to($userMail)->send(new SendInvoiceMail($userData));
+
                 //return redirect()->to('available-rooms');
                 return Redirect::route('successful-payment');
             }
@@ -309,6 +362,40 @@ class PaypalPaymentController extends Controller
 
                 // Store data in User database
                 Reservation::create($reservation_data);
+
+                
+                /* 
+                    ============================
+                    SEND EMAIL ON REGISTRATION
+                    ============================
+                */
+
+                $userData = ([
+                    "name"                  =>   Auth::user()->name,
+                    "lastName"              =>   Auth::user()->last_name,
+                    "email"                 =>   Auth::user()->email,
+                    "reservationNumber"     =>   $reservationNumber,
+                    "checkIn"               =>   $check_in,
+                    "checkOut"              =>   $check_out,
+                    'phone_number'          =>   Auth::user()->phone_number,
+                    'address'               =>   Auth::user()->address,
+                    'city'                  =>   Auth::user()->city,
+                    'country_name'          =>   Auth::user()->phone_number,
+                    'zip'                   =>   Auth::user()->zip,
+                    'hotelName'             =>   $hotelInfo->hotel_name,
+                    'hotelLocation'         =>   $hotelInfo->location,
+                    'hotelOwner'            =>   $hotelInfo->owner,
+                    'room_vat'              =>   Session::get('vat'),
+                    'room_discount'         =>   Session::get('discount'),
+                    'amount'                =>   Session::get('totalAmount'),
+                    'vatAmount'             =>   Session::get('vatAmount'),
+                    'discountAmount'        =>   Session::get('discountAmount'),
+                    'actualRoomPrice'       =>   Session::get('actualRoomPrice'),
+                    'roomName'              =>   Session::get('room_name')
+                ]);
+                
+                $email =  Auth::user()->email; // Mail address to receive the email
+                Mail::to($email)->send(new SendInvoiceMail($userData));
 
                 //return redirect()->to('available-rooms');
                 return Redirect::route('successful-payment');
