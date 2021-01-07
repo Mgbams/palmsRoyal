@@ -53038,3 +53038,14 @@ a {
   color: red !important;
 }
 
+@media only screen and (max-width: 767px) {
+  .palmsroyal-nav-name {
+    display: none !important;
+  }
+}
+
+.sign-out-display a:not(:last-child) {
+  margin: 0px !important;
+  padding-right: 2px !important;
+}
+

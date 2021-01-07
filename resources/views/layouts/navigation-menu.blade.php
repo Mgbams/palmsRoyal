@@ -45,21 +45,25 @@
                             <li>
                                 <a href="{{url('/show-rooms')}}" class="gn-icon gn-icon-archive">Rooms</a>
                             </li>
+                            @if(Auth::check())
+                            @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 3 || Auth::user()->role_id == 5)
                             <li><a class="gn-icon gn-icon-cog">Settings</a></li>
+                            @endif
+                            @endif
                             <li><a class="gn-icon gn-icon-help">Help</a></li>
                         </ul>
                     </div>
                 </nav>
             </li>
-            <li><a href="{{url('/')}}">palmsRoyal</a></li>
+            <li class="palmsroyal-nav-name"><a href="{{url('/')}}">palmsRoyal</a></li>
             @if(Auth::check())
             @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 3 || Auth::user()->role_id == 5)
             <li><a class="codrops-icon" href="{{url('/admin/dashboard')}}"><span>DashBoard</span></a></li>
             @endif
             @endif
 
-            @if(Auth::check())
-            <li  class="float-right">
+            <!-- @if(Auth::check())
+            <li class="float-right">
                 <a href="#" class="codrops-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Sign out
                 </a>
@@ -67,9 +71,18 @@
                     @csrf
                 </form>
             </li>
-             @endif
+             @endif -->
 
-            <li class="d-flex" style="padding-right: 10px;">
+            <li class="d-flex sign-out-display" style="position: relative; top: 0px !important;">
+                 @if(Auth::check())
+                 <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Sign out
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+                @endif
+
                 @if(!Auth::check())
                 <a class="codrops-icon" href="{{url('/login')}}">
                     <span>Login</span>
@@ -85,7 +98,7 @@
                 </select> -->
                 
                 @foreach (config('app.available_locales') as $locale)
-                <a class="nav-link lang-change"
+                <a class="lang-change"
                     href="locale/{{$locale}}"
                     @if (app()->getLocale() == $locale) style="font-weight: bold; text-decoration: underline" @endif>{{ strtoupper($locale) }}
                 </a>
