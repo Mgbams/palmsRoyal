@@ -10,13 +10,14 @@ use Illuminate\Http\Request;
 
 use DataTables; //imports datatables code into this file
 use Validator;
+use Session;
 
 class RoomController extends Controller
 {
     public function index()
     {
-        $data = Hotel::get();
-        return view('admin.show.room')->with('data', $data);
+      
+        return view('admin.show.room');
     }
 
     public function getRooms(Request $request)
@@ -44,16 +45,38 @@ class RoomController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        return $request;
-        exit();
+    {   
+         $roomAvailable;
+         $roomPublished;
+         $roomAutoApprove;
+         $lastImageId; //last inserted image id
+
+         // covert checkboxes values to 0 or 1 before adding them to database
+        if ($request->is_available) {
+            $this->roomAvailable = 1;
+        } else {
+            $this->roomAvailable = 0;
+        }
+
+        if ($request->published) {
+            $this->roomPublished = 1;
+        } else {
+           $this->roomPublished = 0;
+        }
+
+        if ($request->auto_approve) {
+            $this->roomAutoApprove = 1;
+        } else {
+             $this->roomAutoApprove = 0;
+        }
+        
+        $data = Hotel::get(); // get hotel info
 
         $rules = array(
             'price'             =>  'required',
             'name'              =>  'required',
             'description'       =>  'required',
             'available_date'    =>  'required',
-            'hotel_id'          =>  'required',
             'images.*'          =>  'required|image|mimes:jpeg,png,jpg,gif,svg'
         );
 
@@ -63,23 +86,34 @@ class RoomController extends Controller
             return response()->json(['errors' => $error->errors()->all()]);
         }
 
-        $form_data = array(
+        
+        $imageUpload = new Photo;
+        $imageUpload->url = json_encode($request['files']);
+        $imageUpload->save();
+
+        if ( $imageUpload->save()) {
+            $this->lastImageId =  $imageUpload->id;
+            var_dump($imageUpload->id);
+            
+            $form_data = array(
             'price'             =>   $request->price,
             'name'              =>   $request->name,
             'description'       =>   $request->description,
             'available_date'    =>   $request->available_date,
-            'auto_approve'      =>   $request->auto_approve,
-            'published'         =>   $request->published,
-            'is_available'      =>   $request->is_available,
-            'hotel_id'          =>   $request->hotel_id
-        );
-
+            'auto_approve'      =>   $this->roomAutoApprove,
+            'published'         =>   $this->roomPublished,
+            'is_available'      =>   $this->roomAvailable,
+            'vat'               =>   $request->vat,
+            'discount'          =>   $request->discount,
+            'hotel_id'          =>   $data[0]['id'],
+            'photo_id'          =>   $this->lastImageId
+            );
+            Room::create($form_data);
+        }
+    
         //Room::create($form_data);
         //if(Room::create($form_data)) {
-            //$imageUpload = new Photo;
-            //$imageUpload->url = $request->files[0];
             //$imageUpload->room_id = Room::create($form_data)->id;
-            //$imageUpload->save();
         //}
         
         return response()->json(['success' => 'Data Added successfully.']);
@@ -109,7 +143,10 @@ class RoomController extends Controller
      */
     public function update(Request $request)
     {
-        dd($request);
+        //dd($request);
+        $auto_approve;
+        $published;
+        $is_available;
 
         $rules = array(
             'price'             =>  'required',
@@ -125,22 +162,22 @@ class RoomController extends Controller
             return response()->json(['errors' => $error->errors()->all()]);
         } else {
 
-            if ($request->auto_approve == 'on') {
-                $auto_approve  = 1;
+            if ($request->auto_approve) {
+                $this->auto_approve  = 1;
             } else {
-                $auto_approve  = 0;
+                $this->auto_approve  = 0;
             };
 
-            if ($request->published == 'on') {
-                $published   = 1;
+            if ($request->published) {
+                $this->published   = 1;
             } else {
-                $published   = 0;
+                $this->published   = 0;
             };
 
-            if ($request->is_available == 'on') {
-                $is_available   = 1;
+            if ($request->is_available) {
+                $this->is_available   = 1;
             } else {
-                $is_available   = 0;
+                $this->is_available   = 0;
             };
 
             $form_data = array(
@@ -148,10 +185,11 @@ class RoomController extends Controller
                 'name'              =>   $request->name,
                 'description'       =>   $request->description,
                 'available_date'    =>   $request->available_date,
-                'auto_approve'      =>   $auto_approve,
-                'published'         =>   $published,
-                'is_available'      =>   $is_available,
-                'hotel_id'          =>   $request->hotel_id
+                'auto_approve'      =>   $this->auto_approve,
+                'published'         =>   $this->published,
+                'is_available'      =>   $this->is_available,
+                'vat'               =>   $request->vat,
+                'discount'          =>   $request->discount
                 //'image'            =>   $image_name
             );
             Room::whereId($request->hidden_id)->update($form_data);
@@ -201,3 +239,13 @@ class RoomController extends Controller
        // return $filename;
     }
 }
+
+
+
+//TODO LATER
+//   $data = Photo::get();
+//         //dd(gettype($data[0]->url));
+//         $decodePhoto = json_decode($data[0]->url);
+//         foreach($decodePhoto as $photo) {
+//             var_dump($photo);
+//         }

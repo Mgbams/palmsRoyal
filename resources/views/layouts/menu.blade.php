@@ -24,38 +24,26 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('home') }}" class="nav-link room-types">
-        <i class="nav-icon fas fa-list" aria-hidden="true"></i>
-        <p style="color: white;">Room Types</p>
-    </a>
-</li>
-<li class="nav-item">
     <a href="{{ route('countries') }}" class="nav-link countries  {{ request()->is('admin/countries') ? 'active' : ''}}">
         <i class="nav-icon fas fa-flag"></i>
         <p style="color: white;">Countries</p>
     </a>
 </li>
-{{--<li class="nav-item">
-    <a href="{{ route('roles') }}" class="nav-link countries {{ request()->is('admin/roles') ? 'active' : ''}}">
-<i class="nav-icon fas fa-flag"></i>
-<p style="color: white;">Roles</p>
-</a>
-</li>--}}
 <li class="nav-item">
     <a href="{{ route('roles-and-permissions.index') }}" class="nav-link countries  {{ request()->is('admin/roles-and-permissions.index') ? 'active' : ''}}">
         <i class="nav-icon fas fa-flag"></i>
         <p style="color: white;">Roles</p>
     </a>
 </li>
-<li class="nav-item">
-    <a href="{{ route('home') }}" class="nav-link photos ">
-        <i class="nav-icon fas fa-image"></i>
-        <p style="color: white;">Photos</p>
-    </a>
-</li>
-<li class="nav-item">
+{{--<li class="nav-item">
     <a href="{{ route('home') }}" class="nav-link users">
         <i class="nav-icon fas fa-user"></i>
         <p style="color: white;">Users</p>
     </a>
-</li>
+</li>--}}
+{{--<li class="nav-item">
+    <a href="{{ route('home') }}" class="nav-link room-types">
+        <i class="nav-icon fas fa-list" aria-hidden="true"></i>
+        <p style="color: white;">Room Types</p>
+    </a>
+</li>--}}

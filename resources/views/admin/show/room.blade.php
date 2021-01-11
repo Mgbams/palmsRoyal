@@ -10,6 +10,12 @@
 <!--dropzone-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" />
 
+<!-- Aligning the buttons in the table vertically -->
+<style>
+    td button {
+      vertical-align: top !important;
+    }
+</style>
 @stop
 
 @section('content')
@@ -33,7 +39,7 @@
 <!--image upload errors end here-->
 
 
-<div class="container-fluid mt-5">
+<div class="container-fluid pt-5">
     <h2 class="mb-4">Rooms Info</h2>
     <!--Create button-->
     <div align=right class="mb-5">
@@ -59,7 +65,7 @@
     <!-- Edit Hotel modal -->
     <div id="formModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content" style="width: 60vw !important; margin: 0px auto;">
+            <div class="modal-content" style="width: 50vw !important; margin: 0px auto;">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Add New Record</h4>
@@ -89,7 +95,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-6">Available_date: </label>
                             <div class="col-md-8">
-                                <input type="date" name="available_date" id="available_date" class="form-control" />
+                                <input type="date" name="available_date" id="available_date" class="form-control" placeholder="Date" />
                             </div>
                         </div>
                         <div class="form-group row">
@@ -105,19 +111,23 @@
                                 <input type="checkbox" name="is_available" id="is_available" />
                                 <label class="control-label col-md-6">Is_available</label>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-6">Discount: </label>
+                                <div class="col-md-8">
+                                    <input type="text" name="discount" id="discount" class="form-control" />
+                                </div>
+                           </div>
+                           <div class="form-group">
+                                <label class="control-label col-md-6">VAT: </label>
+                                <div class="col-md-8">
+                                    <input type="text" name="vat" id="vat" class="form-control" />
+                                </div>
+                          </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <select name="hotel_id" class="form-control" id="hotel_id">
-                                <option value="">Select Hotel</option>
-                                @foreach ($data as $item)
-                                @if (old('hotel_id') == $item->id)
-                                <option value={{$item->id}} selected> {{ $item->hotel_name }} </option>
-                                @else
-                                <option value={{$item->id}}> {{ $item->hotel_name }} </option>
-                                @endif
-                                @endforeach
-                            </select>
-                        </div>
+
+                        
+                        
                         <br />
 
                         <!-- print success message after file upload  -->
@@ -140,7 +150,7 @@
                         <div class="form-group" align="center">
                             <input type="hidden" name="action" id="action" />
                             <input type="hidden" name="hidden_id" id="hidden_id" />
-                            <input type="submit" name="action_button" id="action_button" style="border-top-right-radius: 10%; border-bottom-right-radius: 10%; border-top-left-radius: 10%; border-bottom-left-radius: 10%;" class="btn btn-primary px-5" value="Add" />
+                            <input type="submit" name="action_button" id="action_button" class="btn btn-primary px-5" value="Add" />
                         </div>
                     </form>
 
@@ -256,7 +266,7 @@
                     $('#available_date').val(html.data.available_date);
                     /*$('#store_image').html("<img src={{ URL::to('/') }}/images/" + html.data.image + " width='70' class='img-thumbnail' />");
                     $('#store_image').append("<input type='hidden' name='hidden_image' value='" + html.data.image + "' />");*/
-                    $('#hidden_id').val(html.data.id);
+                    //$('#hidden_id').val(html.data.id);
                     $('.modal-title').text("Edit New Record");
                     $('#action_button').val("Edit");
                     $('#action').val("Edit");

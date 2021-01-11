@@ -7,6 +7,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
 
+<!-- Aligning the buttons in the table vertically -->
+<style>
+    td button {
+      vertical-align: top !important;
+    }
+</style>
 @stop
 
 @section('content')
@@ -30,7 +36,7 @@
 <!--image upload errors end here-->
 
 
-<div class="container-fluid mt-5">
+<div class="container-fluid pt-5">
     <h2 class="mb-4">Facilities Info</h2>
     <!--Create button-->
     <div align=right class="mb-5">

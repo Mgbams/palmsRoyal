@@ -134,14 +134,17 @@ a {
 
 //About block in HomePage
 #about-homepage {
-    height: 80vh;
+    //border: 2px solid red;
+    //height: 80vh;
     color: black;
     background-color: $yeast;
     #about-inner-container {
         display: flex;
+        //border: 1px solid green;
         div #about-text {
             z-index: 1;
             line-height: 1;
+            margin-left: 5vw;
             #about {
                 //margin-left: 120px;
                 font-size: 3rem;
@@ -324,6 +327,29 @@ a {
                 }
                 a {
                     text-decoration: none;
+                }
+                #left-image {
+                    height: 40vh;
+                    position: absolute;
+                    right: 90%;
+                    z-index: 1;
+                    .readmore {
+                        left: 4vw;
+                        top: 4vh;
+                        position: relative;
+                        z-index: 999;
+                    }
+                }
+                #right-image {
+                    height: 40vh;
+                    position: absolute;
+                    left: 20%;
+                    .readmore {
+                        left: 4vw;
+                        top: 4vh;
+                        position: relative;
+                        z-index: 999;
+                    }
                 }
             }
         }
@@ -1363,8 +1389,219 @@ a {
     .palmsroyal-nav-name {
         display: none !important;
     }
+    /* #about-inner-container > div {
+        width: 100% !important;
+        border: 2px solid green;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    } */
 }
 .sign-out-display a:not(:last-child) {
     margin: 0px !important;
     padding-right: 2px !important;
+}
+@media only screen and (max-width: 575px) {
+    /*
+        ===================================
+               welcome page css
+        ===================================
+    */
+    .sign-out-display {
+        border-left: none !important;
+    }
+    #about-homepage {
+        #image-container {
+            margin-top: 12vh !important;
+        }
+    }
+    #about-inner-container div {
+        padding-left: none !important;
+    }
+    #about-inner-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        #description {
+            font-size: 14px;
+            text-align: left;
+        }
+    }
+    #stay-page {
+        #image-div,
+        .seeMore {
+            display: none;
+        }
+        #courtyard-room {
+            width: 100%;
+            position: relative;
+            left: 0px !important;
+            margin-top: 200px;
+            h2,
+            p {
+                width: 80%;
+                text-align: center;
+            }
+            p {
+                font-size: 14px;
+                text-align: left;
+            }
+            .svgImage {
+                position: relative;
+                left: 90px !important;
+            }
+            .booknowLink {
+                position: relative !important;
+                right: 10vw !important;
+                top: 60px !important;
+            }
+        }
+        .stay-text {
+            width: 100%;
+            position: relative;
+            left: 0px !important;
+            bottom: 150px;
+            h1 {
+                text-align: center;
+            }
+            p {
+                text-align: center;
+                font-size: 18px;
+                margin-bottom: 35px !important;
+                width: 80vw;
+            }
+        }
+    }
+    #main-page-room-image {
+        width: 100% !important;
+        position: relative !important;
+        bottom: 250px;
+        margin-left: 0px !important;
+    }
+    #page-home {
+        #slideshow {
+            height: 50vh;
+            overflow: hidden;
+            width: 100%;
+            padding: 0px !important;
+            margin-bottom: 20px;
+            div {
+                width: 100%;
+                margin: 0px !important;
+                height: 50vh !important;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                }
+            }
+        }
+    }
+    #eat-and-drink {
+        position: relative;
+        bottom: 38vh;
+    }
+    #eat-inner-container {
+        #about-text {
+            #about,
+            #royalPalms {
+                text-align: center;
+            }
+            #about {
+                margin-left: 30px !important;
+            }
+        }
+        #image-container {
+            position: relative;
+            bottom: 47vh;
+            margin-bottom: 15vh;
+            min-height: 110vh !important;
+            overflow-y: visible;
+            width: 100vw;
+            .center-element {
+                text-align: center;
+            }
+            .svg-image {
+                display: none;
+            }
+            //height: 60vh !important;
+            div {
+                //height: 30vh !important;
+                display: flex;
+                flex-direction: column !important;
+                min-height: 100vh !important;
+                width: 100vw;
+                .display-inline {
+                    display: inline !important;
+                }
+
+                #right-image {
+                    width: 100%;
+                    //border: 2px solid blue;
+                    left: 0px !important;
+                    padding: 0px;
+                    bottom: 20px;
+                    img {
+                        width: 100% !important;
+                        height: 30vh !important;
+                    }
+                }
+
+                #left-image {
+                    width: 100%;
+                    top: 60vh !important;
+                    height: 10vh !important;
+                    right: 0px !important;
+                    padding: 0px;
+                    //border: 2px solid green;
+                    position: absolute;
+                    right: 0px !important;
+                    img {
+                        width: 100% !important;
+                        height: 30vh !important;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+    #left-image-homepage {
+        height: 40vh;
+        width: 100vw !important;
+        margin-top: 40px;
+        img {
+            height: 40vh;
+            width: 100vw !important;
+        }
+    }
+    .neighbourhood-description {
+        padding: 0px 20px;
+    }
+    #special-offers-div-welcome-page {
+        margin-top: 200px !important;
+    }
+    #new-emotions {
+        height: 40vh;
+        width: 100% !important;
+        margin-top: 30px;
+        margin-left: 0% !important;
+        position: relative;
+        img {
+            height: 40vh;
+            width: 100vw !important;
+            background-size: cover;
+            margin-top: 30px;
+        }
+        p {
+            width: 80vw !important;
+            position: absolute;
+            //bottom: 70%;
+            text-align: center;
+            left: 0px;
+            top: 10%;
+            padding: 0px 20px;
+        }
+    }
 }

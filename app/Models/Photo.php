@@ -13,6 +13,10 @@ class Photo extends Model
      */
 
     protected $table = 'photos';
+     //protected $table = 'photosnew';
+    
+    
+    public $timestamps = false;
 
     protected $fillable = [
         'url', 'room_id',

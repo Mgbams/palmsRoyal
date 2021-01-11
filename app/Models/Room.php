@@ -6,13 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
 {
+     public $timestamps = false;
      /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'price', 'name', 'description', 'available_date', 'auto_approve', 'published', 'vat', 'discount', 'is_available', 'hotel_id',
+        'price', 'name', 'description', 'available_date', 'auto_approve', 'published', 'vat', 'discount', 'is_available', 'hotel_id', 'photo_id',
     ];
 
     public function hotel() {

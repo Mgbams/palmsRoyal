@@ -51767,7 +51767,6 @@ a {
 }
 
 #about-homepage {
-  height: 80vh;
   color: black;
   background-color: #f7f7f7;
 }
@@ -51779,6 +51778,7 @@ a {
 #about-homepage #about-inner-container div #about-text {
   z-index: 1;
   line-height: 1;
+  margin-left: 5vw;
 }
 
 #about-homepage #about-inner-container div #about-text #about {
@@ -51990,6 +51990,33 @@ a {
 
 #eat-and-drink #eat-inner-container #image-container div a {
   text-decoration: none;
+}
+
+#eat-and-drink #eat-inner-container #image-container div #left-image {
+  height: 40vh;
+  position: absolute;
+  right: 90%;
+  z-index: 1;
+}
+
+#eat-and-drink #eat-inner-container #image-container div #left-image .readmore {
+  left: 4vw;
+  top: 4vh;
+  position: relative;
+  z-index: 999;
+}
+
+#eat-and-drink #eat-inner-container #image-container div #right-image {
+  height: 40vh;
+  position: absolute;
+  left: 20%;
+}
+
+#eat-and-drink #eat-inner-container #image-container div #right-image .readmore {
+  left: 4vw;
+  top: 4vh;
+  position: relative;
+  z-index: 999;
 }
 
 #eat-and-drink h2 {
@@ -53042,10 +53069,243 @@ a {
   .palmsroyal-nav-name {
     display: none !important;
   }
+
+  /* #about-inner-container > div {
+      width: 100% !important;
+      border: 2px solid green;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  } */
 }
 
 .sign-out-display a:not(:last-child) {
   margin: 0px !important;
   padding-right: 2px !important;
+}
+
+@media only screen and (max-width: 575px) {
+  /*
+      ===================================
+             welcome page css
+      ===================================
+  */
+
+  .sign-out-display {
+    border-left: none !important;
+  }
+
+  #about-homepage #image-container {
+    margin-top: 12vh !important;
+  }
+
+  #about-inner-container div {
+    padding-left: none !important;
+  }
+
+  #about-inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #about-inner-container #description {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  #stay-page #image-div,
+  #stay-page .seeMore {
+    display: none;
+  }
+
+  #stay-page #courtyard-room {
+    width: 100%;
+    position: relative;
+    left: 0px !important;
+    margin-top: 200px;
+  }
+
+  #stay-page #courtyard-room h2,
+  #stay-page #courtyard-room p {
+    width: 80%;
+    text-align: center;
+  }
+
+  #stay-page #courtyard-room p {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  #stay-page #courtyard-room .svgImage {
+    position: relative;
+    left: 90px !important;
+  }
+
+  #stay-page #courtyard-room .booknowLink {
+    position: relative !important;
+    right: 10vw !important;
+    top: 60px !important;
+  }
+
+  #stay-page .stay-text {
+    width: 100%;
+    position: relative;
+    left: 0px !important;
+    bottom: 150px;
+  }
+
+  #stay-page .stay-text h1 {
+    text-align: center;
+  }
+
+  #stay-page .stay-text p {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 35px !important;
+    width: 80vw;
+  }
+
+  #main-page-room-image {
+    width: 100% !important;
+    position: relative !important;
+    bottom: 250px;
+    margin-left: 0px !important;
+  }
+
+  #page-home #slideshow {
+    height: 50vh;
+    overflow: hidden;
+    width: 100%;
+    padding: 0px !important;
+    margin-bottom: 20px;
+  }
+
+  #page-home #slideshow div {
+    width: 100%;
+    margin: 0px !important;
+    height: 50vh !important;
+  }
+
+  #page-home #slideshow div img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+
+  #eat-and-drink {
+    position: relative;
+    bottom: 38vh;
+  }
+
+  #eat-inner-container #about-text #about,
+  #eat-inner-container #about-text #royalPalms {
+    text-align: center;
+  }
+
+  #eat-inner-container #about-text #about {
+    margin-left: 30px !important;
+  }
+
+  #eat-inner-container #image-container {
+    position: relative;
+    bottom: 47vh;
+    margin-bottom: 15vh;
+    min-height: 110vh !important;
+    overflow-y: visible;
+    width: 100vw;
+  }
+
+  #eat-inner-container #image-container .center-element {
+    text-align: center;
+  }
+
+  #eat-inner-container #image-container .svg-image {
+    display: none;
+  }
+
+  #eat-inner-container #image-container div {
+    display: flex;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    width: 100vw;
+  }
+
+  #eat-inner-container #image-container div .display-inline {
+    display: inline !important;
+  }
+
+  #eat-inner-container #image-container div #right-image {
+    width: 100%;
+    left: 0px !important;
+    padding: 0px;
+    bottom: 20px;
+  }
+
+  #eat-inner-container #image-container div #right-image img {
+    width: 100% !important;
+    height: 30vh !important;
+  }
+
+  #eat-inner-container #image-container div #left-image {
+    width: 100%;
+    top: 60vh !important;
+    height: 10vh !important;
+    right: 0px !important;
+    padding: 0px;
+    position: absolute;
+    right: 0px !important;
+  }
+
+  #eat-inner-container #image-container div #left-image img {
+    width: 100% !important;
+    height: 30vh !important;
+    margin-top: 10px;
+  }
+
+  #left-image-homepage {
+    height: 40vh;
+    width: 100vw !important;
+    margin-top: 40px;
+  }
+
+  #left-image-homepage img {
+    height: 40vh;
+    width: 100vw !important;
+  }
+
+  .neighbourhood-description {
+    padding: 0px 20px;
+  }
+
+  #special-offers-div-welcome-page {
+    margin-top: 200px !important;
+  }
+
+  #new-emotions {
+    height: 40vh;
+    width: 100% !important;
+    margin-top: 30px;
+    margin-left: 0% !important;
+    position: relative;
+  }
+
+  #new-emotions img {
+    height: 40vh;
+    width: 100vw !important;
+    background-size: cover;
+    margin-top: 30px;
+  }
+
+  #new-emotions p {
+    width: 80vw !important;
+    position: absolute;
+    text-align: center;
+    left: 0px;
+    top: 10%;
+    padding: 0px 20px;
+  }
 }
 

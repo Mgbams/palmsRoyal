@@ -6,7 +6,7 @@
 <div class="pages-stack">
     <!-- page -->
     <div class="page" id="page-home">
-        <section id="slideshow" class="container-fluid">
+        <section id="slideshow" class="container-sm-fluid">
             <div class="slick" class="row">
                 <div><img src="https://cdn.pixabay.com/photo/2015/12/28/10/19/hotel-1111199__340.jpg"  class="img-fluid"/></div>
                 <div><img src="https://cdn.pixabay.com/photo/2015/03/26/10/01/burj-al-arab-690768__340.jpg"  class="img-fluid" /></div>
@@ -23,7 +23,7 @@
         <!-- Adding Eat and Drink block using component -->
         <x-eat-and-drink />
 
-        <div class="special-offers-div">
+        <div class="special-offers-div" id="special-offers-div-welcome-page">
             <h2>Special Offers</h2>
         </div>
         <section id="slideshow-center">
@@ -116,11 +116,11 @@
             <img src="https://cdn.pixabay.com/photo/2020/07/08/01/49/outdoors-5382306__340.jpg" />
         </div>
 
-        <div>
+        <div class="neighbourhood-discover">
             <div style="text-align: center;">
                 <h2>{{__('Neighbourhood')}}</h2>
             </div>
-            <div class="col-5 offset-6">
+            <div class="col-md-5 offset-md-6 col-sm-6 neighbourhood-description">
                 <p>Discover the sights, attractions, shopping malls, upscale nightlife, as well as cultural and entertainment activities offered by the neighborhood.
                 </p>
             </div>
@@ -131,7 +131,7 @@
 
         <div id="new-emotions">
             <img src="https://i.pinimg.com/originals/ba/c1/18/bac11813914b84eb0ac73b7bb577a22b.gif" />
-            <p class="col-4">Discover new emotions and be inspired by the local atmosphere</p>
+            <p class="col-md-4 col-sm-12">Discover new emotions and be inspired by the local atmosphere</p>
         </div>
 
         <div class="about-hotel-link row" style="margin-top: 120px !important;">

@@ -18,7 +18,7 @@ class CreateRoomsTable extends Migration
             $table->unsignedDecimal('price', 10, 2);
             $table->string('name', 100);
             $table->text('description');
-            $table->timestamp('available_date', 0);
+            $table->date('available_date', 0);
             $table->boolean('auto_approve');
             $table->boolean('published');
             $table->boolean('is_available');

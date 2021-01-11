@@ -6,11 +6,18 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+
+<!-- Aligning the buttons in the table vertically -->
+<style>
+    td button {
+      vertical-align: top !important;
+    }
+</style>
 @stop
 
 @section('content')
-<div class="container-fluid mt-5">
-    <h2 class="mb-4">Lists of Countries</h2>
+<div class="container-fluid pt-5">
+    <h2 class="pb-4">Lists of Countries</h2>
     <!--Create button-->
     <div align=right class="mb-5">
         <button type="button" name="create_record" id="create_record" class="btn btn-success btn-sm">Create Country</button>

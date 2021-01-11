@@ -14,7 +14,7 @@ class CreatePhotosTable extends Migration
     public function up()
     {
         Schema::create('photos', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('id')->unsigned();
             $table->text('url');
             $table->bigInteger('room_id')->unsigned();
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade')->onUpdate('cascade');

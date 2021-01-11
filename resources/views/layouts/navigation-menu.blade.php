@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-sm-fluid">
         <input type="hidden" id="hidden-route" name="hidden-route" value="{{ Route::currentRouteName() }}" />
         <input type="hidden" id="hidden-language" name="hidden-language" value="{{ app()->getlocale() }}" />
         <ul id="gn-menu" class="gn-menu-main">
@@ -62,19 +62,8 @@
             @endif
             @endif
 
-            <!-- @if(Auth::check())
-            <li class="float-right">
-                <a href="#" class="codrops-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Sign out
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </li>
-             @endif -->
-
             <li class="d-flex sign-out-display" style="position: relative; top: 0px !important;">
-                 @if(Auth::check())
+                 @if(Auth::check() &&  Auth::user()->role_id != 3 && Auth::user()->role_id != 5)
                  <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Sign out
                 </a>
@@ -88,9 +77,11 @@
                     <span>Login</span>
                 </a>
                 @endif
+                @if(!Auth::check())
                 <a class="codrops-icon" href="{{url('/register')}}">
                     <span>Register</span>
                 </a>
+                @endif
                  <!-- <select class="form-control Langchange">
                   @foreach (config('app.available_locales') as $locale)
                     <option value="{{ strtoupper($locale) }}" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>

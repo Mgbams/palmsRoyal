@@ -15,7 +15,7 @@ class AddPhotoIdToRoomsTable extends Migration
     {
         Schema::table('rooms', function (Blueprint $table) {
             //
-            $table->bigInteger('photo_id')->unsigned();
+            $table->bigInteger('photo_id')->unsigned()->nullable();
             $table->foreign('photo_id')->references('id')->on('photos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
