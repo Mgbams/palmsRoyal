@@ -46,11 +46,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Wifi</th>
-                <th>Ac</th>
-                <th>Heater</th>
-                <th>Other Facilities</th>
-                <th>Floor</th>
+                <th>Name</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -73,50 +69,9 @@
                         <div class="col-lg-8 col-md-8 col-sm-8 container justify-content-center">
                             <div class="form-group">
                                 <div class="col-md-8">
-                                    <label class="control-label col-md-6">Wifi: </label>
-                                    <input type="checkbox" name="wifi" id="wifi">
+                                    <label class="control-label col-md-6" for="name">Name: </label>
+                                    <input type="text" name="name" id="name">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-8">
-                                    <label class="control-label col-md-6">Ac: </label>
-                                    <input type="checkbox" name="ac" id="ac">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-8">
-                                    <label class="control-label col-md-6">Heater: </label>
-                                    <input type="checkbox" name="heater" id="heater">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-6">Other Facilities: </label>
-                            <div class="col-md-8">
-                                <input type="checkbox" id="television" name="other_facilities[]" value="television"> Télévision <br />
-                                <input type="checkbox" id="desk" name="other_facilities[]" value="desk"> Desk <br />
-                                <input type="checkbox" id="hairdryer" name="other_facilities[]" value="hairdryer"> Hairdryer <br />
-                                <input type="checkbox" id="breakfast_included" name="other_facilities[]" value="breakfast_included"> Breakfast included <br />
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-6">Floor</label>
-                            <div class="col-md-8">
-                                <input type="checkbox" name="floor[]" value="1"> 1 <br />
-                                <input type="checkbox" name="floor[]" value="2"> 2 <br />
-                                <input type="checkbox" name="floor[]" value="3"> 3 <br />
-                                <input type="checkbox" name="floor[]" value="4"> 4 <br />
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-6">Capacity</label>
-                            <div class="col-md-8">
-                                <input type="checkbox" name="capacity[]" value="25"> 25 <br />
-                                <input type="checkbox" name="capacity[]" value="40"> 40 <br />
-                                <input type="checkbox" name="capacity[]" value="60"> 60 <br />
-                                <input type="checkbox" name="capacity[]" value="70"> 70 <br />
                             </div>
                         </div>
 
@@ -180,24 +135,8 @@
                     name: 'Id'
                 },
                 {
-                    data: 'wifi',
-                    name: 'Wifi'
-                },
-                {
-                    data: 'ac',
-                    name: 'Ac'
-                },
-                {
-                    data: 'heater',
-                    name: 'Heater'
-                },
-                {
-                    data: 'other_facilities',
-                    name: 'Other Facilities'
-                },
-                {
-                    data: 'floor',
-                    name: 'Floor'
+                    data: 'name',
+                    name: 'Name'
                 },
                 {
                     data: 'action',

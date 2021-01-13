@@ -15,12 +15,7 @@ class CreateFacilitiesTable extends Migration
     {
         Schema::create('facilities', function (Blueprint $table) {
             $table->id();
-            $table->string('capacity');
-            $table->boolean('wifi');
-            $table->boolean('ac');
-            $table->boolean('heater');
-            $table->string('other_facilities');
-            $table->string('floor');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -35,3 +30,14 @@ class CreateFacilitiesTable extends Migration
         Schema::dropIfExists('facilities');
     }
 }
+
+/*  Schema::create('facilities', function (Blueprint $table) {
+            $table->id();
+            $table->string('capacity');
+            $table->boolean('wifi');
+            $table->boolean('ac');
+            $table->boolean('heater');
+            $table->string('other_facilities');
+            $table->string('floor');
+            $table->timestamps();
+        }); */

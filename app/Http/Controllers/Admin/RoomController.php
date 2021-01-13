@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Hotel;
 use App\Models\Room;
 use App\Models\Photo;
+use App\Models\Facility;
+use App\Models\Capacity;
+use App\Models\Floor;
+use App\Models\RoomsFacilities;
 use Illuminate\Http\Request;
 
 use DataTables; //imports datatables code into this file
@@ -16,8 +20,10 @@ class RoomController extends Controller
 {
     public function index()
     {
-      
-        return view('admin.show.room');
+       $facilities  = Facility::get(); // get facilities info
+       $capacities  = Capacity::get(); // get capacities info
+       $floors      = Floor::get(); // get floors info
+       return view('admin.show.room', compact(['facilities', 'floors', 'capacities']));
     }
 
     public function getRooms(Request $request)
@@ -45,11 +51,13 @@ class RoomController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {    
+         //dd($request);
          $roomAvailable;
          $roomPublished;
          $roomAutoApprove;
          $lastImageId; //last inserted image id
+         $lastRoomId; //last inserted room id
 
          // covert checkboxes values to 0 or 1 before adding them to database
         if ($request->is_available) {
@@ -93,7 +101,7 @@ class RoomController extends Controller
 
         if ( $imageUpload->save()) {
             $this->lastImageId =  $imageUpload->id;
-            var_dump($imageUpload->id);
+            //var_dump($imageUpload->id);
             
             $form_data = array(
             'price'             =>   $request->price,
@@ -108,7 +116,22 @@ class RoomController extends Controller
             'hotel_id'          =>   $data[0]['id'],
             'photo_id'          =>   $this->lastImageId
             );
-            Room::create($form_data);
+
+            $roomInsert = Room::create($form_data);
+            $this->lastRoomId = $roomInsert->id; //Last inserted room id
+
+            // Save data to RoomsFacilities table
+            if ($this->lastRoomId) {
+                 $facilities_data = array(
+                'capacity'                =>   $request->capacity,
+                'facilities'              =>   json_encode($request->facilities),
+                'floor'                   =>   $request->floor,
+                'id_room'                 =>   $this->lastRoomId
+        
+                );
+
+                RoomsFacilities::create($facilities_data);
+            }
         }
     
         //Room::create($form_data);
@@ -239,13 +262,3 @@ class RoomController extends Controller
        // return $filename;
     }
 }
-
-
-
-//TODO LATER
-//   $data = Photo::get();
-//         //dd(gettype($data[0]->url));
-//         $decodePhoto = json_decode($data[0]->url);
-//         foreach($decodePhoto as $photo) {
-//             var_dump($photo);
-//         }

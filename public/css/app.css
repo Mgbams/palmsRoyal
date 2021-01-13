@@ -52908,6 +52908,65 @@ a {
   width: 300px;
 }
 
+/*
+    ===========
+       Rooms
+    ============
+*/
+
+#rooms-page-wrapper {
+  width: 100%;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+#rooms-page-wrapper #rooms-inner-wrapper {
+  height: 100vh;
+  width: 47%;
+  margin-bottom: 15vh;
+  margin-left: 20px;
+}
+
+#rooms-page-wrapper #rooms-inner-wrapper h2 {
+  text-align: center;
+}
+
+#rooms-page-wrapper #rooms-inner-wrapper .room-facilities {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#rooms-page-wrapper #rooms-inner-wrapper .room-image-wrapper {
+  width: 100%;
+  height: 70%;
+}
+
+#rooms-page-wrapper #rooms-inner-wrapper .room-image-wrapper img {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+}
+
+#rooms-page-wrapper #rooms-inner-wrapper .button-wrapper {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#rooms-page-wrapper #rooms-inner-wrapper .button-wrapper .details {
+  position: relative;
+  right: 30px;
+  top: 10px;
+  z-index: 50;
+}
+
 /**** Cancel Reservation page ****/
 
 @media only screen and (max-width: 576px) {
@@ -53306,6 +53365,22 @@ a {
     left: 0px;
     top: 10%;
     padding: 0px 20px;
+  }
+
+  /*
+      ===========
+         Rooms
+      ============
+  */
+
+  #rooms-page-wrapper #rooms-inner-wrapper {
+    width: 100%;
+    padding-left: 0px !important;
+    margin-left: 0px !important;
+  }
+
+  #rooms-page-wrapper #rooms-inner-wrapper h2 {
+    text-align: center;
   }
 }
 

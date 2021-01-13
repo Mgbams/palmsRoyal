@@ -19,7 +19,7 @@ class Photo extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'url', 'room_id',
+        'url'
     ];
 
     public function room() {

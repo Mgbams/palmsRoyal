@@ -482,7 +482,7 @@ class AddStoreIdToUsersTable extends Migration
 
             // 1. Create new column
             // You probably want to make the new column nullable
-            $table->integer('store_id')->unsigned()->nullable()->after('password');
+            $table->bigInteger('store_id')->unsigned()->nullable()->after('password');
 
             // 2. Create foreign key constraints
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('SET NULL');

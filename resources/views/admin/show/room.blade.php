@@ -4,8 +4,22 @@
 
 @section('third_party_stylesheets')
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+
+<!--css for select dropdown-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+<style type="text/css">
+        .dropdown-toggle{
+            height: 40px;
+        }
+        .facility-select {
+            display: flex; 
+            justify-content: center;
+            margin-bottom: 40px !important;
+        }
+</style>
 
 <!--dropzone-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" />
@@ -126,7 +140,34 @@
                           </div>
                         </div>
 
-                        
+                        <div class="form-group container-sm facility-select">
+                            <select class="selectpicker col-md-4 form-control" name="facilities[]" multiple data-live-search="true" >
+                                <option disabled>Select Item</option>
+                                @foreach ($facilities as $facility)
+                                    <option value="{{ $facility->id }}"> {{ $facility->name }} </option>
+                                @endforeach    
+                            </select>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-4">
+                                <select class="form-control" name="capacity">
+                                <option disabled>Select Item</option>
+                                 @foreach ($capacities as $capacity)
+                                    <option value="{{ $capacity->id }}"> {{ $capacity->capacity }} </option>
+                                @endforeach    
+                            </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <select class="form-control" name="floor">
+                                <option disabled>Select Item</option>
+                                 @foreach ($floors as $floor)
+                                    <option value="{{ $floor->id }}"> {{ $floor->floor }} </option>
+                                @endforeach    
+                            </select>
+                            </div>
+                        </div>
                         
                         <br />
 
@@ -141,8 +182,8 @@
                         @endif
 
                         <!--Photo display ends here-->
-                        <div class="form-group row ">
-                            <div class="col-md-10">
+                        <div class="form-group container-sm d-flex justify-content-center">
+                            <div class="col-md-8">
                                 <div id="file" class="dropzone"></div>
                             </div>
                         </div>
@@ -195,6 +236,16 @@
 
 <!--dropzone-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js" integrity="sha512-9WciDs0XP20sojTJ9E7mChDXy6pcO0qHpwbEJID1YVavz2H6QBz5eLoDD8lseZOb2yGT8xDNIV7HIe1ZbuiDWg==" crossorigin="anonymous"></script>
+
+<!--scripts for select dropdown -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+<!-- Initialize the plugin to enable select dropdown: -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(select).selectpicker();
+    });
+</script>
 
 <script type="text/javascript">
     $(function() {

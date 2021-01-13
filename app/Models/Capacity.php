@@ -4,18 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Facility extends Model
+class Capacity extends Model
 {
+    protected $table = 'capacities';
      /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
     protected $fillable = [
-        'name'
+        'capacity'
     ];
 }
-
-/*  protected $fillable = [
-        'capacity', 'wifi', 'ac', 'heater', 'other_facilities', 'floor',
-    ]; */
