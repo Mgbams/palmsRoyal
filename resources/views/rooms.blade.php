@@ -61,10 +61,47 @@
             <div id="rooms-inner-wrapper">
                 <div class="room-image-wrapper">
                    <?php $decodedImage = json_decode($room->url , true); ?>
-                    <img src="rooms/images/{{  $decodedImage[1] }}" />
+                    <img src="rooms/images/{{  $decodedImage[0] }}"/>
                 </div>
-                <h2>{{ $room->name }}</h2>   
+                <h2 class="mt-3">{{ $room->name }}</h2> 
+                <div>
+                 @if($room->facilities != 'null')
+                 <?php $facility = json_decode($room->facilities, true); ?>
+                 <div class="d-flex justify-content-between row flex-wrap" style="border: 1px solid green; width: 80%; margin: auto;">
+                        @if (array_key_exists(0, $facility))
+                        <div>
+                            <p><i class="fas fa-bed mr-2"></i>{{ $facility[0] }}</p>
+                        </div>
+                        @endif
+
+                        @if (array_key_exists(1, $facility))
+                        <div>
+                            <p><i class="fas fa-wifi mr-2"></i>{{ $facility[1] }}</p>
+                        </div>
+                        @endif
+
+                     
+                        @if (array_key_exists(2, $facility))
+                        <div>
+                            <p><i class="fas fa-bed mr-2"></i>{{ $facility[2] }}</p>
+                        </div>
+                        @endif
+                    
+
+                        @if (array_key_exists(2, $facility))
+                        <div>
+                            <p><i class="fas fa-wifi mr-2"></i>{{ $facility[2] }}</p>
+                        </div>
+                        @endif
+                     
+                 </div>
+                 @endif
+                </div>
+                    <div class="button-wrapper">
+                    <div class="details"><a class="special-offers-link read-more-link" href="{{url('/room/'.$room_links[$room->id])}}">DETAILS</a></div>
+                </div> 
             </div>
+           
             @endforeach
             @endif
 

@@ -3,7 +3,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // ///////////////////////////////TEST ROUTES TODO
-Route::get('senddetails', 'TestController@index');
+//Route::get('senddetails', 'TestController@index');
 
 /*
 |--------------------------------------------------------------------------
@@ -141,6 +141,35 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
         Route::post('facility/update', 'Admin\FacilityController@update')->name('facility.update');
         //Delete Facility
         Route::get('facility/destroy/{id}', 'Admin\FacilityController@destroy');
+
+        
+        /*** Capacity ***/
+        Route::get('capacities', 'Admin\CapacityController@index')->name('capacities'); //Link used to display capacities
+        Route::get('capacities/list', 'Admin\CapacityController@getCapacities')->name('get.capacities'); //redundant, just used to get data that is displayed in the index
+
+        //Edit capacity
+        Route::get('capacity/{id}/edit', 'Admin\CapacityController@edit');
+        //Store capacity
+        Route::post('capacity/store', 'Admin\CapacityController@store')->name('capacity.store');
+        //Update capacity
+        Route::post('capacity/update', 'Admin\CapacityController@update')->name('capacity.update');
+        //Delete capacity
+        Route::get('capacity/destroy/{id}', 'Admin\CapacityController@destroy');
+
+
+         /*** Floors ***/
+        Route::get('floors', 'Admin\FloorController@index')->name('floors'); //Link used to display floors
+        Route::get('floors/list', 'Admin\FloorController@getFloors')->name('get.floors'); //redundant, just used to get data that is displayed in the index
+
+        //Edit Floor
+        Route::get('floor/{id}/edit', 'Admin\FloorController@edit');
+        //Store Floor
+        Route::post('floor/store', 'Admin\FloorController@store')->name('floor.store');
+        //Update Floor
+        Route::post('floor/update', 'Admin\FloorController@update')->name('floor.update');
+        //Delete Floor
+        Route::get('floor/destroy/{id}', 'Admin\FloorController@destroy');
+
 
         /****ROLES AND PERMISSIONS */
 

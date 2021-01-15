@@ -5,46 +5,57 @@
 <div class="pages-stack">
 	<!-- Top image -->
 	@section('top-image')
-	<div class="page room-details-top-image">
+	<div class="page room-details-top-image" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
 		<!--TODO: Change the link to the image when i conclude the project-->
 		@if($room)
-		<img src="{{ $room->url }}" style="height: 100%; width: 100%; background-size: cover; position: relative;" />
+		<?php $decodedImage = json_decode($room->url , true); ?>
+		<img src="{{url('/rooms/images/'.$decodedImage[0] )}}" style="height: 100%; width: 100%; background-size: cover; position: relative;" />
 		@endif
-		<div class="header-text">
+		<div class="header-text" style="background-color: rgba(0, 0, 0, 0.5); width: 80%; margin: auto;">
 			<small>explore</small>
 			@if($room)
-			<h1>{{ strtoupper($room->name) }}</h1>
+			<h1 style="text-align: center;">{{ strtoupper($room->name) }}</h1>
 			@endif
+			 @if($room->facilities != 'null')
+             <?php $facility = json_decode($room->facilities, true); ?>
 			<div style="width: 500px; height: 15vh;">
 				<div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
-					@if($room->wifi == 1)
+
+					@if (array_key_exists(0, $facility))
 					<i class='fa fa-bed' style='font-size:24px; color: white;'></i>
 					@endif
-					@if($room->ac == 1)
+
+					@if (array_key_exists(1, $facility))
 					<i class='fa fa-bath' style='font-size:24px; color: white;'></i>
 					@endif
-					@if($room->capacity !== null)
+					
+					<?php @isset($room->capacity) ?>
 					<i class='fa fa-bath' style='font-size:24px; color: white;'></i>
-					@endif
-					@if($room->heater == 1)
+					<?php @endisset ?>
+
+					@if (array_key_exists(2, $facility))
 					<i class='fa fa-bath' style='font-size:24px; color: white;'></i>
 					@endif
 				</div>
 				<div style="display: flex; width: 100%; justify-content: space-between; margin-top: 15px;">
-					@if($room->wifi == 1)
-					<small style="color: white; font-size: 18px;">Wifi</small>
+					@if (array_key_exists(0, $facility))
+					<small style="color: white; font-size: 18px;">{{ $facility[0] }}</small>
 					@endif
-					@if($room->ac == 1)
-					<small style="color: white; font-size: 18px;">Ac</small>
+
+					@if (array_key_exists(1, $facility))
+					<small style="color: white; font-size: 18px;">{{ $facility[1] }}</small>
 					@endif
-					@if($room->capacity !== null)
+
+					<?php @isset($room->capacity) ?>
 					<small style="color: white; font-size: 18px;">{{ $room->capacity }} &nbsp;&nbsp; m<sup>2</sup></small>
-					@endif
-					@if($room->heater == 1)
-					<small style="color: white; font-size: 18px;">Heater</small>
+					<?php @endisset ?>
+
+					@if (array_key_exists(2, $facility))
+					<small style="color: white; font-size: 18px;">{{ $facility[2] }}</small>
 					@endif
 				</div>
 			</div>
+			@endif
 		</div>
 	</div>
 	@stop
@@ -125,7 +136,7 @@
 
 	@section('second-content')
 	<!-- Second Block-->
-	<div class="room-details-second-div" style="width: 100vw; height: 100vh; margin-top: 150px; display:flex;">
+	<div class="room-details-second-div" style="width: 100vw; height: 100vh; margin-top: 50px; display:flex;">
 		@if($room)
 		<div style="position: relative; bottom: 40vh; writing-mode: vertical-lr; width: 5vw; height: 100vh; text-align: center; color: black; letter-spacing: 2.5;">
 			{{ strtoupper($room->name) }}

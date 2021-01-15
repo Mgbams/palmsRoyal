@@ -10,6 +10,9 @@
 <!--css for select dropdown-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+
+
+
 <style type="text/css">
         .dropdown-toggle{
             height: 40px;
@@ -144,7 +147,7 @@
                             <select class="selectpicker col-md-4 form-control" name="facilities[]" multiple data-live-search="true" >
                                 <option disabled>Select Item</option>
                                 @foreach ($facilities as $facility)
-                                    <option value="{{ $facility->id }}"> {{ $facility->name }} </option>
+                                    <option value="{{ $facility->name }}"> {{ $facility->name }} </option>
                                 @endforeach    
                             </select>
                         </div>
@@ -154,7 +157,7 @@
                                 <select class="form-control" name="capacity">
                                 <option disabled>Select Item</option>
                                  @foreach ($capacities as $capacity)
-                                    <option value="{{ $capacity->id }}"> {{ $capacity->capacity }} </option>
+                                    <option value="{{ $capacity->capacity  }}"> {{ $capacity->capacity }} </option>
                                 @endforeach    
                             </select>
                             </div>
@@ -238,12 +241,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js" integrity="sha512-9WciDs0XP20sojTJ9E7mChDXy6pcO0qHpwbEJID1YVavz2H6QBz5eLoDD8lseZOb2yGT8xDNIV7HIe1ZbuiDWg==" crossorigin="anonymous"></script>
 
 <!--scripts for select dropdown -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 <!-- Initialize the plugin to enable select dropdown: -->
+
 <script type="text/javascript">
     $(document).ready(function() {
-        $(select).selectpicker();
+       $(select).selectpicker();
     });
 </script>
 

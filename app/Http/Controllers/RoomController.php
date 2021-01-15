@@ -19,7 +19,11 @@ class RoomController extends Controller
     public function show(Request $request)
     {
         $room_links = array(); //Declare an array to hold room names that are appended with hyphens
-        $rooms = $this->roomRepository->getAllRooms(); // Get all the rooms
+       // $rooms = $this->roomRepository->getAllRooms(); // Get all the rooms
+
+        $rooms =  DB::table('rooms')
+                    ->join('photos', 'photos.id', '=', 'rooms.photo_id')
+                    ->join('rooms_facilities', 'rooms.id', '=', 'rooms_facilities.id_room')->get();
 
         foreach ($rooms as $room) {
             $name = $room->name;
@@ -33,8 +37,9 @@ class RoomController extends Controller
             'room_links' => $room_links
         ]);*/
 
-        $rooms =  DB::table('rooms')->join('photos', 'photos.id', '=', 'rooms.photo_id')->get();
-
+       
+        //dd($rooms);
+       // dd($room_links );
         // TODO LATER
         //$data = Photo::get();
         //dd(gettype($data[0]->url));
