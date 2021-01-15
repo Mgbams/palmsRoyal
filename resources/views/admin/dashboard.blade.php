@@ -13,7 +13,7 @@
                         <small>All Rooms Value</small>
                     </div>
                     <div>
-                        <small>&euro;5000</small>
+                        <small>&euro;{{  $totalPrice }}</small>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                         <small>All Guests</small>
                     </div>
                     <div>
-                        <small>200</small>
+                        <small> {{ $guestsCount }} </small>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                         <small>All Facilities</small>
                     </div>
                     <div>
-                        <small>10</small>
+                        <small>{{ $facilitiesCount }}</small>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                         <small>Rooms Not Yet Booked</small>
                     </div>
                     <div>
-                        <small>5</small>
+                        <small>{{ $roomsNotAvailable }}</small>
                     </div>
                 </div>
             </div>

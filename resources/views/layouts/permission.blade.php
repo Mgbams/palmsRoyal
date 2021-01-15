@@ -43,9 +43,9 @@
                     </a>
                 </li>
                 @else
-                <li><a class="nav-link" href="#">Manage Users</a></li>
+                <li><a class="nav-link" href="{{ route('rooms') }}">Manage Rooms</a></li>
                 <li><a class="nav-link  {{ request()->is('admin/roles-and-permissions/index') ? 'active' : ''}}" href="{{ url('admin/roles-and-permissions/index') }}">Manage Role</a></li>
-                <li><a class="nav-link" href="#">Manage Product</a></li>
+                <li><a class="nav-link" href="#">Manage Guests</a></li>
                 @endguest
             </ul>
 

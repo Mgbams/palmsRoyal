@@ -88,7 +88,7 @@ class FloorController extends Controller
     {
         //dd($request);
         $rules = array(
-            'floor'         =>  'required'
+            'floor'   =>  'required'
         );
         
         $error = Validator::make($request->all(), $rules);
