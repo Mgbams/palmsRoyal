@@ -48,51 +48,18 @@ class FacilityController extends Controller
      */
     public function store(Request $request)
     {
-        $wifi = 0;
-        $ac = 0;
-        $heater = 0;
         $rules = array(
-            'wifi'         =>  'required',
-            'ac'           =>  'required',
-            'heater'       =>  'required'
+            'facility'         =>  'required'
         );
 
-        $comma_separated = implode(",", $request->other_facilities);
-        $floor_lists = implode(",", $request->floor);
-        $capacity_lists = implode(",", $request->capacity);
-        
-    
         $error = Validator::make($request->all(), $rules);
 
         if ($error->fails()) {
             return response()->json(['errors' => $error->errors()->all()]);
         } else {
 
-            if ($request->wifi == 'on') {
-                $wifi  = 1;
-            } else {
-                $wifi  = 0;
-            };
-
-            if ($request->ac == 'on') {
-                $ac   = 1;
-            } else {
-                $ac   = 0;
-            };
-
-            if ($request->heater == 'on') {
-                $heater  = 1;
-            } else {
-                $heater   = 0;
-            };
-
             $form_data = array(
-                'wifi'              =>   $wifi,
-                'ac'                =>   $ac,
-                'heater'            =>   $heater,
-                'other_facilities'  =>   $comma_separated,
-                'floor'             =>   $floor_lists,
-                'capacity'          =>   $capacity_lists
+                'name'       =>   $request->facility
             );
             Facility::create($form_data);
 
@@ -125,52 +92,18 @@ class FacilityController extends Controller
     public function update(Request $request)
     {
         //dd($request);
-        $wifi = 0;
-        $ac = 0;
-        $heater = 0;
         $rules = array(
-            'wifi'         =>  'required',
-            'ac'           =>  'required',
-            'heater'       =>  'required'
+            'facility'   =>  'required'
         );
-
-        $comma_separated = implode(",", $request->other_facilities);
-        $floor_lists = implode(",", $request->floor);
-        $capacity_lists = implode(",", $request->capacity);
-        //dd($floor_lists);
-        //dd( explode( ',', $floor_lists) );
-        
+   
         $error = Validator::make($request->all(), $rules);
 
         if ($error->fails()) {
             return response()->json(['errors' => $error->errors()->all()]);
         } else {
 
-            if ($request->wifi == 'on') {
-                $wifi  = 1;
-            } else {
-                $wifi  = 0;
-            };
-
-            if ($request->ac == 'on') {
-                $ac   = 1;
-            } else {
-                $ac   = 0;
-            };
-
-            if ($request->heater == 'on') {
-                $heater  = 1;
-            } else {
-                $heater   = 0;
-            };
-
             $form_data = array(
-                'wifi'              =>   $wifi,
-                'ac'                =>   $ac,
-                'heater'            =>   $heater,
-                'other_facilities'  =>   $comma_separated,
-                'floor'             =>   $floor_lists,
-                'capacity'          =>   $capacity_lists
+                'name'              =>   $request->facility
             );
             Facility::whereId($request->hidden_id)->update($form_data);
 

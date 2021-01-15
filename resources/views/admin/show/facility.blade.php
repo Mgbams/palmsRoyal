@@ -16,25 +16,6 @@
 @stop
 
 @section('content')
-<!--image upload errors-->
-@if (count($errors) > 0)
-<div class="alert alert-danger">
-    <strong>Sorry !</strong> There were some problems with your input.<br><br>
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-
-@if(session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
-@endif
-<!--image upload errors end here-->
-
 
 <div class="container-fluid pt-5">
     <h2 class="mb-4">Facilities Info</h2>
@@ -67,12 +48,12 @@
                     <form method="post" id="facility_form" class="form-horizontal" enctype="multipart/form-data">
                         @csrf
                         <div class="col-lg-8 col-md-8 col-sm-8 container justify-content-center">
-                            <div class="form-group">
-                                <div class="col-md-8">
-                                    <label class="control-label col-md-6" for="name">Name: </label>
-                                    <input type="text" name="name" id="name">
+                             <div class="form-group row">
+                                <label for="facility" class="col-sm-3 col-form-label mr-2">Facility</label>
+                                <div class="col-sm-8">
+                                <input type="text" class="form-control" name="facility" id="facility" placeholder="Facility Name">
                                 </div>
-                            </div>
+                             </div>
                         </div>
 
                         <div class="form-group" align="center">
@@ -147,7 +128,7 @@
             ]
         });
 
-        /* Edit customer starts here  =>EDIT */
+        /* Edit facility starts here  =>EDIT */
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('id');
             $('#form_result').html('');
@@ -156,26 +137,7 @@
                 url: "/admin/facility/" + id + "/edit",
                 dataType: "json",
                 success: function(html) {
-                    if (html.data.wifi == 1) {
-                        $('#wifi').prop('checked', true);
-                    }
-                    if (html.data.ac == 1) {
-                        $('#ac').prop('checked', true);
-                    }
-                    if (html.data.heater == 1) {
-                        $('#heater').prop('checked', true);
-                    }
-
-                    if (html.data.television == 1) {
-                        $('#television').prop('checked', true);
-                    }
-                    if (html.data.desk == 1) {
-                        $('#desk').prop('checked', true);
-                    }
-                    if (html.data.hairdryer == 1) {
-                        $('#hairdryer').prop('checked', true);
-                    }
-
+                     $('#facility').val(html.data.name);
                     $('#hidden_id').val(html.data.id);
                     $('.modal-title').text("Edit New Record");
                     $('#action_button').val("Edit");
@@ -184,7 +146,7 @@
                 }
             })
         });
-        /* Edit customer ends here */
+        /* Edit facility ends here */
 
         //Delete starts here  =>DELETE
         var facility_id;

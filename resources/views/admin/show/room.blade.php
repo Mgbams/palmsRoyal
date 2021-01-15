@@ -19,7 +19,6 @@
         }
         .facility-select {
             display: flex; 
-            justify-content: center;
             margin-bottom: 40px !important;
         }
 </style>
@@ -143,8 +142,9 @@
                           </div>
                         </div>
 
-                        <div class="form-group container-sm facility-select">
-                            <select class="selectpicker col-md-4 form-control" name="facilities[]" multiple data-live-search="true" >
+                        <div class="form-group row facility-select">
+                            <label for="facility" class="col-sm-3 col-form-label mr-2">Facility</label>
+                            <select class="selectpicker col-sm-6 form-control" name="facilities[]" multiple data-live-search="true" >
                                 <option disabled>Select Item</option>
                                 @foreach ($facilities as $facility)
                                     <option value="{{ $facility->name }}"> {{ $facility->name }} </option>
@@ -153,23 +153,23 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-4">
-                                <select class="form-control" name="capacity">
+                            <label for="capacity" class="col-sm-3 col-form-label mr-2">Capacity</label>
+                            <select class="form-control col-sm-6" name="capacity">
                                 <option disabled>Select Item</option>
-                                 @foreach ($capacities as $capacity)
+                                @foreach ($capacities as $capacity)
                                     <option value="{{ $capacity->capacity  }}"> {{ $capacity->capacity }} </option>
                                 @endforeach    
                             </select>
-                            </div>
+                        </div>
 
-                            <div class="col-md-4">
-                                <select class="form-control" name="floor">
+                        <div class="form-group row">
+                            <label for="floor" class="col-sm-3 col-form-label mr-2">Floor</label>
+                            <select class="form-control col-sm-6" name="floor">
                                 <option disabled>Select Item</option>
-                                 @foreach ($floors as $floor)
+                                @foreach ($floors as $floor)
                                     <option value="{{ $floor->id }}"> {{ $floor->floor }} </option>
                                 @endforeach    
                             </select>
-                            </div>
                         </div>
                         
                         <br />
@@ -191,7 +191,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group" align="center">
+                        <div class="form-group text-center justify-content-center">
                             <input type="hidden" name="action" id="action" />
                             <input type="hidden" name="hidden_id" id="hidden_id" />
                             <input type="submit" name="action_button" id="action_button" class="btn btn-primary px-5" value="Add" />
@@ -213,7 +213,7 @@
                     <h2 class="modal-title">Confirmation</h2>
                 </div>
                 <div class="modal-body">
-                    <h4 align="center" style="margin:0;">Êtes-vous sûr de vouloir supprimer ces données ?</h4>
+                    <h4 class="text-center" style="margin:0;">Êtes-vous sûr de vouloir supprimer ces données ?</h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" name="ok_button" id="ok_button" class="btn btn-danger">OK</button>

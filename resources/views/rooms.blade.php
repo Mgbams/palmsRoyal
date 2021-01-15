@@ -67,7 +67,7 @@
                 <div>
                  @if($room->facilities != 'null')
                  <?php $facility = json_decode($room->facilities, true); ?>
-                 <div class="d-flex justify-content-between row flex-wrap" style="border: 1px solid green; width: 80%; margin: auto;">
+                 <div class="d-flex justify-content-between row flex-wrap" style="width: 80%; margin: auto;">
                         @if (array_key_exists(0, $facility))
                         <div>
                             <p><i class="fas fa-bed mr-2"></i>{{ $facility[0] }}</p>

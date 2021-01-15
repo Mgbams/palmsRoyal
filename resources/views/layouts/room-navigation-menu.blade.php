@@ -22,9 +22,9 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container-sm">
 		<!-- the header that will be animated by adding the respective state class to it -->
-		<header id="ha-header" class="ha-header ha-header-large" style="z-index: 999;">
+		<header id="ha-header" class="ha-header ha-header-large">
 			<div class="ha-header-perspective">
 				<div class="ha-header-front">
 					<h1><span>palmsRoyal</span></h1>
@@ -50,7 +50,7 @@
 			</div>
 		</header>
 		<!-- the sections with triggers -->
-		<section class="top-image">
+		<section class="top-image" style="z-index: 2;">
 			@yield('top-image')
 		</section>
 		<section class="first-effects-div">
@@ -149,7 +149,9 @@
 				infinite: true,
 				slidesToShow: 2,
 				slidesToScroll: 1,
+				autoplay: true,
 				centerMode: true,
+				arrows: false,
 				responsive: [{
 						breakpoint: 1200,
 						settings: {

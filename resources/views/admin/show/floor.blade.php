@@ -16,25 +16,6 @@
 @stop
 
 @section('content')
-<!--image upload errors-->
-@if (count($errors) > 0)
-<div class="alert alert-danger">
-    <strong>Sorry !</strong> There were some problems with your input.<br><br>
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-
-@if(session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
-@endif
-<!--image upload errors end here-->
-
 
 <div class="container-fluid pt-5">
     <h2 class="mb-4">Hotel Floor</h2>
@@ -66,13 +47,13 @@
                     <span id="form_result"></span>
                     <form method="post" id="floor_form" class="form-horizontal" enctype="multipart/form-data">
                         @csrf
-                        <div class="col-lg-8 col-md-8 col-sm-8 container justify-content-center">
-                            <div class="form-group">
-                                <div class="col-md-8">
-                                    <label class="control-label col-md-6" for="floor">Floor: </label>
-                                    <input type="text" name="floor" id="floor">
+                         <div class="col-lg-8 col-md-8 col-sm-8 container justify-content-center">
+                             <div class="form-group row">
+                                <label for="floor" class="col-sm-3 col-form-label mr-2">Floor</label>
+                                <div class="col-sm-8">
+                                <input type="text" class="form-control" name="floor" id="floor" placeholder="Floor Name">
                                 </div>
-                            </div>
+                             </div>
                         </div>
 
                         <div class="form-group" align="center">
@@ -147,7 +128,7 @@
             ]
         });
 
-        /* Edit customer starts here  =>EDIT */
+        /* Edit floor starts here  =>EDIT */
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('id');
             $('#form_result').html('');
@@ -156,6 +137,7 @@
                 url: "/admin/floor/" + id + "/edit",
                 dataType: "json",
                 success: function(html) {
+                    $('#floor').val(html.data.floor);
                     $('#hidden_id').val(html.data.id);
                     $('.modal-title').text("Edit New Record");
                     $('#action_button').val("Edit");
@@ -164,7 +146,7 @@
                 }
             })
         });
-        /* Edit customer ends here */
+        /* Edit floor ends here */
 
         //Delete starts here  =>DELETE
         var floor_id;
