@@ -63,7 +63,7 @@ class FacilityController extends Controller
             );
             Facility::create($form_data);
 
-            return response()->json(['success' => 'Data is successfully updated']);
+            return response()->json(['success' => 'Data is successfully stored']);
         }
     }
 

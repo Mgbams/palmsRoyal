@@ -88,9 +88,9 @@
                         @endif
                     
 
-                        @if (array_key_exists(2, $facility))
+                        @if (array_key_exists(3, $facility))
                         <div>
-                            <p><i class="fas fa-wifi mr-2"></i>{{ $facility[2] }}</p>
+                            <p><i class="fas fa-wifi mr-2"></i>{{ $facility[3] }}</p>
                         </div>
                         @endif
                      

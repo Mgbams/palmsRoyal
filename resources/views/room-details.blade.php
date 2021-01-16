@@ -136,20 +136,39 @@
 
 	@section('second-content')
 	<!-- Second Block-->
-	<div class="room-details-second-div" style="width: 100vw; height: 100vh; margin-top: 50px; display:flex;">
-		@if($room)
-		<div style="position: relative; bottom: 40vh; writing-mode: vertical-lr; width: 5vw; height: 100vh; text-align: center; color: black; letter-spacing: 2.5;">
-			{{ strtoupper($room->name) }}
+	<div style="position: relative;">
+		<div class="room-details-second-div" style="width: 100vw; height: 100vh; margin-top: 50px; display:flex;">
+			@if($room)
+			<div style="position: relative; bottom: 40vh; writing-mode: vertical-lr; width: 5vw; height: 100vh; text-align: center; color: black; letter-spacing: 2.5;">
+				{{ strtoupper($room->name) }}
+			</div>
+			@endif
+			<div class="right-block" style="opacity: 0.7; width: 70vw; height: 100vh; display: flex; justify-content: center; align-items: center;">
+				@if($room)
+				<?php $decodedImage = json_decode($room->url , true); ?>
+					@if (array_key_exists(0,  $decodedImage))
+						<img src="{{url('/rooms/images/'.$decodedImage[0] )}}" style="height: 100%; width: 100%; background-size: cover; position: relative;" />
+					@endif
+				@endif
+			</div>
 		</div>
-		@endif
-		<div class="right-block" style="width: 70vw; height: 100vh; display: flex; justify-content: center; align-items: center;">
-			<div class="right-block-inner" style="width: 60vw; height: 50%; display: flex; position: relative; left: 25vw; justify-content: space-between">
-				<div class="right-block-inner-first" style="width: 40%; height: 80%;">
 
-				</div>
-				<div class="right-block-inner-second" style="width: 40%; height: 80%;">
-
-				</div>
+		<div style="width: 60vw; position: absolute; top: 27vh; left: 35vw; height: 50%; display: flex; justify-content: space-between;">
+			<div style="width: 40%; height: 80%; border: 3px groove pink;">
+				@if($room)
+				<?php $decodedImage = json_decode($room->url , true); ?>
+					@if (array_key_exists(1,  $decodedImage))
+					<img src="{{url('/rooms/images/'.$decodedImage[1] )}}" style="height: 100%; width: 100%; background-size: cover;" />
+					@endif
+				@endif
+			</div>
+			<div style="width: 40%; height: 80%; border: 3px groove pink;">
+				@if($room)
+				<?php $decodedImage = json_decode($room->url , true); ?>
+					@if (array_key_exists(2,  $decodedImage))
+					<img src="{{url('/rooms/images/'.$decodedImage[2] )}}" style="height: 100%; width: 100%; background-size: cover;" />
+					@endif
+				@endif
 			</div>
 		</div>
 	</div>
