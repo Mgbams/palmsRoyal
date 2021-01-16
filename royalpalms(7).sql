@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 05 jan. 2021 à 03:22
+-- Généré le : sam. 16 jan. 2021 à 02:36
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.2.32
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `royalpalms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `capacities`
+--
+
+CREATE TABLE `capacities` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `capacity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `capacities`
+--
+
+INSERT INTO `capacities` (`id`, `capacity`, `created_at`, `updated_at`) VALUES
+(1, '20', NULL, '2021-01-15 21:25:50'),
+(2, '26', NULL, '2021-01-15 21:26:02'),
+(5, '29', '2021-01-15 21:26:12', '2021-01-15 21:26:12'),
+(6, '32', '2021-01-15 21:26:39', '2021-01-15 21:26:39'),
+(7, '35', '2021-01-15 21:26:45', '2021-01-15 21:26:45'),
+(8, '88', '2021-01-15 21:27:30', '2021-01-15 21:27:30');
 
 -- --------------------------------------------------------
 
@@ -305,12 +330,7 @@ INSERT INTO `countries` (`id`, `code`, `alpha2`, `alpha3`, `nom_en_gb`, `nom_fr_
 
 CREATE TABLE `facilities` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `capacity` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `wifi` tinyint(1) NOT NULL,
-  `ac` tinyint(1) NOT NULL,
-  `heater` tinyint(1) NOT NULL,
-  `other_facilities` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `floor` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -319,9 +339,44 @@ CREATE TABLE `facilities` (
 -- Déchargement des données de la table `facilities`
 --
 
-INSERT INTO `facilities` (`id`, `capacity`, `wifi`, `ac`, `heater`, `other_facilities`, `floor`, `created_at`, `updated_at`) VALUES
-(1, '200', 1, 1, 1, 'TV', '2', '2020-12-09 22:10:09', '2020-12-15 22:10:09'),
-(2, '25,40,60,70', 1, 1, 1, 'television,desk,hairdryer,breakfast_included', '1,2,3,4', '2020-12-15 23:55:37', '2020-12-15 23:55:37');
+INSERT INTO `facilities` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'TV', '2020-12-09 22:10:09', '2020-12-15 22:10:09'),
+(2, 'Wifi', '2020-12-15 23:55:37', '2020-12-15 23:55:37'),
+(3, 'Ac', '2021-01-19 22:50:09', '2021-01-15 22:50:09'),
+(4, 'Heater', '2021-01-19 22:50:09', '2021-01-27 22:50:09'),
+(7, 'Internet Acces', '2021-01-15 21:55:45', '2021-01-15 21:55:45'),
+(8, 'Balcony/Terrace', '2021-01-15 21:56:04', '2021-01-15 21:56:04'),
+(9, 'Alarm Clock', '2021-01-15 21:56:28', '2021-01-15 21:56:28'),
+(10, 'Work Desk', '2021-01-15 21:56:57', '2021-01-15 21:56:57'),
+(11, 'Iron Facilites', '2021-01-15 21:57:25', '2021-01-15 21:57:25'),
+(12, 'Telephone', '2021-01-15 21:57:52', '2021-01-15 21:57:52'),
+(13, 'Coffe/Tea Maker', '2021-01-15 21:58:14', '2021-01-15 21:58:14'),
+(14, 'Carpeted Floor', '2021-01-15 21:58:25', '2021-01-15 21:58:25'),
+(15, 'Mini Bar', '2021-01-15 21:58:41', '2021-01-15 21:58:41'),
+(16, 'Hair Dryer', '2021-01-15 22:00:02', '2021-01-15 22:00:02'),
+(17, 'Bathrobe', '2021-01-15 22:01:18', '2021-01-15 22:01:18');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `floors`
+--
+
+CREATE TABLE `floors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `floor` bigint(20) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `floors`
+--
+
+INSERT INTO `floors` (`id`, `floor`, `created_at`, `updated_at`) VALUES
+(1, 1, '2021-01-14 21:31:11', '2021-01-15 12:13:53'),
+(2, 2, '2021-01-13 21:31:11', '2021-01-14 21:31:11'),
+(5, 3, '2021-01-15 22:01:43', '2021-01-15 22:01:43');
 
 -- --------------------------------------------------------
 
@@ -417,7 +472,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (22, '2020_12_19_000416_add_role_id_to_users', 20),
 (23, '2020_12_31_234202_add_reservation_number_to_reservations_table', 21),
 (24, '2021_01_05_020947_add_vat_to_rooms_table', 22),
-(25, '2021_01_05_021458_add_discount_to_rooms_table', 23);
+(25, '2021_01_05_021458_add_discount_to_rooms_table', 23),
+(26, '2021_01_12_212037_create_floors_table', 24),
+(27, '2021_01_12_212409_create_capacities_table', 24),
+(28, '2021_01_12_234558_create_rooms_facilities_table', 25),
+(29, '2021_01_12_235752_add_rooms_facilities_id_to_rooms_table', 26),
+(30, '2021_01_13_002050_add_rooms_facilities_id_to_rooms_table', 27);
 
 -- --------------------------------------------------------
 
@@ -510,7 +570,7 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 
 CREATE TABLE `photos` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `url` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `url` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`url`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -518,8 +578,17 @@ CREATE TABLE `photos` (
 --
 
 INSERT INTO `photos` (`id`, `url`) VALUES
-(1, 'https://cdn.pixabay.com/photo/2014/05/21/14/56/bedroom-349698_960_720.jpg'),
-(2, 'https://cdn.pixabay.com/photo/2014/05/17/18/03/lobby-346426_960_720.jpg');
+(21, '[\"france-express-image.jpg\"]'),
+(22, '[\"paypal-image.jpg\"]'),
+(23, '[\"IMG_20200709_002158.jpg\"]'),
+(24, '[\"image1.1.jpg\",\"image1.2.jpg\",\"image1.3.jpg\"]'),
+(25, '[\"room6.1.jpg\",\"room6.2.jpg\",\"room6.3.jpg\"]'),
+(26, '[\"room9.1.jpg\",\"room9.2.jpg\",\"room9.3.jpg\"]'),
+(27, '[\"room10.1.jpg\",\"room10.2.jpg\",\"room10.3.jpg\"]'),
+(28, '[\"room8.1.jpg\",\"room8.2.jpg\",\"room8.3.jpg\"]'),
+(29, '[\"room7.1.jpg\",\"room7.2.jpg\",\"room7.3.jpg\"]'),
+(30, '[\"room5.1.jpg\",\"room5.2.jpg\",\"room5.3.jpg\"]'),
+(31, '[\"room2.1.jpg\",\"room2.2.jpg\",\"room2.3.jpg\"]');
 
 -- --------------------------------------------------------
 
@@ -544,6 +613,13 @@ CREATE TABLE `reservations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `reservations`
+--
+
+INSERT INTO `reservations` (`id`, `guest_count`, `check_in`, `check_out`, `reservation_number`, `user_id`, `balance_amount`, `status`, `paid_amount`, `discount_percent`, `room_name`, `cancelled_at`, `number_of_days_booked`, `created_at`, `updated_at`) VALUES
+(13, 1, '2021-01-05', '2021-01-06', '1888054018', 49, '0.00', 'User', '119.99', '0.00', 'king size four poster', '1970-01-01', 1, '2021-01-06 00:16:47', '2021-01-06 00:16:47');
 
 -- --------------------------------------------------------
 
@@ -632,14 +708,14 @@ CREATE TABLE `rooms` (
   `price` decimal(10,2) UNSIGNED NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `available_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `available_date` date NOT NULL DEFAULT current_timestamp(),
   `auto_approve` tinyint(1) NOT NULL,
   `published` tinyint(1) NOT NULL,
   `discount` decimal(8,2) DEFAULT 0.00,
   `vat` decimal(8,2) DEFAULT 0.00,
   `is_available` tinyint(1) NOT NULL,
   `hotel_id` bigint(20) UNSIGNED NOT NULL,
-  `photo_id` bigint(20) UNSIGNED DEFAULT NULL
+  `photo_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -647,8 +723,44 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `price`, `name`, `description`, `available_date`, `auto_approve`, `published`, `discount`, `vat`, `is_available`, `hotel_id`, `photo_id`) VALUES
-(1, '120.00', 'king size four poster', 'Our king size four poster provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.', '2021-01-05 02:20:34', 0, 1, '2.00', '1.30', 1, 1, 1),
-(2, '300.00', 'queen size four poster', 'Our king size sleigh bedded also provides views over landscaped gardens. It has ample storage, a seating area, digital safe, minibar and luxurious duck down bedding.\r\n', '2021-01-05 02:21:26', 0, 1, '6.50', '0.75', 1, 1, 2);
+(33, '150.00', 'Standard Single Room', 'A beautiful Standard Single Room with a cozy bed, a modern bathroom with bathtub, a balcony\r\nand a table with work area.', '2021-01-16', 1, 1, '2.20', '1.30', 1, 1, 24),
+(34, '202.50', 'Standard Double Room', 'A standard double room with a comfortable double bed or two twin beds, a newly renovated bathroom with bathtub, a balcony overlooking the  centre de confluence.', '2021-01-16', 1, 1, '0.00', '0.52', 1, 1, 25),
+(35, '265.50', 'Deluxe Double Room', 'A deluxe double room with Matterhorn view with a comfortable double bed or two twin beds, a seating area with armchairs, a renovated bathroom with bathtub, a sunny south-facing balcony and a wonderful view of the city.', '2021-01-16', 1, 1, '1.30', '0.00', 1, 1, 26),
+(36, '302.15', 'Alpine Junior Suite', 'A stylish Alpine Junior Suite with a cozy double bed, an open bathroom with bathtub and separate rain shower and separate toilet. A fine Arvenparkett, skins, loden and linen. A Living area with comfortable armchairs and beautiful views of the lake.', '2021-01-16', 1, 1, '0.00', '1.30', 1, 1, 27),
+(37, '235.00', 'Superior Room', 'A superior room with spacious 35 m2 and a comfortable bed with a newly renovated bathroom with daylight and bath, a sitting area with sofa, balconies overlooking the mountain side.', '2021-01-16', 1, 1, '1.65', '1.02', 1, 1, 28),
+(38, '565.00', 'Alpine Loft Suite', 'An alpine modern style with a cosy living and sleeping room, with open fire place, an exclusive luxury bath with whirlpool, separate raindance, shower, toilet, 2 flat TV screens, balcony and a marvelous view of the city.', '2021-01-16', 1, 1, '0.85', '1.35', 1, 1, 29),
+(39, '275.00', 'Junior Suite', 'A spacious junior suite with a comfortable bed, a seating area with sofa and armchair, a modern bathroom, a separate toilet, two flat screen TVs, an input area with a small wardrobe, a balcony and a beautiful view of the streets.', '2021-01-16', 1, 1, '2.00', '1.50', 1, 1, 30),
+(40, '85.00', 'Super king Room', 'This 20m² room is also perfect for queens and royalty. It gives you a huge super king Royal Dutch Auping bed (200x210!). A Cozy window desk/seat, tea facilities and snacks.', '2021-01-16', 1, 1, '0.00', '1.24', 1, 1, 31);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rooms_facilities`
+--
+
+CREATE TABLE `rooms_facilities` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `capacity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `facilities` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`facilities`)),
+  `floor` bigint(20) NOT NULL,
+  `id_room` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `rooms_facilities`
+--
+
+INSERT INTO `rooms_facilities` (`id`, `capacity`, `facilities`, `floor`, `id_room`, `created_at`, `updated_at`) VALUES
+(9, '20', '[\"TV\",\"Wifi\",\"Ac\",\"Heater\",\"Internet Acces\",\"Balcony\\/Terrace\",\"Bathrobe\"]', 1, 33, '2021-01-15 22:07:25', '2021-01-15 22:07:25'),
+(10, '26', '[\"TV\",\"Wifi\",\"Ac\",\"Heater\",\"Internet Acces\",\"Balcony\\/Terrace\",\"Telephone\",\"Coffe\\/Tea Maker\",\"Bathrobe\"]', 2, 34, '2021-01-15 22:17:27', '2021-01-15 22:17:27'),
+(11, '29', '[\"TV\",\"Wifi\",\"Ac\",\"Heater\",\"Internet Acces\",\"Balcony\\/Terrace\",\"Work Desk\",\"Coffe\\/Tea Maker\",\"Mini Bar\",\"Bathrobe\"]', 2, 35, '2021-01-15 22:29:02', '2021-01-15 22:29:02'),
+(12, '32', '[\"Heater\",\"Internet Acces\",\"Balcony\\/Terrace\",\"Alarm Clock\",\"Work Desk\",\"Bathrobe\"]', 5, 36, '2021-01-15 22:33:48', '2021-01-15 22:33:48'),
+(13, '35', '[\"TV\",\"Wifi\",\"Ac\",\"Heater\",\"Internet Acces\",\"Balcony\\/Terrace\",\"Work Desk\",\"Bathrobe\"]', 2, 37, '2021-01-15 22:41:16', '2021-01-15 22:41:16'),
+(14, '88', '[\"TV\",\"Wifi\",\"Ac\",\"Heater\",\"Internet Acces\",\"Balcony\\/Terrace\",\"Alarm Clock\",\"Work Desk\",\"Iron Facilites\",\"Telephone\",\"Coffe\\/Tea Maker\",\"Mini Bar\",\"Hair Dryer\",\"Bathrobe\"]', 5, 38, '2021-01-15 22:49:47', '2021-01-15 22:49:47'),
+(15, '35', '[\"TV\",\"Wifi\",\"Ac\",\"Heater\",\"Internet Acces\",\"Balcony\\/Terrace\",\"Work Desk\",\"Telephone\",\"Bathrobe\"]', 2, 39, '2021-01-15 22:58:04', '2021-01-15 22:58:04'),
+(16, '20', '[\"TV\",\"Wifi\",\"Ac\",\"Heater\",\"Internet Acces\",\"Work Desk\",\"Coffe\\/Tea Maker\",\"Bathrobe\"]', 1, 40, '2021-01-15 23:17:51', '2021-01-15 23:17:51');
 
 -- --------------------------------------------------------
 
@@ -689,14 +801,6 @@ CREATE TABLE `room_type_rooms` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `room_type_rooms`
---
-
-INSERT INTO `room_type_rooms` (`id`, `room_type_id`, `room_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '2020-11-12 01:23:44', '2020-11-17 01:23:44'),
-(2, 1, 2, '2020-11-24 01:23:44', '2020-11-26 01:23:44');
-
 -- --------------------------------------------------------
 
 --
@@ -723,7 +827,7 @@ CREATE TABLE `users` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone_number` int(11) DEFAULT NULL,
+  `phone_number` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -742,13 +846,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `phone_number`, `username`, `password`, `address`, `city`, `country_id`, `zip`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`, `role_id`) VALUES
-(1, 'Kingsley', NULL, 'king@gmail.com', NULL, NULL, '$2y$10$v7HpmY5XNdEZTY4.Wvf.HuHfPjEWqrRgYBg0XU8vQYbAnrTluB1rm', NULL, NULL, NULL, NULL, NULL, NULL, '2020-11-19 17:03:02', '2020-11-19 17:03:02', 1),
-(2, 'Kingsley Mgbams', NULL, 'admin@admin.com', NULL, NULL, '$2y$10$mthNoc.EAdEoAZn.ndoYp.tZRODVggqN7v6SE4J/aUnom30Ceyecq', NULL, NULL, NULL, NULL, NULL, NULL, '2020-12-08 23:08:13', '2020-12-08 23:08:13', 3),
-(40, 'Kingsley', NULL, 'mgbamsstephen@gmail.com', NULL, NULL, '$2y$10$KTN8YPsEAekewmS2TaTpEeHlJxcBOtN14Z6PGI2OHJ6RlL2lNhgnu', NULL, NULL, NULL, NULL, NULL, NULL, '2021-01-04 22:53:43', '2021-01-04 22:53:43', 2);
+(1, 'Kingsley', 'Andrew', 'king@gmail.com', '767880909', NULL, '$2y$10$v7HpmY5XNdEZTY4.Wvf.HuHfPjEWqrRgYBg0XU8vQYbAnrTluB1rm', '8 Avenue Berthelot', 'Marseille', NULL, '99008', NULL, NULL, '2020-11-19 17:03:02', '2020-11-19 17:03:02', 1),
+(2, 'Kingsley Mgbams', 'Matthew', 'admin@admin.com', '89765432', NULL, '$2y$10$mthNoc.EAdEoAZn.ndoYp.tZRODVggqN7v6SE4J/aUnom30Ceyecq', '7 Rue celestine', 'Tolouse', 5, '56809', NULL, NULL, '2020-12-08 23:08:13', '2020-12-08 23:08:13', 3),
+(49, 'poppuut', 'Koiuyt', 'mgbamsstephen@gmail.com', '9876543209', NULL, NULL, '5 Rue auguste', 'Lyon', 1, '98009', NULL, NULL, '2021-01-06 00:16:47', '2021-01-06 00:16:47', 2);
 
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `capacities`
+--
+ALTER TABLE `capacities`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `cities`
@@ -766,6 +876,12 @@ ALTER TABLE `countries`
 -- Index pour la table `facilities`
 --
 ALTER TABLE `facilities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `floors`
+--
+ALTER TABLE `floors`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -872,6 +988,13 @@ ALTER TABLE `rooms`
   ADD KEY `rooms_photo_id_foreign` (`photo_id`);
 
 --
+-- Index pour la table `rooms_facilities`
+--
+ALTER TABLE `rooms_facilities`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rooms_facilities_ibfk_1` (`id_room`);
+
+--
 -- Index pour la table `room_types`
 --
 ALTER TABLE `room_types`
@@ -906,6 +1029,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT pour la table `capacities`
+--
+ALTER TABLE `capacities`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT pour la table `cities`
 --
 ALTER TABLE `cities`
@@ -921,7 +1050,13 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT pour la table `facilities`
 --
 ALTER TABLE `facilities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT pour la table `floors`
+--
+ALTER TABLE `floors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `hotels`
@@ -945,7 +1080,7 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT pour la table `payments`
@@ -963,13 +1098,13 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT pour la table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `reviews`
@@ -987,7 +1122,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT pour la table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT pour la table `rooms_facilities`
+--
+ALTER TABLE `rooms_facilities`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `room_types`
@@ -1011,7 +1152,7 @@ ALTER TABLE `send_email_on_reservations`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- Contraintes pour les tables déchargées
@@ -1074,6 +1215,12 @@ ALTER TABLE `role_has_permissions`
 ALTER TABLE `rooms`
   ADD CONSTRAINT `rooms_hotel_id_foreign` FOREIGN KEY (`hotel_id`) REFERENCES `hotels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `rooms_photo_id_foreign` FOREIGN KEY (`photo_id`) REFERENCES `photos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `rooms_facilities`
+--
+ALTER TABLE `rooms_facilities`
+  ADD CONSTRAINT `rooms_facilities_ibfk_1` FOREIGN KEY (`id_room`) REFERENCES `rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `room_type_rooms`
