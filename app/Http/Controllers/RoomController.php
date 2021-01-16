@@ -23,7 +23,7 @@ class RoomController extends Controller
 
         $rooms =  DB::table('rooms')
                     ->join('photos', 'photos.id', '=', 'rooms.photo_id')
-                    ->join('rooms_facilities', 'rooms.id', '=', 'rooms_facilities.id_room')->get();
+                    ->join('rooms_facilities', 'rooms.id', '=', 'rooms_facilities.id_room')->paginate(4);
 
         foreach ($rooms as $room) {
             $name = $room->name;

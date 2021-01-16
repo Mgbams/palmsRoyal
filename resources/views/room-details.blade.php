@@ -137,9 +137,9 @@
 	@section('second-content')
 	<!-- Second Block-->
 	<div style="position: relative;">
-		<div class="room-details-second-div" style="width: 100vw; height: 100vh; margin-top: 50px; display:flex;">
+		<div class="room-details-second-div">
 			@if($room)
-			<div style="position: relative; bottom: 40vh; writing-mode: vertical-lr; width: 5vw; height: 100vh; text-align: center; color: black; letter-spacing: 2.5;">
+			<div class="room-name">
 				{{ strtoupper($room->name) }}
 			</div>
 			@endif
@@ -177,7 +177,7 @@
 	@section('third-content')
 	<!-- Third Block-->
 
-	<div class="room-details-third-block" style="position: relative; z-index: 2; margin-top: 100px; width: 50vw; flex-direction: column; display: flex; justify-content: center; align-items: center;">
+	<div class="room-details-third-block">
 		<h3 style="font-size: 18px;">INFORMATION ADDITIONNELLE</h3>
 		<div style="font-size: 16px; width: 20vw; color: black;">
 			Ce type de chambre est disponible avec une porte
@@ -189,7 +189,7 @@
 
 	@section('fourth-content')
 	<!--Fourth Block-->
-	<div class="room-details-third-block" style="position: relative; z-index: 2; margin-top: 100px; width: 50vw; flex-direction: column; display: flex; justify-content: center; align-items: center;">
+	<div class="room-details-third-block">
 		<div style="display: flex; justify-content: space-between;">
 			<span style="color: black; margin-right: 30px;">02</span>
 			<span style="position: relative; top: 3vh; width: 40px; height: 1px; border: 0.02px solid black; margin-right: 30px;"></span>

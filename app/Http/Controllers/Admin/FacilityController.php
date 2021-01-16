@@ -59,7 +59,7 @@ class FacilityController extends Controller
         } else {
 
             $form_data = array(
-                'name'       =>   $request->facility
+                'name'       =>  trim(strtolower($request->facility))
             );
             Facility::create($form_data);
 

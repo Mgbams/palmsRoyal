@@ -893,6 +893,20 @@ section p {
 // Room details
 
 .room-details-second-div {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 50px;
+    display: flex;
+    .room-name {
+        position: relative;
+        bottom: 40vh;
+        writing-mode: vertical-lr;
+        width: 5vw;
+        height: 100vh;
+        text-align: center;
+        color: black;
+        letter-spacing: 2.5;
+    }
     .right-block {
         background: url("https://cdn.pixabay.com/photo/2014/08/11/21/39/wall-416060_960_720.jpg");
         width: 100%;
@@ -963,4 +977,15 @@ section p {
             font-size: 4vw;
         }
     }
+}
+
+.room-details-third-block {
+    position: relative;
+    z-index: 2;
+    margin-top: 100px;
+    width: 50vw;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

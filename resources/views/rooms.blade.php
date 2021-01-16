@@ -7,7 +7,7 @@
 <div class="pages-stack">
     <!-- page -->
     
-    <div class="page about-hotel" id="page-home">
+    <div class="page about-hotel container-fluid" id="page-home">
         <div id="about-top-image">
             <img src="https://cdn.pixabay.com/photo/2020/04/17/12/24/bed-5054985__340.jpg" style="height: 100%; width: 100%;" />
             <div class="rooms-header" style="text-align:center; position: absolute; top: 50vh; color: white; width: 100%;">
@@ -103,12 +103,15 @@
             </div>
            
             @endforeach
+
+            <div class="row" style="display: flex; justify-content: center; width: 100%;">
+                <div>
+                    {{ $rooms->links()}}
+                </div>
+            </div>
             @endif
 
         </div>
-
-        <!--TODO: MODALS-->
-
     </div>
 </div>
 
