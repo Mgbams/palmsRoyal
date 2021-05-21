@@ -30,21 +30,13 @@
 					<h1><span>palmsRoyal</span></h1>
 					<nav>
 						<a href="{{ route('show-rooms') }}">&lsaquo; page précédente</a>
-						<a>Services</a>
-						<a>About</a>
-						<a href="#">Back to the article</a>
+						<a href="{{url('/about')}}">About</a>
 					</nav>
 				</div>
 				<div class="ha-header-bottom">
 					<nav>
-						<a href="{{url('/palms-royal-homepage')}}">Home</a>
-						<a>Inglenook</a>
-						<a>Lagniappe</a>
-						<a>Mellifluous</a>
-						<a>Erstwhile</a>
-						<a>Wafture</a>
-						<a>Serendipity</a>
-						<a>Love</a>
+						<a href="{{url('/')}}">Home</a>
+						<a href="{{url('/show-rooms')}}">Rooms</a>
 					</nav>
 				</div>
 			</div>
