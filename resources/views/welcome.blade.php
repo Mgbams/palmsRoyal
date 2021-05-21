@@ -70,7 +70,7 @@
                     <div>
                         <img src="https://images.pexels.com/photos/1769392/pexels-photo-1769392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
                         <div style="width: 18vw; height: 19vh; padding-top: 10px;">
-                            <p><a href="#">PalmsEoyal Histories - Mgbams Kingsley</a></p>
+                            <p><a href="#">PalmsRoyal Histories - Mgbams Kingsley</a></p>
                             <div class="readmore">
                                 <a href="#">READ MORE</a>
                             </div>

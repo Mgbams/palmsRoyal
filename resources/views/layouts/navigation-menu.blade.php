@@ -9,7 +9,6 @@
     <meta name="description" content="A hotel reservation website development" />
     <meta name="keywords" content="palmsRoyal, rooms, hotel, reservation, hotel booking" />
     <meta name="author" content="Mgbams Kingsley" />
-    <link rel="shortcut icon" href="../favicon.ico">
     <script src="js/modernizr1-custom.js"></script>
 
     <!--main css file starts here-->
@@ -35,10 +34,10 @@
                 <nav class="gn-menu-wrapper">
                     <div class="gn-scroller">
                         <ul class="gn-menu">
-                            <li class="gn-search-item">
+                            <!--<li class="gn-search-item">
                                 <input placeholder="Search" type="search" class="gn-search">
                                 <a class="gn-icon gn-icon-search"><span>Search</span></a>
-                            </li>
+                            </li>-->
                             <li>
                                 <a href="{{url('/about')}}" class="gn-icon gn-icon-download">About</a>
                             </li>
@@ -50,7 +49,7 @@
                             <li><a class="gn-icon gn-icon-cog">Settings</a></li>
                             @endif
                             @endif
-                            <li><a class="gn-icon gn-icon-help">Help</a></li>
+                            <!--<li><a class="gn-icon gn-icon-help">Help</a></li>-->
                         </ul>
                     </div>
                 </nav>

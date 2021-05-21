@@ -48,16 +48,15 @@
     </div>
 </div>
 
+<!--Jquery cdn use this version of jquery cdn as it helps maintain the top navbar functional-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <!--js link for bootstrap modal-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-<script>
-    $(document).ready(() => {
-
-
-    });
-</script>
+{{--<script>
+    $(document).ready(() => {});
+</script>--}}
 
 @stop

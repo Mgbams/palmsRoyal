@@ -20,9 +20,11 @@ class RoomDetailsController extends Controller
         // Replace spaces in hotel name with hyphen so we can use it in our link
         $roomName = str_replace("-", " ", $name); 
         $room = $this->roomRepository->getByName($roomName);
-        //dd($room);
+        $facility_decoded = json_decode($room->facilities);
+        //dd(gettype(json_decode($room->facilities)));
         return view('room-details', [
-            'room' => $room
+            'room' => $room,
+            'utilities' => $facility_decoded
         ]);
     }
 

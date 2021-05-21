@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="col-sm-12" id="right-image">
-                    <img src="https://cdn.pixabay.com/photo/2016/06/29/17/14/water-1487304__340.jpg" />
+                    <img src="https://cdn.pixabay.com/photo/2015/01/16/11/19/bar-601324_960_720.jpg" />
                     <h2 class="center-element">Bar du hall</h2>
                     <di>
                         <div class="readmore center-element"><a href="{{ url('lobby-bar')}}">READ MORE</a></div>

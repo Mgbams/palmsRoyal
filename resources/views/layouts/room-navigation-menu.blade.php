@@ -30,8 +30,8 @@
 					<h1><span>palmsRoyal</span></h1>
 					<nav>
 						<a href="{{ route('show-rooms') }}">&lsaquo; page précédente</a>
-						<a>Something</a>
-						<a>Anything</a>
+						<a>Services</a>
+						<a>About</a>
 						<a href="#">Back to the article</a>
 					</nav>
 				</div>

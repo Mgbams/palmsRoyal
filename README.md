@@ -1514,3 +1514,7 @@ e.g
 ```
 
 **NOTE:** From the above, mail is the name of the folder in config file, from is an array inside mail folder and address is the key that holds the information we neeed
+
+## ADDING PARAMETERS TO A LARAVEL URL
+
+[parameters to url](https://chasingcode.dev/blog/laravel-global-url-helpers/)
