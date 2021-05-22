@@ -149,3 +149,116 @@ body, .container {
 		display: none;
 	}
 }*/
+
+@media only screen and (max-width: 575px) { 
+	#about-top-image img {
+		height: 70vh !important;
+		margin-bottom: 0px !important;
+	}
+	.about-first-div {
+		margin-top: 2px !important;
+		h2 {
+			top: -20vh !important;
+		}
+	}
+	.about-second-img {
+		top: -10vh !important;
+		img {
+			width: 100vw !important;
+		}
+	}
+	.about-description {
+		P {
+			width: 80vw !important;
+			font-size: 18px;
+		}
+		width: 100vw !important;
+		left: -60vw !important;
+		top: 30vh !important;
+	}
+	.hotel-info-readmore {
+		width: 80% !important;
+		top: 195px;
+		.read {
+			width: 100% !important;
+			left: 70px !important;
+		}
+	}
+	.twin-container {
+		flex-direction: column;
+
+		#hotel-info-secondtwin, #hotel-info-firsttwin {
+			width: 100vw !important;
+		}
+		.hotel-info-secondtwin-header {
+			top: -55vh !important;
+			left: 40vw;
+			color: yellowgreen;
+		}
+	}
+	#hotel-info-secondtwin {
+		width: 100vw !important;
+			p {
+			top: -5vh !important;
+			left: -50px !important;
+			}
+	}
+	.hotel-info-partners-container {
+		flex-direction: column !important;
+		margin-top: 50px !important;
+	}
+	.partner-left-div-image, .partners {
+		width: 100vw !important;
+	}
+	.partner-left-div-image .multiple-items {
+		left: 5px !important;
+		top: 380px !important;
+	}
+	.multiple-items .multi-image {
+		width: 100vw !important;
+	}
+	.partners h2 {
+		width: 100vw !important;
+	}
+	.quartier-container {
+		width: 100vw !important;
+	}
+	.quartier-paragraph {
+		position: relative;
+		top: 2vh;
+		right: 33vw;
+		width: 100vw;
+		margin-bottom: 50px;
+	}
+	.galerie-container {
+		flex-direction: column;
+		margin-bottom: -200px;
+	}
+	.galerie-container > div {
+		width: 100vw;
+	}
+	#page-home {
+		max-width: 100vw !important;
+		overflow-x: hidden;
+	}
+	
+	.gallery-title {
+		width: 100vw !important;
+
+		h2 {
+			margin-top: 30px;
+			font-size: 32px !important;
+			font-weight: bold;
+		}
+		.gallery-para {
+
+			p {
+				font-size: 16px;
+				width: 100vw !important;
+				position: relative;
+				right: 60vw !important;
+				padding: 0px 20px;
+			}
+	}
+	}
+}

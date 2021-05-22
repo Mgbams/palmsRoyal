@@ -1033,7 +1033,6 @@ a {
     left: 0;
 }
 
-// Hotel info page
 .hotel-info-second-div {
     background-image: url("https://cdn.pixabay.com/photo/2018/12/13/22/26/meat-3873890_960_720.jpg");
     background-size: 100% 100%;
@@ -1455,6 +1454,7 @@ a {
     margin: 0px !important;
     padding-right: 2px !important;
 }
+
 @media only screen and (max-width: 575px) {
     /*
         ===================================
@@ -1674,36 +1674,42 @@ a {
         }
     }
 
-    /*
-        =======================
-            Room Details css
-        =======================
-    */
-    .filter_button {
-        padding: -2px 20px !important;
-    }
-    #rooms-page-wrapper {
+        /*
+            =======================
+                Room Details css
+            =======================
+        */
+        .filter_button {
+            padding: -2px 20px !important;
+        }
+    
+        #rooms-page-wrapper {
             width: 100vw !important;
+
             img, .room-image-wrapper, #page-home {
                 width: 100vw !important;
             }
+
             #rooms-inner-wrapper {
-                //border: 2px solid red;
+        
                 width: 100vw !important;
+
                 .room_name {
                     margin-right: 2vw;
                 }
+
                 .room_utils {
                     width: 100% !important;
+
                     div { 
                         margin-right: 60px !important;
                     }
                     
                 }
+
                 .read-more-link {
                     margin-right: .5vw; 
                 }
             }
         }
-   
 }
