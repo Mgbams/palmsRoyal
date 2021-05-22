@@ -76,10 +76,3 @@ class RoomController extends Controller
         return view('rooms', compact(['rooms', 'room_links', 'capacity']))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }
-
-
-
- /*  $rooms =  DB::table('room_type_rooms')
-            ->join('rooms', 'rooms.id', '=', 'room_type_rooms.room_id')
-            ->join('room_types', 'room_types.id', '=', 'room_type_rooms.room_type_id')
-            ->join('photos', 'photos.id', '=', 'rooms.photo_id')->paginate(5); */
