@@ -1662,8 +1662,7 @@ a {
     ===========
        Rooms
     ============
-*/
-
+    */
     #rooms-page-wrapper {
         #rooms-inner-wrapper {
             width: 100%;
@@ -1674,4 +1673,37 @@ a {
             }
         }
     }
+
+    /*
+        =======================
+            Room Details css
+        =======================
+    */
+    .filter_button {
+        padding: -2px 20px !important;
+    }
+    #rooms-page-wrapper {
+            width: 100vw !important;
+            img, .room-image-wrapper, #page-home {
+                width: 100vw !important;
+            }
+            #rooms-inner-wrapper {
+                //border: 2px solid red;
+                width: 100vw !important;
+                .room_name {
+                    margin-right: 2vw;
+                }
+                .room_utils {
+                    width: 100% !important;
+                    div { 
+                        margin-right: 60px !important;
+                    }
+                    
+                }
+                .read-more-link {
+                    margin-right: .5vw; 
+                }
+            }
+        }
+   
 }

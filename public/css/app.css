@@ -53368,9 +53368,9 @@ a {
   }
 
   /*
-      ===========
-         Rooms
-      ============
+  ===========
+     Rooms
+  ============
   */
 
   #rooms-page-wrapper #rooms-inner-wrapper {
@@ -53381,6 +53381,46 @@ a {
 
   #rooms-page-wrapper #rooms-inner-wrapper h2 {
     text-align: center;
+  }
+
+  /*
+      =======================
+          Room Details css
+      =======================
+  */
+
+  .filter_button {
+    padding: -2px 20px !important;
+  }
+
+  #rooms-page-wrapper {
+    width: 100vw !important;
+  }
+
+  #rooms-page-wrapper img,
+  #rooms-page-wrapper .room-image-wrapper,
+  #rooms-page-wrapper #page-home {
+    width: 100vw !important;
+  }
+
+  #rooms-page-wrapper #rooms-inner-wrapper {
+    width: 100vw !important;
+  }
+
+  #rooms-page-wrapper #rooms-inner-wrapper .room_name {
+    margin-right: 2vw;
+  }
+
+  #rooms-page-wrapper #rooms-inner-wrapper .room_utils {
+    width: 100% !important;
+  }
+
+  #rooms-page-wrapper #rooms-inner-wrapper .room_utils div {
+    margin-right: 60px !important;
+  }
+
+  #rooms-page-wrapper #rooms-inner-wrapper .read-more-link {
+    margin-right: 0.5vw;
   }
 }
 
