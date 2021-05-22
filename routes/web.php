@@ -6,8 +6,12 @@ Route::get('/', 'RoyalPalmsHomePageController@show')->name('palms-royal-homepage
 
 //return view(about-hotel)
 Route::get('about', 'AboutHotelController@show')->name('about');
+
 //return view(rooms)
 Route::get('show-rooms', 'RoomController@show')->name('show-rooms');
+//return FILTERED(rooms)
+Route::post('show-rooms', 'RoomController@show')->name('filter-rooms');
+
 //return view(eat-and-drink/restaurant-morning)
 Route::get('/eat-and-drink-morning', 'EatAndDrinkMorningController@show')->name('eat-drink-morning');
 //return view(eat-and-drink/restaurant-morning)

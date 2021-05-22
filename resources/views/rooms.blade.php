@@ -20,36 +20,29 @@
         </div>
 
         <!--First block of select elements-->
-      
+        <form method="post" action="{{ route('filter-rooms') }}" >
+            @csrf
+            <div class="row my-5 room-select">
+                <select class="custom-select col-sm-6 col-md-2 ml-4" name="price">
+                    <option selected value=""> -- select price -- </option>
+                    <option value="100"><= 100</option>
+                    <option value="200"><= 200</option>
+                    <option value="300"><= 300</option>
+                    <option value="400"><= 400</option>
+                    <option value="500"><= 500</option>
+                    <option value="500"><= 600</option>
+                </select>
+                <select class="custom-select col-sm-6 col-md-2 ml-2 form-control" name="capacity">
+                        <option selected value=""> -- select a capacity -- </option>
+                    @foreach($capacity as $capacity)
+                        <option value="{{ $capacity->capacity }}"><= {{ $capacity->capacity }} m²</option>
+                    @endforeach
+                </select>
 
-        <div class="row my-5 room-select">
-            <select class="custom-select col-sm-6 col-md-2">
-                <option selected="selected">Type</option>
-                <option>Burger</option>
-                <option>Ice Cream</option>
-                <option>Fried Potatoes</option>
-            </select>
-            <select class="custom-select col-sm-6 col-md-2">
-                <option>Space</option>
-                <option>Burger</option>
-                <option>Ice Cream</option>
-                <option>Fried Potatoes</option>
-            </select>
-            <select class="custom-select col-sm-6 col-md-2">
-                <option>Guests</option>
-                <option>Burger</option>
-                <option>Ice Cream</option>
-                <option>Fried Potatoes</option>
-            </select>
-            <select class="custom-select col-sm-6 col-md-2">
-                <option>Beds</option>
-                <option>Pizzas</option>
-                <option>Burger</option>
-                <option>Ice Cream</option>
-                <option>Fried Potatoes</option>
-            </select>
-        </div>
-
+                 <input type="submit" name="filter_button" class="btn btn-primary px-5 ml-2" value="Filter" style="border-radius: 25px;" />
+            </div>
+        </form>
+        
         <!--Second div for rooms-->
 
         <div id="rooms-page-wrapper">
