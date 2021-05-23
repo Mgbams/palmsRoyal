@@ -281,7 +281,7 @@
 
 	<!-- Fifth Block-->
 	@section('fifth-content')
-	<div style="width: 100vw; height: 100vh;">
+	<div style="width: 100vw; height: 100vh;" class="last-content-info">
 		<div class="mixed-carousel" style="width: 90vw; height: 95vh; margin-left: 3vw;">
 			<div>
 

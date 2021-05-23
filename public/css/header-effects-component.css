@@ -967,6 +967,10 @@ section p {
     width: 100vw !important;
   }
 
+  .room-details-first-div .room-details-right .facilities-title {
+    text-align: center;
+  }
+
   .room-details-third-block {
     margin-top: -1px !important;
     width: 100vw !important;

@@ -1009,6 +1009,9 @@ section p {
             .facilities, .facilities-title {
                 width: 100vw !important;
             }
+            .facilities-title {
+                text-align: center;
+            }
         }
     }
     .room-details-third-block {
@@ -1047,4 +1050,5 @@ section p {
         margin-bottom: 20px;
         color: green;
     }
+   
 }
