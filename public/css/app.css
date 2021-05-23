@@ -53422,5 +53422,19 @@ a {
   #rooms-page-wrapper #rooms-inner-wrapper .read-more-link {
     margin-right: 0.5vw;
   }
+
+  #room-details-page {
+    border: 3px solid red;
+  }
+
+  #room-details-page .room-details-top-image #header-text {
+    margin-bottom: 50px !important;
+    border: 1px solid green;
+    background-color: green !important;
+  }
+
+  .room-details-second-div {
+    background-color: yellow;
+  }
 }
 

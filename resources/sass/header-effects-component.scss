@@ -989,3 +989,62 @@ section p {
     justify-content: center;
     align-items: center;
 }
+
+@media only screen and (max-width: 575px) {
+    //room details
+    #header-text {
+        position: relative;
+        top: -190px;
+    }
+
+    .room-details-first-div {
+        margin-top: -190px !important;
+        flex-direction: column;
+        .room-details-right, .room-details-left {
+            width: 100vw !important;
+        }
+        .room-details-right {
+            margin-top: 100px !important;
+            margin-bottom: 50px !important;
+            .facilities, .facilities-title {
+                width: 100vw !important;
+            }
+        }
+    }
+    .room-details-third-block {
+        margin-top: -1px !important;
+        width: 100vw !important;
+        div {
+            width: 100vw !important;
+            padding: 0px 40px;
+        }
+    }
+    .btn-border-svg {
+        position: relative;
+        top: 200px !important;
+        width: 120px !important;
+        left: 50px !important;
+    }
+    .btn-border-booknow {
+        top: 255px !important;
+        left: 150px !important;
+    }
+    #vertical-title-div {
+        margin-top: 220px;
+        .room-name {
+            color: green;
+           margin-top: 60px;
+        }
+        .right-block {
+            height: 90vh !important;
+        }
+    }
+    .additional {
+        margin-top: -30px;
+    }
+    .btn-border-last {
+        width: 130px !important;
+        margin-bottom: 20px;
+        color: green;
+    }
+}

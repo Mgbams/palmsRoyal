@@ -153,7 +153,13 @@ body, .container {
 @media only screen and (max-width: 575px) { 
 	#about-top-image img {
 		height: 70vh !important;
-		margin-bottom: 0px !important;
+	}
+	#rooms-form {
+		position: relative;
+		top: -180px;
+	}
+	#rooms-page-wrapper {
+		margin-top: -180px;
 	}
 	.about-first-div {
 		margin-top: 2px !important;
@@ -190,10 +196,19 @@ body, .container {
 		#hotel-info-secondtwin, #hotel-info-firsttwin {
 			width: 100vw !important;
 		}
+		
 		.hotel-info-secondtwin-header {
 			top: -55vh !important;
 			left: 40vw;
 			color: yellowgreen;
+		}
+		.svg-container {
+			display: none;
+		}
+		.twin-readmore  {
+			position: relative;
+			top: 50px;
+			right: 130px;
 		}
 	}
 	#hotel-info-secondtwin {
@@ -259,6 +274,6 @@ body, .container {
 				right: 60vw !important;
 				padding: 0px 20px;
 			}
-	}
+		}
 	}
 }

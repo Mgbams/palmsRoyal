@@ -20,7 +20,7 @@
         </div>
 
         <!--First block of select elements-->
-        <form method="post" action="{{ route('filter-rooms') }}" >
+        <form method="post" action="{{ route('filter-rooms') }}" id="rooms-form" >
             @csrf
             <div class="row my-5 room-select">
                 <select class="custom-select col-sm-6 col-md-2 ml-4" name="price">
