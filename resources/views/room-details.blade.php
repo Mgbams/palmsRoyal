@@ -153,7 +153,7 @@
 			<div><h2 class="apprendre">01 - APPRENDRE ENCORE PLUS</h2></div>
 			<h3 class="propos-chambre">À PROPOS DE CETTE CHAMBRE</h3>
 			@if($room)
-			<div style="display: flex; justify-content: center;">
+			<div style="display: flex; justify-content: center;" class="propos-desription">
 				<small class="col-6" style="color: black; height: 100%; width: 50%; position: relative; font-size: 18px; line-height: 1.6;">
 					{{ $room->description }}
 				</small>
@@ -174,7 +174,7 @@
 			<div class="FACILITIES facilities" style="height: 50vh; background-color: white; width: 80%;">
 				<div style="padding: 20px 0px; width: 100%; justify-content: space-between; height: 100%; display: flex; flex-wrap: wrap;">
 					@foreach($utilities as $util)
-						<div style="margin: 20px 20px">
+						<div style="margin: 20px 20px"  class="overflow-facilities">
 							@switch($util)
 								@case("TV")
 									<i class='fa fa-television' style='font-size:22px; color: black;'></i>

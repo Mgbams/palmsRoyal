@@ -185,13 +185,13 @@
                         @endif
 
                         @if (Auth::check())
-                        <div class="col-sm-4" style="height: 70vh;">
+                        <div class="col-sm-4" >
                             <?php $decodedImages = json_decode($roomById->url, true); ?>
-                            <img src="/rooms/images/{{$decodedImages[0] }}" alt="{{$roomById->name}}" style="width: 100%; height: 100%;" />
+                            <img src="/rooms/images/{{$decodedImages[0] }}" alt="{{$roomById->name}}" style="width: 100%;" />
                         </div>
                         @endif
                         
-                        <div class="panel panel-default col-sm-3 panel-default-three" style="height: 40vh;">
+                        <div class="panel panel-default col-sm-3 panel-default-three">
                             <div class="panel-heading panel-heading-paypal"><b>Paywith Paypal</b></div>
                             <div class="panel-body">
                                 <div class="form-group">

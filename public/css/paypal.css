@@ -29,10 +29,6 @@ label.error {
   justify-content: space-between;
 }
 
-.container .panel-default-one {
-  height: 40vh;
-}
-
 .items-container {
   display: flex;
   justify-content: space-between;
@@ -48,7 +44,7 @@ label.error {
   color: #01345B;
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 766px) {
   .surrounding-container {
     flex-direction: column;
   }

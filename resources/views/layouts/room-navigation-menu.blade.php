@@ -152,11 +152,11 @@
 						}
 					},
 					{
-						breakpoint: 768,
+						breakpoint: 767,
 						settings: {
 							arrows: false,
 							centerMode: true,
-							slidesToShow: 3
+							slidesToShow: 1
 						}
 					},
 					{
@@ -175,12 +175,9 @@
 	<script>
 		// Sticky Header
 		$(window).on('scroll', function() {
-			console.log('am inside scroll');
 			if ($('.main_h').scrollTop() > 100) {
-				console.log("greater than 100");
 				$('.main_h').addClass('sticky');
 			} else {
-				console.log("remove 100");
 				$('.main_h').removeClass('sticky');
 			}
 		});

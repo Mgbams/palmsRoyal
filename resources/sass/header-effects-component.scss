@@ -173,7 +173,7 @@ section p {
                 position: absolute; 
                 left: 13vw;
                 .btn-border-last {
-                    width: 190px; 
+                    width: 140px; 
                     height: 140px; 
                     left: 0px; 
                     top: 0px;
@@ -183,8 +183,8 @@ section p {
                 font-size: 16px; 
                 position: absolute; 
                 z-index: 5; 
-                left: 17vw; 
-                top: 8vh; 
+                left: 18.5vw; 
+                top: 9.5vh; 
                 text-decoration: none;
             }
         }
@@ -1130,7 +1130,7 @@ h2, .explore-rooms, h4 {
     align-items: center;
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 766px) {
     //room details
     #header-text {
         position: relative;
@@ -1192,4 +1192,33 @@ h2, .explore-rooms, h4 {
         margin-top: 30px;
     }
    
+    .btn-border-last {
+        width: 120px !important;
+        position: relative;
+        left: 10vw !important;
+    }
+    .mixed-carousel-second-div h4 {
+        font-size: 18px;
+    }
+    .mixed-carousel-third-div a {
+        left: 27vw !important;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) { 
+    .room-details-right {
+        width: 60% !important;
+    }
+    .room-details-left {
+         width: 40% !important;
+    }
+    .btn-border-booknow {
+        top: 35vh !important;
+        right: 28vw !important;
+    }
+    .btn-border-svg {
+        position: relative;
+        top: 25vh !important;
+        width: 120px !important;
+    }
 }
