@@ -9,3 +9,52 @@ label.error {
     display: block;
     margin-top: 5px;
 }
+
+.container {
+    padding: 40px 0px;
+
+    .summary-title, h1 {
+        color: #01345B;
+    }
+    .summary-output {
+        color: #0049FF;
+    }
+    .surrounding-container  {
+        display: flex; 
+        justify-content: space-between;
+    }
+    .panel-default-one {
+        height: 40vh;
+    }
+}
+.items-container  {
+    display: flex; 
+    justify-content: space-between;
+}
+.paypal-submit, .go-back {
+    border-radius: 25px;
+}
+.panel-heading-paypal {
+    font-weight: bold;
+    color: #01345B;
+}
+
+@media only screen and (max-width: 575px) {
+    .surrounding-container  {
+        flex-direction: column;
+
+        .panel-default-one, .panel-default-three {
+            width: 100vw;
+        }
+    }
+    .panel-default-three {
+        margin-top: 30px;
+        padding-left: 40px;
+    }
+    .container {
+        overflow-x: hidden;
+    }
+    .go-back  {
+        margin-left: 40px;
+    }
+}

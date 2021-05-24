@@ -9,26 +9,26 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container" style="padding: 40px 0px;">
+	<div class="container">
         <div class="row">    	
             <div>
-                <div><a href="{{route('book-now')}}" class="btn btn-primary">Go Back</a></div>        	
+                <div><a href="{{route('book-now')}}" class="btn btn-primary go-back">Go Back</a></div>        	
                 <div>
                     <h1 class="text-center" style="margin: 30px 0px;">Effectuer vos Paiements</h1>
                 </div>
                 <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('paypal') !!}">
                         @csrf
-                    <div style="display: flex; justify-content: space-between;">
-                        <div class="panel panel-default col-sm-3" style="1px solid red; height: 40vh;">
+                    <div class="surrounding-container">
+                        <div class="panel panel-default col-sm-3 panel-default-one">
                             <div class="panel-body">
                                <div>
                                  @if(Session::has('numberOfDaysBooked'))
-                                 <div style="display: flex; justify-content: space-between;">
+                                 <div class="items-container">
                                     <div>
-                                        <p><strong>No Of Days Booked&nbsp;:</strong>
+                                        <p><strong class="summary-title">No Of Days Booked&nbsp;:</strong>
                                     </div>
                                     <div>
-                                        <p>{{ Session::get('numberOfDaysBooked') }}</p></p>
+                                        <p class="summary-output">{{ Session::get('numberOfDaysBooked') }}</p></p>
                                     </div>
                                  </div>
                                  @endif
@@ -36,12 +36,12 @@
 
                                <div>
                                  @if(Session::has('checkInDate'))
-                                 <div style="display: flex; justify-content: space-between;">
+                                 <div class="items-container">
                                     <div>
-                                        <p><strong>CheckIN Date&nbsp;:</strong>
+                                        <p><strong class="summary-title">CheckIN Date&nbsp;:</strong>
                                     </div>
                                     <div>
-                                        <p>{{ Session::get('checkInDate') }}</p>
+                                        <p class="summary-output">{{ Session::get('checkInDate') }}</p>
                                     </div>
                                  </div>
                                  @endif
@@ -49,41 +49,41 @@
 
                                <div>
                                  @if(Session::has('checkOutDate'))
-                                 <div style="display: flex; justify-content: space-between;">
+                                 <div class="items-container">
                                     <div>
-                                        <p><strong>CheckOut Date&nbsp;:</strong>
+                                        <p><strong class="summary-title">CheckOut Date&nbsp;:</strong>
                                     </div>
                                     <div>
-                                        <p>{{ Session::get('checkOutDate') }}</p>
+                                        <p class="summary-output">{{ Session::get('checkOutDate') }}</p>
                                     </div>
                                  </div>
                                  @endif
                                </div>
 
-                                <div style="display: flex; justify-content: space-between;">
+                                <div class="items-container">
                                     <div>
-                                        <p><strong>Room Price&nbsp;:</strong>
+                                        <p><strong class="summary-title">Room Price&nbsp;:</strong>
                                     </div>
                                     <div>
-                                        <p>&euro;&nbsp;{{ $totalAmountToPay }}</p>
-                                    </div>
-                                </div>
-
-                                <div style="display: flex; justify-content: space-between;">
-                                    <div>
-                                        <p><strong>VAT&nbsp;:</strong>
-                                    </div>
-                                    <div>
-                                        <p>&euro;&nbsp; {{ $roomById->vat}}%</p>
+                                        <p class="summary-output">&euro;&nbsp;{{ $totalAmountToPay }}</p>
                                     </div>
                                 </div>
 
-                                <div style="display: flex; justify-content: space-between;">
+                                <div class="items-container">
                                     <div>
-                                        <p><strong>Discount&nbsp;:</strong>
+                                        <p><strong class="summary-title">VAT&nbsp;:</strong>
                                     </div>
                                     <div>
-                                        <p>{{ $roomById->discount}}%</p>
+                                        <p class="summary-output">&euro;&nbsp; {{ $roomById->vat}}%</p>
+                                    </div>
+                                </div>
+
+                                <div class="items-container">
+                                    <div>
+                                        <p><strong class="summary-title">Discount&nbsp;:</strong>
+                                    </div>
+                                    <div>
+                                        <p class="summary-output">{{ $roomById->discount}}%</p>
                                     </div>
                                 </div>
                             </div>
@@ -191,8 +191,8 @@
                         </div>
                         @endif
                         
-                        <div class="panel panel-default col-sm-3" style="height: 40vh;">
-                            <div class="panel-heading"><b>Paywith Paypal</b></div>
+                        <div class="panel panel-default col-sm-3 panel-default-three" style="height: 40vh;">
+                            <div class="panel-heading panel-heading-paypal"><b>Paywith Paypal</b></div>
                             <div class="panel-body">
                                 <div class="form-group">
                                     <label>
@@ -221,7 +221,7 @@
              
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary paypal-submit">
                                             Paywith Paypal
                                         </button>
                                     </div>

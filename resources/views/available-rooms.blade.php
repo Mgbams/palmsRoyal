@@ -24,7 +24,7 @@
                                 <i class='fa fa-bed' style='font-size:24px; color: black;'></i>
                                 @break
                             @case("TV")
-                                <i class='fa fa-bath' style='font-size:24px; color: black;'></i>
+                                <i class='fa fa-television' style='font-size:24px; color: black;'></i>
                                 @break
                             @case("Capacity")
                                 <i class='fa fa-bath' style='font-size:24px; color: black;'></i>
@@ -60,9 +60,5 @@
 <!--js link for bootstrap modal-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-{{--<script>
-    $(document).ready(() => {});
-</script>--}}
 
 @stop
