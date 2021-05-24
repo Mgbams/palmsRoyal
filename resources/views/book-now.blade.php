@@ -46,7 +46,7 @@
                     <h1>BOOKING</h1>
                 </div>
                 <div class="col-md-8 col-sm-12 d-flex justify-content-center align-items-center flex-column" style="height: 20vh;">
-                    <h1>pamsRoyal</h1>
+                    <h1>palmsRoyal</h1>
                     <p>Hotel</p>
                 </div>
             </div>
