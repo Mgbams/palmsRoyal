@@ -1727,4 +1727,23 @@ a {
         background-color: yellow;
     }
     
+    /*
+        ============
+         Book Now
+        ============
+    */
+
+    
+    #book-now-container {
+        width: 100vw !important;
+        overflow-x: hidden;
+        margin: 0px !important;
+    }
+    
+    .country-money-toggle {
+        display: hidden !important;
+    }
+    .parallax-one {
+        width: 100vw !important;
+    }
 }

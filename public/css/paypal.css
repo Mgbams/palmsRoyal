@@ -70,5 +70,10 @@ label.error {
   .go-back {
     margin-left: 40px;
   }
+
+  .form-unregistered {
+    width: 80vw;
+    margin: auto;
+  }
 }
 

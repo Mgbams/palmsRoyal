@@ -30,17 +30,17 @@
 <body>
     <div id="book-now-container">
 
-        <section>
-            <div class="d-flex bg-secondary py-3 justify-content-between">
+        <section class="first-section">
+            <div class="d-flex bg-secondary py-3 justify-content-between second-book-container">
                 <div class="ml-5">
                     <a href="{{ url('/show-rooms') }}" class="btn mt-2 return-back-btn" style="background-color: #864747; color: white;">Go Back</a>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between number-email">
                     <div class="mr-5">info@palmsroyal-hotel.com</div>
                     <div class="mr-3">+33759876543</div>
                 </div>
             </div>
-            <div class="title row" style="background-color: yellow;">
+            <div class="title row title-row" style="background-color: yellow;">
                 <div class="col-md-4 col-sm-12 d-flex justify-content-center align-items-center flex-column" style="height: 20vh;">
                     <h3>Let's do some</h3>
                     <h1>BOOKING</h1>
@@ -60,8 +60,8 @@
                             <p style="color: white;">SELECT DATES</p>
                         </div>
                         <div class="btn-group col-sm-4 offset-md-4 mt-5 country-money-toggle">
-                            <a type="button" href="{{url('/login', app()->getlocale())}}" class="btn btn-primary">Log In</a>
-                            <div class="btn-group">
+                            <a type="button" href="{{url('/login')}}" class="btn btn-primary">Log In</a>
+                            {{--<div class="btn-group">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                     Euros <span class="caret"></span></button>
                                 <ul class="dropdown-menu" role="menu">
@@ -77,7 +77,7 @@
                                     <li><a href="#">French-FR</a></li>
                                     <li><a href="#">Spanish-SP</a></li>
                                 </ul>
-                            </div>
+                            </div>--}}
                         </div>
                     </div>
 

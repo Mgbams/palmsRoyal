@@ -90,7 +90,7 @@
                         </div>
                         
                         @if (!Auth::check())
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 form-unregistered">
                                    
                             <div class="form-group">
                                 <label>Prénom</label>
