@@ -971,6 +971,10 @@ section p {
     text-align: center;
   }
 
+  .room-details-first-div .room-details-right .facilities {
+    padding-right: 10px;
+  }
+
   .room-details-third-block {
     margin-top: -1px !important;
     width: 100vw !important;
@@ -986,11 +990,13 @@ section p {
     top: 200px !important;
     width: 120px !important;
     left: 50px !important;
+    z-index: 20 !important;
   }
 
   .btn-border-booknow {
     top: 255px !important;
     left: 150px !important;
+    z-index: 2000 !important;
   }
 
   #vertical-title-div {
@@ -999,21 +1005,16 @@ section p {
 
   #vertical-title-div .room-name {
     color: green;
-    margin-top: 60px;
+    margin-top: 140px;
   }
 
   #vertical-title-div .right-block {
     height: 90vh !important;
+    margin-top: 70px;
   }
 
   .additional {
-    margin-top: -30px;
-  }
-
-  .btn-border-last {
-    width: 130px !important;
-    margin-bottom: 20px;
-    color: green;
+    margin-top: 30px;
   }
 }
 
