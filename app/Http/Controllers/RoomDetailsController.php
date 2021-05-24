@@ -17,14 +17,26 @@ class RoomDetailsController extends Controller
     //Get room details using the room name
     public function showSingleRoom($name)
     {
+          $room_links = array(); //Declare an array to hold room names that are appended with hyphens
+
         // Replace spaces in hotel name with hyphen so we can use it in our link
         $roomName = str_replace("-", " ", $name); 
         $room = $this->roomRepository->getByName($roomName);
         $facility_decoded = json_decode($room->facilities);
-        //dd(gettype(json_decode($room->facilities)));
+        
+        $sliderRooms = $this->roomRepository->getSliderRooms();
+        foreach ($sliderRooms as $roomLinks) {
+                    $name = $roomLinks->name;
+                    $url = str_replace(' ', '-', $name); //Replace spaces in room names with hyphen
+                    $link = strtolower($url); //Change the hyphenated names to lower case
+                    $room_links[$roomLinks->id] = $link;
+        }
+        //dd( $this->roomRepository->getSliderRooms());
         return view('room-details', [
             'room' => $room,
-            'utilities' => $facility_decoded
+            'utilities' => $facility_decoded,
+            'sliderRooms' => $sliderRooms,
+            'room_links' => $room_links
         ]);
     }
 

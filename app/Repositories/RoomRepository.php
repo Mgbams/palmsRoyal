@@ -53,4 +53,14 @@ class RoomRepository
             ->first();
         return $room;
     }
+
+    public function getSliderRooms()
+    {
+         return DB::table('rooms')
+                    ->join('photos', 'photos.id', '=', 'rooms.photo_id')
+                    ->join('rooms_facilities', 'rooms.id', '=', 'rooms_facilities.id_room')
+                    ->take(6) //take first Six rows
+                    ->get();
+        return $room;
+    }
 }

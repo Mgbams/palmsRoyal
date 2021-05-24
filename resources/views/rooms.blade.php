@@ -54,7 +54,7 @@
             <div id="rooms-inner-wrapper">
                 <div class="room-image-wrapper">
                    <?php $decodedImage = json_decode($room->url , true); ?>
-                    <img src="rooms/images/{{  $decodedImage[0] }}"/>
+                    <img src="/rooms/images/{{  $decodedImage[0] }}"/>
                 </div>
                 <h2 class="mt-3 room_name">{{ $room->name }}</h2> 
                 <div>
