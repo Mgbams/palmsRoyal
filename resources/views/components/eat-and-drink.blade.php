@@ -2,8 +2,8 @@
     <div class="row" id="eat-inner-container">
         <div class="col-md-5 offset-md-1 col-sm-12" style="height: 100vh;">
             <div id="about-text" class="col-md-6 offset-md-8 col-sm-12 !important;">
-                <p id="about">Eat</p>
-                <p id="royalPalms">& Drink</p>
+                <p id="about" class="colored-title">Eat</p>
+                <p id="royalPalms" class="colored-title">& Drink</p>
             </div>
 
             <div id="description" class="col-7 offset-2">
@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-sm-12" id="left-image">
                     <img src="https://cdn.pixabay.com/photo/2014/01/09/10/14/kimchi-fried-rice-241051__340.jpg" />
-                    <h2 class="center-element">Restaurant et bar sur le toit </h2>
+                    <h2 class="center-element colored-title">Restaurant et bar sur le toit </h2>
                     <div>
                         <div class="readmore center-element"><a href="{{url('/eat-and-drink-morning')}}">READ MORE</a></div>
                         <svg viewBox="0 0 170 110" class="btn-border svg-image" style="width: 160px; height: 90px; left: 0px; bottom: 41vh; position: relative;">

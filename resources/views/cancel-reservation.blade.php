@@ -71,7 +71,7 @@
                 </div>
 
                 <!--forgotten password-->
-                <div class="mt-5"><a href="{{ route('password.update') }}" class="cancel-reservation-forgot-password-link" style="font-size: 16px;">Mot de passe oublié ? Cliquez ici</a></div>
+                <div class="mt-5">Mot de passe oublié ? <a href="{{ route('password.update') }}" class="cancel-reservation-forgot-password-link" style="font-size: 16px;">Cliquez ici</a></div>
             </div>
         </section>
 

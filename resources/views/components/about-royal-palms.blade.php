@@ -2,8 +2,8 @@
   <div class="row" id="about-inner-container">
     <div class="col-sm-5 pl-5">
       <div id="about-text" class="col-6">
-        <p id="about">About</p>
-        <p id="royalPalms">palmsRoyal Hotel</p>
+        <p id="about" class="colored-title">About</p>
+        <p id="royalPalms" class="colored-title">palmsRoyal Hotel</p>
       </div>
 
       <div id="description" class="col-7 offset-2">

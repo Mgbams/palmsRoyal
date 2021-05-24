@@ -52,25 +52,25 @@
                     <div>
                         <img src="https://images.pexels.com/photos/2227774/pexels-photo-2227774.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
                         <div style="width: 18vw; height: 19vh; padding-top: 10px;">
-                            <p><a href="#">palmsRoyal Brand wins two TripAdvisor awards</a></p>
+                            <p class="colored-title">palmsRoyal Brand wins two TripAdvisor awards</p>
                             <div class="readmore">
-                                <a href="#">READ MORE</a>
+                                <a href="/about">READ MORE</a>
                             </div>
                         </div>
                     </div>
                     <div>
                         <img src="https://images.pexels.com/photos/2670273/pexels-photo-2670273.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
                         <div style="width: 18vw; height: 19vh; padding-top: 10px;">
-                            <p><a href="#">palmsRoyal is the best hotel bar in Lyon</a></p>
+                            <p class="colored-title">palmsRoyal is the best hotel bar in Lyon</p>
                             <div class="readmore">
-                                <a href="#">READ MORE</a>
+                                <a href="/about">READ MORE</a>
                             </div>
                         </div>
                     </div>
                     <div>
                         <img src="https://images.pexels.com/photos/1769392/pexels-photo-1769392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
                         <div style="width: 18vw; height: 19vh; padding-top: 10px;">
-                            <p><a href="#">PalmsRoyal Histories - Mgbams Kingsley</a></p>
+                            <p class="colored-title">PalmsRoyal Histories - Mgbams Kingsley</p>
                             <div class="readmore">
                                 <a href="#">READ MORE</a>
                             </div>
@@ -79,27 +79,27 @@
                     <div>
                         <img src="https://cdn.pixabay.com/photo/2016/03/16/22/17/hotel-room-1261900__340.jpg" />
                         <div style="width: 18vw; padding-top: 10px; height: 19vh;">
-                            <p><a href="#">PalmsRoyal Brand Wins Two TripAdvisor Awards</a></p>
+                            <p class="colored-title">PalmsRoyal Brand Wins Two TripAdvisor Awards</p>
                             <div class="readmore">
-                                <a href="#">READ MORE</a>
+                                <a href="/about">READ MORE</a>
                             </div>
                         </div>
                     </div>
                     <div>
                         <img src="https://cdn.pixabay.com/photo/2017/08/09/10/42/hotel-rooms-2614141__340.jpg" />
                         <div style="width: 18vw; height: 19vh; padding-top: 10px;">
-                            <p><a href="#">PalmsRoyal Wins Luxury Lifestyle Award</a></p>
+                            <p  class="colored-title">PalmsRoyal Wins Luxury Lifestyle Award</p>
                             <div class="readmore">
-                                <a href="#">READ MORE</a>
+                                <a href="/about">READ MORE</a>
                             </div>
                         </div>
                     </div>
                     <div>
                         <img src="https://cdn.pixabay.com/photo/2015/11/02/06/46/hotel-1018039__340.jpg" />
                         <div style="width: 18vw; height: 19vh; padding-top: 10px;">
-                            <p><a href="#">PalmsRoyal for your best African dishes</a></p>
+                            <p class="colored-title">PalmsRoyal for your best African dishes</p>
                             <div class="readmore">
-                                <a href="#">READ MORE</a>
+                                <a href="/about">READ MORE</a>
                             </div>
                         </div>
                     </div>
@@ -107,8 +107,8 @@
             </div>
 
             <div style="width: 50%;">
-                <h2 class="col-6" style="font-size: 5vw; position: relative; right: 6vw; bottom: 13vh;">News & Events</h2>
-                <p class="col-4 offset-8" style="position: relative; bottom: 10vh;"><a href="#">READ MORE</a></p>
+                <h2 class="col-6 colored-title" style="font-size: 5vw; position: relative; right: 6vw; bottom: 13vh;">News & Events</h2>
+                <p class="col-4 offset-8" style="position: relative; bottom: 10vh;"><a href="/about">READ MORE</a></p>
             </div>
         </div>
 
@@ -118,7 +118,7 @@
 
         <div class="neighbourhood-discover">
             <div style="text-align: center;">
-                <h2>{{__('Neighbourhood')}}</h2>
+                <h2 class="colored-title" >{{__('Neighbourhood')}}</h2>
             </div>
             <div class="col-md-5 offset-md-6 col-sm-6 neighbourhood-description">
                 <p>Discover the sights, attractions, shopping malls, upscale nightlife, as well as cultural and entertainment activities offered by the neighborhood.

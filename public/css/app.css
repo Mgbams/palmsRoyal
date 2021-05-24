@@ -51678,10 +51678,14 @@ readers do not read off random characters that represent icons */
   box-sizing: border-box;
 }
 
-h2,
 p,
 h3 {
   color: black;
+}
+
+h2,
+.colored-title {
+  color: #01345B !important;
 }
 
 /*Fonts*/
@@ -51696,6 +51700,10 @@ h6 {
 h1,
 h4 {
   font-family: "Cinzel Decorative", cursive;
+}
+
+i {
+  color: #7D3780 !important;
 }
 
 p,
