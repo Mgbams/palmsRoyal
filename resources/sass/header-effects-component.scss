@@ -94,6 +94,63 @@ section p {
     font-size: 3em;
     line-height: 1;
 }
+.facilities-title {
+    text-align: center;
+    padding-top: 20px;
+    color: #182978 !important;
+}
+.facilities i {
+    color: #7D3780 !important;
+}
+.apprendre, .additional {
+    font-size: 20px; 
+    text-align: center; 
+}
+.propos-chambre {
+    font-size: 18px; 
+    text-align: center;
+    color: #182978;
+}
+.explore-rooms-number {
+    margin-right: 30px;
+}
+.explore-rooms-line {
+    position: relative; 
+    top: 3vh; 
+    width: 40px; 
+    height: 1px; 
+    border: 0.02px solid  #01345B; 
+    margin-right: 30px;
+}
+.room-details-third-block .similar-chambres {
+    font-size: 20px; 
+    margin-top: 40px;
+    color: #182978;
+}
+h4 {
+    width: 80%; 
+    margin: auto; 
+    text-align: center; 
+}
+h2, .explore-rooms, h4 {
+    color: #01345B;
+}
+#vertical-title-div {
+    position: relative;
+    .room-details-second-div {
+        .right-block {
+            opacity: 0.7; 
+            width: 70vw; 
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+        }
+         .room-name {
+            color: #01345B !important;
+         }
+    }
+}
 
 /* Header styles and animations */
 
