@@ -122,10 +122,96 @@ section p {
   margin-right: 30px;
 }
 
+.slide-details-container {
+  width: 80%;
+  height: 35vh;
+  position: relative;
+  padding-top: 30px;
+}
+
+.slide-details-links {
+  font-size: 16px;
+  position: absolute;
+  z-index: 5;
+  left: 17vw;
+  top: 8vh;
+  text-decoration: none;
+}
+
+.room-details-top-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.room-details-top-image .room-details-top-image-img {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  position: relative;
+}
+
+.room-details-top-image #header-text {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 80%;
+  margin: auto;
+  z-index: 2;
+}
+
+.last-content-info {
+  width: 100vw;
+  height: 100vh;
+}
+
+.last-content-info .mixed-carousel {
+  width: 90vw;
+  height: 95vh;
+  margin-left: 3vw;
+}
+
+.last-content-info .mixed-carousel .mixed-carousel-second-div {
+  width: 80%;
+  height: 45vh;
+  position: relative;
+  padding-top: 30px;
+}
+
+.last-content-info .mixed-carousel .mixed-carousel-third-div {
+  position: relative;
+}
+
+.last-content-info .mixed-carousel .mixed-carousel-third-div div {
+  position: absolute;
+  left: 13vw;
+}
+
+.last-content-info .mixed-carousel .mixed-carousel-third-div div .btn-border-last {
+  width: 190px;
+  height: 140px;
+  left: 0px;
+  top: 0px;
+}
+
+.last-content-info .mixed-carousel .mixed-carousel-third-div a {
+  font-size: 16px;
+  position: absolute;
+  z-index: 5;
+  left: 17vw;
+  top: 8vh;
+  text-decoration: none;
+}
+
 .room-details-third-block .similar-chambres {
   font-size: 20px;
   margin-top: 40px;
   color: #182978;
+}
+
+.room-details-third-block div {
+  font-size: 16px;
+  width: 20vw;
+  color: black;
 }
 
 h4 {
@@ -151,6 +237,13 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#vertical-title-div .room-details-second-div .right-block img {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  position: relative;
 }
 
 #vertical-title-div .room-details-second-div .room-name {

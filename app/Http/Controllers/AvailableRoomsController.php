@@ -23,12 +23,12 @@ class AvailableRoomsController extends Controller
         Session::put('checkInDate', $checkin);
         Session::put('checkOutDate', $checkout);
 
-        $available_rooms =  DB::table('room_type_rooms')
-            ->join('rooms', 'rooms.id', '=', 'room_type_rooms.room_id')
-            ->join('room_types', 'room_types.id', '=', 'room_type_rooms.room_type_id')
+        $available_rooms =  DB::table('rooms')
             ->join('photos', 'photos.id', '=', 'rooms.photo_id')
+             ->join('rooms_facilities', 'rooms_facilities.id_room', '=', 'rooms.id')
             ->where('rooms.is_available', '=', 1)
             ->paginate(5);
+        //dd($available_rooms);
         return view('available-rooms', compact('available_rooms'));
     }
 }

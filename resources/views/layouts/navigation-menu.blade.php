@@ -87,12 +87,12 @@
                   @endforeach
                 </select> -->
                 
-                @foreach (config('app.available_locales') as $locale)
+                {{--@foreach (config('app.available_locales') as $locale)
                 <a class="lang-change"
                     href="locale/{{$locale}}"
                     @if (app()->getLocale() == $locale) style="font-weight: bold; text-decoration: underline" @endif>{{ strtoupper($locale) }}
                 </a>
-                @endforeach
+                @endforeach--}}
        
             </li>
         </ul>

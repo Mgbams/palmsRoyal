@@ -178,7 +178,7 @@ Route::get('successful-payment', 'SuccessfullyPaidController@index')->name('succ
 // //Cancelled payment
 Route::get('cancelled-payment', 'CancelledPaymentController@index')->name('cancelled-payment');
 
-Route::get('paywithpaypal/{id}', array('as' => 'paywithpaypal','uses' => 'PaypalPaymentController@payWithPaypal',));
+Route::get('paywithpaypal/{id}', 'PaypalPaymentController@payWithPaypal')->name('paywithpaypal');
 Route::post('paypal', array('as' => 'paypal','uses' => 'PaypalPaymentController@postPaymentWithpaypal',));
 Route::get('paypal', array('as' => 'status','uses' => 'PaypalPaymentController@getPaymentStatus',));
 

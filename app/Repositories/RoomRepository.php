@@ -46,10 +46,9 @@ class RoomRepository
     public function getById($roomId)
     {
         
-        $room = DB::table('room_type_rooms')
-            ->join('rooms', 'rooms.id', '=', 'room_type_rooms.room_id')
-            ->join('room_types', 'room_types.id', '=', 'room_type_rooms.room_type_id')
+        $room = DB::table('rooms')
             ->join('photos', 'photos.id', '=', 'rooms.photo_id')
+            ->join('rooms_facilities', 'rooms.id', '=', 'rooms_facilities.id_room')
             ->where('rooms.id', '=', $roomId)
             ->first();
         return $room;

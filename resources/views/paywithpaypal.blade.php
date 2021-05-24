@@ -186,7 +186,8 @@
 
                         @if (Auth::check())
                         <div class="col-sm-4" style="height: 70vh;">
-                            <img src="{{$roomById->url}}" alt="{{$roomById->name}}" style="width: 100%; height: 100%;" />
+                            <?php $decodedImages = json_decode($roomById->url, true); ?>
+                            <img src="/rooms/images/{{$decodedImages[0] }}" alt="{{$roomById->name}}" style="width: 100%; height: 100%;" />
                         </div>
                         @endif
                         

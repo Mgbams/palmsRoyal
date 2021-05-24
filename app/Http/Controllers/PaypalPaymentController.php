@@ -63,18 +63,18 @@ class PaypalPaymentController extends Controller
         $this->roleRepository = $roleRepository;
     }
 
-    public function payWithPaypal(Request $request)
+    public function payWithPaypal($id)
     {
-        //dd(Auth::user());
-        $roomById = $this->roomRepository->getById($request->id);
-    
+        $id = (int)$id;
+        $roomById = $this->roomRepository->getById($id);
         //save the roomid so i can access it from other functions
-        Session::put('room_id', $request->id);
+        Session::put('room_id', $id);
 
         //Reservation data
         $numberOfDaysBooked     = Session::get('numberOfDaysBooked');
         
         //formatting the price
+        
         $roomPrice              =  $roomById->price + (($roomById->vat) / 100) - (($roomById->discount) / 100);  ;
         $intPrice               = floatval($roomPrice);
         $totalAmountToPay       = (int)$numberOfDaysBooked * $intPrice; //displayed on blade
