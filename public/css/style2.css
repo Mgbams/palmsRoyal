@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 
 @font-face {
   font-family: "codropsicons";
@@ -96,6 +96,12 @@ body,
 
 .codrops-icon-prev:before {
   content: "\E004";
+}
+
+.available-room-second-container {
+  width: 80vw;
+  margin: 100px auto;
+  background-color: #f9efea;
 }
 
 /* Demo Buttons Style */
@@ -298,6 +304,27 @@ body,
     position: relative;
     right: 60vw !important;
     padding: 0px 20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .available-room-super-container {
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .available-best-rate {
+    display: none;
+  }
+
+  .available-room-second-container {
+    width: 100vw;
+    flex-direction: column;
+  }
+
+  .available-rooms-total-description {
+    text-align: center;
   }
 }
 
